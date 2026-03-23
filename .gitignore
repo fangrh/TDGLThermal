@@ -1,0 +1,21 @@
+# Generated run folders
+changeT*/
+sweep_nofastscan_*/
+frames/
+
+# Simulation outputs
+*.h5
+*_slurm.out
+*_slurm.err
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
