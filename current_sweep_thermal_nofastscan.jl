@@ -137,6 +137,8 @@ using Printf
 
 include(joinpath(@__DIR__, "animation_data_utils.jl"))
 
+const STREAM_WRITE_BATCH_SIZE = 100
+
 using LinearAlgebra
 using Statistics
 using Printf  # Import full module for Printf.format()
@@ -796,6 +798,175 @@ function compute_voltage_from_du(du, p::TDGLThermalParams)
     return V
 end
 
+function compute_voltage_trace_from_solution_vectors(solution_vectors, p::TDGLThermalParams)
+    isempty(solution_vectors) && return Float64[]
+
+    cache = TDGLThermalCache(p)
+    du = similar(solution_vectors[1])
+    V_trace = zeros(Float64, length(solution_vectors))
+
+    for i in eachindex(solution_vectors)
+        fdm_rhs_thermal!(du, solution_vectors[i], cache, 0.0)
+        V_trace[i] = compute_voltage_from_du(du, p)
+    end
+
+    return V_trace
+end
+
+function initialize_stream_buffers(p::TDGLThermalParams, batch_size::Int)
+    return (
+        times = zeros(Float64, batch_size),
+        V = zeros(Float64, batch_size),
+        psi_avg = zeros(Float64, batch_size),
+        T_avg = zeros(Float64, batch_size),
+        psi_real = zeros(Float64, p.Nx + 1, p.Ny + 1, batch_size),
+        psi_imag = zeros(Float64, p.Nx + 1, p.Ny + 1, batch_size),
+        T = zeros(Float64, p.Nx + 1, p.Ny + 1, batch_size),
+        Ax = zeros(Float64, p.Nx, p.Ny + 1, batch_size),
+        Ay = zeros(Float64, p.Nx + 1, p.Ny, batch_size),
+    )
+end
+
+function create_extendable_snapshot_datasets(file, p::TDGLThermalParams, batch_size::Int)
+    unlimited = typemax(Int64)
+    return (
+        times = create_dataset(file, "times", Float64, ((0,), (unlimited,)); chunk=(batch_size,)),
+        V = create_dataset(file, "V", Float64, ((0,), (unlimited,)); chunk=(batch_size,)),
+        psi_avg = create_dataset(file, "psi_avg", Float64, ((0,), (unlimited,)); chunk=(batch_size,)),
+        T_avg = create_dataset(file, "T_avg", Float64, ((0,), (unlimited,)); chunk=(batch_size,)),
+        psi_real = create_dataset(file, "psi_real", Float64,
+                                  ((p.Nx + 1, p.Ny + 1, 0), (p.Nx + 1, p.Ny + 1, unlimited));
+                                  chunk=(p.Nx + 1, p.Ny + 1, batch_size)),
+        psi_imag = create_dataset(file, "psi_imag", Float64,
+                                  ((p.Nx + 1, p.Ny + 1, 0), (p.Nx + 1, p.Ny + 1, unlimited));
+                                  chunk=(p.Nx + 1, p.Ny + 1, batch_size)),
+        T = create_dataset(file, "T", Float64,
+                           ((p.Nx + 1, p.Ny + 1, 0), (p.Nx + 1, p.Ny + 1, unlimited));
+                           chunk=(p.Nx + 1, p.Ny + 1, batch_size)),
+        Ax = create_dataset(file, "Ax", Float64,
+                            ((p.Nx, p.Ny + 1, 0), (p.Nx, p.Ny + 1, unlimited));
+                            chunk=(p.Nx, p.Ny + 1, batch_size)),
+        Ay = create_dataset(file, "Ay", Float64,
+                            ((p.Nx + 1, p.Ny, 0), (p.Nx + 1, p.Ny, unlimited));
+                            chunk=(p.Nx + 1, p.Ny, batch_size)),
+    )
+end
+
+function append_snapshot_batch!(datasets, buffers, start_idx::Int, count::Int)
+    count == 0 && return start_idx
+    stop_idx = start_idx + count - 1
+
+    HDF5.set_extent_dims(datasets.times, (stop_idx,))
+    HDF5.set_extent_dims(datasets.V, (stop_idx,))
+    HDF5.set_extent_dims(datasets.psi_avg, (stop_idx,))
+    HDF5.set_extent_dims(datasets.T_avg, (stop_idx,))
+    HDF5.set_extent_dims(datasets.psi_real, (size(buffers.psi_real, 1), size(buffers.psi_real, 2), stop_idx))
+    HDF5.set_extent_dims(datasets.psi_imag, (size(buffers.psi_imag, 1), size(buffers.psi_imag, 2), stop_idx))
+    HDF5.set_extent_dims(datasets.T, (size(buffers.T, 1), size(buffers.T, 2), stop_idx))
+    HDF5.set_extent_dims(datasets.Ax, (size(buffers.Ax, 1), size(buffers.Ax, 2), stop_idx))
+    HDF5.set_extent_dims(datasets.Ay, (size(buffers.Ay, 1), size(buffers.Ay, 2), stop_idx))
+
+    datasets.times[start_idx:stop_idx] = buffers.times[1:count]
+    datasets.V[start_idx:stop_idx] = buffers.V[1:count]
+    datasets.psi_avg[start_idx:stop_idx] = buffers.psi_avg[1:count]
+    datasets.T_avg[start_idx:stop_idx] = buffers.T_avg[1:count]
+    datasets.psi_real[:, :, start_idx:stop_idx] = buffers.psi_real[:, :, 1:count]
+    datasets.psi_imag[:, :, start_idx:stop_idx] = buffers.psi_imag[:, :, 1:count]
+    datasets.T[:, :, start_idx:stop_idx] = buffers.T[:, :, 1:count]
+    datasets.Ax[:, :, start_idx:stop_idx] = buffers.Ax[:, :, 1:count]
+    datasets.Ay[:, :, start_idx:stop_idx] = buffers.Ay[:, :, 1:count]
+
+    return stop_idx + 1
+end
+
+function advance_integrator_to!(integrator, target_t::Float64)
+    target_t <= integrator.t && return
+
+    add_tstop!(integrator, target_t)
+    while integrator.t < target_t
+        step!(integrator)
+    end
+
+    integrator.t >= target_t || error("Integrator failed to reach target time $target_t (stopped at $(integrator.t))")
+end
+
+function run_stable_simulation_streaming(state0::TDGLThermalState, p::TDGLThermalParams,
+                                         stable_time::Float64, dt_snapshots::Float64,
+                                         skip_ratio::Float64, h5_path::String,
+                                         Je::Float64, direction::String)
+    cache = TDGLThermalCache(p)
+    u0 = state_to_vector(state0)
+    tspan = (0.0, stable_time)
+    prob = ODEProblem(fdm_rhs_thermal!, u0, tspan, cache)
+    integrator = init(prob, Tsit5(), abstol=1e-4, reltol=1e-4, save_everystep=false)
+
+    snapshot_times = collect(0.0:dt_snapshots:stable_time)
+    if isempty(snapshot_times) || snapshot_times[end] != stable_time
+        push!(snapshot_times, stable_time)
+    end
+
+    original_n_snap = length(snapshot_times)
+    skip_idx = max(1, ceil(Int, original_n_snap * skip_ratio))
+    kept_count = 0
+    V_sum = 0.0
+
+    buffers = initialize_stream_buffers(p, STREAM_WRITE_BATCH_SIZE)
+    buffer_count = 0
+    next_store_idx = 1
+    du = similar(u0)
+
+    h5open(h5_path, "w") do file
+        file["Je"] = Je
+        file["direction"] = direction
+        file["stored_skip_idx"] = skip_idx
+        file["original_n_snap"] = original_n_snap
+        datasets = create_extendable_snapshot_datasets(file, p, STREAM_WRITE_BATCH_SIZE)
+
+        for (snapshot_idx, target_t) in enumerate(snapshot_times)
+            if snapshot_idx > 1
+                advance_integrator_to!(integrator, target_t)
+            end
+
+            if snapshot_idx < skip_idx
+                continue
+            end
+
+            buffer_count += 1
+            vector_to_state!(cache.state, integrator.u, p)
+            apply_boundary_conditions!(cache.state, p)
+            fdm_rhs_thermal!(du, integrator.u, cache, integrator.t)
+
+            buffers.times[buffer_count] = integrator.t
+            buffers.V[buffer_count] = compute_voltage_from_du(du, p)
+            buffers.psi_avg[buffer_count] = mean(abs2.(cache.state.psi[2:end-1, 2:end-1]))
+            buffers.T_avg[buffer_count] = mean(cache.state.T[2:end-1, 2:end-1])
+            buffers.psi_real[:, :, buffer_count] .= real.(cache.state.psi)
+            buffers.psi_imag[:, :, buffer_count] .= imag.(cache.state.psi)
+            buffers.T[:, :, buffer_count] .= cache.state.T
+            buffers.Ax[:, :, buffer_count] .= cache.state.Ax
+            buffers.Ay[:, :, buffer_count] .= cache.state.Ay
+
+            kept_count += 1
+            V_sum += buffers.V[buffer_count]
+
+            if buffer_count == STREAM_WRITE_BATCH_SIZE
+                next_store_idx = append_snapshot_batch!(datasets, buffers, next_store_idx, buffer_count)
+                buffer_count = 0
+            end
+        end
+
+        if buffer_count > 0
+            append_snapshot_batch!(datasets, buffers, next_store_idx, buffer_count)
+        end
+    end
+
+    return (
+        V_avg = kept_count > 0 ? V_sum / kept_count : 0.0,
+        stored_skip_idx = skip_idx,
+        original_n_snap = original_n_snap,
+    )
+end
+
 function compute_voltage_hole_from_du(du, p::TDGLThermalParams)
     len_psi = (p.Nx+1) * (p.Ny+1)
     len_Ax = p.Nx * (p.Ny+1)
@@ -1254,6 +1425,8 @@ function run_stable_simulation(state0::TDGLThermalState, p::TDGLThermalParams,
     Ax_res = zeros(Float64, nx, ny+1, n_snap)
     Ay_res = zeros(Float64, nx+1, ny, n_snap)
     T_res = zeros(Float64, nx+1, ny+1, n_snap)
+    V_trace = zeros(Float64, n_snap)
+    du = similar(sol.u[1])
 
     for i in 1:n_snap
         u_i = sol.u[i]
@@ -1266,11 +1439,13 @@ function run_stable_simulation(state0::TDGLThermalState, p::TDGLThermalParams,
         Ax_res[:,:,i] = Ax_i
         Ay_res[:,:,i] = Ay_i
         T_res[:,:,i] = T_i
+        fdm_rhs_thermal!(du, u_i, cache, sol.t[i])
+        V_trace[i] = compute_voltage_from_du(du, p)
     end
 
     times = collect(sol.t)
 
-    return psi_res, Ax_res, Ay_res, T_res, times
+    return psi_res, Ax_res, Ay_res, T_res, times, V_trace
 end
 
 # ============================================================================
@@ -1343,37 +1518,16 @@ function simulate_point(J::Float64, p_base::TDGLThermalParams, config::SweepConf
                                      initial_state_override.Ay, initial_state_override.T)
     end
 
-    # Run stable simulation
-    psi_res, Ax_res, Ay_res, T_res, times = run_stable_simulation(
-        state, p, config.stable_time, config.dt_snapshots
+    h5_file = Printf.format(Printf.Format("current_Je%.4f_%s.h5"), J, direction)
+    h5_path = joinpath(output_dir, h5_file)
+    summary = run_stable_simulation_streaming(
+        state, p, config.stable_time, config.dt_snapshots, config.skip_ratio,
+        h5_path, J, direction
     )
-
-    # Calculate voltage from Ax
-    # Use the last few snapshots for averaging (skip_ratio)
-    n_snapshots = length(times)
-    skip_idx = max(1, ceil(Int, n_snapshots * config.skip_ratio))
-
-    # Compute voltage and averages for all snapshots, then average the tail.
-    V_trace = zeros(Float64, n_snapshots)
-    psi_avg_values = zeros(Float64, n_snapshots)
-    T_avg_values = zeros(Float64, n_snapshots)
-    for i in 1:n_snapshots
-        Ax_snap = Ax_res[:, :, i]
-        V_trace[i] = -mean(Ax_snap[2:end-1, 2:end-1]) * (p.Nx * p.hx)
-        psi_avg_values[i] = mean(abs2.(psi_res[2:end-1, 2:end-1, i]))
-        T_avg_values[i] = mean(T_res[2:end-1, 2:end-1, i])
-    end
-    V_avg = n_snapshots >= skip_idx ? mean(V_trace[skip_idx:end]) : 0.0
-    h5_file = save_point_h5(output_dir, J, direction, times, V_trace,
-                            psi_avg_values, T_avg_values, psi_res, T_res,
-                            Ax_res, Ay_res, config.skip_ratio)
 
     return Dict(
         :J => J,
-        :psi => psi_res,
-        :T => T_res,
-        :V => V_avg,
-        :times => times,
+        :V => summary.V_avg,
         :h5_file => h5_file
     )
 end
@@ -1697,7 +1851,7 @@ function discover_input_folder_points(input_folder::String)
     return up_points, down_points
 end
 
-function load_continuation_state(h5_path::String)
+@everywhere function load_continuation_state(h5_path::String)
     isfile(h5_path) || error("Continuation H5 file not found: $h5_path")
 
     h5open(h5_path, "r") do file
@@ -2027,10 +2181,7 @@ end
 # ============================================================================
 # Generate Outputs for No-FastScan Mode
 # ============================================================================
-function generate_outputs_nofastscan(output_dir::String, J_values,
-                                    Je_up, V_up, psi_up, T_up,
-                                    Je_down, V_down, psi_down, T_down,
-                                    p, config)
+function generate_outputs_nofastscan(output_dir::String, J_values, results_up, results_down, p, config)
     println("\n" * "=" ^ 60)
     println("Step 3: Generating Plots and Outputs")
     println("  skip_ratio = $(config.skip_ratio)")
@@ -2044,45 +2195,34 @@ function generate_outputs_nofastscan(output_dir::String, J_values,
     x = x_full[2:p.Nx]
     y = y_full[2:p.Ny]
 
-    # Compute average psi and T from snapshots (skip first part for steady state)
-    skip_ratio = config.skip_ratio
-
-    function compute_snapshot_mean(snapshots)
-        # snapshots is a vector of 3D arrays
-        means = Float64[]
-        for snap in snapshots
-            n_snap = size(snap, 3)
-            skip_idx = max(1, ceil(Int, n_snap * skip_ratio))
-            # Compute mean over interior points and time (after skip)
-            interior = snap[2:end-1, 2:end-1, skip_idx:end]
-            mean_val = mean(abs2.(interior))  # For psi, use |psi|^2
-            push!(means, mean_val)
+    function load_summary(h5_file)
+        h5_path = joinpath(output_dir, h5_file)
+        h5open(h5_path, "r") do file
+            times = read(file, "times")
+            V = read(file, "V")
+            psi_avg = read(file, "psi_avg")
+            T_avg = read(file, "T_avg")
+            Je = read(file, "Je")
+            return (
+                Je = Je,
+                V_avg = isempty(V) ? 0.0 : mean(V),
+                psi_avg_mean = isempty(psi_avg) ? 0.0 : mean(psi_avg),
+                T_avg_mean = isempty(T_avg) ? 0.0 : mean(T_avg),
+                times = times,
+            )
         end
-        return means
     end
 
-    # Compute average values for plotting
-    # Note: V_up and V_down are already averaged from simulate_point
-    # psi_up and T_up are vectors of 3D arrays, need to compute averages
-    psi_avg_up = compute_snapshot_mean(psi_up)
-    psi_avg_down = compute_snapshot_mean(psi_down)
-
-    # T averages: handle 3D arrays by averaging over interior and time (after skip)
-    function compute_T_avg(snapshots)
-        means = Float64[]
-        for snap in snapshots
-            n_snap = size(snap, 3)
-            skip_idx = max(1, ceil(Int, n_snap * skip_ratio))
-            # Average over interior points and time (after skip)
-            interior = snap[2:end-1, 2:end-1, skip_idx:end]
-            mean_val = mean(interior)
-            push!(means, mean_val)
-        end
-        return means
-    end
-
-    T_avg_up = compute_T_avg(T_up)
-    T_avg_down = compute_T_avg(T_down)
+    data_up = [load_summary(r[:h5_file]) for r in results_up]
+    data_down = [load_summary(r[:h5_file]) for r in results_down]
+    Je_up = [d.Je for d in data_up]
+    V_up = [d.V_avg for d in data_up]
+    psi_avg_up = [d.psi_avg_mean for d in data_up]
+    T_avg_up = [d.T_avg_mean for d in data_up]
+    Je_down = [d.Je for d in data_down]
+    V_down = [d.V_avg for d in data_down]
+    psi_avg_down = [d.psi_avg_mean for d in data_down]
+    T_avg_down = [d.T_avg_mean for d in data_down]
 
     # I-V curve (full domain)
     p_iv = plot(xlabel="Je", ylabel="V", title="I-V Characteristic",
@@ -2442,20 +2582,11 @@ function main()
                               continuation_up_points)
         end
         println("=" ^ 60)
-
-        Je_up = [r[:J] for r in results_up]
-        V_up = [r[:V] for r in results_up]
-        psi_up = [r[:psi] for r in results_up]
-        T_up = [r[:T] for r in results_up]
     else
         println("\n" * "=" ^ 60)
         println("SWEEP UP skipped by config")
         println("=" ^ 60)
         results_up = Dict[]
-        Je_up = Float64[]
-        V_up = Float64[]
-        psi_up = Array{Float64,3}[]
-        T_up = Array{Float64,3}[]
     end
 
     if isnothing(config.input_folder) ? config.run_down : !isempty(continuation_down_points)
@@ -2472,25 +2603,15 @@ function main()
                                 continuation_down_points)
         end
         println("=" ^ 60)
-
-        Je_down = [r[:J] for r in results_down]
-        V_down = [r[:V] for r in results_down]
-        psi_down = [r[:psi] for r in results_down]
-        T_down = [r[:T] for r in results_down]
     else
         println("\n" * "=" ^ 60)
         println("SWEEP DOWN skipped by config")
         println("=" ^ 60)
         results_down = Dict[]
-        Je_down = Float64[]
-        V_down = Float64[]
-        psi_down = Array{Float64,3}[]
-        T_down = Array{Float64,3}[]
     end
 
     # Step 3: Generate outputs
-    generate_outputs_nofastscan(output_dir, J_values, Je_up, V_up, psi_up, T_up,
-                               Je_down, V_down, psi_down, T_down, p, config)
+    generate_outputs_nofastscan(output_dir, J_values, results_up, results_down, p, config)
 
     return output_dir
 end

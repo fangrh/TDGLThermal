@@ -1,12 +1,15 @@
 # Generated run folders
 changeT*/
 sweep_nofastscan_*/
+continuation_scan_jobs_*/
 frames/
 
 # Simulation outputs
 *.h5
 *_slurm.out
 *_slurm.err
+*_package_archives.out
+*_package_archives.err
 
 # Editor and OS noise
 .DS_Store
