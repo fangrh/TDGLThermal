@@ -1,0 +1,16 @@
+{
+  "baseline": "baseline-fullcurl-t018",
+  "variants": [
+    {"name": "kappa-1p5", "section": "tdgl", "key": "kappa", "value": 1.5},
+    {"name": "kappa-3p0", "section": "tdgl", "key": "kappa", "value": 3.0},
+    {"name": "gamma-20", "section": "tdgl", "key": "gamma", "value": 20.0},
+    {"name": "gamma-80", "section": "tdgl", "key": "gamma", "value": 80.0},
+    {"name": "keff-2p5", "section": "thermal", "key": "k_eff", "value": 2.5},
+    {"name": "keff-10", "section": "thermal", "key": "k_eff", "value": 10.0},
+    {"name": "etaenv-5", "section": "thermal", "key": "eta_env", "value": 5.0},
+    {"name": "etaenv-20", "section": "thermal", "key": "eta_env", "value": 20.0},
+    {"name": "etahole-0p05", "section": "thermal", "key": "eta_hole", "value": 0.05},
+    {"name": "etahole-0p2", "section": "thermal", "key": "eta_hole", "value": 0.2},
+    {"name": "holewidth-15", "section": "thermal", "key": "holewidth", "value": 15.0}
+  ]
+}
