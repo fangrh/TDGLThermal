@@ -22,3 +22,6 @@ Thumbs.db
 *.tmp
 *.bak
 *.orig
+
+# Reviewer sensitivity staging
+generated/reviewer_sensitivity/
