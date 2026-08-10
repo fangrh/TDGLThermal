@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-CURRENT_SOLVER_BLOB = "cd66915ac3c29defe7406900eef3b0d2da919744"
+CURRENT_SOLVER_BLOB = "3a89981e3ef4b3fa241d0a19645715cecd0e9228"
 LEGACY_SOLVER_BLOB = "93a34dd8f50a76d4ef014d37d541ac36de6955c3"
 SOLVER_SOURCE_COMMIT = "1dbef4fb2e52b3e2621389b33054d8a6b31e9b3e"
 REQUIRED_BUNDLE_FILES = {
@@ -44,7 +44,7 @@ def reconstruct_legacy_solver(current_text: str) -> str:
     text = current_text.replace("\r\n", "\n")
     text = _replace_once(
         text,
-        "            # curl curl A = grad(div A) - laplacian(A); keep the staggered-edge stencil here\n",
+        "            # The TDGL equation contains -curl curl A = laplacian(A) - grad(div A).\n",
         "",
     )
     text = _replace_once(
@@ -54,7 +54,7 @@ def reconstruct_legacy_solver(current_text: str) -> str:
     )
     text = _replace_once(
         text,
-        "            dAx[i,j] = (Jsx[i,j] + kappa2 * (dxy_Ay - d2Ax_dy2)) / sigma_local\n",
+        "            dAx[i,j] = (Jsx[i,j] + kappa2 * (d2Ax_dy2 - dxy_Ay)) / sigma_local\n",
         "            dAx[i,j] = (Jsx[i,j] + kappa2 * d2Ax_dy2) / sigma_local\n",
     )
     text = _replace_once(
@@ -64,7 +64,7 @@ def reconstruct_legacy_solver(current_text: str) -> str:
     )
     text = _replace_once(
         text,
-        "            dAy[i,j] = (Jsy[i,j] + kappa2 * (dxy_Ax - d2Ay_dx2)) / sigma_local\n",
+        "            dAy[i,j] = (Jsy[i,j] + kappa2 * (d2Ay_dx2 - dxy_Ax)) / sigma_local\n",
         "            dAy[i,j] = (Jsy[i,j] + kappa2 * d2Ay_dx2) / sigma_local\n",
     )
     if git_blob_sha1(text.encode("utf-8")) != LEGACY_SOLVER_BLOB:
