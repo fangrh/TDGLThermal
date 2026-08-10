@@ -136,9 +136,9 @@ def load_run(run_dir: Path) -> RunSeries:
             temperature = _read_required(handle, "T").astype(float)
             if voltage.size == 0:
                 raise ValueError(f"empty HDF5 voltage dataset: {path}")
-            if temperature.ndim != 3 or temperature.shape[:2] != (nx + 1, ny + 1):
+            if temperature.ndim != 3 or temperature.shape[1:] != (ny + 1, nx + 1):
                 raise ValueError(f"unexpected HDF5 temperature shape: {path}")
-            interior = temperature[:, 1:ny, :][suspended_x, :, :]
+            interior = temperature[:, 1:ny, :][:, :, suspended_x]
             if interior.size == 0:
                 raise ValueError(f"empty suspended temperature selection: {path}")
             values = np.concatenate((voltage, interior.ravel()))

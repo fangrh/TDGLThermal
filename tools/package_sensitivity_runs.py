@@ -168,7 +168,7 @@ def package_runs(
             ("baseline-legacy-t018", baseline, legacy_bytes, "legacy", []),
             ("baseline-fullcurl-t018", baseline, current_bytes, "corrected", []),
         ]
-    elif stage == "matrix":
+    elif stage in {"matrix", "temperature-gate"}:
         if configs_dir is None:
             raise ValueError("configs_dir is required for matrix packaging")
         manifest = json.loads(
@@ -207,7 +207,7 @@ def package_runs(
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--stage", choices=("gate", "matrix"))
+    parser.add_argument("--stage", choices=("gate", "temperature-gate", "matrix"))
     parser.add_argument("--output", type=Path)
     parser.add_argument("--configs", type=Path)
     parser.add_argument("--verify", type=Path)

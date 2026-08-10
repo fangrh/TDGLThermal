@@ -1,0 +1,7 @@
+{
+  "baseline": "baseline-fullcurl-t018",
+  "variants": [
+    {"name": "baseline-fullcurl-t002", "section": "thermal", "key": "T0", "value": 0.02},
+    {"name": "baseline-fullcurl-t012", "section": "thermal", "key": "T0", "value": 0.12}
+  ]
+}

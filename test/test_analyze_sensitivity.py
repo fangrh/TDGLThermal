@@ -29,8 +29,10 @@ thermal:
     )
     output = root / "sweep_nofastscan_fixture"
     output.mkdir()
-    temperature = np.zeros((3, 3, 2), dtype=float)
-    temperature[1, 1, :] = 0.4
+    # HDF5.jl writes Julia (x, y, time) arrays such that h5py reads them as
+    # (time, y, x).  Match the real solver output contract here.
+    temperature = np.zeros((2, 3, 3), dtype=float)
+    temperature[:, 1, 1] = 0.4
     with h5py.File(output / "current_Je0.2000_down.h5", "w") as handle:
         handle["Je"] = 0.2
         if include_voltage:

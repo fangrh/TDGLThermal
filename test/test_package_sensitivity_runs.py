@@ -1,3 +1,4 @@
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -75,6 +76,36 @@ class PackageSensitivityRunsTest(unittest.TestCase):
             self.assertEqual(len(bundles), 11)
             self.assertNotIn("baseline-fullcurl-t018", {path.name for path in bundles})
             self.assertTrue(all(verify_bundle(path) for path in bundles))
+
+    def test_temperature_gate_packages_two_corrected_baselines(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            configs = tmp_path / "configs"
+            generate_configs(
+                ROOT / "studies/reviewer_sensitivity/baseline.yaml",
+                ROOT / "studies/reviewer_sensitivity/temperature_gate.json",
+                configs,
+            )
+            bundles = package_runs(
+                ROOT,
+                tmp_path / "bundles",
+                stage="temperature-gate",
+                configs_dir=configs,
+            )
+            self.assertEqual(
+                {path.name for path in bundles},
+                {"baseline-fullcurl-t002", "baseline-fullcurl-t012"},
+            )
+            for bundle in bundles:
+                metadata = json.loads((bundle / "run_metadata.json").read_text())
+                self.assertEqual(metadata["stage"], "temperature-gate")
+                self.assertEqual(metadata["solver_role"], "corrected")
+                submit = (bundle / "submit.sbatch").read_text()
+                self.assertIn("#SBATCH --nodes=1", submit)
+                self.assertIn("#SBATCH --ntasks=1", submit)
+                self.assertIn("#SBATCH --cpus-per-task=24", submit)
+                self.assertIn("julia -p 23", submit)
+                self.assertTrue(verify_bundle(bundle))
 
 
 if __name__ == "__main__":
