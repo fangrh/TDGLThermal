@@ -50,9 +50,11 @@ Submitted on 2026-08-10 at 14:33 UTC under
 
 | Run | Bath temperature `T0` | Slurm job | Initial state |
 | --- | ---: | ---: | --- |
-| `baseline-fullcurl-t002` | 0.02 | 19657046 | Running on `pe[7,12,14]` |
+| `baseline-fullcurl-t002` | 0.02 | 19657046 | Failed with exit code 1; partial output retained |
 | `baseline-fullcurl-t012` | 0.12 | 19657047 | Failed during Julia worker startup; superseded |
-| `baseline-fullcurl-t012` retry | 0.12 | 19657185 | Running on `milan16` |
+| `baseline-fullcurl-t012` retry | 0.12 | 19657185 | Failed with exit code 1; partial output retained |
+| `baseline-fullcurl-t002` storage retry | 0.02 | 19667385 | Running on `milan7` |
+| `baseline-fullcurl-t012` storage retry | 0.12 | 19667387 | Running on `milan8` |
 
 Both bundles passed local and Triton SHA-256 manifest verification, Bash syntax
 checking, and `sbatch --test-only` before submission. Job 19657047 exposed a
@@ -67,3 +69,16 @@ The 11-point
 one-factor-at-a-time matrix is intentionally not submitted while this gate is
 unresolved; submitting it now would produce results that fail the study's
 predeclared solver-compatibility criterion.
+
+## Scratch-space incident and retries
+
+On 2026-08-11 the Triton scratch allocation reached its 536 GB hard limit.
+Jobs 19657046 and 19657185 had terminated with exit code 1 and empty Slurm
+logs; both left partial timestamped HDF5 output directories. Because a full
+filesystem can prevent both HDF5 completion and error-log writes, these runs
+are retained as failed technical attempts and are not treated as scientific
+results. After the explicitly approved removal of the obsolete
+`aiida_run` and `tdgl-runner` scratch trees, `lfs quota` reported approximately
+184 GB in use. Fresh bundles using the verified single-node, 24-CPU template
+were uploaded and hash-checked before submitting replacement jobs 19667385 and
+19667387. The earlier partial outputs and job-specific logs remain separate.
