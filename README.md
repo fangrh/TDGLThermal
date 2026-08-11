@@ -5,6 +5,7 @@ This repository contains a Julia workflow for running no-fast-scan TDGL + therma
 ## Key Scripts
 
 - `current_sweep_thermal_nofastscan.jl`: main simulation entry point for running a current sweep from `config.yaml`.
+- `current_sweep_thermal_checkpoint.jl`: persistence-only wrapper around the byte-identical main solver; set `TDGL_CHECKPOINT_INTERVAL` to atomically retain one rolling state per current point without changing the Full Curl equations.
 - `current_sweep_thermal_continue.jl`: continuation-scan entry point that resumes from saved `.h5` states and ramps forward through existing current points.
 - `package_and_submit.sh`: packages a fresh run directory and submits it with `sbatch`.
 - `package_continuation_runs.sh`: packages one or more existing run folders for continuation runs using saved output data.
@@ -62,6 +63,14 @@ The output `.h5` files keep the same naming and layout as the existing no-fastsc
 ## Stable Snapshot Storage
 
 Stable-run outputs are now written to HDF5 in streamed post-skip batches instead of materializing the full kept snapshot history in memory first. The on-disk `.h5` layout is unchanged: datasets such as `times`, `V`, `psi_real`, `psi_imag`, `T`, `Ax`, and `Ay` still contain the post-`skip_ratio` snapshots expected by the existing tooling.
+
+For long runs, enable a rolling checkpoint while keeping the dense pre-skip trajectory discarded:
+
+```bash
+TDGL_CHECKPOINT_INTERVAL=5000 julia -p 6 current_sweep_thermal_checkpoint.jl config.yaml
+```
+
+Each current point gets one `checkpoint_Je*_*.h5` file. At every interval the wrapper writes a temporary one-frame HDF5 file and atomically replaces the preceding checkpoint, so storage remains bounded and an interruption during writing leaves the preceding complete state intact. The wrapper includes the main solver and changes only persistence; the Full Curl evolution operator remains in `current_sweep_thermal_nofastscan.jl`.
 
 ## Git Hygiene
 

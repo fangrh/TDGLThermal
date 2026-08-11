@@ -114,3 +114,15 @@ available for continuation. The byte-identical Full Curl solver and the same
 six source states were therefore resubmitted with a 24-hour limit as job
 19683740. The retry requests no specific node and was pending for priority at
 the time of this record.
+
+Job 19683740 began before it could be held and was cancelled after 38:39 once
+the rolling-checkpoint wrapper passed its Triton Julia smoke test. The wrapper
+loads the byte-identical Full Curl solver above and replaces only the streamed
+persistence function. With `TDGL_CHECKPOINT_INTERVAL=5000`, each current point
+atomically replaces one single-frame `checkpoint_Je*.h5` file at every
+`5000 tau0`; dense trajectory storage remains restricted to the final
+`2000 tau0`. The preceding complete checkpoint survives interruption during a
+temporary-file write. The checkpoint bundle passed its local and Triton
+SHA-256 manifests, Bash syntax check, a one-frame HDF5 layout test, the 15-test
+reviewer packaging/analysis gate, and Slurm test-only. Checkpoint-enabled job
+19684435 started on `pe69` with seven CPUs, 48 GB, and a 24-hour limit.
