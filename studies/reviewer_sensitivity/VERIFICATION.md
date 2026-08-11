@@ -53,8 +53,8 @@ Submitted on 2026-08-10 at 14:33 UTC under
 | `baseline-fullcurl-t002` | 0.02 | 19657046 | Failed with exit code 1; partial output retained |
 | `baseline-fullcurl-t012` | 0.12 | 19657047 | Failed during Julia worker startup; superseded |
 | `baseline-fullcurl-t012` retry | 0.12 | 19657185 | Failed with exit code 1; partial output retained |
-| `baseline-fullcurl-t002` storage retry | 0.02 | 19667385 | Running on `milan7` |
-| `baseline-fullcurl-t012` storage retry | 0.12 | 19667387 | Running on `milan8` |
+| `baseline-fullcurl-t002` storage retry | 0.02 | 19667385 | Completed in 30:53 on `milan7` |
+| `baseline-fullcurl-t012` storage retry | 0.12 | 19667387 | Completed in 34:18 on `milan8` |
 
 Both bundles passed local and Triton SHA-256 manifest verification, Bash syntax
 checking, and `sbatch --test-only` before submission. Job 19657047 exposed a
@@ -82,3 +82,26 @@ results. After the explicitly approved removal of the obsolete
 184 GB in use. Fresh bundles using the verified single-node, 24-CPU template
 were uploaded and hash-checked before submitting replacement jobs 19667385 and
 19667387. The earlier partial outputs and job-specific logs remain separate.
+
+## Full-curl long-time selected-state validation
+
+On 2026-08-11, six selected return-branch states from completed Full Curl job
+19667385 were staged under
+`/scratch/work/fangr1/tdgl-review-longtime-fullcurl-20260811-v1`. The selected
+grid currents are 0.1990, 0.2143, 0.2173, 0.2357, 0.2480, and 0.2786. This
+set contains the four Figure 3 marker states and two additional points that
+resolve the lower-current transition.
+
+The source HDF5 metadata was checked on Triton before submission: each source
+file has `original_n_snap=5001`, `stored_skip_idx=4501`, and 501 stored frames.
+The long-time configuration uses `stable_time=50000`, `dt_snapshots=1`, and
+`skip_ratio=0.96`, so the solver integrates the full interval but retains only
+the final 2,001 frames. The streaming solver uses `save_everystep=false`, skips
+all pre-window states, and writes retained states in 100-frame batches.
+
+The uploaded solver has SHA-256
+`a5aad45418094e5462e6a695366869886f027bc317e0a0f1a51b8e5ffa701286`,
+matching the corrected Full Curl temperature-gate solver. The bundle passed
+its SHA-256 manifest, Bash syntax, source-HDF5 metadata, and Slurm test-only
+checks. Production job 19668918 started on `csl2` with one node, seven CPUs,
+48 GB memory, and an eight-hour time limit.
