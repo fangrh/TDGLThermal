@@ -105,3 +105,12 @@ matching the corrected Full Curl temperature-gate solver. The bundle passed
 its SHA-256 manifest, Bash syntax, source-HDF5 metadata, and Slurm test-only
 checks. Production job 19668918 started on `csl2` with one node, seven CPUs,
 48 GB memory, and an eight-hour time limit.
+
+Job 19668918 reached its eight-hour wall-time limit before any trajectory
+entered the retained window at `48000 tau0`; Slurm recorded `TIMEOUT` after
+08:05:16. The six HDF5 files contain only their 2,076-byte headers, confirming
+that no pre-window field snapshots were retained and that no partial state is
+available for continuation. The byte-identical Full Curl solver and the same
+six source states were therefore resubmitted with a 24-hour limit as job
+19683740. The retry requests no specific node and was pending for priority at
+the time of this record.
