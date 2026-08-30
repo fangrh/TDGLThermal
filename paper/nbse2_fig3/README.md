@@ -20,9 +20,13 @@ the three YAML configurations used for Figure 3c-e and Supplementary Videos
 The domain is `30 xi0 x 15 xi0`, represented by a `60 x 30` grid with
 `hx = hy = 0.5 xi0`. The centered weakly cooled region has width `20 xi0`.
 The return branch contains 99 current points between `Je/J0 = 0.3` and zero.
-Each target current is evolved for `5000 tau0`; fields and voltage are stored
-every `1 tau0`, and the final `3000-5000 tau0` interval is retained by
-`skip_ratio = 0.6`.
+The archived YAML files record one `5000 tau0` continuation segment. For the
+published calculation, every target-current state was manually continued
+through repeated `5000 tau0` segments to a cumulative evolution time of
+`50000 tau0`. The local time coordinate is reset at the start of every segment.
+In the final segment, fields and voltage are stored every `1 tau0`, and the
+local `3000-5000 tau0` interval retained by `skip_ratio = 0.6` therefore
+corresponds to the cumulative `48000-50000 tau0` analysis interval.
 
 The archived continuation configurations retain the original relative
 `input_folder` entries because those entries document how the published run
