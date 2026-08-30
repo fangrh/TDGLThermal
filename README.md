@@ -2,6 +2,10 @@
 
 This repository contains a Julia workflow for running no-fast-scan TDGL + thermal simulations, packaging run outputs, and continuing from saved `.h5` data.
 
+The archived scripts and YAML configurations used for Figure 3c-e and
+Supplementary Videos 1-3 of the suspended NbSe2 manuscript are provided in
+[`paper/nbse2_fig3`](paper/nbse2_fig3).
+
 ## Key Scripts
 
 - `current_sweep_thermal_nofastscan.jl`: main simulation entry point for running a current sweep from `config.yaml`.

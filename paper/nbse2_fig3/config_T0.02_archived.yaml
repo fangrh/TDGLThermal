@@ -1,0 +1,89 @@
+# TDGL + Thermal No-FastScan Configuration
+# Auto-generated from run parameters
+
+grid:
+  Nx: 60
+  Ny: 30
+  hx: 0.5
+  hy: 0.5
+
+tdgl:
+  kappa: 2.0
+  # sigma1/2/3: conductivity for three regions (uses same gaps as Tc)
+  sigma1: 1.0  # bottom region
+  sigma2: 1.0  # middle region
+  sigma3: 1.0  # top region
+  u: 5.79
+  gamma: 40.0
+  # Three Tc regions: bottom (Tc1), middle (Tc2), top (Tc3)
+  Tc1: 1.0
+  Tc2: 1.0
+  Tc3: 1.0
+  Tc1gap: 0.2  # fraction of height for Tc1 at bottom
+  Tc3gap: 0.0  # fraction of height for Tc3 at top
+
+thermal:
+  # enabled: if false, disable thermal coupling (T stays at T0)
+  enabled: true
+  C_eff: 1.0
+  k_eff: 5.0
+  T0: 0.02
+  # epsilon_type: GL coupling ε(T)
+  #   linear - ε = Tc - T (default)
+  #   bcs    - ε = Tc/T - 1
+  epsilon_type: linear
+  eta_env: 10.0
+  eta_hole: 0.1
+  holewidth: 20.0
+
+fields:
+  He: 0.0
+
+boundary:
+  # bc_x options: periodic, neumann, dirichlet (psi=1, T=T0 at left/right)
+  bc_x: periodic
+  # bc_y options: neumann (covariant Neumann for psi), dirichlet (psi=0 at electrode)
+  # Temperature always adiabatic at y-boundaries (unless loop=true)
+  bc_y: neumann
+  # bc_y_coverage: electrode coverage fraction (0-1), centered
+  #   1.0 = full boundary covered by electrode
+  #   0.5 = middle half covered, left/right edges exposed
+  # Magnetic field (H_induced from current) only applies in electrode region
+  bc_y_coverage: 0.88
+  # loop: if true, non-electrode y-boundaries form periodic loops (top-bottom)
+  #   Left side loops with left side, right side loops with right side
+  loop: false
+  # field_side: which boundary gets current-induced magnetic field
+  #   both  - symmetric, both y-boundaries get ±H_induced (default)
+  #   upper - only upper boundary gets field, lower is zero
+  #   lower - only lower boundary gets field, upper is zero
+  field_side: both
+  # psi_y_zero: if true, psi=0 at all y boundaries (NS contact)
+  psi_y_zero: false
+
+noise:
+  # Langevin noise for Cooper pair nucleation
+  # Helps recovery from normal to superconducting state
+  strength: 0.001
+
+sweep:
+  Jpeak: 0.3
+  n_current_points: 99
+  # rampup_time: 200.0  # Not used in nofastscan mode
+  # rampdown_time: 200.0  # Not used in nofastscan mode
+  stable_time: 5000.0
+  dt_snapshots: 1.0
+  skip_ratio: 0.6
+  run_up: false
+  run_down: true
+  input_folder: ../input_folder/sweep_nofastscan_20260323_163616/sweep_nofastscan_20260324_151906
+  # Initial conditions for nofastscan mode
+  psi_up_init: 1.0
+  T_initial_up: 0.0
+  psi_down_init: 0.0
+  T_initial_down: 1.2
+
+outputs:
+  generate_mp4: true
+  mp4_fps: 5
+  frames_per_point: 20
