@@ -13,14 +13,27 @@ const BENCH=joinpath(ROOT,"bench","benchmark_gpu_solve.jl")
 const F32SRC=joinpath(ROOT,"src","gpu_float32_experiment.jl")
 include(BENCH)
 include(F32SRC)
+include(joinpath(ROOT,"src","gpu_kwt_stable_experiment.jl"))
+
+struct _PrecisionRHS{Mode}
+    cache::GPUFullCurl32Cache
+end
+function (f::_PrecisionRHS{Mode})(du,u,p,t) where {Mode}
+    if Mode===:original
+        gpu_full_curl32_rhs!(du,u,f.cache,t)
+    else
+        gpu_full_curl32_kwt_rhs!(du,u,f.cache,t;mode=Mode)
+    end
+    nothing
+end
 
 _arg(n,d=nothing)=(i=findfirst(==("--"*n),ARGS);i===nothing ? d : (i==length(ARGS) ? error("missing value for --$n") : ARGS[i+1]))
 function _json(p,x); open(p,"w") do io; write(io,JSON3.write(x)); write(io,'\n'); end end
 _hash(p)=bytes2hex(SHA.sha256(read(p)))
 
-function _f32_solve(p,currents,h_u,times,tol;warmup=false)
+function _f32_solve(p,currents,h_u,times,tol;warmup=false,kwt=:original)
     d_u=CuArray(ComplexF32.(h_u)); cache=GPUFullCurl32Cache(p,currents)
-    rhs! = (du,u,_,t)->gpu_full_curl32_rhs!(du,u,cache,t)
+    rhs! = _PrecisionRHS{kwt}(cache)
     prob=ODEProblem(rhs!,d_u,(times[1],times[end]),nothing)
     kw=(;abstol=tol,reltol=tol,saveat=times,tstops=times,save_everystep=false,dense=false,internalnorm=_batch_internalnorm)
     warmup && (solve(prob,Tsit5();kw...);CUDA.synchronize())
@@ -48,9 +61,10 @@ function _budget(check,f)
 end
 function _converged(check); Bool(check["reference_converged"]) end
 
-function run_precision(;out,reference_root,config,batch=99,horizon=100.0,tol=1e-6,repetitions=3)
+function run_precision(;out,reference_root,config,batch=99,horizon=100.0,tol=1e-6,repetitions=3,kwt=:original)
     batch==99 || error("this gate is defined for --batch 99 only")
     horizon>0 && tol>0 && repetitions>0 || error("invalid benchmark setting")
+    kwt in (:original,:stable32,:promoted64) || error("unknown KWT arithmetic mode")
     CUDA.functional() || error("CUDA.functional() is false"); CUDA.allowscalar(false); mkpath(out)
     p,currents,cases=_cases(config,batch,60,30,:cool); times=collect(0.0:1.0:horizon)
     times[end]==horizon || push!(times,horizon)
@@ -58,13 +72,13 @@ function run_precision(;out,reference_root,config,batch=99,horizon=100.0,tol=1e-
     estimated_bytes<8*1024^3 || error("estimated live device memory exceeds 8 GiB")
     h_u=Matrix{ComplexF64}(undef,length(cases[1].u0),batch); for b in 1:batch;h_u[:,b].=cases[b].u0;end
     warmtimes=[0.0,min(2.0,horizon)]
-    _gpu_solve(p,currents,h_u,tol,warmtimes); _f32_solve(p,currents,h_u,warmtimes,tol)
+    _gpu_solve(p,currents,h_u,tol,warmtimes); _f32_solve(p,currents,h_u,warmtimes,tol;kwt=kwt)
     s64=Any[];s32=Any[];last64=nothing;last32=nothing
     for rep in 1:repetitions
         if isodd(rep)
-            a=_gpu_solve(p,currents,h_u,tol,times); b=_f32_solve(p,currents,h_u,times,tol)
+            a=_gpu_solve(p,currents,h_u,tol,times); b=_f32_solve(p,currents,h_u,times,tol;kwt=kwt)
         else
-            b=_f32_solve(p,currents,h_u,times,tol); a=_gpu_solve(p,currents,h_u,tol,times)
+            b=_f32_solve(p,currents,h_u,times,tol;kwt=kwt); a=_gpu_solve(p,currents,h_u,tol,times)
         end
         push!(s64,(seconds=a.seconds,stats=a.stats));push!(s32,(seconds=b.seconds,stats=b.stats));last64=a;last32=b
     end
@@ -91,6 +105,7 @@ function run_precision(;out,reference_root,config,batch=99,horizon=100.0,tol=1e-
     manifest=(schema_version="tdgl-gpu-precision-solver-v1",scope="deterministic-f64-vs-f32-storage-whole-solver",
         approximation=true,production_noise_claim=false,full_output_claim=false,batch=batch,horizon=horizon,tolerance=tol,repetitions=repetitions,
         precisions=(control="ComplexF64/Float64",candidate="ComplexF32 storage/Float32 coefficients with promoted intermediates"),
+        kwt_mode=String(kwt),kwt_source_hash=_hash(joinpath(ROOT,"src","gpu_kwt_stable_experiment.jl")),
         reference_root=abspath(reference_root),config_hash=_hash(config),gpu_source_hash=_hash(joinpath(ROOT,"src","gpu_full_curl.jl")),
         f32_source_hash=_hash(F32SRC),model_hash=_hash(joinpath(ROOT,"current_sweep_thermal_nofastscan.jl")),julia_version=string(VERSION),created_utc=string(now(UTC)),
         reference_converged_count=conv,f64_accurate_count=batch-length(fail64),f32_accurate_count=batch-length(fail32),
@@ -103,6 +118,7 @@ end
 if abspath(PROGRAM_FILE)==@__FILE__
     out=_arg("out");out===nothing&&error("--out is required");ref=_arg("reference-root");ref===nothing&&error("--reference-root is required")
     result=run_precision(out=String(out),reference_root=String(ref),config=String(_arg("config",joinpath(ROOT,"config.yaml"))),
-        batch=parse(Int,_arg("batch","99")),horizon=parse(Float64,_arg("horizon","100")),tol=parse(Float64,_arg("tolerance","1e-6")),repetitions=parse(Int,_arg("repetitions","3")))
+        batch=parse(Int,_arg("batch","99")),horizon=parse(Float64,_arg("horizon","100")),tol=parse(Float64,_arg("tolerance","1e-6")),repetitions=parse(Int,_arg("repetitions","3")),
+        kwt=Symbol(_arg("kwt","original")))
     result.all99_f32_pass || exit(2)
 end
