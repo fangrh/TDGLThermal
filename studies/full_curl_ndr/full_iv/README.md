@@ -1,6 +1,22 @@
 # Full-range corrected-full-curl I–V
 
-The 50000τ campaign is in progress. The archived input declares 99 uniformly spaced base currents from `Je = 0` to `0.3`, plus the two previously tested refinement currents inside the voltage-drop interval. All 101 points use seed `2026110411`. The separate four-current, eight-seed study remains a local validation cohort; it is not eight-seed coverage of the full curve.
+All **101/101 points are complete and artifact-validated at 50000τ**. The curve contains 99 uniformly spaced base currents from `Je = 0` to `0.3`, plus the two previously tested refinement currents inside the voltage-drop interval. All points use seed `2026110411`. The four-current, eight-seed study remains a local validation cohort; it includes this global seed and is not an additional ninth realization or eight-seed coverage of the full curve.
+
+## Results
+
+- [English four-panel figure](results/full_iv.png) and [vector PDF](results/full_iv.pdf): full I–V, voltage-drop zoom, temperature and condensate density.
+- [Per-point CSV](results/full_iv_seed_rows.csv), [voltage summary CSV](results/full_iv_summary.csv), and [verified analysis JSON](results/full_iv_analysis.json).
+- [Complete chain registry](results/chain_registry.json), [campaign receipt](results/campaign.json), and [source-checkout verification](results/source_checkout_verification.json).
+
+The fixed-seed curve drops from `V = 2.93302994` to `2.50833359` between `Je = 0.20918367` and `0.21020408`: a decrease of `0.42469635`, approximately `14.48%`. These are final-window means from independently prepared currents. The local eight-seed mean decrease is approximately `14.3%`, as reported in the [parent study](../README.md).
+
+| Final 48000–50000τ observable | Minimum | Maximum |
+|---|---:|---:|
+| V | −0.000004082 | 6.84990993 |
+| T_avg | 0.18107509 | 0.45649826 |
+| mean \|ψ\|² | 0.24037249 | 0.82310464 |
+
+The large late-window drift occurs at `Je = 0.21122449`: its 48000–50000τ mean is `0.07460780` below the 43000–45000τ mean. The other 100 fixed-seed points have absolute drift below `0.0025`; this descriptive comparison is not an ensemble stationarity test. The maximum difference between sampled mean voltage and the saved-`Ax` endpoint estimator is `0.00101435` in native units. The completed curve retains the finite-time voltage-drop signature and does not establish stationary continuous NDR.
 
 ## Protocol
 
@@ -12,7 +28,9 @@ The archived [catalog](input/catalog.json) and [job plan](input/jobs.json) recor
 
 The [mixed-continuation smoke receipt](results/mixed_smoke.json) checks jobs with zero, one and two new segments in the same campaign. All nine saved datasets and the RNG checkpoints agree exactly with the established continuation path; the zero-segment checkpoint remains unchanged.
 
-The full-curve analyzer checks grid coverage, seed, cumulative intervals, model/configuration/RHS hashes, solver settings, retained schedules, output hashes, field and RNG continuity. It reports late-window drift and the saved-`Ax` integrated-voltage comparison. Incomplete curves are explicitly labeled and have gaps. Condensate density is the saved `psi_avg = mean(|psi|²)` observable.
+The full-curve analyzer checked all 1010 physical segments: 968 newly computed and 42 imported. Grid coverage, seed, cumulative intervals, model/configuration/RHS hashes, solver settings, retained schedules, output hashes, initial fields and RNG continuity passed. All nine saved numeric datasets were scanned for nonfinite values. The JSON records the analysis-code hashes and software versions as well as physical-source provenance. Fourteen focused software checks and the Linux mixed-continuation smoke passed. The clean Linux branch and measured runtime match byte for byte in seven critical source/configuration files.
+
+The analyzer reports late-window drift and the saved-`Ax` integrated-voltage comparison. Incomplete curves are explicitly labeled and have gaps. Condensate density is the saved `psi_avg = mean(|psi|²)` observable.
 
 A complete finite-time I–V does not establish a stationary continuous NDR branch. The existing local study shows a preparation-dependent voltage decrease and history-dependent responses, with unresolved stationarity at one endpoint. See the [parent study](../README.md) for the eight-seed statistics and controls.
 
@@ -45,4 +63,6 @@ The focused overlay is optional. `--validate-artifacts` hashes and checks the ra
 
 ## Runtime context
 
-The campaign uses the validated CPU-compatible backend with 24 workers. The matched production-noise benchmark measured 1.4644× speedup over the reference at the same worker count, including HDF5 output. The separate 26.80× deterministic GPU result compares against one CPU core and does not validate this legacy-noise production protocol. See the [performance receipts](../../../docs/performance/README.md).
+The campaign used the validated CPU-compatible backend with 24 workers. Its observed wall time was approximately **106.82 minutes**, including startup, inferred from the run-log creation time and final campaign timestamp. This is not a new matched speedup measurement. Approximately 159 GB of raw HDF5 remain on the server; the registry records their paths and hashes.
+
+The earlier matched production-noise benchmark measured 1.4644× speedup over the reference at the same worker count, including HDF5 output. The separate 26.80× deterministic GPU result compares against one CPU core and does not validate this legacy-noise production protocol. See the [performance receipts](../../../docs/performance/README.md) and [noise-acceleration investigation](../../../docs/performance/noise_acceleration.md).

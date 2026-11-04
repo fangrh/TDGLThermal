@@ -79,6 +79,8 @@ Keep the running full-range 50000τ curve and original noisy CPU protocol unchan
 
 For the practical GPU candidate, compare throughput against the actual 24-worker CPU baseline, with the same time horizon, precision, output requirements and hardware-service context. Use independent seed ensembles and predeclared equivalence margins for voltage, temperature, condensate density, switching/retrapping currents and recovery probabilities. Overlapping error bars alone do not establish equivalence. Noisy GPU speedup remains unmeasured.
 
+There is also a scheduling opportunity that need not change the stochastic model. The staged continuation harness waits at a global barrier after each segment. One two-second read-only worker-CPU observation near a stage tail showed 24 workers but approximately four summed active cores; it is a snapshot, not an average-utilization or speedup measurement. A per-point sequential chain sharing a worker pool one segment at a time could fill these gaps while preserving checkpoint and RNG semantics. This remains an unimplemented candidate, tracked by `bd` issue `tdglthermal-fl1`; it needs exact field/RNG checks and matched campaign timing.
+
 Only a separately defined physical-time noise/SDE candidate should change forcing normalization or stochastic heat. Its acceptance requires timestep convergence at fixed physical noise parameters, mesh/cutoff calibration and appropriate equilibrium/energy checks. These requirements separate reproducing the old numerical procedure from improving the physical stochastic model.
 
 ## Reproduce the cost probe

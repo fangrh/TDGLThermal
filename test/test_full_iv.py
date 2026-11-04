@@ -107,3 +107,19 @@ def test_imported_one_ulp_current_is_canonicalized_to_declared_point(tmp_path):
     assert not any("entry Je not in declared grid" in error for error in result["errors"])
     point = next(p for p in result["points"] if math.isclose(p["Je"], je, abs_tol=1e-15))
     assert point["complete"] is False
+
+
+@pytest.mark.parametrize("bad_dataset", ["V", "psi_real"])
+def test_saved_field_scan_detects_nonfinite_scalar_and_spatial_data(tmp_path, bad_dataset):
+    import h5py
+    import numpy as np
+    path = tmp_path / "output.h5"
+    with h5py.File(path, "w") as h:
+        for name in iv.SAVED_DATASETS:
+            h[name] = np.zeros((2, 2, 2) if name in ("psi_real", "psi_imag", "T", "Ax", "Ay") else (2,))
+        h[bad_dataset][0] = np.nan
+    entry = {"segment": 1, "manifest": {"output_path": str(path)}, "_segment_dir": str(tmp_path)}
+    assert iv._finite_fields_errors([entry]) == [f"nonfinite saved field {bad_dataset} segment 1"]
+    with h5py.File(path, "a") as h:
+        h[bad_dataset][0] = 0.0
+    assert iv._finite_fields_errors([entry]) == []

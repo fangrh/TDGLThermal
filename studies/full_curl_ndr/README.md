@@ -38,6 +38,10 @@ These observations support a **finite-time, preparation-dependent voltage-drop s
 
 See the [four-current figure](results/interval/ndr_interval.png), [PDF](results/interval/ndr_interval.pdf), [verified analysis](results/interval/analysis.json), and [per-seed data](results/interval/interval_points.csv).
 
+## Complete full-range I–V
+
+The [full-range campaign](full_iv/README.md) is complete: 99 base currents over `Je = 0–0.3` plus two refinements, all at 50000τ with fixed seed `2026110411`. All 1010 field/RNG segments and saved numeric datasets passed artifact validation. The [English figure](full_iv/results/full_iv.png), [PDF](full_iv/results/full_iv.pdf), and [CSV](full_iv/results/full_iv_seed_rows.csv) use the final 48000–50000τ window. The local eight-seed overlay includes the global seed; it does not add a ninth sample or establish eight-seed full-range coverage. These independent hot preparations provide the full finite-time I–V context and do not alter the unresolved stationary-NDR conclusion above.
+
 ## Model and protocol
 
 All study states use the corrected full mixed magnetic curl in Float64 with Tsit5, the CPU-compatible backend, tolerance `1e-4`, original in-RHS Gaussian noise `0.001`, `T0 = 0.18`, `Nx × Ny = 60 × 30`, and `hx = hy = 0.5`. The archived coefficients include `gamma = 40` and `kappa = 2` in the study configuration. The corrected damping term is the full-curl form, including the mixed contribution `+κ²(Dyy Ax − Dxy Ay)/σ`.

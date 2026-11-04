@@ -12,10 +12,11 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
+import h5py
 
 sys.path.insert(0, str(Path(__file__).parent))
 from analyze_full_curl_ndr import (read_segment, validate_chain_artifacts,
-    _complete_chain, _mean_window)
+    _complete_chain, _mean_window, _output_path)
 
 SEED = 2026110411
 N_BASE = 99
@@ -24,6 +25,7 @@ _A, _B = .3 * 68 / 98, .3 * 69 / 98
 REFINEMENT_CURRENTS = (_A + (_B - _A) / 3, _A + 2 * (_B - _A) / 3)
 ALL_CURRENTS = BASE_CURRENTS + REFINEMENT_CURRENTS
 TOTAL_HORIZON, SEGMENT_HORIZON, N_SEGMENTS = 50000.0, 5000.0, 10
+SAVED_DATASETS = ("times", "V", "psi_avg", "T_avg", "psi_real", "psi_imag", "T", "Ax", "Ay")
 PROTOCOL = {"temperature": .18, "noise": .001, "horizon": TOTAL_HORIZON,
             "segment_horizon": SEGMENT_HORIZON, "snapshot_interval": 1.0,
             "skip_ratio": .6, "tolerance": 1e-4, "seeds": [SEED],
@@ -132,6 +134,22 @@ def _merge_entries(entries: list[dict[str, Any]], je: float) -> tuple[list[dict[
     return rows, errors
 
 
+def _finite_fields_errors(rows: list[dict[str, Any]]) -> list[str]:
+    errors = []
+    for entry in rows:
+        try:
+            with h5py.File(_output_path(entry), "r") as h:
+                for name in SAVED_DATASETS:
+                    dataset = h[name]
+                    for start in range(0, dataset.shape[0], 64):
+                        if not np.isfinite(dataset[start:start + 64]).all():
+                            errors.append(f"nonfinite saved field {name} segment {entry.get('segment')}")
+                            break
+        except (OSError, KeyError, ValueError, IndexError) as exc:
+            errors.append(f"saved-field scan failed: {exc}")
+    return errors
+
+
 def _point_result(je: float, rows: list[dict[str, Any]], errors: list[str], validate: bool) -> dict[str, Any]:
     row = {"Je": je, "seed": SEED, "complete": False, "errors": list(errors)}
     if len(rows) == 10 and not errors and _complete_chain(rows, expected_je=je):
@@ -145,7 +163,9 @@ def _point_result(je: float, rows: list[dict[str, Any]], errors: list[str], vali
             row.update(complete=all(math.isfinite(x) for x in (v, t, psi, final["V_integrated"], drift)),
                        V=v, T_avg=t, psi_avg=psi, V_integrated=final["V_integrated"],
                        stationarity={"late_minus_previous": drift, "windows": [[43000,45000],[48000,50000]]})
-            if validate: row["artifact_errors"] = validate_chain_artifacts(rows)
+            if validate:
+                row["artifact_errors"] = validate_chain_artifacts(rows)
+                if not row["artifact_errors"]: row["artifact_errors"] += _finite_fields_errors(rows)
             if row.get("artifact_errors"): row["complete"] = False; row["errors"] += row["artifact_errors"]
         except (OSError, KeyError, ValueError, IndexError) as exc: row["errors"].append(str(exc))
     return row
@@ -183,11 +203,25 @@ def analyze(catalog_path: Path, campaign_root: Path, focused_analysis: Path | No
         try: focused = _finite(_read_json(focused_analysis))
         except (OSError, ValueError, TypeError) as exc: errors.append(f"focused analysis: {exc}")
     complete = len(points) == 101 and all(p["complete"] for p in points) and not errors
+    analysis_files = [Path(__file__), Path(__file__).with_name("analyze_full_curl_ndr.py"),
+                      Path(__file__).with_name("compare_results.py")]
+    analysis_sources = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in analysis_files}
     return _finite({"schema": "tdgl-full-iv-analysis-v1", "complete": complete, "pending": not complete,
                     "artifact_validation": validate, "catalog_sha256": hashlib.sha256(catalog_path.read_bytes()).hexdigest(),
+                    "finite_saved_fields_validation": validate, "saved_datasets": list(SAVED_DATASETS),
+                    "provenance": {"catalog_path": str(catalog_path.resolve()),
+                        "campaign_root": str(campaign_root.resolve()), "expected_physics_hashes": expected_hashes,
+                        "observed_physics_sources": [dict(zip(("config_hash", "model_hash", "rhs_source_hash", "precision"), p))
+                            for p in sorted(provenance, key=lambda p: tuple(map(str, p)))],
+                        "analysis_source_sha256": analysis_sources, "python": sys.version,
+                        "numpy": np.__version__,
+                        "focused_input_path": str(focused_analysis.resolve()) if focused_analysis else None,
+                        "focused_input_sha256": hashlib.sha256(focused_analysis.read_bytes()).hexdigest()
+                            if focused_analysis and focused_analysis.is_file() else None},
                     "source_count": {"base": 99, "refinement": 2, "total": 101}, "protocol": PROTOCOL,
                     "complete_point_count": sum(p["complete"] for p in points),
                     "points": points, "errors": errors, "focused_analysis": focused,
+                    "focused_overlay_note": "Local n=8 includes the global seed 2026110411; it is not n=9 and does not provide eight-seed full-range coverage.",
                     "claim": "independent hot-start I-V points; no sweep direction inferred"})
 
 
@@ -230,7 +264,7 @@ def write_outputs(result: dict[str, Any], out: Path) -> None:
                 if p.get("Je") is not None and mean is not None:
                     lo, hi = (min(vals), max(vals)) if vals else (mean, mean)
                     ax[1].errorbar(p["Je"], mean, yerr=[[mean-lo], [hi-mean]], fmt="o", color="#D55E00", capsize=3)
-            ax[1].plot([], [], "o", color="#D55E00", label="separate local n=8 mean/range"); ax[1].legend(fontsize=8)
+            ax[1].plot([], [], "o", color="#D55E00", label="local n=8 mean/range (includes blue seed)"); ax[1].legend(fontsize=8)
         for a in ax: a.grid(alpha=.2)
         fig.suptitle("Corrected full curl · T0 = 0.18 · independent hot preparations", fontsize=13)
         fig.savefig(out / "full_iv.png", dpi=180); fig.savefig(out / "full_iv.pdf"); plt.close(fig)

@@ -1,0 +1,52 @@
+{
+  "schema": "tdgl-full-iv-source-checkout-v1",
+  "created_utc": "2026-11-04T19:55:23Z",
+  "checkout": "/data/User/fangr1/projects/TDGLThermal-linux-accelerated",
+  "checkout_commit": "53415c58adcda9178304e9f7358da468d274024b",
+  "runtime": "/data/User/fangr1/projects/TDGLThermal-linux-full-iv",
+  "all_equal": true,
+  "files": [
+    {
+      "path": "current_sweep_thermal_nofastscan.jl",
+      "checkout_sha256": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "runtime_sha256": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "equal": true
+    },
+    {
+      "path": "src/cpu_compatible.jl",
+      "checkout_sha256": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+      "runtime_sha256": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+      "equal": true
+    },
+    {
+      "path": "bench/fixtures.jl",
+      "checkout_sha256": "5b929ae0ee59126b882e28b72b8627a28b9f067bba8845e8636fa353aa2fc9c2",
+      "runtime_sha256": "5b929ae0ee59126b882e28b72b8627a28b9f067bba8845e8636fa353aa2fc9c2",
+      "equal": true
+    },
+    {
+      "path": "bench/benchmark_cpu.jl",
+      "checkout_sha256": "dba9b968c2d62d00c73a292af27768d43768b9288c1bc36bac65da649e69aef5",
+      "runtime_sha256": "dba9b968c2d62d00c73a292af27768d43768b9288c1bc36bac65da649e69aef5",
+      "equal": true
+    },
+    {
+      "path": "bench/benchmark_worker_scaling.jl",
+      "checkout_sha256": "fc8616dff7ef2767aafea59870c5cbfda362dc244f5927041b3f67c9e2e55ff6",
+      "runtime_sha256": "fc8616dff7ef2767aafea59870c5cbfda362dc244f5927041b3f67c9e2e55ff6",
+      "equal": true
+    },
+    {
+      "path": "bench/reproduce_ndr.jl",
+      "checkout_sha256": "eaadd36355d1c1b0582efe91c6d1e047b867c1a4f626de4cfc51fd30fd65a248",
+      "runtime_sha256": "eaadd36355d1c1b0582efe91c6d1e047b867c1a4f626de4cfc51fd30fd65a248",
+      "equal": true
+    },
+    {
+      "path": "studies/full_curl_ndr/config_T0.18.yaml",
+      "checkout_sha256": "d8c8a70d618b1bd17519552f483890d55fb1b0110b69a44bfdf2ad0591deca12",
+      "runtime_sha256": "d8c8a70d618b1bd17519552f483890d55fb1b0110b69a44bfdf2ad0591deca12",
+      "equal": true
+    }
+  ]
+}
