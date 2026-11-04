@@ -138,7 +138,7 @@ function _all_errors(a,b,p,ad,bd)
     merge(_field_errors(a,b,p),_observable_errors(ad,bd))
 end
 
-function _reference_check(case,cpu_states,gpu_states,times)
+function _reference_check(case,cpu_states,gpu_states,times;retain_states=false)
     p=with_current(case.params,case.Je)
     baseline=_cpu_solve(case,1e-4,times).solution.u
     levels=Any[];tolerances=Float64[];observables=Any[];converged=false
@@ -155,13 +155,15 @@ function _reference_check(case,cpu_states,gpu_states,times)
         end
     end
     tight=levels[end];td=observables[end]
+    cpu_states===nothing && (cpu_states=_cpu_solve(case,1e-6,times).solution.u)
     base=_all_errors(baseline,tight,p,_observables(baseline,p),td)
     gpuerr=_all_errors(gpu_states,tight,p,_observables(gpu_states,p),td)
     cpuerr=_all_errors(cpu_states,tight,p,_observables(cpu_states,p),td)
     budget=NamedTuple{keys(base)}(map(f -> max(1.1*base[f],5*residual[f],1e-9),keys(base)))
-    (current=case.Je,seed=case.seed,reference_tolerances=tolerances,previous_error=previous,residual_error=residual,
+    check=(current=case.Je,seed=case.seed,reference_tolerances=tolerances,previous_error=previous,residual_error=residual,
      reference_converged=converged,baseline_1e4_vs_reference=base,cpu_vs_reference=cpuerr,gpu_vs_reference=gpuerr,
      allowed_budget=budget,accurate=converged && all(gpuerr[f]<=budget[f] for f in keys(base)))
+    retain_states ? (check=check,baseline_states=baseline,reference_states=tight) : check
 end
 
 function _state_checks(v, p)

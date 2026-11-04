@@ -28,7 +28,7 @@ case "$mode" in
   run)
     export NOFASTSCAN_SKIP_MAIN=0
     export NOFASTSCAN_SKIP_WORKERS=0
-    exec "$julia_bin" --project="$repo_root" --startup-file=no current_sweep_thermal_nofastscan.jl "$@" ;;
+    exec "$julia_bin" -p "${TDGL_WORKERS:-8}" --project="$repo_root" --startup-file=no current_sweep_thermal_nofastscan.jl "$@" ;;
   *)
     printf '%s\n' 'Usage: bash bench/run_linux.sh {cpu|workers|imex|gpu-links|gpu-rhs|gpu-solve|run} [arguments]' 'Set JULIA_BIN, JULIA_DEPOT_PATH and output paths for your installation. Worker benchmark uses TDGL_WORKERS (default 8).'
     [[ "$mode" == help ]] || exit 2 ;;
