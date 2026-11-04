@@ -3,7 +3,7 @@
 - Date: 2026-11-04
 - Repository: fangrh/TDGLThermal
 - Branch: codex/linux-full-curl-performance
-- Status: overall approach approved in chat; this written specification is the implementation review gate.
+- Status: written specification approved in chat on 2026-11-04; implementation evidence and remaining gates are recorded in bd and docs/performance/README.md.
 
 ## Objective and scope
 
@@ -198,7 +198,7 @@ No production promotion is based solely on a synthetic kernel benchmark.
 
 Store source, small configurations, tests and reports in Git; store large HDF5 trajectories outside Git with hashes and an artifact manifest. Use the repository's bd issue workflow for implementation tracking; this design document is a specification, not a parallel task tracker.
 
-Implementation has not started as part of writing this document. After written-spec approval, create the detailed implementation plan using the writing-plans skill.
+This specification was approved before implementation. Detailed execution plans were then written using the writing-plans skill; measured outcomes and unresolved gates belong in the performance report and bd.
 
 ## Primary technical sources
 
