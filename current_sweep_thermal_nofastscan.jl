@@ -896,12 +896,16 @@ end
 function run_stable_simulation_streaming(state0::TDGLThermalState, p::TDGLThermalParams,
                                          stable_time::Float64, dt_snapshots::Float64,
                                          skip_ratio::Float64, h5_path::String,
-                                         Je::Float64, direction::String)
+                                         Je::Float64, direction::String;
+                                         backend::AbstractString=get(ENV, "TDGL_RHS_BACKEND", "reference"),
+                                         abstol::Float64=1e-4, reltol::Float64=1e-4)
     cache = TDGLThermalCache(p)
     u0 = state_to_vector(state0)
     tspan = (0.0, stable_time)
-    prob = ODEProblem(fdm_rhs_thermal!, u0, tspan, cache)
-    integrator = init(prob, Tsit5(), abstol=1e-4, reltol=1e-4, save_everystep=false)
+    rhs = resolve_rhs_backend(backend)
+    prob = ODEProblem(rhs, u0, tspan, cache)
+    integrator = init(prob, Tsit5(), abstol=abstol, reltol=reltol, save_everystep=false)
+    solve_start = time_ns()
 
     snapshot_times = collect(0.0:dt_snapshots:stable_time)
     if isempty(snapshot_times) || snapshot_times[end] != stable_time
@@ -937,7 +941,7 @@ function run_stable_simulation_streaming(state0::TDGLThermalState, p::TDGLTherma
             buffer_count += 1
             vector_to_state!(cache.state, integrator.u, p)
             apply_boundary_conditions!(cache.state, p)
-            fdm_rhs_thermal!(du, integrator.u, cache, integrator.t)
+            rhs(du, integrator.u, cache, integrator.t)
 
             buffers.times[buffer_count] = integrator.t
             buffers.V[buffer_count] = compute_voltage_from_du(du, p)
@@ -963,10 +967,26 @@ function run_stable_simulation_streaming(state0::TDGLThermalState, p::TDGLTherma
         end
     end
 
+    stats = hasproperty(integrator.sol, :stats) ? integrator.sol.stats : integrator.sol.destats
+    final_time = Float64(integrator.t)
+    complete = isapprox(final_time, stable_time; atol=8eps(max(stable_time, 1.0))) &&
+               all(isfinite, integrator.u)
+    retcode_name = string(integrator.sol.retcode)
+    complete &= retcode_name in ("Success", "Default", "ReturnCode.Success", "ReturnCode.Default")
     return (
         V_avg = kept_count > 0 ? V_sum / kept_count : 0.0,
         stored_skip_idx = skip_idx,
         original_n_snap = original_n_snap,
+        status = complete ? "success" : retcode_name,
+        complete = complete,
+        final_time = final_time,
+        accepted_steps = stats.naccept,
+        rejected_steps = stats.nreject,
+        rhs_calls = stats.nf + kept_count,
+        ode_rhs_calls = stats.nf,
+        diagnostic_rhs_calls = kept_count,
+        solver_seconds = (time_ns() - solve_start) / 1e9,
+        output_schema = "streamed_hdf5_fields",
     )
 end
 
@@ -1084,6 +1104,8 @@ end
 # ============================================================================
 # FastScan Function
 # ============================================================================
+include(joinpath(@__DIR__, "src", "cpu_compatible.jl"))
+
 function run_fastscan(p::TDGLThermalParams, J_values::Vector{Float64},
                       rampup_time::Float64, rampdown_time::Float64;
                       verbose::Bool=true)
@@ -1109,7 +1131,7 @@ function run_fastscan(p::TDGLThermalParams, J_values::Vector{Float64},
 
         if idx > 1
             tspan = (0.0, dt_rampup)
-            prob = ODEProblem(fdm_rhs_thermal!, u0, tspan, cache)
+            prob = ODEProblem(resolve_rhs_backend(), u0, tspan, cache)
             sol = solve(prob, Tsit5(), abstol=1e-5, reltol=1e-5)
             u0 = sol.u[end]
         end
@@ -1144,7 +1166,7 @@ function run_fastscan(p::TDGLThermalParams, J_values::Vector{Float64},
 
         if idx > 1
             tspan = (0.0, dt_rampdown)
-            prob = ODEProblem(fdm_rhs_thermal!, u0, tspan, cache)
+            prob = ODEProblem(resolve_rhs_backend(), u0, tspan, cache)
             sol = solve(prob, Tsit5(), abstol=1e-5, reltol=1e-5)
             u0 = sol.u[end]
         end
@@ -1205,7 +1227,7 @@ function run_fastscan_pipeline(p::TDGLThermalParams, J_values::Vector{Float64},
 
         if idx > 1
             tspan = (0.0, dt_rampup)
-            prob = ODEProblem(fdm_rhs_thermal!, u0, tspan, cache)
+            prob = ODEProblem(resolve_rhs_backend(), u0, tspan, cache)
             sol = solve(prob, Tsit5(), abstol=1e-5, reltol=1e-5)
             u0 = sol.u[end]
         end
@@ -1243,7 +1265,7 @@ function run_fastscan_pipeline(p::TDGLThermalParams, J_values::Vector{Float64},
 
         if idx > 1
             tspan = (0.0, dt_rampdown)
-            prob = ODEProblem(fdm_rhs_thermal!, u0, tspan, cache)
+            prob = ODEProblem(resolve_rhs_backend(), u0, tspan, cache)
             sol = solve(prob, Tsit5(), abstol=1e-5, reltol=1e-5)
             u0 = sol.u[end]
         end
@@ -1283,7 +1305,7 @@ function precompile_workers(p::TDGLThermalParams, Je_test::Float64)
 
     # Solve for short time to trigger compilation
     tspan = (0.0, 1.0)
-    prob = ODEProblem(fdm_rhs_thermal!, u0, tspan, cache)
+    prob = ODEProblem(resolve_rhs_backend(), u0, tspan, cache)
     sol = solve(prob, Tsit5(), abstol=1e-4, reltol=1e-4, maxiters=100)
 
     # Test H5 writing
@@ -1319,7 +1341,7 @@ function run_current_point_distributed(p_base, Je::Float64,
 
     # Run simulation
     tspan = (0.0, stable_time)
-    prob = ODEProblem(fdm_rhs_thermal!, u0, tspan, cache)
+    prob = ODEProblem(resolve_rhs_backend(), u0, tspan, cache)
     sol = solve(prob, Tsit5(), abstol=abstol, reltol=reltol,
                 saveat=dt_snapshots, progress=true)
 
@@ -1410,7 +1432,7 @@ function run_stable_simulation(state0::TDGLThermalState, p::TDGLThermalParams,
 
     # Solve ODE
     tspan = (0.0, stable_time)
-    prob = ODEProblem(fdm_rhs_thermal!, u0, tspan, cache)
+    prob = ODEProblem(resolve_rhs_backend(), u0, tspan, cache)
     sol = solve(prob, Tsit5(), abstol=1e-4, reltol=1e-4,
                 saveat=dt_snapshots, progress=false)
 
