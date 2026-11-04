@@ -718,12 +718,12 @@ function compute_dA_dt!(dAx::Matrix{Float64}, dAy::Matrix{Float64},
 
     for j in 2:p.Ny
         @simd for i in 2:p.Nx-1
-            # curl curl A = grad(div A) - laplacian(A); keep the staggered-edge stencil here
+            # The TDGL equation contains -curl curl A = laplacian(A) - grad(div A).
             d2Ax_dy2 = (Ax[i,j+1] - 2*Ax[i,j] + Ax[i,j-1]) / hy2
             dxy_Ay = ((Ay[i+1,j] - Ay[i,j]) - (Ay[i+1,j-1] - Ay[i,j-1])) / (p.hx * p.hy)
             # Ax is on (i, j) edges, use sigma at nearest node
             sigma_local = (sigma[i,j] + sigma[i+1,j]) / 2
-            dAx[i,j] = (Jsx[i,j] + kappa2 * (dxy_Ay - d2Ax_dy2)) / sigma_local
+            dAx[i,j] = (Jsx[i,j] + kappa2 * (d2Ax_dy2 - dxy_Ay)) / sigma_local
         end
     end
     for j in 2:p.Ny-1
@@ -732,7 +732,7 @@ function compute_dA_dt!(dAx::Matrix{Float64}, dAy::Matrix{Float64},
             dxy_Ax = ((Ax[i,j+1] - Ax[i-1,j+1]) - (Ax[i,j] - Ax[i-1,j])) / (p.hx * p.hy)
             # Ay is on (i, j) edges, use sigma at nearest node
             sigma_local = (sigma[i,j] + sigma[i,j+1]) / 2
-            dAy[i,j] = (Jsy[i,j] + kappa2 * (dxy_Ax - d2Ay_dx2)) / sigma_local
+            dAy[i,j] = (Jsy[i,j] + kappa2 * (d2Ay_dx2 - dxy_Ax)) / sigma_local
         end
     end
 end
