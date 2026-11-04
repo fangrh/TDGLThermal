@@ -76,11 +76,11 @@ python3 test/verify_full_curl_sympy.py
 **Consumes:** dependency declarations in paper/nbse2_fig3/Project.toml.
 **Produces:** root Project.toml/Manifest.toml, dedicated server checkout, explicit launcher.
 
-1. Copy the existing four dependency declarations into root Project.toml; set julia compatibility to1.12. Resolve additional benchmark dependencies in that environment only:
+1. Resolve the four archived dependency names (HDF5, OrdinaryDiffEq, Plots, YAML) plus benchmark dependencies from the official Julia registry; set julia compatibility to1.12. The archived OrdinaryDiffEq UUID is malformed, so do not copy its UUID declaration. Resolve into this project only:
 ~~~julia
 using Pkg
 Pkg.activate(".")
-Pkg.add(["JSON3","BenchmarkTools"])
+Pkg.add(["HDF5","OrdinaryDiffEq","Plots","YAML","JSON3","BenchmarkTools"])
 Pkg.instantiate()
 Pkg.precompile()
 ~~~

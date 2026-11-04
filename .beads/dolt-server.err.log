@@ -1,5 +1,0 @@
-time="2026-11-04T14:24:39+02:00" level=info msg="Creating root@localhost superuser"
-time="2026-11-04T14:24:40+02:00" level=info msg="Server ready. Accepting connections."
-time="2026-11-04T14:24:40+02:00" level=warning msg="secure_file_priv is set to \"\", which is insecure."
-time="2026-11-04T14:24:40+02:00" level=warning msg="Any user with GRANT FILE privileges will be able to read any file which the sql-server process can read."
-time="2026-11-04T14:24:40+02:00" level=warning msg="Please consider restarting the server with secure_file_priv set to a safe (or non-existent) directory."
