@@ -78,4 +78,3 @@ def main():
     print(json.dumps({k:result[k] for k in ("pair_count","all_fields_exact","max_field_error","all_rhs_counts_equal","groups")}))
 if __name__=="__main__":
     main()
-

@@ -36,4 +36,3 @@ else
         run_case(p60,[.06,.18,.27])
     end
 end
-

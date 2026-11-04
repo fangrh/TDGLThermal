@@ -42,4 +42,3 @@ cbig(x,y)=complex(Float64(x),Float64(y))
     @info "KWT conditioning" cases=length(cases) max_promoted_normalized=maxpnp max_promoted_relative=maxprp max_promoted_heat=maxhp max_promoted_residual=maxrp
     isempty(qpath) || open(qpath,"w") do io; write(io,JSON3.write(receipt)); end
 end
-

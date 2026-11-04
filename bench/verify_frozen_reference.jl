@@ -21,4 +21,3 @@ open(joinpath(out,"reference_check.json"),"w") do io
         julia_version=string(VERSION),summary=result)))
 end
 println("Frozen reference comparison input hash: "*case.initial_hash)
-

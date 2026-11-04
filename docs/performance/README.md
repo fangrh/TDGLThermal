@@ -30,7 +30,7 @@ An independent 384-bit real 2×2 mobility oracle checks 578 manufactured cases, 
 
 IMEX KenCarp was slower and rejected; a one-case ROCK4 result was only a preliminary field comparison with noise unresolved. CUDA Graph replay did not improve the measured resident RHS speed.
 
-The original renderer benchmark requested three alternating reference/candidate pairs at 20 frames and 5 fps. Measured render time was about 1.006 s per run, including HDF loading and original animation rendering; ffprobe was unavailable, so encoded frame count was not independently verified. Solver-plus-render addition is illustrative, not a new full end-to-end benchmark.
+The original renderer benchmark measured three alternating reference/candidate pairs at 20 frames and 5 fps. Render time was about 1.006 s per run, including HDF loading. A later independent check used the already installed Julia FFmpeg artifact: all six movies have 20 encoded frames, 5 fps and 1400×900 dimensions, with identical SHA-256 hashes. [Encoded-video verification](results/render_video_verification.json). Solver-plus-render addition is illustrative, not a new full end-to-end benchmark.
 
 ## Receipts and figures
 

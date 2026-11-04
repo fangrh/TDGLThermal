@@ -84,4 +84,3 @@ else
         @test base.noise_strength == 0.0
     end
 end
-

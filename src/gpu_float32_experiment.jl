@@ -50,4 +50,3 @@ function gpu_full_curl32_rhs!(du::CuArray{ComplexF32,2}, u::CuArray{ComplexF32,2
     @cuda threads=th blocks=(cld(packed,th),b) _k_pack!(du,c.dpsi,c.dax,c.day,c.dt,s)
     return du
 end
-

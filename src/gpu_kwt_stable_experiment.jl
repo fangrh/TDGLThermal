@@ -43,4 +43,3 @@ function gpu_full_curl32_kwt_rhs!(du::CuArray{Complex{T},2},u::CuArray{Complex{T
     @cuda threads=th blocks=(cld(packed,th),b) _k_pack!(du,c.dpsi,c.dax,c.day,c.dt,s)
     du
 end
-
