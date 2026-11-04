@@ -23,7 +23,7 @@ def _range_err(values):
 
 
 def _whole_panel(ax, whole):
-    if not whole or not whole.get("valid"):
+    if not whole or not whole.get("rows"):
         ax.text(.5, .52, "Whole-solve validation running", ha="center", va="center", fontsize=12, color="#344054")
         ax.text(.5, .38, "Awaiting gpu_solver_benchmark.json\n(no whole-solver values plotted)", ha="center", va="center", fontsize=9, color="#667085")
         ax.set_axis_off()
@@ -38,15 +38,20 @@ def _whole_panel(ax, whole):
     if not batches:
         ax.text(.5, .5, "Whole-solve receipt present\nbut no plottable batch rows", ha="center", va="center")
         ax.set_axis_off(); return
-    ax.plot(batches, cpu, "o-", label="CPU aggregate", color="#344054")
+    ax.plot(batches, cpu, "o-", label="One CPU core, aggregate", color="#344054")
     ax.plot(batches, gpu, "o-", label="GPU whole solve", color="#D55E00")
+    for row in rows:
+        for key,color in (("cpu_samples","#344054"),("gpu_samples","#D55E00")):
+            if row.get(key):
+                med,err=_range_err([s["seconds"] for s in row[key]])
+                ax.errorbar([row["batch"]],[med],yerr=err,fmt="none",color=color,capsize=3)
     optional = RESULTS / "gpu_batch99_accuracy.json"
     if optional.exists():
         acc = json.loads(optional.read_text(encoding="utf-8"))
         subtitle = "Full batch-99 gate passed" if acc.get("batch_count") == 99 and acc.get("accurate_count") == 99 else "Full batch-99 accuracy gate pending"
     else:
         subtitle = "3 representative states pass achieved-accuracy gates; all 99 validation pending"
-    ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlabel("Batch size\nNo HDF/noise-0 claims beyond receipt scope", fontsize=8); ax.set_ylabel("Wall time (s)")
+    ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlabel("Batch size\n100τ · noise off · state saving · no HDF5", fontsize=8); ax.set_ylabel("Wall time (s)")
     ax.set_title("Whole-solve validation\n" + subtitle, loc="left", fontweight="bold", fontsize=10)
     ax.legend(frameon=False, fontsize=8)
 
@@ -82,9 +87,11 @@ def plot(output_dir: Path = RESULTS):
     ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlabel("Batch size\nF64 full RHS · transfer/setup excluded · not whole-solver time", fontsize=8); ax.set_ylabel("RHS time (s)"); ax.set_title("GPU full-RHS throughput", loc="left", fontweight="bold")
     ax.legend(frameon=False, fontsize=8)
     ax = axes[1, 1]; _whole_panel(ax, whole)
-    receipt = RESULTS / "production_5000_artifacts.json"
+    receipt = RESULTS / "full_scan_24_5000_summary.json"
     if receipt.exists():
-        ax.text(.98, .02, "5000τ receipt: 24 pairs, 9/9 field errors = 0", transform=ax.transAxes, ha="right", va="bottom", fontsize=8, color="#027A48")
+        check = json.loads(receipt.read_text(encoding="utf-8"))
+        if check.get("valid"):
+            fig.supxlabel(f"CPU full scan: {check['paired_trajectories']} pairs at 5000τ · maximum stored-data error = {check['field_error_summary']['maximum']:g}", fontsize=9, color="#027A48")
     fig.suptitle("Linux performance overview", fontsize=14, fontweight="bold")
     output_dir.mkdir(parents=True, exist_ok=True)
     png, pdf = output_dir / "acceleration_summary.png", output_dir / "acceleration_summary.pdf"

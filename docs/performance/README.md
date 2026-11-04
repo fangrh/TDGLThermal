@@ -6,7 +6,7 @@ This directory records measured acceleration experiments for the corrected full-
 
 - The compatible CPU backend is about 1.28–1.53× faster than the reference in matched single-point, full-HDF5 100τ measurements (`30` paired runs, three currents, deterministic and noise 0.001 cohorts). Stored fields, observables, and RHS counts were numerically exact.
 - The persistent-worker pilot reaches 3.40× versus the normal 8-worker reference phase at 24 workers. This is a 100τ, 36-job/phase pilot, not a full-scan speed claim.
-- The completed production receipt contains 24 pairs (three currents × eight seeds, 5000τ, noise 0.001). All nine stored datasets agree exactly and RHS counts match. The current 99-point, three-scan 5000τ run at 24 workers is ongoing; no completion claim is made until its receipt exists.
+- The completed full scan contains 297 matched pairs / 594 trajectories: 99 distinct current points × three seeds, 24 workers, 5000τ, original noise 0.001, with HDF5 output included. Reference and compatible whole-phase medians are 828.787 s (13.813 min) and 564.539 s (9.409 min). The three-pair geometric-mean speedup is 1.4644× with a Student-t log-ratio 95% interval [1.4119, 1.5189] (df=2; this is not a confidence interval for the median). All nine datasets pass with maximum normalized field error 0. The earlier 24-pair production receipt (three currents × eight seeds) remains a separate ensemble.
 - GPU full-RHS F64 batch 99 reaches 52.49× versus a one-core CPU kernel aggregate. This excludes transfer/setup and is not a whole-solver result.
 - The F64 whole-solve batch-99 receipt reports CPU-compatible 222.89 s versus GPU 8.316 s (paired median 26.80×; range 26.37–28.76×). It cycles the three currents (0.06/0.18/0.27) over 99 seeded cool states; it is not 99 distinct currents. The all-99 accuracy receipt reports 99/99 achieved-accuracy passes, with worst budget ratio 0.0931.
 
@@ -35,7 +35,8 @@ The original renderer benchmark measured three alternating reference/candidate p
 ## Receipts and figures
 
 - [CPU matched summary](results/cpu_v2_summary.json) · [worker pilot](results/worker_scaling_summary.json) · [GPU RHS](results/gpu_rhs_benchmark_v2.json)
-- [5000τ production artifact receipt](results/production_5000_artifacts.json) · [production statistics](results/production_statistics.json)
+- [Full 99-point scan receipt](results/full_scan_24_5000_summary.json) · [pair CSV](results/full_scan_24_5000_pairs.csv) · [I–V PNG](results/full_scan_24_5000_iv.png) · [I–V PDF](results/full_scan_24_5000_iv.pdf)
+- [Earlier 5000τ production artifact receipt](results/production_5000_artifacts.json) · [production statistics](results/production_statistics.json)
 - [GPU whole-solve receipt](results/gpu_solver_benchmark.json) · [all-99 accuracy receipt](results/gpu_batch99_accuracy.json)
 - [Acceleration figure PNG](results/acceleration_summary.png) · [PDF](results/acceleration_summary.pdf)
 
@@ -53,10 +54,20 @@ export OPENBLAS_NUM_THREADS=1
 TDGL_WORKERS=24 TDGL_RHS_BACKEND=cpu_compatible bash bench/run_linux.sh run config.yaml
 ```
 
-To run the bounded 100τ CPU comparison, use `bench/run_linux.sh cpu` with currents `0.06,0.18,0.27`, the intended preparation/noise settings, and the repetition count recorded in the receipt. GPU RHS reproduction is `bash bench/run_linux.sh gpu-rhs --grid 60x30 --batches 1,8,32,99 --repetitions 5 --repeats 20`. The render harness is `bench/benchmark_rendering.jl`; it requires matched reference/candidate manifests and does not start solver jobs.
+To run the bounded 100τ CPU comparison, use `bench/run_linux.sh cpu` with an explicit `--out` directory, currents `0.06,0.18,0.27`, the intended preparation/noise settings, and the repetition count recorded in the receipt. GPU RHS reproduction is `bash bench/run_linux.sh gpu-rhs --out /caller/path/gpu_rhs --grid 60x30 --batches 1,8,32,99 --repetitions 5 --repeats 20`. The render harness is `bench/benchmark_rendering.jl`; it requires matched reference/candidate manifests and does not start solver jobs.
+
+For the deterministic GPU usability receipt, first instantiate the isolated `experiments/gpu_probe` environment (using the same Julia 1.12.1), then run:
+
+```bash
+bash bench/run_linux.sh gpu-solve --out /caller/path/gpu_solve \
+  --grid 60x30 --batches 1,8,32,99 --repetitions 3 \
+  --horizon 100 --tolerance 1e-6 --noise 0
+```
+
+This command writes `gpu_solver_benchmark.json` inside the output directory. It measures state-saving whole-solve runs, not HDF5 or MP4 timing; batch 99 cycles the three currents over 99 states.
 
 The launcher explicitly supplies Julia worker count. Python reporting uses NumPy, h5py, and Matplotlib; project and environment versions are recorded in the receipts. Primary implementation references are the [Julia performance guide](https://docs.julialang.org/en/v1/manual/performance-tips/), [CUDA.jl performance guide](https://cuda.juliagpu.org/stable/tutorials/performance/), [CUDA graph semantics](https://cuda.juliagpu.org/stable/usage/graphs/), and [SciML split-solver documentation](https://docs.sciml.ai/DiffEqDocs/stable/solvers/split_ode_solve/).
 
 ## Pending gates
 
-The 5000τ full 99-point CPU scan receipt, larger grids, continuation, tolerance sensitivity, GPU production-noise validation, and any full animation-inclusive end-to-end benchmark remain pending. No approximation candidate has been promoted to production; the corrected reference remains the default.
+The full-scan measurements were made on a shared server with an existing GPU service; the hardware was not exclusive, and warm timings exclude startup. Larger grids, continuation, tolerance sensitivity, GPU production-noise validation, and any full animation-inclusive end-to-end benchmark remain pending. No approximation candidate has been promoted to production; the corrected reference remains the default.
