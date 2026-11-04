@@ -31,8 +31,9 @@ _arg(n,d=nothing)=(i=findfirst(==("--"*n),ARGS);i===nothing ? d : (i==length(ARG
 function _json(p,x); open(p,"w") do io; write(io,JSON3.write(x)); write(io,'\n'); end end
 _hash(p)=bytes2hex(SHA.sha256(read(p)))
 
-function _f32_solve(p,currents,h_u,times,tol;warmup=false,kwt=:original)
-    d_u=CuArray(ComplexF32.(h_u)); cache=GPUFullCurl32Cache(p,currents)
+function _f32_solve(p,currents,h_u,times,tol;warmup=false,kwt=:original,state_precision=:float32)
+    CT=state_precision===:float64 ? ComplexF64 : ComplexF32
+    d_u=CuArray(CT.(h_u)); cache=GPUFullCurl32Cache(p,currents)
     rhs! = _PrecisionRHS{kwt}(cache)
     prob=ODEProblem(rhs!,d_u,(times[1],times[end]),nothing)
     kw=(;abstol=tol,reltol=tol,saveat=times,tstops=times,save_everystep=false,dense=false,internalnorm=_batch_internalnorm)
@@ -40,7 +41,7 @@ function _f32_solve(p,currents,h_u,times,tol;warmup=false,kwt=:original)
     CUDA.synchronize();t0=time_ns();sol=solve(prob,Tsit5();kw...);CUDA.synchronize()
     seconds=(time_ns()-t0)/1e9
     _assert_solution(sol,times)
-    (solution=sol,seconds=seconds,stats=_stats(sol),setup_bytes=sizeof(ComplexF32)*length(h_u))
+    (solution=sol,seconds=seconds,stats=_stats(sol),setup_bytes=sizeof(CT)*length(h_u))
 end
 
 function _load_reference(root,case,times)
@@ -61,26 +62,31 @@ function _budget(check,f)
 end
 function _converged(check); Bool(check["reference_converged"]) end
 
-function run_precision(;out,reference_root,config,batch=99,horizon=100.0,tol=1e-6,repetitions=3,kwt=:original)
+function run_precision(;out,reference_root,config,batch=99,horizon=100.0,tol=1e-6,repetitions=3,kwt=:original,state_precision=:float32)
     batch==99 || error("this gate is defined for --batch 99 only")
     horizon>0 && tol>0 && repetitions>0 || error("invalid benchmark setting")
     kwt in (:original,:stable32,:promoted64) || error("unknown KWT arithmetic mode")
+    state_precision in (:float32,:float64) || error("unknown state precision")
+    state_precision===:float64 && kwt===:original && error("Float64 accumulation requires a stable KWT mode")
     CUDA.functional() || error("CUDA.functional() is false"); CUDA.allowscalar(false); mkpath(out)
     p,currents,cases=_cases(config,batch,60,30,:cool); times=collect(0.0:1.0:horizon)
     times[end]==horizon || push!(times,horizon)
-    estimated_bytes=3*length(cases[1].u0)*batch*(length(times)+54)*(sizeof(ComplexF64)+sizeof(ComplexF32))
+    candidate_bytes=state_precision===:float64 ? sizeof(ComplexF64) : sizeof(ComplexF32)
+    estimated_bytes=2*length(cases[1].u0)*batch*(length(times)+54)*(sizeof(ComplexF64)+candidate_bytes)
     estimated_bytes<8*1024^3 || error("estimated live device memory exceeds 8 GiB")
     h_u=Matrix{ComplexF64}(undef,length(cases[1].u0),batch); for b in 1:batch;h_u[:,b].=cases[b].u0;end
     warmtimes=[0.0,min(2.0,horizon)]
-    _gpu_solve(p,currents,h_u,tol,warmtimes); _f32_solve(p,currents,h_u,warmtimes,tol;kwt=kwt)
+    _gpu_solve(p,currents,h_u,tol,warmtimes); _f32_solve(p,currents,h_u,warmtimes,tol;kwt=kwt,state_precision=state_precision)
     s64=Any[];s32=Any[];last64=nothing;last32=nothing
     for rep in 1:repetitions
+        resources_before=_resources()
         if isodd(rep)
-            a=_gpu_solve(p,currents,h_u,tol,times); b=_f32_solve(p,currents,h_u,times,tol;kwt=kwt)
+            a=_gpu_solve(p,currents,h_u,tol,times); b=_f32_solve(p,currents,h_u,times,tol;kwt=kwt,state_precision=state_precision)
         else
-            b=_f32_solve(p,currents,h_u,times,tol;kwt=kwt); a=_gpu_solve(p,currents,h_u,tol,times)
+            b=_f32_solve(p,currents,h_u,times,tol;kwt=kwt,state_precision=state_precision); a=_gpu_solve(p,currents,h_u,tol,times)
         end
-        push!(s64,(seconds=a.seconds,stats=a.stats));push!(s32,(seconds=b.seconds,stats=b.stats));last64=a;last32=b
+        push!(s64,(seconds=a.seconds,stats=a.stats));push!(s32,(seconds=b.seconds,stats=b.stats,resources_before=resources_before,resources_after=_resources()));last64=a;last32=b
+        GC.gc()
     end
     st64=[Array(x) for x in last64.solution.u]; st32=[ComplexF64.(Array(x)) for x in last32.solution.u]
     rows=Any[];fail64=Int[];fail32=Int[];conv=0
@@ -106,6 +112,7 @@ function run_precision(;out,reference_root,config,batch=99,horizon=100.0,tol=1e-
         approximation=true,production_noise_claim=false,full_output_claim=false,batch=batch,horizon=horizon,tolerance=tol,repetitions=repetitions,
         precisions=(control="ComplexF64/Float64",candidate="ComplexF32 storage/Float32 coefficients with promoted intermediates"),
         kwt_mode=String(kwt),kwt_source_hash=_hash(joinpath(ROOT,"src","gpu_kwt_stable_experiment.jl")),
+        candidate_state_precision=String(state_precision),candidate_rhs_cache_precision="Float32/ComplexF32",
         reference_root=abspath(reference_root),config_hash=_hash(config),gpu_source_hash=_hash(joinpath(ROOT,"src","gpu_full_curl.jl")),
         f32_source_hash=_hash(F32SRC),model_hash=_hash(joinpath(ROOT,"current_sweep_thermal_nofastscan.jl")),julia_version=string(VERSION),created_utc=string(now(UTC)),
         reference_converged_count=conv,f64_accurate_count=batch-length(fail64),f32_accurate_count=batch-length(fail32),
@@ -119,6 +126,6 @@ if abspath(PROGRAM_FILE)==@__FILE__
     out=_arg("out");out===nothing&&error("--out is required");ref=_arg("reference-root");ref===nothing&&error("--reference-root is required")
     result=run_precision(out=String(out),reference_root=String(ref),config=String(_arg("config",joinpath(ROOT,"config.yaml"))),
         batch=parse(Int,_arg("batch","99")),horizon=parse(Float64,_arg("horizon","100")),tol=parse(Float64,_arg("tolerance","1e-6")),repetitions=parse(Int,_arg("repetitions","3")),
-        kwt=Symbol(_arg("kwt","original")))
+        kwt=Symbol(_arg("kwt","original")),state_precision=Symbol(_arg("state-precision","float32")))
     result.all99_f32_pass || exit(2)
 end

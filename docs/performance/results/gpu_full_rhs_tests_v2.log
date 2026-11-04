@@ -1,0 +1,149 @@
+┌ Info: GPU field error
+│   field = "psi"
+│   batch = 1
+│   normalized_error = 4.251348023374695e-16
+│   cpu_max = 1.954531033547228
+└   gpu_max = 1.9545310335472275
+┌ Info: GPU field error
+│   field = "psi"
+│   batch = 2
+│   normalized_error = 1.1674208863779188e-16
+│   cpu_max = 1.1265116824744084
+└   gpu_max = 1.1265116824744084
+┌ Info: GPU field error
+│   field = "psi"
+│   batch = 3
+│   normalized_error = 2.1670530471842925e-16
+│   cpu_max = 1.112346444158341
+└   gpu_max = 1.1123464441583408
+┌ Info: GPU field error
+│   field = "Ax"
+│   batch = 1
+│   normalized_error = 6.200218299423166e-17
+│   cpu_max = 6.162477003291613
+└   gpu_max = 6.162477003291613
+┌ Info: GPU field error
+│   field = "Ax"
+│   batch = 2
+│   normalized_error = 5.612455934814405e-17
+│   cpu_max = 6.912564748978256
+└   gpu_max = 6.912564748978256
+┌ Info: GPU field error
+│   field = "Ax"
+│   batch = 3
+│   normalized_error = 1.8318132845171785e-17
+│   cpu_max = 5.060787057332562
+└   gpu_max = 5.060787057332562
+┌ Info: GPU field error
+│   field = "Ay"
+│   batch = 1
+│   normalized_error = 0.0
+│   cpu_max = 10.919948311839468
+└   gpu_max = 10.919948311839468
+┌ Info: GPU field error
+│   field = "Ay"
+│   batch = 2
+│   normalized_error = 0.0
+│   cpu_max = 11.300756225788975
+└   gpu_max = 11.300756225788975
+┌ Info: GPU field error
+│   field = "Ay"
+│   batch = 3
+│   normalized_error = 0.0
+│   cpu_max = 8.807704649653326
+└   gpu_max = 8.807704649653326
+┌ Info: GPU field error
+│   field = "T"
+│   batch = 1
+│   normalized_error = 5.902839685336633e-16
+│   cpu_max = 35.11191089223586
+└   gpu_max = 35.11191089223587
+┌ Info: GPU field error
+│   field = "T"
+│   batch = 2
+│   normalized_error = 1.2640940158229797e-16
+│   cpu_max = 41.15723238537204
+└   gpu_max = 41.15723238537204
+┌ Info: GPU field error
+│   field = "T"
+│   batch = 3
+│   normalized_error = 2.3372753674282596e-16
+│   cpu_max = 29.40047166294836
+└   gpu_max = 29.40047166294836
+┌ Info: GPU field error
+│   field = "psi"
+│   batch = 1
+│   normalized_error = 1.908040220251492e-15
+│   cpu_max = 35.260641054206616
+└   gpu_max = 35.26064105420662
+┌ Info: GPU field error
+│   field = "psi"
+│   batch = 2
+│   normalized_error = 1.1335585115050161e-15
+│   cpu_max = 31.917635307933423
+└   gpu_max = 31.917635307933423
+┌ Info: GPU field error
+│   field = "psi"
+│   batch = 3
+│   normalized_error = 1.1389853845680754e-15
+│   cpu_max = 39.669283159617734
+└   gpu_max = 39.66928315961773
+┌ Info: GPU field error
+│   field = "Ax"
+│   batch = 1
+│   normalized_error = 1.8838713014651057e-17
+│   cpu_max = 22.573224429115193
+└   gpu_max = 22.573224429115193
+┌ Info: GPU field error
+│   field = "Ax"
+│   batch = 2
+│   normalized_error = 5.1528494109631606e-17
+│   cpu_max = 16.236646151747497
+└   gpu_max = 16.236646151747497
+┌ Info: GPU field error
+│   field = "Ax"
+│   batch = 3
+│   normalized_error = 4.840124708076918e-17
+│   cpu_max = 17.35032097867199
+└   gpu_max = 17.35032097867199
+┌ Info: GPU field error
+│   field = "Ay"
+│   batch = 1
+│   normalized_error = 9.419506924603838e-17
+│   cpu_max = 17.85827839629684
+└   gpu_max = 17.85827839629684
+┌ Info: GPU field error
+│   field = "Ay"
+│   batch = 2
+│   normalized_error = 4.2746393560879344e-17
+│   cpu_max = 19.777856228623897
+└   gpu_max = 19.777856228623897
+┌ Info: GPU field error
+│   field = "Ay"
+│   batch = 3
+│   normalized_error = 4.61875182379453e-17
+│   cpu_max = 18.22983640568164
+└   gpu_max = 18.22983640568164
+┌ Info: GPU field error
+│   field = "T"
+│   batch = 1
+│   normalized_error = 7.396248835765922e-15
+│   cpu_max = 370.7831090396015
+└   gpu_max = 370.78310903960175
+┌ Info: GPU field error
+│   field = "T"
+│   batch = 2
+│   normalized_error = 7.226692200353317e-15
+│   cpu_max = 226.12378970915418
+└   gpu_max = 226.12378970915418
+┌ Info: GPU field error
+│   field = "T"
+│   batch = 3
+│   normalized_error = 6.581653742504826e-15
+│   cpu_max = 329.3517408374681
+└   gpu_max = 329.35174083746824
+Skipping worker initialization due to NOFASTSCAN_SKIP_WORKERS=1
+Test Summary:                             | Pass  Total   Time
+deterministic GPU corrected full-curl RHS |   62     62  10.5s
+Test Summary:                                 | Pass  Total  Time
+unsupported GPU RHS options reject explicitly |    7      7  0.1s

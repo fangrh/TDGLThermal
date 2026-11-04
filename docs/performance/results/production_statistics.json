@@ -1,0 +1,1360 @@
+{
+  "all_actual_paired_series_exactly_equal": true,
+  "autocorrelation_note": "Block adequacy is reported per reference trajectory; fewer than 10 blocks is inconclusive, not a failure of physical equivalence.",
+  "currents": [
+    {
+      "Je": 0.06,
+      "n_trajectories": 8,
+      "pairs": [
+        {
+          "candidate": {
+            "output_hash": "7488744284804ef634e8d099cbb2d27e99a10c8f157e7cc30d2cb9c825acc649",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110401/segment1/Je0.06/rep1/cpu_compatible_Je0.06_seed2026110401.h5"
+          },
+          "reference": {
+            "output_hash": "8ca0375350d81456d0d86c99b0082ed7a28347f0cf0b18756619505b5ab16342",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110401/segment1/Je0.06/rep1/reference_Je0.06_seed2026110401.h5"
+          },
+          "seed": 2026110401
+        },
+        {
+          "candidate": {
+            "output_hash": "a9b379e1365a145a97a8ce702458de4f6a2e40448ae6dd76af0f5e292bebe5d9",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110402/segment1/Je0.06/rep1/cpu_compatible_Je0.06_seed2026110402.h5"
+          },
+          "reference": {
+            "output_hash": "2a2cf3ac8d6f971bfd7f20c5c01d6c33854bf4315a377082f2d0e72aeaf8f9cf",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110402/segment1/Je0.06/rep1/reference_Je0.06_seed2026110402.h5"
+          },
+          "seed": 2026110402
+        },
+        {
+          "candidate": {
+            "output_hash": "b247702732f7c91ebd9fa832ff3511bacc7289f9eeca438c09d12573ee6084e4",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110403/segment1/Je0.06/rep1/cpu_compatible_Je0.06_seed2026110403.h5"
+          },
+          "reference": {
+            "output_hash": "7cb7d843f67ddc926c98fa86d6a6ea1bee667c9eef94c5348aaf818531a8b332",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110403/segment1/Je0.06/rep1/reference_Je0.06_seed2026110403.h5"
+          },
+          "seed": 2026110403
+        },
+        {
+          "candidate": {
+            "output_hash": "eec59fc9db2a3e82ae482caf76facdeaabb9025afbb7c9cf3a50fb4f2405652d",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110404/segment1/Je0.06/rep1/cpu_compatible_Je0.06_seed2026110404.h5"
+          },
+          "reference": {
+            "output_hash": "67d7d4529958be6be3a825b6dd4a0f1a645528da01a4aae7f5a133373f2eb5e6",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110404/segment1/Je0.06/rep1/reference_Je0.06_seed2026110404.h5"
+          },
+          "seed": 2026110404
+        },
+        {
+          "candidate": {
+            "output_hash": "fc4d6234c29ce8ed0911a469eb5a11a40194165b085c90c346b84baac78ec2af",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110405/segment1/Je0.06/rep1/cpu_compatible_Je0.06_seed2026110405.h5"
+          },
+          "reference": {
+            "output_hash": "4ab8b15066dc2689d9420469ef28fbf79e3850f430c01a8a973f374beeebf484",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110405/segment1/Je0.06/rep1/reference_Je0.06_seed2026110405.h5"
+          },
+          "seed": 2026110405
+        },
+        {
+          "candidate": {
+            "output_hash": "d27e5f3491fe37c21cb83ddae8650d4ad72c6567440d9f36b06ca15dd8ff6ab4",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110406/segment1/Je0.06/rep1/cpu_compatible_Je0.06_seed2026110406.h5"
+          },
+          "reference": {
+            "output_hash": "52460c5ca579120bfd872e5a3b72c745d243c16f3295e2ff9bf5e5cdfc0717d4",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110406/segment1/Je0.06/rep1/reference_Je0.06_seed2026110406.h5"
+          },
+          "seed": 2026110406
+        },
+        {
+          "candidate": {
+            "output_hash": "76f5239ce03587e2ed6957def830dda6a7720a6f0f6fa75e48c83571fc1fc8df",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110407/segment1/Je0.06/rep1/cpu_compatible_Je0.06_seed2026110407.h5"
+          },
+          "reference": {
+            "output_hash": "a4b62918d37bd527058c8da605d84806557e11a3bbfe761a2fd17dcff7e60687",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110407/segment1/Je0.06/rep1/reference_Je0.06_seed2026110407.h5"
+          },
+          "seed": 2026110407
+        },
+        {
+          "candidate": {
+            "output_hash": "ae57d6fa347b20ee6fe0fcb2ef7de369d465b993806647efdf0b150fe818ca06",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110408/segment1/Je0.06/rep1/cpu_compatible_Je0.06_seed2026110408.h5"
+          },
+          "reference": {
+            "output_hash": "9a17b18d51fc787613017f93a396937bf6a640dc8398dc64e8fa812f64ae3e7e",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.06/seed2026110408/segment1/Je0.06/rep1/reference_Je0.06_seed2026110408.h5"
+          },
+          "seed": 2026110408
+        }
+      ],
+      "signals": {
+        "T_avg": {
+          "all_actual_paired_series_finite": true,
+          "autocorrelation": {
+            "adequate_for_block_summary": false,
+            "all_have_at_least_10_blocks": false,
+            "method": "initial positive pairs",
+            "reference_trajectories": [
+              {
+                "block_count": 5,
+                "block_length": 85,
+                "n_samples": 501,
+                "positive_lags": 47,
+                "tau_int_initial_positive_pairs": 8.415140485496185
+              },
+              {
+                "block_count": 6,
+                "block_length": 81,
+                "n_samples": 501,
+                "positive_lags": 52,
+                "tau_int_initial_positive_pairs": 8.086163837283696
+              },
+              {
+                "block_count": 4,
+                "block_length": 101,
+                "n_samples": 501,
+                "positive_lags": 50,
+                "tau_int_initial_positive_pairs": 10.012866564965153
+              },
+              {
+                "block_count": 7,
+                "block_length": 64,
+                "n_samples": 501,
+                "positive_lags": 34,
+                "tau_int_initial_positive_pairs": 6.3130143792797195
+              },
+              {
+                "block_count": 11,
+                "block_length": 44,
+                "n_samples": 501,
+                "positive_lags": 15,
+                "tau_int_initial_positive_pairs": 4.382680034724826
+              },
+              {
+                "block_count": 11,
+                "block_length": 45,
+                "n_samples": 501,
+                "positive_lags": 16,
+                "tau_int_initial_positive_pairs": 4.427025387162132
+              },
+              {
+                "block_count": 8,
+                "block_length": 61,
+                "n_samples": 501,
+                "positive_lags": 18,
+                "tau_int_initial_positive_pairs": 6.096503447767574
+              },
+              {
+                "block_count": 8,
+                "block_length": 57,
+                "n_samples": 501,
+                "positive_lags": 35,
+                "tau_int_initial_positive_pairs": 5.637809884767923
+              }
+            ]
+          },
+          "candidate_trajectory_mean": [
+            0.18119817669852809,
+            0.18115060705316233,
+            0.18113733928561368,
+            0.18114525592315667,
+            0.18115245980781286,
+            0.18115531654221495,
+            0.1811500068096932,
+            0.18113607700090154
+          ],
+          "candidate_trajectory_std": [
+            0.0005920749258266285,
+            7.012455395016057e-05,
+            6.684843507819489e-05,
+            6.726133283994852e-05,
+            7.07111540512912e-05,
+            7.148986777922121e-05,
+            7.356270550358138e-05,
+            5.232755271381972e-05
+          ],
+          "direct_series_array_equal": true,
+          "meaning": "psi_avg is mean |psi|^2 over the saved trajectory",
+          "one_percent_rms_lower_bound": 2.192636162060668e-06,
+          "paired_95pct_CI": [
+            0.0,
+            0.0
+          ],
+          "paired_mean_difference_candidate_minus_reference": 0.0,
+          "pooled_reference_mean": 0.18115315489013545,
+          "pooled_reference_rms": 0.0002192636162060668,
+          "reference_trajectory_mean": [
+            0.18119817669852809,
+            0.18115060705316233,
+            0.18113733928561368,
+            0.18114525592315667,
+            0.18115245980781286,
+            0.18115531654221495,
+            0.1811500068096932,
+            0.18113607700090154
+          ],
+          "reference_trajectory_std": [
+            0.0005920749258266285,
+            7.012455395016057e-05,
+            6.684843507819489e-05,
+            6.726133283994852e-05,
+            7.07111540512912e-05,
+            7.148986777922121e-05,
+            7.356270550358138e-05,
+            5.232755271381972e-05
+          ]
+        },
+        "V": {
+          "all_actual_paired_series_finite": true,
+          "autocorrelation": {
+            "adequate_for_block_summary": false,
+            "all_have_at_least_10_blocks": false,
+            "method": "initial positive pairs",
+            "reference_trajectories": [
+              {
+                "block_count": 8,
+                "block_length": 59,
+                "n_samples": 501,
+                "positive_lags": 63,
+                "tau_int_initial_positive_pairs": 5.814572275357342
+              },
+              {
+                "block_count": 45,
+                "block_length": 11,
+                "n_samples": 501,
+                "positive_lags": 2,
+                "tau_int_initial_positive_pairs": 1.059056382092349
+              },
+              {
+                "block_count": 29,
+                "block_length": 17,
+                "n_samples": 501,
+                "positive_lags": 11,
+                "tau_int_initial_positive_pairs": 1.6478607632738584
+              },
+              {
+                "block_count": 38,
+                "block_length": 13,
+                "n_samples": 501,
+                "positive_lags": 10,
+                "tau_int_initial_positive_pairs": 1.2653428163363016
+              },
+              {
+                "block_count": 45,
+                "block_length": 11,
+                "n_samples": 501,
+                "positive_lags": 3,
+                "tau_int_initial_positive_pairs": 1.0846723674597487
+              },
+              {
+                "block_count": 33,
+                "block_length": 15,
+                "n_samples": 501,
+                "positive_lags": 5,
+                "tau_int_initial_positive_pairs": 1.467773327529894
+              },
+              {
+                "block_count": 35,
+                "block_length": 14,
+                "n_samples": 501,
+                "positive_lags": 7,
+                "tau_int_initial_positive_pairs": 1.3812557051508665
+              },
+              {
+                "block_count": 45,
+                "block_length": 11,
+                "n_samples": 501,
+                "positive_lags": 3,
+                "tau_int_initial_positive_pairs": 1.0944568865351318
+              }
+            ]
+          },
+          "candidate_trajectory_mean": [
+            0.003679436372658954,
+            7.514366152982088e-08,
+            3.552418795990076e-07,
+            -9.320060993308152e-08,
+            -1.8949943828280516e-06,
+            5.042501786985989e-07,
+            -2.633261736199211e-07,
+            -7.973271650059957e-07
+          ],
+          "candidate_trajectory_std": [
+            0.01561935659753196,
+            5.43304514404101e-05,
+            5.453519613553653e-05,
+            5.3095561700484084e-05,
+            4.9501285912898946e-05,
+            5.325621613030322e-05,
+            5.2379013247499954e-05,
+            5.2675310044488435e-05
+          ],
+          "direct_series_array_equal": true,
+          "meaning": "psi_avg is mean |psi|^2 over the saved trajectory",
+          "one_percent_rms_lower_bound": 5.6496103417696555e-05,
+          "paired_95pct_CI": [
+            0.0,
+            0.0
+          ],
+          "paired_mean_difference_candidate_minus_reference": 0.0,
+          "pooled_reference_mean": 0.0004596652700059244,
+          "pooled_reference_rms": 0.005649610341769655,
+          "reference_trajectory_mean": [
+            0.003679436372658954,
+            7.514366152982088e-08,
+            3.552418795990076e-07,
+            -9.320060993308152e-08,
+            -1.8949943828280516e-06,
+            5.042501786985989e-07,
+            -2.633261736199211e-07,
+            -7.973271650059957e-07
+          ],
+          "reference_trajectory_std": [
+            0.01561935659753196,
+            5.43304514404101e-05,
+            5.453519613553653e-05,
+            5.3095561700484084e-05,
+            4.9501285912898946e-05,
+            5.325621613030322e-05,
+            5.2379013247499954e-05,
+            5.2675310044488435e-05
+          ]
+        },
+        "psi_avg": {
+          "all_actual_paired_series_finite": true,
+          "autocorrelation": {
+            "adequate_for_block_summary": false,
+            "all_have_at_least_10_blocks": false,
+            "method": "initial positive pairs",
+            "reference_trajectories": [
+              {
+                "block_count": 0,
+                "block_length": 866,
+                "n_samples": 501,
+                "positive_lags": 163,
+                "tau_int_initial_positive_pairs": 86.50823111976365
+              },
+              {
+                "block_count": 2,
+                "block_length": 250,
+                "n_samples": 501,
+                "positive_lags": 50,
+                "tau_int_initial_positive_pairs": 24.93847668786938
+              },
+              {
+                "block_count": 0,
+                "block_length": 668,
+                "n_samples": 501,
+                "positive_lags": 127,
+                "tau_int_initial_positive_pairs": 66.78913105862951
+              },
+              {
+                "block_count": 0,
+                "block_length": 617,
+                "n_samples": 501,
+                "positive_lags": 131,
+                "tau_int_initial_positive_pairs": 61.68694128398525
+              },
+              {
+                "block_count": 2,
+                "block_length": 196,
+                "n_samples": 501,
+                "positive_lags": 59,
+                "tau_int_initial_positive_pairs": 19.58247366697133
+              },
+              {
+                "block_count": 1,
+                "block_length": 400,
+                "n_samples": 501,
+                "positive_lags": 78,
+                "tau_int_initial_positive_pairs": 39.99467406609935
+              },
+              {
+                "block_count": 1,
+                "block_length": 325,
+                "n_samples": 501,
+                "positive_lags": 67,
+                "tau_int_initial_positive_pairs": 32.486497716546765
+              },
+              {
+                "block_count": 0,
+                "block_length": 578,
+                "n_samples": 501,
+                "positive_lags": 113,
+                "tau_int_initial_positive_pairs": 57.704085939551355
+              }
+            ]
+          },
+          "candidate_trajectory_mean": [
+            0.795722064926706,
+            0.8146014863802982,
+            0.814642134924916,
+            0.8149658508400539,
+            0.8147144501299036,
+            0.8146402763275997,
+            0.8147920204651911,
+            0.8149174013206799
+          ],
+          "candidate_trajectory_std": [
+            0.008203204882444965,
+            0.0001175213455071988,
+            0.0002517129599760179,
+            0.0001807987643670227,
+            0.00010248163405592096,
+            0.00014196206194560292,
+            0.00011884744571289289,
+            0.00018637874230658936
+          ],
+          "direct_series_array_equal": true,
+          "meaning": "psi_avg is mean |psi|^2 over the saved trajectory",
+          "one_percent_rms_lower_bound": 6.931697510393129e-05,
+          "paired_95pct_CI": [
+            0.0,
+            0.0
+          ],
+          "paired_mean_difference_candidate_minus_reference": 0.0,
+          "pooled_reference_mean": 0.8123744606644185,
+          "pooled_reference_rms": 0.0069316975103931285,
+          "reference_trajectory_mean": [
+            0.795722064926706,
+            0.8146014863802982,
+            0.814642134924916,
+            0.8149658508400539,
+            0.8147144501299036,
+            0.8146402763275997,
+            0.8147920204651911,
+            0.8149174013206799
+          ],
+          "reference_trajectory_std": [
+            0.008203204882444965,
+            0.0001175213455071988,
+            0.0002517129599760179,
+            0.0001807987643670227,
+            0.00010248163405592096,
+            0.00014196206194560292,
+            0.00011884744571289289,
+            0.00018637874230658936
+          ]
+        }
+      }
+    },
+    {
+      "Je": 0.18,
+      "n_trajectories": 8,
+      "pairs": [
+        {
+          "candidate": {
+            "output_hash": "5f1b8b4e1cd3c488af98ce9c0211d3894163b0baf1c6776bf109c757b1f3a24f",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110401/segment1/Je0.18/rep1/cpu_compatible_Je0.18_seed2026110401.h5"
+          },
+          "reference": {
+            "output_hash": "e6abf76dcedb3cee648cd4bd64a85531423c831cc7923e8fd88ef2518b45cb63",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110401/segment1/Je0.18/rep1/reference_Je0.18_seed2026110401.h5"
+          },
+          "seed": 2026110401
+        },
+        {
+          "candidate": {
+            "output_hash": "f5f7b8229d9d6ea6b38d5c4667694da4ad739694e4d9836e78f66a3e9117fd1d",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110402/segment1/Je0.18/rep1/cpu_compatible_Je0.18_seed2026110402.h5"
+          },
+          "reference": {
+            "output_hash": "ba179563ece64ee633ecfe70fa864e1848180f52ba93fe1fa91e85fd6e4e0f5b",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110402/segment1/Je0.18/rep1/reference_Je0.18_seed2026110402.h5"
+          },
+          "seed": 2026110402
+        },
+        {
+          "candidate": {
+            "output_hash": "8cd6363771a15967347e15d58a448de072723daad9dc82bd29dd8c17663bf3c2",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110403/segment1/Je0.18/rep1/cpu_compatible_Je0.18_seed2026110403.h5"
+          },
+          "reference": {
+            "output_hash": "8fd0b251880f14175f75079fddad5fd452f5bf17b181dd756e929a9c36bce17f",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110403/segment1/Je0.18/rep1/reference_Je0.18_seed2026110403.h5"
+          },
+          "seed": 2026110403
+        },
+        {
+          "candidate": {
+            "output_hash": "b39e875728e2e5a9f83a6313489d506bae046e5d056c195d94acdc8459ad0f1a",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110404/segment1/Je0.18/rep1/cpu_compatible_Je0.18_seed2026110404.h5"
+          },
+          "reference": {
+            "output_hash": "76ae20b37aad3b45e55c336211cf109e920cb24067eaf5887ec67649cd999129",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110404/segment1/Je0.18/rep1/reference_Je0.18_seed2026110404.h5"
+          },
+          "seed": 2026110404
+        },
+        {
+          "candidate": {
+            "output_hash": "48dbcac4e61298979bc1d5a00b1d59e6e9b8a4ea3c0b172765b0b290e2b8e73f",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110405/segment1/Je0.18/rep1/cpu_compatible_Je0.18_seed2026110405.h5"
+          },
+          "reference": {
+            "output_hash": "47df603f6c9aabace198a9bae3c8d9c76081586c24b5270606bfdfbb32da7e71",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110405/segment1/Je0.18/rep1/reference_Je0.18_seed2026110405.h5"
+          },
+          "seed": 2026110405
+        },
+        {
+          "candidate": {
+            "output_hash": "aa060d4a22596cd90c94c5c75a8455c88af626766e0fd6077071c5b1c148e504",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110406/segment1/Je0.18/rep1/cpu_compatible_Je0.18_seed2026110406.h5"
+          },
+          "reference": {
+            "output_hash": "33cdb0984b8ce4eadce70058caa6cecbc738e36f9e69c16401bfa2bb1098094e",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110406/segment1/Je0.18/rep1/reference_Je0.18_seed2026110406.h5"
+          },
+          "seed": 2026110406
+        },
+        {
+          "candidate": {
+            "output_hash": "105a8cec0c61293c98a08154bfca3bb561f3dcf81d2c15e392378e069797797e",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110407/segment1/Je0.18/rep1/cpu_compatible_Je0.18_seed2026110407.h5"
+          },
+          "reference": {
+            "output_hash": "976121b248b2e2960f3ff8cea069142a07212a728864f19e8ec4b0eccf65e938",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110407/segment1/Je0.18/rep1/reference_Je0.18_seed2026110407.h5"
+          },
+          "seed": 2026110407
+        },
+        {
+          "candidate": {
+            "output_hash": "a119e97de7b06aa75a3d1701d92bda52e8c10f148c2de0deec1bbeebb0c31064",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110408/segment1/Je0.18/rep1/cpu_compatible_Je0.18_seed2026110408.h5"
+          },
+          "reference": {
+            "output_hash": "1103907b38326b3999b4dca1ba7dae25f0de03ae8a8113b63ff266471e4d1273",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.18/seed2026110408/segment1/Je0.18/rep1/reference_Je0.18_seed2026110408.h5"
+          },
+          "seed": 2026110408
+        }
+      ],
+      "signals": {
+        "T_avg": {
+          "all_actual_paired_series_finite": true,
+          "autocorrelation": {
+            "adequate_for_block_summary": true,
+            "all_have_at_least_10_blocks": true,
+            "method": "initial positive pairs",
+            "reference_trajectories": [
+              {
+                "block_count": 55,
+                "block_length": 9,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.8110353513222054
+              },
+              {
+                "block_count": 55,
+                "block_length": 9,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.8498701130375375
+              },
+              {
+                "block_count": 55,
+                "block_length": 9,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.8178577448884279
+              },
+              {
+                "block_count": 55,
+                "block_length": 9,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.8130564189841185
+              },
+              {
+                "block_count": 55,
+                "block_length": 9,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.849830867098886
+              },
+              {
+                "block_count": 55,
+                "block_length": 9,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.8525503885182566
+              },
+              {
+                "block_count": 55,
+                "block_length": 9,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.8469221521505423
+              },
+              {
+                "block_count": 55,
+                "block_length": 9,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.81503432362552
+              }
+            ]
+          },
+          "candidate_trajectory_mean": [
+            0.20965444547848103,
+            0.21006308318406852,
+            0.20965251518320502,
+            0.20972526170360253,
+            0.21011791977861652,
+            0.21012074238317663,
+            0.21005280574766705,
+            0.20965140326363182
+          ],
+          "candidate_trajectory_std": [
+            0.0023088508092279927,
+            0.002150843806252514,
+            0.0023050752975566323,
+            0.0023108674727439463,
+            0.002157797936062201,
+            0.002141806705047648,
+            0.0021541196282007227,
+            0.0023079731941560637
+          ],
+          "direct_series_array_equal": true,
+          "meaning": "psi_avg is mean |psi|^2 over the saved trajectory",
+          "one_percent_rms_lower_bound": 2.2388079084826727e-05,
+          "paired_95pct_CI": [
+            0.0,
+            0.0
+          ],
+          "paired_mean_difference_candidate_minus_reference": 0.0,
+          "pooled_reference_mean": 0.20987977209030614,
+          "pooled_reference_rms": 0.0022388079084826725,
+          "reference_trajectory_mean": [
+            0.20965444547848103,
+            0.21006308318406852,
+            0.20965251518320502,
+            0.20972526170360253,
+            0.21011791977861652,
+            0.21012074238317663,
+            0.21005280574766705,
+            0.20965140326363182
+          ],
+          "reference_trajectory_std": [
+            0.0023088508092279927,
+            0.002150843806252514,
+            0.0023050752975566323,
+            0.0023108674727439463,
+            0.002157797936062201,
+            0.002141806705047648,
+            0.0021541196282007227,
+            0.0023079731941560637
+          ]
+        },
+        "V": {
+          "all_actual_paired_series_finite": true,
+          "autocorrelation": {
+            "adequate_for_block_summary": true,
+            "all_have_at_least_10_blocks": true,
+            "method": "initial positive pairs",
+            "reference_trajectories": [
+              {
+                "block_count": 83,
+                "block_length": 6,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.5655023292446549
+              },
+              {
+                "block_count": 62,
+                "block_length": 8,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.7247632296461699
+              },
+              {
+                "block_count": 83,
+                "block_length": 6,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.5801722032755422
+              },
+              {
+                "block_count": 83,
+                "block_length": 6,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.570550741172679
+              },
+              {
+                "block_count": 62,
+                "block_length": 8,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.7270140112264768
+              },
+              {
+                "block_count": 62,
+                "block_length": 8,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.7215399050259157
+              },
+              {
+                "block_count": 62,
+                "block_length": 8,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.7214651404175431
+              },
+              {
+                "block_count": 83,
+                "block_length": 6,
+                "n_samples": 501,
+                "positive_lags": 1,
+                "tau_int_initial_positive_pairs": 0.579236949046365
+              }
+            ]
+          },
+          "candidate_trajectory_mean": [
+            0.8223066755724955,
+            0.8342626296382223,
+            0.8224987311140155,
+            0.823770627503059,
+            0.834984251367918,
+            0.836198769873192,
+            0.8333740717432654,
+            0.8216526679328497
+          ],
+          "candidate_trajectory_std": [
+            0.07079229513409421,
+            0.06803534051912843,
+            0.07116392819876599,
+            0.07157009517281983,
+            0.06839121912047148,
+            0.06740455355573585,
+            0.06788868517893402,
+            0.07236982389587755
+          ],
+          "direct_series_array_equal": true,
+          "meaning": "psi_avg is mean |psi|^2 over the saved trajectory",
+          "one_percent_rms_lower_bound": 0.0006992681347744346,
+          "paired_95pct_CI": [
+            0.0,
+            0.0
+          ],
+          "paired_mean_difference_candidate_minus_reference": 0.0,
+          "pooled_reference_mean": 0.8286310530931272,
+          "pooled_reference_rms": 0.06992681347744346,
+          "reference_trajectory_mean": [
+            0.8223066755724955,
+            0.8342626296382223,
+            0.8224987311140155,
+            0.823770627503059,
+            0.834984251367918,
+            0.836198769873192,
+            0.8333740717432654,
+            0.8216526679328497
+          ],
+          "reference_trajectory_std": [
+            0.07079229513409421,
+            0.06803534051912843,
+            0.07116392819876599,
+            0.07157009517281983,
+            0.06839121912047148,
+            0.06740455355573585,
+            0.06788868517893402,
+            0.07236982389587755
+          ]
+        },
+        "psi_avg": {
+          "all_actual_paired_series_finite": true,
+          "autocorrelation": {
+            "adequate_for_block_summary": false,
+            "all_have_at_least_10_blocks": false,
+            "method": "initial positive pairs",
+            "reference_trajectories": [
+              {
+                "block_count": 0,
+                "block_length": 760,
+                "n_samples": 501,
+                "positive_lags": 168,
+                "tau_int_initial_positive_pairs": 75.96493586854294
+              },
+              {
+                "block_count": 0,
+                "block_length": 589,
+                "n_samples": 501,
+                "positive_lags": 135,
+                "tau_int_initial_positive_pairs": 58.88726265752436
+              },
+              {
+                "block_count": 0,
+                "block_length": 576,
+                "n_samples": 501,
+                "positive_lags": 144,
+                "tau_int_initial_positive_pairs": 57.56276176025548
+              },
+              {
+                "block_count": 1,
+                "block_length": 438,
+                "n_samples": 501,
+                "positive_lags": 113,
+                "tau_int_initial_positive_pairs": 43.725516182971965
+              },
+              {
+                "block_count": 1,
+                "block_length": 272,
+                "n_samples": 501,
+                "positive_lags": 57,
+                "tau_int_initial_positive_pairs": 27.18672263613173
+              },
+              {
+                "block_count": 1,
+                "block_length": 361,
+                "n_samples": 501,
+                "positive_lags": 88,
+                "tau_int_initial_positive_pairs": 36.06566478641057
+              },
+              {
+                "block_count": 6,
+                "block_length": 82,
+                "n_samples": 501,
+                "positive_lags": 18,
+                "tau_int_initial_positive_pairs": 8.108994581699218
+              },
+              {
+                "block_count": 1,
+                "block_length": 460,
+                "n_samples": 501,
+                "positive_lags": 96,
+                "tau_int_initial_positive_pairs": 45.930469396087055
+              }
+            ]
+          },
+          "candidate_trajectory_mean": [
+            0.6269532171205361,
+            0.6261608570934332,
+            0.6267904947427788,
+            0.6267947195140287,
+            0.625898025281483,
+            0.6261558066356641,
+            0.6263519656225229,
+            0.6269980361321313
+          ],
+          "candidate_trajectory_std": [
+            0.00016359524715985757,
+            0.00014835805453570526,
+            0.00017124675026755656,
+            0.00011207579027083991,
+            0.0001181241002068352,
+            0.00013566603668141534,
+            8.158844756311849e-05,
+            0.00018219706754354353
+          ],
+          "direct_series_array_equal": true,
+          "meaning": "psi_avg is mean |psi|^2 over the saved trajectory",
+          "one_percent_rms_lower_bound": 4.1888003428822655e-06,
+          "paired_95pct_CI": [
+            0.0,
+            0.0
+          ],
+          "paired_mean_difference_candidate_minus_reference": 0.0,
+          "pooled_reference_mean": 0.6265128902678222,
+          "pooled_reference_rms": 0.00041888003428822656,
+          "reference_trajectory_mean": [
+            0.6269532171205361,
+            0.6261608570934332,
+            0.6267904947427788,
+            0.6267947195140287,
+            0.625898025281483,
+            0.6261558066356641,
+            0.6263519656225229,
+            0.6269980361321313
+          ],
+          "reference_trajectory_std": [
+            0.00016359524715985757,
+            0.00014835805453570526,
+            0.00017124675026755656,
+            0.00011207579027083991,
+            0.0001181241002068352,
+            0.00013566603668141534,
+            8.158844756311849e-05,
+            0.00018219706754354353
+          ]
+        }
+      }
+    },
+    {
+      "Je": 0.27,
+      "n_trajectories": 8,
+      "pairs": [
+        {
+          "candidate": {
+            "output_hash": "95be93b39b03cea15dc8c7a7f3f7e9ddaaff8b49bf0763445e732913a36e9d00",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110401/segment1/Je0.27/rep1/cpu_compatible_Je0.27_seed2026110401.h5"
+          },
+          "reference": {
+            "output_hash": "6dd2657b11150fb5933c3688e32717fe1d8e39ff577f535b30067cd751c4e19f",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110401/segment1/Je0.27/rep1/reference_Je0.27_seed2026110401.h5"
+          },
+          "seed": 2026110401
+        },
+        {
+          "candidate": {
+            "output_hash": "d5f722805252f017fe4d40da1e347a366966bbcf9bf062ef27c27917c439b633",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110402/segment1/Je0.27/rep1/cpu_compatible_Je0.27_seed2026110402.h5"
+          },
+          "reference": {
+            "output_hash": "178017a80dc5e8952a2533f17342ad827f4bc9d487bdef607bc17c8f913ef2d5",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110402/segment1/Je0.27/rep1/reference_Je0.27_seed2026110402.h5"
+          },
+          "seed": 2026110402
+        },
+        {
+          "candidate": {
+            "output_hash": "b2ea7056105709679498d3884ac716066b9d91e6771133c490855619afa908e8",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110403/segment1/Je0.27/rep1/cpu_compatible_Je0.27_seed2026110403.h5"
+          },
+          "reference": {
+            "output_hash": "84f81b5aab9837dc82a2c459a63da3782c5965d5f92b318daed69bea68fc0837",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110403/segment1/Je0.27/rep1/reference_Je0.27_seed2026110403.h5"
+          },
+          "seed": 2026110403
+        },
+        {
+          "candidate": {
+            "output_hash": "b326e024c1230caa55e509906821891af60802eca18a6545c6381623f7c3b6ac",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110404/segment1/Je0.27/rep1/cpu_compatible_Je0.27_seed2026110404.h5"
+          },
+          "reference": {
+            "output_hash": "e61a4fbc1b483d7bd12f6bb9e017820efe529be579768157f46b9e50e028ea5b",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110404/segment1/Je0.27/rep1/reference_Je0.27_seed2026110404.h5"
+          },
+          "seed": 2026110404
+        },
+        {
+          "candidate": {
+            "output_hash": "63a6c0ccf70690fa7b8e5bd23df71174b1cf5861dd52e5eb5500bee47aafa2f1",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110405/segment1/Je0.27/rep1/cpu_compatible_Je0.27_seed2026110405.h5"
+          },
+          "reference": {
+            "output_hash": "dcf50ebe96901ffcabeb4eb8c669f0129aaf4e6d8a9d1945135653623dc09bad",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110405/segment1/Je0.27/rep1/reference_Je0.27_seed2026110405.h5"
+          },
+          "seed": 2026110405
+        },
+        {
+          "candidate": {
+            "output_hash": "ec0849081893da987125647bcd3ebba5928271067c7c5b7052204406e52c8a38",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110406/segment1/Je0.27/rep1/cpu_compatible_Je0.27_seed2026110406.h5"
+          },
+          "reference": {
+            "output_hash": "892ade2642298466f733af59230403147a0dbf878777a9a8d142aaf510095cdb",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110406/segment1/Je0.27/rep1/reference_Je0.27_seed2026110406.h5"
+          },
+          "seed": 2026110406
+        },
+        {
+          "candidate": {
+            "output_hash": "aff205c8485b91e9b50ca8dcde923caf0969882c5c7b0c5ca9b57891fa8c3937",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110407/segment1/Je0.27/rep1/cpu_compatible_Je0.27_seed2026110407.h5"
+          },
+          "reference": {
+            "output_hash": "586bfe8167e0c61f27fc93d4a158faf5c7e3fb576599be170b569812dec21669",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110407/segment1/Je0.27/rep1/reference_Je0.27_seed2026110407.h5"
+          },
+          "seed": 2026110407
+        },
+        {
+          "candidate": {
+            "output_hash": "9e3916ba35fcd9b913cec58ebc2687c1ee449ef66f2302a05dc7f3859de54ba4",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110408/segment1/Je0.27/rep1/cpu_compatible_Je0.27_seed2026110408.h5"
+          },
+          "reference": {
+            "output_hash": "6ee29c7d4d4440a04f2f94178aba7ca6b72cc20bec3334d89d3eea26a59673b9",
+            "output_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000/Je0.27/seed2026110408/segment1/Je0.27/rep1/reference_Je0.27_seed2026110408.h5"
+          },
+          "seed": 2026110408
+        }
+      ],
+      "signals": {
+        "T_avg": {
+          "all_actual_paired_series_finite": true,
+          "autocorrelation": {
+            "adequate_for_block_summary": false,
+            "all_have_at_least_10_blocks": false,
+            "method": "initial positive pairs",
+            "reference_trajectories": [
+              {
+                "block_count": 5,
+                "block_length": 98,
+                "n_samples": 501,
+                "positive_lags": 29,
+                "tau_int_initial_positive_pairs": 9.777708984239228
+              },
+              {
+                "block_count": 0,
+                "block_length": 530,
+                "n_samples": 501,
+                "positive_lags": 167,
+                "tau_int_initial_positive_pairs": 52.980602204022574
+              },
+              {
+                "block_count": 0,
+                "block_length": 695,
+                "n_samples": 501,
+                "positive_lags": 191,
+                "tau_int_initial_positive_pairs": 69.4622478385351
+              },
+              {
+                "block_count": 1,
+                "block_length": 439,
+                "n_samples": 501,
+                "positive_lags": 95,
+                "tau_int_initial_positive_pairs": 43.88878109325782
+              },
+              {
+                "block_count": 0,
+                "block_length": 804,
+                "n_samples": 501,
+                "positive_lags": 172,
+                "tau_int_initial_positive_pairs": 80.36879378502083
+              },
+              {
+                "block_count": 1,
+                "block_length": 346,
+                "n_samples": 501,
+                "positive_lags": 78,
+                "tau_int_initial_positive_pairs": 34.528343542429525
+              },
+              {
+                "block_count": 2,
+                "block_length": 174,
+                "n_samples": 501,
+                "positive_lags": 56,
+                "tau_int_initial_positive_pairs": 17.318611001867488
+              },
+              {
+                "block_count": 1,
+                "block_length": 267,
+                "n_samples": 501,
+                "positive_lags": 62,
+                "tau_int_initial_positive_pairs": 26.650703803716002
+              }
+            ]
+          },
+          "candidate_trajectory_mean": [
+            0.4006777953259364,
+            0.40066618601163584,
+            0.40066902695951156,
+            0.4006734710244963,
+            0.40069099281196785,
+            0.4006779562503513,
+            0.40066371354439145,
+            0.40068131206011687
+          ],
+          "candidate_trajectory_std": [
+            4.34139766490252e-06,
+            5.897448643189335e-06,
+            1.0934144661787407e-05,
+            8.765309108275417e-06,
+            1.2694374348579286e-05,
+            7.682445529900577e-06,
+            5.262521006442815e-06,
+            6.5279068384642954e-06
+          ],
+          "direct_series_array_equal": true,
+          "meaning": "psi_avg is mean |psi|^2 over the saved trajectory",
+          "one_percent_rms_lower_bound": 1.1697408205363376e-07,
+          "paired_95pct_CI": [
+            0.0,
+            0.0
+          ],
+          "paired_mean_difference_candidate_minus_reference": 0.0,
+          "pooled_reference_mean": 0.400675056748551,
+          "pooled_reference_rms": 1.1697408205363376e-05,
+          "reference_trajectory_mean": [
+            0.4006777953259364,
+            0.40066618601163584,
+            0.40066902695951156,
+            0.4006734710244963,
+            0.40069099281196785,
+            0.4006779562503513,
+            0.40066371354439145,
+            0.40068131206011687
+          ],
+          "reference_trajectory_std": [
+            4.34139766490252e-06,
+            5.897448643189335e-06,
+            1.0934144661787407e-05,
+            8.765309108275417e-06,
+            1.2694374348579286e-05,
+            7.682445529900577e-06,
+            5.262521006442815e-06,
+            6.5279068384642954e-06
+          ]
+        },
+        "V": {
+          "all_actual_paired_series_finite": true,
+          "autocorrelation": {
+            "adequate_for_block_summary": false,
+            "all_have_at_least_10_blocks": false,
+            "method": "initial positive pairs",
+            "reference_trajectories": [
+              {
+                "block_count": 3,
+                "block_length": 145,
+                "n_samples": 501,
+                "positive_lags": 33,
+                "tau_int_initial_positive_pairs": 14.420728028990695
+              },
+              {
+                "block_count": 0,
+                "block_length": 689,
+                "n_samples": 501,
+                "positive_lags": 173,
+                "tau_int_initial_positive_pairs": 68.86646806780222
+              },
+              {
+                "block_count": 0,
+                "block_length": 786,
+                "n_samples": 501,
+                "positive_lags": 187,
+                "tau_int_initial_positive_pairs": 78.52604368252736
+              },
+              {
+                "block_count": 1,
+                "block_length": 490,
+                "n_samples": 501,
+                "positive_lags": 97,
+                "tau_int_initial_positive_pairs": 48.95279689554978
+              },
+              {
+                "block_count": 0,
+                "block_length": 869,
+                "n_samples": 501,
+                "positive_lags": 172,
+                "tau_int_initial_positive_pairs": 86.8494166859197
+              },
+              {
+                "block_count": 1,
+                "block_length": 402,
+                "n_samples": 501,
+                "positive_lags": 87,
+                "tau_int_initial_positive_pairs": 40.13724383756624
+              },
+              {
+                "block_count": 2,
+                "block_length": 219,
+                "n_samples": 501,
+                "positive_lags": 56,
+                "tau_int_initial_positive_pairs": 21.879076492357097
+              },
+              {
+                "block_count": 1,
+                "block_length": 304,
+                "n_samples": 501,
+                "positive_lags": 64,
+                "tau_int_initial_positive_pairs": 30.309730210479188
+              }
+            ]
+          },
+          "candidate_trajectory_mean": [
+            5.730488340868045,
+            5.729334646383626,
+            5.729677825488688,
+            5.730103899355843,
+            5.731809189758675,
+            5.730446794256802,
+            5.729067263866053,
+            5.730820451376278
+          ],
+          "candidate_trajectory_std": [
+            0.0003645525497921217,
+            0.0005648165066532061,
+            0.0010026682501750787,
+            0.0007975291955682395,
+            0.0011633075630208935,
+            0.0006473257378393119,
+            0.0004001964062643457,
+            0.0005730543384449181
+          ],
+          "direct_series_array_equal": true,
+          "meaning": "psi_avg is mean |psi|^2 over the saved trajectory",
+          "one_percent_rms_lower_bound": 1.105388000028456e-05,
+          "paired_95pct_CI": [
+            0.0,
+            0.0
+          ],
+          "paired_mean_difference_candidate_minus_reference": 0.0,
+          "pooled_reference_mean": 5.730218551419251,
+          "pooled_reference_rms": 0.001105388000028456,
+          "reference_trajectory_mean": [
+            5.730488340868045,
+            5.729334646383626,
+            5.729677825488688,
+            5.730103899355843,
+            5.731809189758675,
+            5.730446794256802,
+            5.729067263866053,
+            5.730820451376278
+          ],
+          "reference_trajectory_std": [
+            0.0003645525497921217,
+            0.0005648165066532061,
+            0.0010026682501750787,
+            0.0007975291955682395,
+            0.0011633075630208935,
+            0.0006473257378393119,
+            0.0004001964062643457,
+            0.0005730543384449181
+          ]
+        },
+        "psi_avg": {
+          "all_actual_paired_series_finite": true,
+          "autocorrelation": {
+            "adequate_for_block_summary": false,
+            "all_have_at_least_10_blocks": false,
+            "method": "initial positive pairs",
+            "reference_trajectories": [
+              {
+                "block_count": 2,
+                "block_length": 194,
+                "n_samples": 501,
+                "positive_lags": 50,
+                "tau_int_initial_positive_pairs": 19.336118564101238
+              },
+              {
+                "block_count": 0,
+                "block_length": 715,
+                "n_samples": 501,
+                "positive_lags": 182,
+                "tau_int_initial_positive_pairs": 71.46153767081456
+              },
+              {
+                "block_count": 2,
+                "block_length": 199,
+                "n_samples": 501,
+                "positive_lags": 51,
+                "tau_int_initial_positive_pairs": 19.81250677379557
+              },
+              {
+                "block_count": 1,
+                "block_length": 261,
+                "n_samples": 501,
+                "positive_lags": 80,
+                "tau_int_initial_positive_pairs": 26.025430713320354
+              },
+              {
+                "block_count": 0,
+                "block_length": 559,
+                "n_samples": 501,
+                "positive_lags": 173,
+                "tau_int_initial_positive_pairs": 55.857901090310314
+              },
+              {
+                "block_count": 0,
+                "block_length": 652,
+                "n_samples": 501,
+                "positive_lags": 153,
+                "tau_int_initial_positive_pairs": 65.18531408118369
+              },
+              {
+                "block_count": 0,
+                "block_length": 667,
+                "n_samples": 501,
+                "positive_lags": 124,
+                "tau_int_initial_positive_pairs": 66.65582357115548
+              },
+              {
+                "block_count": 1,
+                "block_length": 436,
+                "n_samples": 501,
+                "positive_lags": 89,
+                "tau_int_initial_positive_pairs": 43.57852988499008
+              }
+            ]
+          },
+          "candidate_trajectory_mean": [
+            0.27702272286170504,
+            0.2769324915566619,
+            0.27713455054324376,
+            0.2770077691166908,
+            0.2769789228406698,
+            0.27707190761511746,
+            0.27718672825216084,
+            0.27687866701579056
+          ],
+          "candidate_trajectory_std": [
+            4.475880239869615e-05,
+            0.00010100034361361326,
+            4.432171118639737e-05,
+            6.231273875783166e-05,
+            7.042062978866925e-05,
+            0.00012248167290785676,
+            0.00011572925070200583,
+            0.00011885905347819714
+          ],
+          "direct_series_array_equal": true,
+          "meaning": "psi_avg is mean |psi|^2 over the saved trajectory",
+          "one_percent_rms_lower_bound": 1.3140244494516046e-06,
+          "paired_95pct_CI": [
+            0.0,
+            0.0
+          ],
+          "paired_mean_difference_candidate_minus_reference": 0.0,
+          "pooled_reference_mean": 0.27702671997525496,
+          "pooled_reference_rms": 0.00013140244494516047,
+          "reference_trajectory_mean": [
+            0.27702272286170504,
+            0.2769324915566619,
+            0.27713455054324376,
+            0.2770077691166908,
+            0.2769789228406698,
+            0.27707190761511746,
+            0.27718672825216084,
+            0.27687866701579056
+          ],
+          "reference_trajectory_std": [
+            4.475880239869615e-05,
+            0.00010100034361361326,
+            4.432171118639737e-05,
+            6.231273875783166e-05,
+            7.042062978866925e-05,
+            0.00012248167290785676,
+            0.00011572925070200583,
+            0.00011885905347819714
+          ]
+        }
+      }
+    }
+  ],
+  "input_receipt": {
+    "path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/production_5000_artifacts.json",
+    "sha256": "176874b1266f75f7a35fc96ee14058345294df38eccb56b86036fcb4bd650daa"
+  },
+  "paired_ci_zero_for_all_signals": true,
+  "reference_tolerance_gate": {
+    "reason": "reference-only tolerance uncertainty was not supplied",
+    "status": "pending"
+  },
+  "rms_margin_rule": "descriptive 1% RMS lower-bound only; no scientific equivalence claim",
+  "schema": "tdgl-production-statistics-v1",
+  "signals": [
+    "V",
+    "T_avg",
+    "psi_avg"
+  ],
+  "student_t": {
+    "df": 7,
+    "n": 8,
+    "tcrit_95": 2.364624
+  },
+  "valid": true
+}

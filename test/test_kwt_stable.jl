@@ -24,9 +24,13 @@ cbig(x,y)=complex(Float64(x),Float64(y))
         ox,oy,D,rx,ry,a,b,gg,uu=oracle384(z,r,g,u); om=sqrt(ox^2+oy^2)
         for (name,v) in (("old32",kwt_old32(z,r,g,u)),("stable32",kwt_stable32(z,r,g,u)),("promoted64",kwt_promoted64(z,r,g,u)))
             ex=BigFloat(real(v))-ox; ey=BigFloat(imag(v))-oy; en=sqrt(ex^2+ey^2); norm=Float64(en/(1+om)); rel=om==0 ? Float64(en) : Float64(en/om); rr=sqrt(a^2+b^2); radial=rr==0 ? en : abs((ex*a+ey*b)/rr); tang=rr==0 ? en : abs((-ex*b+ey*a)/rr)
-            dheat=2*(rx*BigFloat(real(v))+ry*BigFloat(imag(v))); ideal=2*(rx*ox+ry*oy); heaterr=Float64(abs(dheat-ideal)/(1+abs(ideal)))
-            resid=sqrt((uu/sqrt(D)*(BigFloat(real(v))+gg^2*(a*BigFloat(real(v))+b*BigFloat(imag(v))))-rx)^2+(uu/sqrt(D)*(BigFloat(imag(v))+gg^2*(b*BigFloat(imag(v))+a*BigFloat(real(v))))-ry)^2)
-            push!(rows,(mode=name,amp=Float64(abs(z)),gamma=Float64(g),normalized_vector_error=norm,relative_vector_error=rel,radial_error=Float64(radial),tangential_error=Float64(tang),heat_normalized_error=heaterr,equation_residual=Float64(resid)))
+            vx=BigFloat(real(v));vy=BigFloat(imag(v));rad=a*vx+b*vy
+            dheat=2*(rx*vx+ry*vy);ideal=2*(rx*ox+ry*oy)
+            fullheat=2*uu/sqrt(D)*(vx^2+vy^2+gg^2*rad^2)
+            heaterr=Float64(abs(fullheat-ideal)/(1+abs(ideal)))
+            dualerr=Float64(abs(dheat-ideal)/(1+abs(ideal)))
+            resid=sqrt((uu/sqrt(D)*(vx+gg^2*a*rad)-rx)^2+(uu/sqrt(D)*(vy+gg^2*b*rad)-ry)^2)
+            push!(rows,(mode=name,amp=Float64(abs(z)),gamma=Float64(g),normalized_vector_error=norm,relative_vector_error=rel,radial_error=Float64(radial),tangential_error=Float64(tang),heat_normalized_error=heaterr,dual_heat_normalized_error=dualerr,equation_residual=Float64(resid)))
             if name=="promoted64" && om > big"1e-30"; @test rel < 3e-7; elseif name=="promoted64"; @test en < big"3e-7"; end
             maxpn=max(maxpn,norm); maxpr=max(maxpr,rel); maxheat=max(maxheat,heaterr); maxres=max(maxres,Float64(resid))
             if name=="promoted64"; maxpnp=max(maxpnp,norm); maxprp=max(maxprp,rel); maxhp=max(maxhp,heaterr); maxrp=max(maxrp,Float64(resid)); end

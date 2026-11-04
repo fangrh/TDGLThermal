@@ -27,7 +27,8 @@ function _k_dpsi_kwt!(dpsi,rhs,psi,ax,ay,temp,ux,uy,tc,s,::Val{Mode}) where {Mod
     return
 end
 
-function gpu_full_curl32_kwt_rhs!(du::CuArray{ComplexF32,2},u::CuArray{ComplexF32,2},c::GPUFullCurl32Cache,t;mode::Symbol=:stable32)
+function gpu_full_curl32_kwt_rhs!(du::CuArray{Complex{T},2},u::CuArray{Complex{T},2},c::GPUFullCurl32Cache,t;mode::Symbol=:stable32) where {T}
+    T in (Float32,Float64) || throw(ArgumentError("supported integration state types are Float32 and Float64"))
     mode in (:stable32,:promoted64) || throw(ArgumentError("mode must be :stable32 or :promoted64"))
     size(u)==size(du) || throw(DimensionMismatch("u and du must have identical packed shapes")); size(u,2)==length(c.currents) || throw(DimensionMismatch("batch count differs from cache currents"))
     CUDA.allowscalar(false); s=c.s; b=size(u,2); np=(Int(s.nx)+1)*(Int(s.ny)+1); na=Int(s.nx)*(Int(s.ny)+1); nb=(Int(s.nx)+1)*Int(s.ny); packed=2*np+na+nb; th=256

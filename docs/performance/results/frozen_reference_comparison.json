@@ -1,0 +1,17 @@
+{
+  "frozen_reference_commit": "6ce36684a46c8e9938b75cd843c26148fe71e008",
+  "noise": 0.001,
+  "horizon": 10,
+  "fieldwise_normalized_errors": {
+    "times": 0.0,
+    "V": 0.0,
+    "psi_avg": 0.0,
+    "T_avg": 0.0,
+    "psi_real": 0.0,
+    "psi_imag": 0.0,
+    "T": 0.0,
+    "Ax": 0.0,
+    "Ay": 0.0
+  },
+  "exact": true
+}

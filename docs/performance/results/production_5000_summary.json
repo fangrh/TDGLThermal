@@ -1,0 +1,20 @@
+{
+  "counts": {
+    "complete": 24,
+    "failed": 0,
+    "incomplete": 0,
+    "deferred": 0
+  },
+  "pair_count": 24,
+  "all_passed": true,
+  "max_field_error": 0.0,
+  "horizon": 5000,
+  "noise": 0.001,
+  "currents": [
+    0.06,
+    0.18,
+    0.27
+  ],
+  "seeds_per_current": 8,
+  "elapsed_seconds": 890.2554894608911
+}
