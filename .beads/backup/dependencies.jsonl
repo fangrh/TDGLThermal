@@ -6,3 +6,5 @@
 {"created_at":"2026-11-04T14:26:36Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj","issue_id":"tdglthermal-sxj.6","type":"parent-child"}
 {"created_at":"2026-11-04T14:57:53Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj","issue_id":"tdglthermal-sxj.7","type":"parent-child"}
 {"created_at":"2026-11-04T14:57:53Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj.6","issue_id":"tdglthermal-sxj.7","type":"discovered-from"}
+{"created_at":"2026-11-04T15:02:25Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj","issue_id":"tdglthermal-sxj.8","type":"parent-child"}
+{"created_at":"2026-11-04T15:02:25Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj.6","issue_id":"tdglthermal-sxj.8","type":"discovered-from"}
