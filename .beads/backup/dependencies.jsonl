@@ -1,6 +1,8 @@
 {"created_at":"2026-11-04T14:26:25Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj","issue_id":"tdglthermal-sxj.1","type":"parent-child"}
 {"created_at":"2026-11-04T15:59:44Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj","issue_id":"tdglthermal-sxj.10","type":"parent-child"}
 {"created_at":"2026-11-04T15:59:44Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj.9","issue_id":"tdglthermal-sxj.10","type":"discovered-from"}
+{"created_at":"2026-11-04T16:28:26Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj","issue_id":"tdglthermal-sxj.11","type":"parent-child"}
+{"created_at":"2026-11-04T16:28:26Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj.9","issue_id":"tdglthermal-sxj.11","type":"discovered-from"}
 {"created_at":"2026-11-04T14:26:27Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj","issue_id":"tdglthermal-sxj.2","type":"parent-child"}
 {"created_at":"2026-11-04T14:26:29Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj","issue_id":"tdglthermal-sxj.3","type":"parent-child"}
 {"created_at":"2026-11-04T14:26:32Z","created_by":"Ruihuan Fang","depends_on_id":"tdglthermal-sxj","issue_id":"tdglthermal-sxj.4","type":"parent-child"}
