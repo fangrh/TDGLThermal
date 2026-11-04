@@ -14,7 +14,7 @@ The accuracy budgets are derived from predeclared original-tolerance (1e-4) refe
 
 ## Scope boundaries
 
-The GPU whole-solve receipt is deterministic F64, state-saving only: no HDF5 or MP4 timing and no production-noise claim. GPU noise compatibility remains pending. The compatible CPU path preserves the packed state, adaptive Tsit5 integration, output schedule, and RNG call pattern; no fast-math or reduced precision is enabled.
+The GPU whole-solve receipt is deterministic F64, state-saving only: no HDF5 or MP4 timing and no production-noise claim. GPU noise compatibility remains pending. The compatible CPU path preserves the packed state, adaptive Tsit5 integration, output schedule, and RNG call pattern; no fast-math or reduced precision is enabled. The [production-noise investigation](noise_acceleration.md) separates measured RNG/RHS overhead from accepted-step count and reviews GPU, stabilized integration, and stochastic-model options.
 
 All lower-precision whole-solve candidates below were rejected. Each uses the same 99 states, horizon, common times and predeclared per-state budgets; no gate was relaxed.
 
