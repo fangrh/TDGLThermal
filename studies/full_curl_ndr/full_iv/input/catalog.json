@@ -1,0 +1,982 @@
+{
+  "schema": "tdgl-full-iv-catalog-v1",
+  "protocol": {
+    "temperature": 0.18,
+    "noise": 0.001,
+    "horizon": 50000,
+    "segment_horizon": 5000,
+    "snapshot_interval": 1,
+    "skip_ratio": 0.6,
+    "tolerance": 0.0001,
+    "seeds": [
+      2026110411
+    ],
+    "base_currents": [
+      0.0,
+      0.003061224489795918,
+      0.006122448979591836,
+      0.009183673469387754,
+      0.012244897959183673,
+      0.015306122448979591,
+      0.01836734693877551,
+      0.02142857142857143,
+      0.024489795918367346,
+      0.027551020408163263,
+      0.030612244897959183,
+      0.0336734693877551,
+      0.03673469387755102,
+      0.03979591836734694,
+      0.04285714285714286,
+      0.04591836734693878,
+      0.04897959183673469,
+      0.05204081632653061,
+      0.055102040816326525,
+      0.05816326530612245,
+      0.061224489795918366,
+      0.06428571428571428,
+      0.0673469387755102,
+      0.07040816326530612,
+      0.07346938775510203,
+      0.07653061224489796,
+      0.07959183673469387,
+      0.08265306122448979,
+      0.08571428571428572,
+      0.08877551020408163,
+      0.09183673469387756,
+      0.09489795918367346,
+      0.09795918367346938,
+      0.10102040816326531,
+      0.10408163265306122,
+      0.10714285714285714,
+      0.11020408163265305,
+      0.11326530612244898,
+      0.1163265306122449,
+      0.1193877551020408,
+      0.12244897959183673,
+      0.12551020408163263,
+      0.12857142857142856,
+      0.13163265306122449,
+      0.1346938775510204,
+      0.1377551020408163,
+      0.14081632653061224,
+      0.14387755102040817,
+      0.14693877551020407,
+      0.15,
+      0.15306122448979592,
+      0.15612244897959182,
+      0.15918367346938775,
+      0.16224489795918365,
+      0.16530612244897958,
+      0.1683673469387755,
+      0.17142857142857143,
+      0.17448979591836733,
+      0.17755102040816326,
+      0.18061224489795918,
+      0.1836734693877551,
+      0.18673469387755104,
+      0.1897959183673469,
+      0.19285714285714284,
+      0.19591836734693877,
+      0.1989795918367347,
+      0.20204081632653062,
+      0.20510204081632652,
+      0.20816326530612245,
+      0.21122448979591835,
+      0.21428571428571427,
+      0.2173469387755102,
+      0.2204081632653061,
+      0.22346938775510203,
+      0.22653061224489796,
+      0.22959183673469388,
+      0.2326530612244898,
+      0.23571428571428568,
+      0.2387755102040816,
+      0.24183673469387754,
+      0.24489795918367346,
+      0.2479591836734694,
+      0.25102040816326526,
+      0.2540816326530612,
+      0.2571428571428571,
+      0.2602040816326531,
+      0.26326530612244897,
+      0.26632653061224487,
+      0.2693877551020408,
+      0.2724489795918367,
+      0.2755102040816326,
+      0.2785714285714286,
+      0.2816326530612245,
+      0.2846938775510204,
+      0.28775510204081634,
+      0.29081632653061223,
+      0.29387755102040813,
+      0.29693877551020403,
+      0.3
+    ],
+    "refinement_currents": [
+      0.20918367346938774,
+      0.21020408163265306
+    ]
+  },
+  "points": [
+    {
+      "id": "base_i000_seed2026110411",
+      "Je": 0.0,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i001_seed2026110411",
+      "Je": 0.003061224489795918,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i002_seed2026110411",
+      "Je": 0.006122448979591836,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i003_seed2026110411",
+      "Je": 0.009183673469387754,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i004_seed2026110411",
+      "Je": 0.012244897959183673,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i005_seed2026110411",
+      "Je": 0.015306122448979591,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i006_seed2026110411",
+      "Je": 0.01836734693877551,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i007_seed2026110411",
+      "Je": 0.02142857142857143,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i008_seed2026110411",
+      "Je": 0.024489795918367346,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i009_seed2026110411",
+      "Je": 0.027551020408163263,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i010_seed2026110411",
+      "Je": 0.030612244897959183,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i011_seed2026110411",
+      "Je": 0.0336734693877551,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i012_seed2026110411",
+      "Je": 0.03673469387755102,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i013_seed2026110411",
+      "Je": 0.03979591836734694,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i014_seed2026110411",
+      "Je": 0.04285714285714286,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i015_seed2026110411",
+      "Je": 0.04591836734693878,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i016_seed2026110411",
+      "Je": 0.04897959183673469,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i017_seed2026110411",
+      "Je": 0.05204081632653061,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i018_seed2026110411",
+      "Je": 0.055102040816326525,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i019_seed2026110411",
+      "Je": 0.05816326530612245,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i020_seed2026110411",
+      "Je": 0.061224489795918366,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i021_seed2026110411",
+      "Je": 0.06428571428571428,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i022_seed2026110411",
+      "Je": 0.0673469387755102,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i023_seed2026110411",
+      "Je": 0.07040816326530612,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i024_seed2026110411",
+      "Je": 0.07346938775510203,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i025_seed2026110411",
+      "Je": 0.07653061224489796,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i026_seed2026110411",
+      "Je": 0.07959183673469387,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i027_seed2026110411",
+      "Je": 0.08265306122448979,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i028_seed2026110411",
+      "Je": 0.08571428571428572,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i029_seed2026110411",
+      "Je": 0.08877551020408163,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i030_seed2026110411",
+      "Je": 0.09183673469387756,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i031_seed2026110411",
+      "Je": 0.09489795918367346,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i032_seed2026110411",
+      "Je": 0.09795918367346938,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i033_seed2026110411",
+      "Je": 0.10102040816326531,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i034_seed2026110411",
+      "Je": 0.10408163265306122,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i035_seed2026110411",
+      "Je": 0.10714285714285714,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i036_seed2026110411",
+      "Je": 0.11020408163265305,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i037_seed2026110411",
+      "Je": 0.11326530612244898,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i038_seed2026110411",
+      "Je": 0.1163265306122449,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i039_seed2026110411",
+      "Je": 0.1193877551020408,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i040_seed2026110411",
+      "Je": 0.12244897959183673,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i041_seed2026110411",
+      "Je": 0.12551020408163263,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i042_seed2026110411",
+      "Je": 0.12857142857142856,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i043_seed2026110411",
+      "Je": 0.13163265306122449,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i044_seed2026110411",
+      "Je": 0.1346938775510204,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i045_seed2026110411",
+      "Je": 0.1377551020408163,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i046_seed2026110411",
+      "Je": 0.14081632653061224,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i047_seed2026110411",
+      "Je": 0.14387755102040817,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i048_seed2026110411",
+      "Je": 0.14693877551020407,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i049_seed2026110411",
+      "Je": 0.15,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i050_seed2026110411",
+      "Je": 0.15306122448979592,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i051_seed2026110411",
+      "Je": 0.15612244897959182,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i052_seed2026110411",
+      "Je": 0.15918367346938775,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i053_seed2026110411",
+      "Je": 0.16224489795918365,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i054_seed2026110411",
+      "Je": 0.16530612244897958,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i055_seed2026110411",
+      "Je": 0.1683673469387755,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i056_seed2026110411",
+      "Je": 0.17142857142857143,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i057_seed2026110411",
+      "Je": 0.17448979591836733,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i058_seed2026110411",
+      "Je": 0.17755102040816326,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i059_seed2026110411",
+      "Je": 0.18061224489795918,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i060_seed2026110411",
+      "Je": 0.1836734693877551,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i061_seed2026110411",
+      "Je": 0.18673469387755104,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i062_seed2026110411",
+      "Je": 0.1897959183673469,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i063_seed2026110411",
+      "Je": 0.19285714285714284,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i064_seed2026110411",
+      "Je": 0.19591836734693877,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i065_seed2026110411",
+      "Je": 0.1989795918367347,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i066_seed2026110411",
+      "Je": 0.20204081632653062,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_shoulder_low_seed2026110411/segment1/chain.json"
+      ],
+      "segments_to_run": 9
+    },
+    {
+      "id": "base_i067_seed2026110411",
+      "Je": 0.20510204081632652,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i068_seed2026110411",
+      "Je": 0.20816326530612245,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment1/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment2/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment3/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment4/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment5/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment6/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment7/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment8/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment9/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment10/chain.json"
+      ],
+      "segments_to_run": 0
+    },
+    {
+      "id": "base_i069_seed2026110411",
+      "Je": 0.21122448979591835,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment1/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment2/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment3/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment4/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment5/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment6/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment7/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment8/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment9/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment10/chain.json"
+      ],
+      "segments_to_run": 0
+    },
+    {
+      "id": "base_i070_seed2026110411",
+      "Je": 0.21428571428571427,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i071_seed2026110411",
+      "Je": 0.2173469387755102,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_shoulder_high_seed2026110411/segment1/chain.json"
+      ],
+      "segments_to_run": 9
+    },
+    {
+      "id": "base_i072_seed2026110411",
+      "Je": 0.2204081632653061,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i073_seed2026110411",
+      "Je": 0.22346938775510203,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i074_seed2026110411",
+      "Je": 0.22653061224489796,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i075_seed2026110411",
+      "Je": 0.22959183673469388,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i076_seed2026110411",
+      "Je": 0.2326530612244898,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i077_seed2026110411",
+      "Je": 0.23571428571428568,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i078_seed2026110411",
+      "Je": 0.2387755102040816,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i079_seed2026110411",
+      "Je": 0.24183673469387754,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i080_seed2026110411",
+      "Je": 0.24489795918367346,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i081_seed2026110411",
+      "Je": 0.2479591836734694,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i082_seed2026110411",
+      "Je": 0.25102040816326526,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i083_seed2026110411",
+      "Je": 0.2540816326530612,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i084_seed2026110411",
+      "Je": 0.2571428571428571,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i085_seed2026110411",
+      "Je": 0.2602040816326531,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i086_seed2026110411",
+      "Je": 0.26326530612244897,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i087_seed2026110411",
+      "Je": 0.26632653061224487,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i088_seed2026110411",
+      "Je": 0.2693877551020408,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i089_seed2026110411",
+      "Je": 0.2724489795918367,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i090_seed2026110411",
+      "Je": 0.2755102040816326,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i091_seed2026110411",
+      "Je": 0.2785714285714286,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i092_seed2026110411",
+      "Je": 0.2816326530612245,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i093_seed2026110411",
+      "Je": 0.2846938775510204,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i094_seed2026110411",
+      "Je": 0.28775510204081634,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i095_seed2026110411",
+      "Je": 0.29081632653061223,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i096_seed2026110411",
+      "Je": 0.29387755102040813,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i097_seed2026110411",
+      "Je": 0.29693877551020403,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "base_i098_seed2026110411",
+      "Je": 0.3,
+      "seed": 2026110411,
+      "kind": "base",
+      "existing_chain_paths": [],
+      "segments_to_run": 10
+    },
+    {
+      "id": "refinement_i000_seed2026110411",
+      "Je": 0.20918367346938774,
+      "seed": 2026110411,
+      "kind": "refinement",
+      "existing_chain_paths": [
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110411/segment1/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner1_seed2026110411/segment1/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner1_seed2026110411/segment2/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner1_seed2026110411/segment3/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner1_seed2026110411/segment4/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner1_seed2026110411/segment5/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner1_seed2026110411/segment6/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner1_seed2026110411/segment7/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner1_seed2026110411/segment8/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner1_seed2026110411/segment9/chain.json"
+      ],
+      "segments_to_run": 0
+    },
+    {
+      "id": "refinement_i001_seed2026110411",
+      "Je": 0.21020408163265306,
+      "seed": 2026110411,
+      "kind": "refinement",
+      "existing_chain_paths": [
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110411/segment1/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner2_seed2026110411/segment1/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner2_seed2026110411/segment2/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner2_seed2026110411/segment3/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner2_seed2026110411/segment4/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner2_seed2026110411/segment5/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner2_seed2026110411/segment6/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner2_seed2026110411/segment7/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner2_seed2026110411/segment8/chain.json",
+        "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_interior_50000_v1/screen_inner2_seed2026110411/segment9/chain.json"
+      ],
+      "segments_to_run": 0
+    }
+  ],
+  "jobs_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/full_iv_50000_v1/input/jobs.json",
+  "model_hash": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+  "config_hash": "d8c8a70d618b1bd17519552f483890d55fb1b0110b69a44bfdf2ad0591deca12",
+  "scope": "Independent hot preparations; global seed count is explicit; local eight-seed overlay is separate."
+}

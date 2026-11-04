@@ -1,0 +1,30 @@
+{
+  "valid": true,
+  "mixed_segment_lengths": [
+    0,
+    1,
+    2
+  ],
+  "cumulative_horizons_equal_target": true,
+  "checks": [
+    {
+      "job": "fresh",
+      "segment": 1,
+      "all9fields_exact_zero": true,
+      "rng_equal": true
+    },
+    {
+      "job": "fresh",
+      "segment": 2,
+      "all9fields_exact_zero": true,
+      "rng_equal": true
+    },
+    {
+      "job": "partial",
+      "segment": 1,
+      "all9fields_exact_zero": true,
+      "rng_equal": true
+    }
+  ],
+  "reused_checkpoint_unchanged": true
+}

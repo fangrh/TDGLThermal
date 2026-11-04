@@ -10,6 +10,7 @@ using JSON3, SHA, Dates, Printf, Serialization
 @everywhere using Serialization
 
 const _NDR_WORKER_SCRIPT = joinpath(@__DIR__, "benchmark_worker_scaling.jl")
+
 include(_NDR_WORKER_SCRIPT) # loads the model, helpers, and persistent workers
 
 _ndr_arg(name, default=nothing) = begin
@@ -85,15 +86,22 @@ function ndr_main()
         initial_rng = _field(item, "initial_rng_path", nothing)
         initial_rng_path = initial_rng === nothing ? nothing : abspath(String(initial_rng))
         prior = Float64(_field(item, "prior_cumulative_horizon", 0.0))
+        planned_segments = Int(_field(item, "segments", segments))
+        0 <= planned_segments <= segments || error("job $id segments must be in [0,$segments]")
+        planned_segments == 0 && (initial_path === nothing || initial_rng_path === nothing) &&
+            error("job $id with zero segments requires initial_state_path and initial_rng_path")
+        prior >= 0 || error("job $id prior_cumulative_horizon must be nonnegative")
         initial_path !== nothing && !isfile(initial_path) && error("missing initial state for $id: $initial_path")
         initial_rng_path !== nothing && !isfile(initial_rng_path) && error("missing initial RNG state for $id: $initial_rng_path")
         push!(jobs, (id=id, config_path=cfg, Je=Je, seed=seed, Nx=Nx, Ny=Ny,
                      noise=Float64(_field(item, "noise", NaN)), initial_state_path=initial_path,
-                     initial_rng_path=initial_rng_path, prior_cumulative_horizon=prior))
+                     initial_rng_path=initial_rng_path, prior_cumulative_horizon=prior,
+                     planned_segments=planned_segments))
     end
     # NaN means use the configured noise strength; this keeps jobs concise while
     # retaining an explicit override for controlled campaigns.
     jobs = [merge(j, (noise=isnan(j.noise) ? Float64(get_param(load_config_yaml(j.config_path), "noise", "strength", 0.001)) : j.noise,)) for j in jobs]
+    jobs_by_id = Dict(j.id => j for j in jobs)
 
     mkpath(out)
     warm_cfg = first(jobs).config_path
@@ -112,17 +120,27 @@ function ndr_main()
     for segment in 1:segments
         runjobs = NamedTuple[]
         for j in jobs
+            segment > j.planned_segments && continue
             segdir = joinpath(out, j.id, "segment$(segment)")
             isfile(joinpath(segdir, "chain.json")) && error("refusing to overwrite $segdir")
-            push!(runjobs, (config_path=j.config_path, Je=j.Je, noise=j.noise,
+            push!(runjobs, (id=j.id, config_path=j.config_path, Je=j.Je, noise=j.noise,
                 segment_seed=j.seed, Nx=j.Nx, Ny=j.Ny,
                 initial_state_path=previous[j.id], backend=backend, horizon=horizon,
                 tolerance=tolerance, snapshot_interval=snapshot, skip_ratio=skip,
                 rng_state_path=previous_rng[j.id],
                 output_dir=segdir))
         end
+        isempty(runjobs) && begin
+            _write_json(joinpath(out, "progress.json"),
+                (schema_version="tdgl-ndr-progress-v1", completed_segment=segment,
+                 total_segments=segments, completed_jobs=0, cumulative_horizons=cumulative))
+            continue
+        end
         manifests = pmap(_ndr_run_segment, runjobs)
-        for (j, result, spec) in zip(jobs, manifests, runjobs)
+        results_by_id = Dict(spec.id => result for (spec, result) in zip(runjobs, manifests))
+        for spec in runjobs
+            j = jobs_by_id[spec.id]
+            result = results_by_id[spec.id]
             r = result.manifest
             start = cumulative[j.id]; stop = start + horizon
             preceding = previous[j.id]
@@ -137,13 +155,24 @@ function ndr_main()
             previous[j.id] = r.output_path; cumulative[j.id] = stop
             previous_rng[j.id] = result.rng_after_path
         end
+        _write_json(joinpath(out, "progress.json"),
+            (schema_version="tdgl-ndr-progress-v1", completed_segment=segment,
+             total_segments=segments, completed_jobs=length(runjobs), cumulative_horizons=cumulative))
     end
+    final_states = Dict(j.id => (Je=j.Je, seed=j.seed, lastHDF=previous[j.id],
+        lastRNG=previous_rng[j.id], cumulative_horizon=cumulative[j.id],
+        planned_segments=j.planned_segments, segments_run=length(chains[j.id]),
+        initial_horizon=j.prior_cumulative_horizon) for j in jobs)
+    job_plans = [(id=j.id, Je=j.Je, seed=j.seed, Nx=j.Nx, Ny=j.Ny,
+        planned_segments=j.planned_segments, initial_horizon=j.prior_cumulative_horizon,
+        initial_state_path=j.initial_state_path, initial_rng_path=j.initial_rng_path) for j in jobs]
     source_paths = [(@__FILE__), _NDR_WORKER_SCRIPT, _WS_CPU_FILE, _WS_MODEL_FILE, joinpath(@__DIR__, "..", "src", "cpu_compatible.jl")]
     campaign = (schema_version="tdgl-ndr-campaign-v1", created_utc=string(now(UTC)), backend=backend,
         segments=segments, horizon=horizon, skip_ratio=skip, snapshot_interval=snapshot,
         tolerance=tolerance, workers=workers(), nprocs=nprocs(), jobs_path=abspath(jobs_path), jobs_sha256=_hash(jobs_path),
         source_hashes=Dict(basename(p) => _hash(p) for p in source_paths), worker_info=infos,
-        chains=chains, scope_note="full-curl physical campaign; not a claim of exact historical-paper reproduction")
+        chains=chains, final_states=final_states, job_plans=job_plans,
+        scope_note="full-curl physical campaign; not a claim of exact historical-paper reproduction")
     _write_json(joinpath(out, "campaign.json"), campaign)
     println("Wrote ", joinpath(out, "campaign.json"))
 end
