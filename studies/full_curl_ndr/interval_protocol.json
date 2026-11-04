@@ -1,0 +1,53 @@
+{
+  "schema": "tdgl-ndr-interval-protocol-v1",
+  "conditional_on": "Long-time endpoint confirmation at the predeclared0.01 resolution",
+  "currents": [
+    0.20816326530612245,
+    0.20918367346938777,
+    0.21020408163265306,
+    0.21122448979591835
+  ],
+  "seeds": [
+    2026110411,
+    2026110412,
+    2026110413,
+    2026110414,
+    2026110415,
+    2026110416,
+    2026110417,
+    2026110418
+  ],
+  "interior_preparation": "Continue original5000tau screening fields and serialized RNG at the same current for nine5000tau segments to50000tau",
+  "final_window": [
+    48000,
+    50000
+  ],
+  "stationarity_windows": [
+    [
+      43000,
+      45000
+    ],
+    [
+      48000,
+      50000
+    ]
+  ],
+  "stationarity_bound": 0.0025,
+  "slope_gate": "At least two consecutive adjacent voltage decreases with simultaneous one-sided95% bounds belowzero; total drop across that interval must exceed0.01 with95% upper bound. Bonferroni across the three declared adjacent contrasts.",
+  "history_control": {
+    "seeds": [
+      2026110411,
+      2026110412,
+      2026110413
+    ],
+    "directions": [
+      "ascending",
+      "descending"
+    ],
+    "preparation": "Each direction starts from its corresponding50000tau endpoint field andRNGcheckpoint",
+    "current_changes": "abrupt current steps, no artificial ramp",
+    "dwell": 5000,
+    "skip_ratio": 0.6
+  },
+  "scope": "Finite-current-resolution correctedfullcurllegacy-noise model; a discontinuous or unresolved branch transition is a separate outcome from a resolved negative-slope interval"
+}

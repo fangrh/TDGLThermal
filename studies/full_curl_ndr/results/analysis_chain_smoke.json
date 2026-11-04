@@ -1,0 +1,29 @@
+{
+  "valid": true,
+  "checks": [
+    {
+      "backend": "reference",
+      "job": "endpoint_a_seed2026110411",
+      "valid_chain_pass": true,
+      "corrupt_rng_rejected": true
+    },
+    {
+      "backend": "reference",
+      "job": "endpoint_b_seed2026110411",
+      "valid_chain_pass": true,
+      "corrupt_rng_rejected": true
+    },
+    {
+      "backend": "cpu_compatible",
+      "job": "endpoint_a_seed2026110411",
+      "valid_chain_pass": true,
+      "corrupt_rng_rejected": true
+    },
+    {
+      "backend": "cpu_compatible",
+      "job": "endpoint_b_seed2026110411",
+      "valid_chain_pass": true,
+      "corrupt_rng_rejected": true
+    }
+  ]
+}
