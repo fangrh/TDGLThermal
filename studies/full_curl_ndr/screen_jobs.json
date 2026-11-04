@@ -1,0 +1,134 @@
+[
+  {
+    "id": "screen_inner1_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110411
+  },
+  {
+    "id": "screen_inner1_seed2026110412",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110412
+  },
+  {
+    "id": "screen_inner1_seed2026110413",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110413
+  },
+  {
+    "id": "screen_inner1_seed2026110414",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110414
+  },
+  {
+    "id": "screen_inner1_seed2026110415",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110415
+  },
+  {
+    "id": "screen_inner1_seed2026110416",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110416
+  },
+  {
+    "id": "screen_inner1_seed2026110417",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110417
+  },
+  {
+    "id": "screen_inner1_seed2026110418",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110418
+  },
+  {
+    "id": "screen_inner2_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110411
+  },
+  {
+    "id": "screen_inner2_seed2026110412",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110412
+  },
+  {
+    "id": "screen_inner2_seed2026110413",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110413
+  },
+  {
+    "id": "screen_inner2_seed2026110414",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110414
+  },
+  {
+    "id": "screen_inner2_seed2026110415",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110415
+  },
+  {
+    "id": "screen_inner2_seed2026110416",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110416
+  },
+  {
+    "id": "screen_inner2_seed2026110417",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110417
+  },
+  {
+    "id": "screen_inner2_seed2026110418",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110418
+  },
+  {
+    "id": "screen_shoulder_low_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.2020408163265306,
+    "seed": 2026110411
+  },
+  {
+    "id": "screen_shoulder_low_seed2026110412",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.2020408163265306,
+    "seed": 2026110412
+  },
+  {
+    "id": "screen_shoulder_low_seed2026110413",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.2020408163265306,
+    "seed": 2026110413
+  },
+  {
+    "id": "screen_shoulder_high_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.2173469387755102,
+    "seed": 2026110411
+  },
+  {
+    "id": "screen_shoulder_high_seed2026110412",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.2173469387755102,
+    "seed": 2026110412
+  },
+  {
+    "id": "screen_shoulder_high_seed2026110413",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.2173469387755102,
+    "seed": 2026110413
+  }
+]

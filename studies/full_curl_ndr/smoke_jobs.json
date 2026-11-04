@@ -1,0 +1,14 @@
+[
+  {
+    "id": "endpoint_a_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20816326530612245,
+    "seed": 2026110411
+  },
+  {
+    "id": "endpoint_b_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21122448979591835,
+    "seed": 2026110411
+  }
+]

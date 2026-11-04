@@ -1,0 +1,98 @@
+[
+  {
+    "id": "endpoint_a_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20816326530612245,
+    "seed": 2026110411
+  },
+  {
+    "id": "endpoint_a_seed2026110412",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20816326530612245,
+    "seed": 2026110412
+  },
+  {
+    "id": "endpoint_a_seed2026110413",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20816326530612245,
+    "seed": 2026110413
+  },
+  {
+    "id": "endpoint_a_seed2026110414",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20816326530612245,
+    "seed": 2026110414
+  },
+  {
+    "id": "endpoint_a_seed2026110415",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20816326530612245,
+    "seed": 2026110415
+  },
+  {
+    "id": "endpoint_a_seed2026110416",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20816326530612245,
+    "seed": 2026110416
+  },
+  {
+    "id": "endpoint_a_seed2026110417",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20816326530612245,
+    "seed": 2026110417
+  },
+  {
+    "id": "endpoint_a_seed2026110418",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20816326530612245,
+    "seed": 2026110418
+  },
+  {
+    "id": "endpoint_b_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21122448979591835,
+    "seed": 2026110411
+  },
+  {
+    "id": "endpoint_b_seed2026110412",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21122448979591835,
+    "seed": 2026110412
+  },
+  {
+    "id": "endpoint_b_seed2026110413",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21122448979591835,
+    "seed": 2026110413
+  },
+  {
+    "id": "endpoint_b_seed2026110414",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21122448979591835,
+    "seed": 2026110414
+  },
+  {
+    "id": "endpoint_b_seed2026110415",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21122448979591835,
+    "seed": 2026110415
+  },
+  {
+    "id": "endpoint_b_seed2026110416",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21122448979591835,
+    "seed": 2026110416
+  },
+  {
+    "id": "endpoint_b_seed2026110417",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21122448979591835,
+    "seed": 2026110417
+  },
+  {
+    "id": "endpoint_b_seed2026110418",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21122448979591835,
+    "seed": 2026110418
+  }
+]

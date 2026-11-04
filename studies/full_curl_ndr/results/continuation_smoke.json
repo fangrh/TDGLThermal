@@ -1,0 +1,75 @@
+{
+  "schema": "tdgl-ndr-continuation-smoke-v1",
+  "valid": true,
+  "pairs": [
+    {
+      "job": "endpoint_a_seed2026110411",
+      "segment": 1,
+      "field_errors": {
+        "times": 0.0,
+        "V": 0.0,
+        "psi_avg": 0.0,
+        "T_avg": 0.0,
+        "psi_real": 0.0,
+        "psi_imag": 0.0,
+        "T": 0.0,
+        "Ax": 0.0,
+        "Ay": 0.0
+      },
+      "rng_equal": true,
+      "solver_counts_equal": true
+    },
+    {
+      "job": "endpoint_a_seed2026110411",
+      "segment": 2,
+      "field_errors": {
+        "times": 0.0,
+        "V": 0.0,
+        "psi_avg": 0.0,
+        "T_avg": 0.0,
+        "psi_real": 0.0,
+        "psi_imag": 0.0,
+        "T": 0.0,
+        "Ax": 0.0,
+        "Ay": 0.0
+      },
+      "rng_equal": true,
+      "solver_counts_equal": true
+    },
+    {
+      "job": "endpoint_b_seed2026110411",
+      "segment": 1,
+      "field_errors": {
+        "times": 0.0,
+        "V": 0.0,
+        "psi_avg": 0.0,
+        "T_avg": 0.0,
+        "psi_real": 0.0,
+        "psi_imag": 0.0,
+        "T": 0.0,
+        "Ax": 0.0,
+        "Ay": 0.0
+      },
+      "rng_equal": true,
+      "solver_counts_equal": true
+    },
+    {
+      "job": "endpoint_b_seed2026110411",
+      "segment": 2,
+      "field_errors": {
+        "times": 0.0,
+        "V": 0.0,
+        "psi_avg": 0.0,
+        "T_avg": 0.0,
+        "psi_real": 0.0,
+        "psi_imag": 0.0,
+        "T": 0.0,
+        "Ax": 0.0,
+        "Ay": 0.0
+      },
+      "rng_equal": true,
+      "solver_counts_equal": true
+    }
+  ],
+  "state_and_rng_chain_verified": true
+}

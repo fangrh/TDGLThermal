@@ -1,5 +1,5 @@
 # Matched reference/CPU benchmark runner.
-using Random, SHA, JSON3, Statistics, Dates, Printf
+using Random, SHA, JSON3, Statistics, Dates, Printf, Serialization
 using HDF5
 include(joinpath(@__DIR__, "fixtures.jl"))
 
@@ -46,13 +46,14 @@ function _stats(sol)
      rhs_calls=getproperty(s, :nf))
 end
 
-function _run_stream(case, backend, horizon, tolerance, path, snapshot_interval, skip_ratio)
+function _run_stream(case, backend, horizon, tolerance, path, snapshot_interval, skip_ratio;
+                      rng_state=nothing)
     p = with_current(case.params, case.Je)
     # Rebuild from the immutable packed bytes so reference and candidate never
     # share a state object (the streaming solver applies boundary conditions in place).
     state = initialize_state_clean(p)
     vector_to_state!(state, copy(case.u0), p)
-    Random.seed!(case.seed)
+    rng_state === nothing ? Random.seed!(case.seed) : copy!(Random.default_rng(), rng_state)
     fn = run_stable_simulation_streaming
     return fn(state, p, horizon, snapshot_interval, skip_ratio, path, case.Je, "benchmark";
               backend=backend, abstol=tolerance, reltol=tolerance)
@@ -96,7 +97,7 @@ end
 function run_case(case, backend::String; horizon::Float64, tolerance::Float64,
                   output_dir::String, save_fields::Bool=true,
                   snapshot_interval::Float64=1.0, skip_ratio::Float64=0.9,
-                  warm_rhs=nothing)
+                  warm_rhs=nothing, rng_state=nothing)
     backend in ("reference", "cpu_compatible") || error("unsupported backend: $backend")
     horizon > 0 && tolerance > 0 || error("horizon and tolerance must be positive")
     snapshot_interval > 0 || error("snapshot interval must be positive")
@@ -106,7 +107,8 @@ function run_case(case, backend::String; horizon::Float64, tolerance::Float64,
     packed_path = joinpath(output_dir, "$(backend)_Je$(case.Je)_seed$(case.seed)_initial.bin")
     open(packed_path, "w") do io; write(io, reinterpret(UInt8, case.u0)); end
     packed_hash = bytes2hex(SHA.sha256(read(packed_path)))
-    t0 = time(); result = save_fields ? _run_stream(case, backend, horizon, tolerance, out, snapshot_interval, skip_ratio) :
+    t0 = time(); result = save_fields ? _run_stream(case, backend, horizon, tolerance, out, snapshot_interval, skip_ratio;
+                                                     rng_state=rng_state) :
         _run_memory(case, backend, horizon, tolerance)
     wall = time() - t0
     vals = result isa NamedTuple ? result : (; result...)
