@@ -15,6 +15,20 @@ The [fixed-state microbenchmark](results/noise_cost_probe.json) isolates the cos
 
 These are fixed-state microbenchmarks on a shared CPU, not whole-solve speedups or physical-equivalence tests. Paired per-repetition ratios vary with load (hot 1.069–1.264; cool 1.199–1.371). Noise changes both arithmetic and random draws. Eliminating this measured overhead would yield roughly 1.23–1.25× for these RHS evaluations with all other costs fixed; it does not demonstrate such a whole-trajectory gain. A trajectory with noise disabled changes its dynamics and cannot by itself isolate RNG cost.
 
+### Matched archived-state timestep diagnostic
+
+The [18 short diagnostic solves](results/noise_timestep_probe.json) start from three archived 5000τ states, using the same input-field hash within each six-case group. Every solve reaches another 100τ in Float64 with a fresh cache and reseeded RNG. The [input list](results/noise_timestep_inputs.json) records the source output hashes. All horizons, solver success codes, finite final states, input hashes and probe-source hashes were checked.
+
+| Je | Accepted steps, noise off at `1e-4` | Accepted steps, noise on at `1e-4` | Noise off at `1e-5` | Noise on at `1e-5` |
+|---:|---:|---:|---:|---:|
+| 0.06122449 | 5872 | 5860 | 5787 | 16012 |
+| 0.20918367 | 5870 | 5861 | 5773 | 18505 |
+| 0.30000000 | 5832 | 5821 | 5724 | 18735 |
+
+At the production tolerance `1e-4`, enabling noise changes accepted-step counts by less than 0.21% in these three short controls. The high step volume therefore persists without noise. At the tighter `1e-5`, the noisy solver takes 2.77–3.27 times as many accepted steps as the corresponding noise-off solve, despite only one rejected step. Noise can constrain accepted steps without producing many rejections. Loosening tolerance to `1e-3` gives approximately 7500 steps, more than at `1e-4`; simply loosening tolerance is not a demonstrated optimization here.
+
+This diagnostic omits streaming diagnostic calls, intermediate output and HDF5, and has one measured solve per combination. Timings are retained for transparency but not compared as a speed claim under changing shared load. The noise-on/off trajectories are not physically equivalent. These controls help distinguish current-tolerance behavior from tighter-tolerance behavior; they do not prove which operator controls the step or establish long-time stochastic convergence. See the [combined diagnostic figure](results/noise_probes.png).
+
 ## What the current noise actually does
 
 `compute_dpsi_dt!` draws two scalar Gaussians at each of 59 × 29 interior sites, giving 3422 draws per RHS call. It adds
@@ -45,6 +59,10 @@ For a fixed-step numerical thought experiment, an independently resampled random
 
 **Large timestep gains have TDGL precedent, with a different model and scheme.** Winiecki and Adams report a second-order semi-implicit TDGL/Maxwell method allowing much larger steps than the explicit schemes they compare. That motivates a candidate, not a promised 100× speedup for the present KWT/thermal/full-curl/noise case. The repository's existing noise-off ROCK4 pilot was about twice as fast in one full-grid test; its small-grid IMEX test was slower and failed its accuracy gate. Neither establishes production-noise acceptance. See [the TDGL paper](https://arxiv.org/abs/cond-mat/0106466), [ROCK4 pilot](results/rock4_full_grid.json), and [IMEX pilot](results/imex_smoke.json).
 
+**An inspectable GPU implementation provides a concrete starting point.** At commit `8d0da6a03ad20315a690a3c65bb8b60c196c3f3d`, Microsoft's Svirl adds a Langevin increment once at the first Jacobi iteration and retains that RHS through the iterative solve. Its vector-potential kernel explicitly retains mixed spatial derivatives. The Python driver advances its random-time index between solves. This is an implementation pattern for physical-step noise reuse and full-curl implicit kernels, not an equivalent replacement for the present RK-call forcing or KWT/thermal model. See [the noise/implicit kernel](https://github.com/microsoft/svirl/blob/8d0da6a03ad20315a690a3c65bb8b60c196c3f3d/svirl/cuda/td.h#L63-L70), [mixed magnetic operator](https://github.com/microsoft/svirl/blob/8d0da6a03ad20315a690a3c65bb8b60c196c3f3d/svirl/cuda/td.h#L366), and [driver](https://github.com/microsoft/svirl/blob/8d0da6a03ad20315a690a3c65bb8b60c196c3f3d/svirl/solvers/td.py#L168-L204).
+
+Sadovskyy et al. give a detailed GPU implicit TDGL scheme and explicitly derive noise-amplitude dependence on time and spatial discretization. Their presented large-penetration-length formulation takes the magnetic field as homogeneous, so that paper's model is not substituted for the current dynamic full curl. See [the paper, especially section III.1.2](https://arxiv.org/html/1409.8340v2#S3.SS1.SSS2). A closer thermal-coupled reference located in the search is Wang and Xue, *Stable implicit numerical algorithm of time-dependent Ginzburg–Landau theory coupled with thermal effect for vortex behaviors in hybrid superconductor systems*, SST 37, 105016 (2024), [DOI](https://doi.org/10.1088/1361-6668/ad74ea). Its publisher full text was not retrieved, so implementation details from it have not been treated as verified code.
+
 **SDE solver choice must follow the derived diffusion.** SciML lists `SOSRI` for diagonal/scalar Itô noise, `SOSRA` for additive noise, `SKenCarp` for stiff additive noise, and S-ROCK methods for stiff SDEs arising from PDE discretization. Here the coefficient depends on the evolving temperature, so the joint system is not automatically an additive-noise problem. `SKenCarp` therefore cannot be chosen solely because the added term is a Gaussian. See [official SDE solver guidance](https://docs.sciml.ai/DiffEqDocs/stable/solvers/sde_solve/).
 
 Adaptive SDE rejection must preserve the Brownian path rather than redraw a favorable increment after rejection. Brownian bridges and rejection sampling with memory provide this mechanism. NoiseWrapper can couple comparisons to the same noise path. This is correctness machinery for a new SDE model, not an explanation for the current one-to-three rejected steps. See [Rackauckas and Nie (2017)](https://escholarship.org/uc/item/5t6501dz), [DiffEqNoiseProcess](https://docs.sciml.ai/DiffEqNoiseProcess/stable/), and [NoiseWrapper](https://docs.sciml.ai/DiffEqNoiseProcess/stable/abstract_noise_processes/).
@@ -57,7 +75,7 @@ Do not transfer the current `|dpsi/dt|²` heating rule unchanged to Brownian whi
 
 ## Recommended implementation order and acceptance
 
-Keep the running full-range 50000τ curve and original noisy CPU protocol unchanged. First compare short matched integrations at superconducting, transition, and normal/recovery points, recording accepted-step distributions, RHS calls and synchronized wall time. Isolate diffusion stability with deterministic controls; do not infer it merely from few rejected steps.
+Keep the running full-range 50000τ curve and original noisy CPU protocol unchanged. The first short matched controls above show that most accepted-step volume persists without noise at the current tolerance. Next identify limiting modes/operators before choosing a semi-implicit or stabilized scheme. Extend matched controls with accepted-step distributions and synchronized, interleaved timing where a speed claim is intended. Do not infer diffusion stability merely from few rejected steps.
 
 For the practical GPU candidate, compare throughput against the actual 24-worker CPU baseline, with the same time horizon, precision, output requirements and hardware-service context. Use independent seed ensembles and predeclared equivalence margins for voltage, temperature, condensate density, switching/retrapping currents and recovery probabilities. Overlapping error bars alone do not establish equivalence. Noisy GPU speedup remains unmeasured.
 
@@ -75,3 +93,16 @@ NOFASTSCAN_SKIP_MAIN=1 NOFASTSCAN_SKIP_WORKERS=1 \
 ```
 
 The output path must be new. The probe runs no trajectory and changes no production source or active campaign settings.
+
+To reproduce the separate short timestep diagnostic, supply an archived-state list with `Je`, `initial_state_path`, and preferably `initial_output_sha256`:
+
+```bash
+NOFASTSCAN_SKIP_MAIN=1 NOFASTSCAN_SKIP_WORKERS=1 \
+  /path/to/julia-1.12.1/bin/julia --project=. --startup-file=no \
+  bench/probe_noise_timesteps.jl --inputs /path/to/inputs.json \
+  --out /path/to/new/noise_timestep_probe.json --horizon 100
+
+python3 bench/plot_noise_probes.py
+```
+
+The archived receipt paths identify measured server files; relocate the input list and update its paths for another machine. Its original file hash remains recorded in the measured receipt.
