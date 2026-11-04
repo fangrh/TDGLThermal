@@ -61,4 +61,3 @@ def test_integrated_voltage_uses_ax_interior(tmp_path):
     entry = {"manifest": mp, "_segment_dir": str(seg), "cumulative_start": 0, "cumulative_end": 1}
     data = read_segment(entry)
     assert data["V_integrated"] == pytest.approx(3.0)
-

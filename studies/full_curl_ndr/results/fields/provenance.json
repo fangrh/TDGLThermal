@@ -1,0 +1,132 @@
+{
+  "script": "D:\\TDGLThermal-linux-performance\\bench\\plot_ndr_fields.py",
+  "analysis_path": "D:\\TDGLThermal-linux-performance\\studies\\full_curl_ndr\\results\\endpoint\\analysis.json",
+  "analysis_sha256": "68c75fe32599a7919cde384e5472b86b943e940ff66c511fe9763e8aa5b4756c",
+  "endpoint_root": "C:\\Users\\fangr\\AppData\\Local\\Temp\\ndr_plot_root",
+  "selected_local_time_tau0": {
+    "endpoint_a_seed2026110412": 5000.0,
+    "endpoint_b_seed2026110412": 5000.0,
+    "endpoint_b_seed2026110413": 5000.0
+  },
+  "selected_cumulative_time_tau0": {
+    "endpoint_a_seed2026110412": 50000.0,
+    "endpoint_b_seed2026110412": 50000.0,
+    "endpoint_b_seed2026110413": 50000.0
+  },
+  "rows": [
+    {
+      "id": "endpoint_a_seed2026110412",
+      "chain_path": "C:\\Users\\fangr\\AppData\\Local\\Temp\\ndr_plot_root\\endpoint_a_seed2026110412\\segment10\\chain.json",
+      "remote_hdf5": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110412/segment10/cpu_compatible_Je0.20816326530612245_seed2026110412.h5",
+      "local_hdf5": "C:\\Users\\fangr\\AppData\\Local\\Temp\\ndr_plot_root\\endpoint_a_seed2026110412\\segment10\\cpu_compatible_Je0.20816326530612245_seed2026110412.h5",
+      "hdf5_sha256": "397a6b763b7196f463714bbb80e62b650aebde012f789ce5d46f6c4ea91977e1",
+      "manifest_output_sha256": "397a6b763b7196f463714bbb80e62b650aebde012f789ce5d46f6c4ea91977e1",
+      "Je": 0.20816326530612245,
+      "seed": 2026110412,
+      "window_mean_V": 2.9180709189018996,
+      "dataset_shapes": {
+        "psi_real": [
+          2001,
+          31,
+          61
+        ],
+        "T": [
+          2001,
+          31,
+          61
+        ],
+        "Ax": [
+          2001,
+          31,
+          60
+        ],
+        "Ay": [
+          2001,
+          30,
+          61
+        ]
+      }
+    },
+    {
+      "id": "endpoint_b_seed2026110412",
+      "chain_path": "C:\\Users\\fangr\\AppData\\Local\\Temp\\ndr_plot_root\\endpoint_b_seed2026110412\\segment10\\chain.json",
+      "remote_hdf5": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110412/segment10/cpu_compatible_Je0.21122448979591835_seed2026110412.h5",
+      "local_hdf5": "C:\\Users\\fangr\\AppData\\Local\\Temp\\ndr_plot_root\\endpoint_b_seed2026110412\\segment10\\cpu_compatible_Je0.21122448979591835_seed2026110412.h5",
+      "hdf5_sha256": "8c652cc2876cf302e8070639e21a028cc0683b95ac122658aab7cb69a52ec3bd",
+      "manifest_output_sha256": "8c652cc2876cf302e8070639e21a028cc0683b95ac122658aab7cb69a52ec3bd",
+      "Je": 0.21122448979591835,
+      "seed": 2026110412,
+      "window_mean_V": 2.5551839884930816,
+      "dataset_shapes": {
+        "psi_real": [
+          2001,
+          31,
+          61
+        ],
+        "T": [
+          2001,
+          31,
+          61
+        ],
+        "Ax": [
+          2001,
+          31,
+          60
+        ],
+        "Ay": [
+          2001,
+          30,
+          61
+        ]
+      }
+    },
+    {
+      "id": "endpoint_b_seed2026110413",
+      "chain_path": "C:\\Users\\fangr\\AppData\\Local\\Temp\\ndr_plot_root\\endpoint_b_seed2026110413\\segment10\\chain.json",
+      "remote_hdf5": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110413/segment10/cpu_compatible_Je0.21122448979591835_seed2026110413.h5",
+      "local_hdf5": "C:\\Users\\fangr\\AppData\\Local\\Temp\\ndr_plot_root\\endpoint_b_seed2026110413\\segment10\\cpu_compatible_Je0.21122448979591835_seed2026110413.h5",
+      "hdf5_sha256": "765254c14878d8da62e267c615c1099a1154cb19ad7a595a0d33097dc1809c2b",
+      "manifest_output_sha256": "765254c14878d8da62e267c615c1099a1154cb19ad7a595a0d33097dc1809c2b",
+      "Je": 0.21122448979591835,
+      "seed": 2026110413,
+      "window_mean_V": 2.9710925809660207,
+      "dataset_shapes": {
+        "psi_real": [
+          2001,
+          31,
+          61
+        ],
+        "T": [
+          2001,
+          31,
+          61
+        ],
+        "Ax": [
+          2001,
+          31,
+          60
+        ],
+        "Ay": [
+          2001,
+          30,
+          61
+        ]
+      }
+    }
+  ],
+  "scales": {
+    "psi2": [
+      0,
+      1.0
+    ],
+    "T": [
+      0.18037211828702565,
+      0.4316890142049968
+    ],
+    "Bz": [
+      -0.39604591837269254,
+      0.39604591837269254
+    ]
+  },
+  "note": "Illustrative selected snapshots only; no representative-population or steady-NDR claim."
+}

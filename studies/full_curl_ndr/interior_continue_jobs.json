@@ -1,0 +1,146 @@
+[
+  {
+    "id": "screen_inner1_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110411,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110411/segment1/cpu_compatible_Je0.20918367346938774_seed2026110411.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110411/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner1_seed2026110412",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110412,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110412/segment1/cpu_compatible_Je0.20918367346938774_seed2026110412.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110412/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner1_seed2026110413",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110413,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110413/segment1/cpu_compatible_Je0.20918367346938774_seed2026110413.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110413/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner1_seed2026110414",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110414,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110414/segment1/cpu_compatible_Je0.20918367346938774_seed2026110414.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110414/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner1_seed2026110415",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110415,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110415/segment1/cpu_compatible_Je0.20918367346938774_seed2026110415.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110415/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner1_seed2026110416",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110416,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110416/segment1/cpu_compatible_Je0.20918367346938774_seed2026110416.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110416/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner1_seed2026110417",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110417,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110417/segment1/cpu_compatible_Je0.20918367346938774_seed2026110417.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110417/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner1_seed2026110418",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20918367346938774,
+    "seed": 2026110418,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110418/segment1/cpu_compatible_Je0.20918367346938774_seed2026110418.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110418/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner2_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110411,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110411/segment1/cpu_compatible_Je0.21020408163265306_seed2026110411.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110411/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner2_seed2026110412",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110412,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110412/segment1/cpu_compatible_Je0.21020408163265306_seed2026110412.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110412/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner2_seed2026110413",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110413,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110413/segment1/cpu_compatible_Je0.21020408163265306_seed2026110413.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110413/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner2_seed2026110414",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110414,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110414/segment1/cpu_compatible_Je0.21020408163265306_seed2026110414.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110414/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner2_seed2026110415",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110415,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110415/segment1/cpu_compatible_Je0.21020408163265306_seed2026110415.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110415/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner2_seed2026110416",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110416,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110416/segment1/cpu_compatible_Je0.21020408163265306_seed2026110416.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110416/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner2_seed2026110417",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110417,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110417/segment1/cpu_compatible_Je0.21020408163265306_seed2026110417.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110417/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  },
+  {
+    "id": "screen_inner2_seed2026110418",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21020408163265306,
+    "seed": 2026110418,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110418/segment1/cpu_compatible_Je0.21020408163265306_seed2026110418.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner2_seed2026110418/segment1/rng_after.bin",
+    "prior_cumulative_horizon": 5000
+  }
+]
