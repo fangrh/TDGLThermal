@@ -10,7 +10,7 @@ Only `T0 = 0.22` qualified at the declared 10000τ screen horizon: `Je = 0.19 �
 
 The [frozen holdout protocol](holdout_plan/holdout_protocol.json) fixes `T0 = 0.22`, currents `0.1875, 0.19, 0.1925, 0.195, 0.1975, 0.20, 0.2025`, and eight fresh seeds. The primary contrast is exclusively `0.19 → 0.20`; choosing a different interval from the holdout results is not allowed. Each of the 56 chains will reach 50000τ. No new-seed simulation was launched before freezing these files.
 
-For comparison, the original four-current/eight-seed 50000τ study has a 14.32% mean paired middle-interval drop. Its [English detail figure](results/baseline_detail/ndr_enhancement_comparison.png) retains every seed and the higher-current spread; this prepared-point response does not establish a stationary continuous negative branch.
+For comparison, the original four-current/eight-seed 50000τ study has a 14.32% mean paired middle-interval drop. Its [English detail figure](results/baseline_detail/ndr_enhancement_comparison.png) retains every seed and the higher-current spread; this prepared-point response does not establish a stationary continuous negative branch. Connecting lines guide the eye between independently prepared points and do not represent an ordered current sweep.
 
 ## Full-curl identity
 
@@ -54,7 +54,7 @@ The declared ceiling is 1036 equivalent 5000τ point-segments, with at most 160 
 
 ## Reproduction records
 
-[Environment and source hashes](provenance/environment.json), the exact [Julia project](provenance/Project.toml), and its [dependency lockfile](provenance/Manifest.toml) preserve the Linux environment. Physics and Julia harnesses remain at `3adb0005af07d9485fe56c041958b2d75c76f50d`; Python analysis tools are separately versioned and hashed in their output receipts. The holdout plan was pushed in `0b25fd6` before its 2026-11-05 01:17 UTC launch.
+[Environment and source hashes](provenance/environment.json), the exact [Julia project](provenance/Project.toml), and its [dependency lockfile](provenance/Manifest.toml) preserve the Linux environment. The physical campaigns use the physics and Julia harnesses at `3adb0005af07d9485fe56c041958b2d75c76f50d`; Python analysis tools are separately versioned and hashed in their output receipts. The holdout plan was pushed in `0b25fd6` before its 2026-11-05 01:17 UTC launch.
 
 The existing Linux raw-data roots are:
 
@@ -66,3 +66,5 @@ The existing Linux raw-data roots are:
 The screen was run with `bench/reproduce_ndr.jl --segments 2 --horizon 5000 --skip 0.6 --backend cpu_compatible`, and the holdout with the same arguments except `--segments 10`. Both use 24 persistent Julia workers, one BLAS thread, and the declared immutable job file. The runner refuses to overwrite an existing segment. Original absolute Linux paths are retained in the receipts; relocation requires an explicit new job/protocol snapshot with updated hashes.
 
 Analysis commands are `bench/analyze_ndr_enhancement.py` for the screen, `bench/analyze_ndr_holdout.py` for the frozen 50000τ contrast, and `bench/analyze_ndr_enhancement_history.py` for the ordered histories. Each accepts `--protocol`, `--campaign-root`, `--out`, and `--validate-artifacts`. The history analysis uses only 18000–20000τ of each 20000τ dwell for its final mean; its voltage-integral check uses the same window. Independent seed trajectories, not saved frames, determine uncertainty.
+
+The [checkpoint timing observation](provenance/checkpoint_receipt_timing.json) identifies a separate parent-process receipt cost. A later receipt-cache change is being validated separately for future campaigns; it is not used by these frozen physical campaigns, and no whole-campaign speedup is claimed from that change yet.

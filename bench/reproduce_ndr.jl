@@ -10,6 +10,7 @@ using JSON3, SHA, Dates, Printf, Serialization
 @everywhere using Serialization
 
 const _NDR_WORKER_SCRIPT = joinpath(@__DIR__, "benchmark_worker_scaling.jl")
+include(joinpath(@__DIR__, "ndr_receipt_hashes.jl"))
 
 include(_NDR_WORKER_SCRIPT) # loads the model, helpers, and persistent workers
 
@@ -116,6 +117,10 @@ function ndr_main()
     chains = Dict{String,Vector{Any}}(j.id => Any[] for j in jobs)
     previous = Dict{String,Union{Nothing,String}}(j.id => j.initial_state_path for j in jobs)
     previous_rng = Dict{String,Union{Nothing,String}}(j.id => j.initial_rng_path for j in jobs)
+    # Cache each active imported initial-state hash once; continuation checks use
+    # receipt metadata rather than re-reading predecessor HDF5 files.
+    previous_output_hash = Dict{String,Union{Nothing,String}}(j.id =>
+        (j.planned_segments == 0 || j.initial_state_path === nothing ? nothing : _hash(j.initial_state_path)) for j in jobs)
     cumulative = Dict(j.id => j.prior_cumulative_horizon for j in jobs)
     for segment in 1:segments
         runjobs = NamedTuple[]
@@ -144,15 +149,18 @@ function ndr_main()
             r = result.manifest
             start = cumulative[j.id]; stop = start + horizon
             preceding = previous[j.id]
+            child_initial_sha = hasproperty(r, :initial_source_hash) ? r.initial_source_hash : nothing
+            output_sha = hasproperty(r, :output_hash) ? checked_output_sha(r.output_hash) : error("manifest missing output_hash")
+            preceding_sha = checked_preceding_sha(preceding, child_initial_sha, previous_output_hash[j.id])
             entry = (id=j.id, Je=j.Je, seed=j.seed, segment_seed=spec.segment_seed,
                 segment=segment, cumulative_start=start, cumulative_end=stop,
-                preceding_hdf5=preceding, preceding_sha256=preceding === nothing ? nothing : _hash(preceding),
+                preceding_hdf5=preceding, preceding_sha256=preceding_sha,
                 manifest=r, full_field_output=true, backend=backend,
                 rng_before_sha256=result.rng_before_hash, rng_after_sha256=result.rng_after_hash,
                 rng_after_path=result.rng_after_path, preceding_rng_path=spec.rng_state_path,
                 rng_protocol=spec.rng_state_path === nothing ? "seed_case_first_segment" : "restore_serialized_checkpoint")
             push!(chains[j.id], entry); _write_json(joinpath(spec.output_dir, "chain.json"), entry)
-            previous[j.id] = r.output_path; cumulative[j.id] = stop
+            previous[j.id] = r.output_path; previous_output_hash[j.id] = output_sha; cumulative[j.id] = stop
             previous_rng[j.id] = result.rng_after_path
         end
         _write_json(joinpath(out, "progress.json"),
@@ -166,7 +174,7 @@ function ndr_main()
     job_plans = [(id=j.id, Je=j.Je, seed=j.seed, Nx=j.Nx, Ny=j.Ny,
         planned_segments=j.planned_segments, initial_horizon=j.prior_cumulative_horizon,
         initial_state_path=j.initial_state_path, initial_rng_path=j.initial_rng_path) for j in jobs]
-    source_paths = [(@__FILE__), _NDR_WORKER_SCRIPT, _WS_CPU_FILE, _WS_MODEL_FILE, joinpath(@__DIR__, "..", "src", "cpu_compatible.jl")]
+    source_paths = [(@__FILE__), joinpath(@__DIR__, "ndr_receipt_hashes.jl"), _NDR_WORKER_SCRIPT, _WS_CPU_FILE, _WS_MODEL_FILE, joinpath(@__DIR__, "..", "src", "cpu_compatible.jl")]
     campaign = (schema_version="tdgl-ndr-campaign-v1", created_utc=string(now(UTC)), backend=backend,
         segments=segments, horizon=horizon, skip_ratio=skip, snapshot_interval=snapshot,
         tolerance=tolerance, workers=workers(), nprocs=nprocs(), jobs_path=abspath(jobs_path), jobs_sha256=_hash(jobs_path),

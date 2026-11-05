@@ -1,0 +1,15 @@
+{
+  "schema": "tdgl-checkpoint-receipt-timing-observation-v1",
+  "observed_utc": "2026-11-05T01:45:09Z",
+  "run": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign",
+  "harness_sha256": "eaadd36355d1c1b0582efe91c6d1e047b867c1a4f626de4cfc51fd30fd65a248",
+  "method": "Filesystem mtimes of all 56 manifest and chain receipt files in each completed segment; no voltage outcomes read.",
+  "observations": [
+    {"segment": 1, "chain_count": 56, "parent_receipt_write_span_seconds": 0.010004997253417969, "last_manifest_to_last_receipt_seconds": 0.8394196033477783},
+    {"segment": 2, "chain_count": 56, "parent_receipt_write_span_seconds": 36.27312874794006, "last_manifest_to_last_receipt_seconds": 38.04901623725891},
+    {"segment": 3, "chain_count": 56, "parent_receipt_write_span_seconds": 36.63631010055542, "last_manifest_to_last_receipt_seconds": 37.347665786743164},
+    {"segment": 4, "chain_count": 56, "parent_receipt_write_span_seconds": 35.22760629653931, "last_manifest_to_last_receipt_seconds": 35.90794634819031}
+  ],
+  "inference": "The parent loop serially hashes each preceding HDF5 before writing its receipt. Its per-phase span is consistent with that extra work; the observations also include receipt I/O and are not an instrumented timing of hashing alone.",
+  "scope": "No whole-campaign speedup has been measured. The running physical campaign and its harness remain frozen. Follow-up: tdglthermal-gjy."
+}
