@@ -1,0 +1,115 @@
+{
+  "source_sha256": "10a8b4c5d380dfb3dd7a663848d61c3fd5643adf7dc1495420498eb4be4881b0",
+  "slopes": [
+    {
+      "direction": "ascending",
+      "seed": 2026110411,
+      "edge": 0,
+      "dV_dJe": 41.53599397083901
+    },
+    {
+      "direction": "ascending",
+      "seed": 2026110411,
+      "edge": 1,
+      "dV_dJe": 40.2240804248008
+    },
+    {
+      "direction": "ascending",
+      "seed": 2026110411,
+      "edge": 2,
+      "dV_dJe": 41.233282936191856
+    },
+    {
+      "direction": "ascending",
+      "seed": 2026110412,
+      "edge": 0,
+      "dV_dJe": 40.5134855880459
+    },
+    {
+      "direction": "ascending",
+      "seed": 2026110412,
+      "edge": 1,
+      "dV_dJe": 40.67351883870866
+    },
+    {
+      "direction": "ascending",
+      "seed": 2026110412,
+      "edge": 2,
+      "dV_dJe": 40.299798971769704
+    },
+    {
+      "direction": "ascending",
+      "seed": 2026110413,
+      "edge": 0,
+      "dV_dJe": 40.663910550452634
+    },
+    {
+      "direction": "ascending",
+      "seed": 2026110413,
+      "edge": 1,
+      "dV_dJe": 41.848222503867255
+    },
+    {
+      "direction": "ascending",
+      "seed": 2026110413,
+      "edge": 2,
+      "dV_dJe": 39.47422437795114
+    },
+    {
+      "direction": "descending",
+      "seed": 2026110411,
+      "edge": 0,
+      "dV_dJe": 376.88465386111295
+    },
+    {
+      "direction": "descending",
+      "seed": 2026110411,
+      "edge": 1,
+      "dV_dJe": 33.09287631345224
+    },
+    {
+      "direction": "descending",
+      "seed": 2026110411,
+      "edge": 2,
+      "dV_dJe": 37.7005507218609
+    },
+    {
+      "direction": "descending",
+      "seed": 2026110412,
+      "edge": 0,
+      "dV_dJe": 36.11538973618134
+    },
+    {
+      "direction": "descending",
+      "seed": 2026110412,
+      "edge": 1,
+      "dV_dJe": 40.2553150033329
+    },
+    {
+      "direction": "descending",
+      "seed": 2026110412,
+      "edge": 2,
+      "dV_dJe": 38.085640753745636
+    },
+    {
+      "direction": "descending",
+      "seed": 2026110413,
+      "edge": 0,
+      "dV_dJe": 276.07297886661803
+    },
+    {
+      "direction": "descending",
+      "seed": 2026110413,
+      "edge": 1,
+      "dV_dJe": 34.245503594598006
+    },
+    {
+      "direction": "descending",
+      "seed": 2026110413,
+      "edge": 2,
+      "dV_dJe": 36.64904450881608
+    }
+  ],
+  "all_adjacent_slopes_positive": true,
+  "scope": "descriptive three-seed ordered histories, not an eight-seed stationarity test"
+}

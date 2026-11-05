@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "scope": "Original reference backend replay of final5000tau from identical45000tau field/RNG checkpoints",
+  "rows": [
+    {
+      "endpoint": "a",
+      "Je": 0.20816326530612245,
+      "seed": 2026110411,
+      "cumulative_window": [
+        45000,
+        50000
+      ],
+      "field_errors": {
+        "times": 0.0,
+        "V": 0.0,
+        "psi_avg": 0.0,
+        "T_avg": 0.0,
+        "psi_real": 0.0,
+        "psi_imag": 0.0,
+        "T": 0.0,
+        "Ax": 0.0,
+        "Ay": 0.0
+      },
+      "solver_counts_equal": true,
+      "rng_equal": true,
+      "reference_output_hash": "264ea6fd95f351f704cbcd949c85d5861f9a2cd85ab964276e7b559f3e973a60",
+      "candidate_output_hash": "ac806b398dd98271987915a29e56b64ad1ca19613c0b5f2edaa912379c7bd96b"
+    },
+    {
+      "endpoint": "b",
+      "Je": 0.21122448979591835,
+      "seed": 2026110411,
+      "cumulative_window": [
+        45000,
+        50000
+      ],
+      "field_errors": {
+        "times": 0.0,
+        "V": 0.0,
+        "psi_avg": 0.0,
+        "T_avg": 0.0,
+        "psi_real": 0.0,
+        "psi_imag": 0.0,
+        "T": 0.0,
+        "Ax": 0.0,
+        "Ay": 0.0
+      },
+      "solver_counts_equal": true,
+      "rng_equal": true,
+      "reference_output_hash": "880cc57f5c6933b629efca500290ce3a6757a6476814612b9f1d6d0bcf0a4415",
+      "candidate_output_hash": "c2286278e4fe941365735a1c35ade165d529bfa0d1d7588907ca2a62fe04ca94"
+    }
+  ]
+}

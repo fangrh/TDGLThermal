@@ -22,3 +22,13 @@ Thumbs.db
 *.tmp
 *.bak
 *.orig
+
+# Dolt database files (added by bd init)
+.dolt/
+*.db
+
+# Benchmark scratch files; published receipts live in docs/performance/results.
+__pycache__/
+.pytest_cache/
+*.pyc
+benchmark-runs/

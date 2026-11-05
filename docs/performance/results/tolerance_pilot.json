@@ -1,0 +1,22 @@
+{
+  "source": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/tolerance_pilot",
+  "completed_utc": "2026-11-04T14:58:00Z",
+  "seed": 2026110401,
+  "horizon": 100,
+  "noise": 0.001,
+  "preparation": "configured_down",
+  "pairs": [
+    {"tolerance": 1e-5, "current": 0.06, "reference_wall_seconds": 13.3567709923, "candidate_wall_seconds": 10.3623039722, "speed_ratio_reference_over_candidate": 1.28898, "gate": "PASS"},
+    {"tolerance": 1e-5, "current": 0.18, "reference_wall_seconds": 12.8019721508, "candidate_wall_seconds": 10.0203030109, "speed_ratio_reference_over_candidate": 1.2776, "gate": "PASS"},
+    {"tolerance": 1e-5, "current": 0.27, "reference_wall_seconds": 11.9908528328, "candidate_wall_seconds": 9.3154351711, "speed_ratio_reference_over_candidate": 1.2872, "gate": "PASS"},
+    {"tolerance": 1e-6, "current": 0.06, "reference_wall_seconds": 128.8852019310, "candidate_wall_seconds": 102.0068089962, "speed_ratio_reference_over_candidate": 1.2635, "gate": "PASS"},
+    {"tolerance": 1e-6, "current": 0.18, "reference_wall_seconds": 123.2540700436, "candidate_wall_seconds": 96.3120429516, "speed_ratio_reference_over_candidate": 1.27974, "gate": "PASS"},
+    {"tolerance": 1e-6, "current": 0.27, "reference_wall_seconds": 113.3693349361, "candidate_wall_seconds": 88.7133882046, "speed_ratio_reference_over_candidate": 1.27793, "gate": "PASS"}
+  ],
+  "all_gates": "PASS",
+  "notes": [
+    "Strict compare_results.py fieldwise comparisons passed for all six pairs.",
+    "The 1e-6 measurements are horizon-100 observations; multiplying by 50 gives an indicative horizon-5000 range only and is not a full-scan timing claim.",
+    "Prior worker pilots used hardcoded seeds 501/601/701; this pilot uses seed 2026110401 as the controlled finalist input."
+  ]
+}

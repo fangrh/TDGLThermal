@@ -23,6 +23,18 @@ Run the main simulation with a config file:
 julia current_sweep_thermal_nofastscan.jl config.yaml
 ```
 
+## Linux full-curl acceleration
+
+The opt-in `cpu_compatible` backend preserves Float64, Tsit5, legacy noise calls and the HDF5 schema. After instantiating the pinned Julia 1.12.1 environment, select it with:
+
+```bash
+TDGL_WORKERS=24 TDGL_RHS_BACKEND=cpu_compatible bash bench/run_linux.sh run config.yaml
+```
+
+Set `JULIA_BIN` and `JULIA_DEPOT_PATH` for the installation. The default is the corrected full-curl reference. The [English performance report](docs/performance/README.md) records measured CPU comparisons, deterministic GPU batching, rejected precision experiments, accuracy checks and reproduction commands. GPU results have a separate deterministic-only scope.
+
+The [full-curl NDR study](studies/full_curl_ndr/README.md) records fresh 50000τ state chains, current-history controls and field maps. It observes a preparation-dependent voltage drop; stable continuous NDR remains unresolved.
+
 ## Continuation Packaging
 
 Package a folder of existing run outputs into a new output folder for an extended run:

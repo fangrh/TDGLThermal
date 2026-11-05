@@ -1,0 +1,53 @@
+{
+  "schema": "tdgl-full-curl-ndr-protocol-v1",
+  "baseline_git": "7042f86e9442572fd9e7ed22964fa46211eaeb2b",
+  "operator": "corrected damping sign, full mixed magnetic curl",
+  "temperature": 0.18,
+  "noise": 0.001,
+  "integrator": "Tsit5",
+  "tolerance": 0.0001,
+  "grid": [
+    60,
+    30
+  ],
+  "spacing": [
+    0.5,
+    0.5
+  ],
+  "preparation": "independent configured hot starts; same-current state/RNG continuation between segments; not a descending current history",
+  "seeds": [
+    2026110411,
+    2026110412,
+    2026110413,
+    2026110414,
+    2026110415,
+    2026110416,
+    2026110417,
+    2026110418
+  ],
+  "endpoints": [
+    0.20816326530612245,
+    0.21122448979591835
+  ],
+  "segments": 10,
+  "segment_horizon": 5000,
+  "total_horizon": 50000,
+  "snapshot_interval": 1,
+  "skip_ratio": 0.6,
+  "final_window": [
+    48000,
+    50000
+  ],
+  "voltage_resolution": 0.01,
+  "primary_gate": "paired-seed one-sided95% upper bound for V_b-V_a below -0.01 at final window; frames are not independent replicates",
+  "stationarity_gate": "late retained-window drift must be resolved below0.0025 including uncertainty; otherwise stationaryNDR unresolved",
+  "rng_policy": "save and restore Xoshiro checkpoint across each field-state continuation; solver restarts retained; no stochastic convergence claim from changing ODE tolerance",
+  "screen_scope": "two interiors at all8seeds, two shoulders at3seeds, initial5000tau exploratory",
+  "classification": [
+    "unconfirmed endpoint drop",
+    "confirmed endpoint drop, branch type unresolved",
+    "resolved finite-width NDR only after interior/history controls",
+    "branch transition if voltage decrease concentrated into a jump"
+  ],
+  "historical_comparator": "archived diagonal-only solver; not corrected-full-curl evidence"
+}

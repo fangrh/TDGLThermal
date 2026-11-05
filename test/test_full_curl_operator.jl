@@ -3,7 +3,7 @@ using Test
 ENV["NOFASTSCAN_SKIP_MAIN"] = "1"
 include(joinpath(@__DIR__, "..", "current_sweep_thermal_nofastscan.jl"))
 
-@testset "full curl curl A contributes mixed derivatives" begin
+@testset "vector-potential equation implements minus curl curl A" begin
     p = TDGLThermalParams(Nx = 7, Ny = 7, hx = 0.5, hy = 0.75, kappa = 2.0, Je = 0.0, He = 0.0)
     cache = TDGLThermalCache(p)
 
@@ -30,7 +30,7 @@ include(joinpath(@__DIR__, "..", "current_sweep_thermal_nofastscan.jl"))
     fill!(cache.Jsy, 0.0)
     compute_dA_dt!(cache.dAx, cache.dAy, state, p, cache.Jsx, cache.Jsy, cache.sigma)
 
-    expected_dax(i, j) = p.kappa^2 * (
+    expected_dax(i, j) = -p.kappa^2 * (
         (
             (ay_field(i * p.hx, (j - 1) * p.hy) - ay_field((i - 1) * p.hx, (j - 1) * p.hy)) -
             (ay_field(i * p.hx, (j - 2) * p.hy) - ay_field((i - 1) * p.hx, (j - 2) * p.hy))
@@ -40,7 +40,7 @@ include(joinpath(@__DIR__, "..", "current_sweep_thermal_nofastscan.jl"))
             ax_field((i - 1) * p.hx, (j - 2) * p.hy)
         ) / (p.hy^2)
     )
-    expected_day(i, j) = p.kappa^2 * (
+    expected_day(i, j) = -p.kappa^2 * (
         (
             (ax_field((i - 1) * p.hx, j * p.hy) - ax_field((i - 2) * p.hx, j * p.hy)) -
             (ax_field((i - 1) * p.hx, (j - 1) * p.hy) - ax_field((i - 2) * p.hx, (j - 1) * p.hy))

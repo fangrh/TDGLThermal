@@ -1,0 +1,30 @@
+[
+  {
+    "id": "normal_0",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0,
+    "seed": 2026110411,
+    "noise": 0
+  },
+  {
+    "id": "normal_1",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.20816326530612245,
+    "seed": 2026110411,
+    "noise": 0
+  },
+  {
+    "id": "normal_2",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.21122448979591835,
+    "seed": 2026110411,
+    "noise": 0
+  },
+  {
+    "id": "normal_3",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "Je": 0.3,
+    "seed": 2026110411,
+    "noise": 0
+  }
+]

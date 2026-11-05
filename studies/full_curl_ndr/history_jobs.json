@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ascending_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "seed": 2026110411,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment10/cpu_compatible_Je0.20816326530612245_seed2026110411.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110411/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "currents": [
+      0.20816326530612245,
+      0.20918367346938774,
+      0.21020408163265306,
+      0.21122448979591835
+    ]
+  },
+  {
+    "id": "ascending_seed2026110412",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "seed": 2026110412,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110412/segment10/cpu_compatible_Je0.20816326530612245_seed2026110412.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110412/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "currents": [
+      0.20816326530612245,
+      0.20918367346938774,
+      0.21020408163265306,
+      0.21122448979591835
+    ]
+  },
+  {
+    "id": "ascending_seed2026110413",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "seed": 2026110413,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110413/segment10/cpu_compatible_Je0.20816326530612245_seed2026110413.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_a_seed2026110413/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "currents": [
+      0.20816326530612245,
+      0.20918367346938774,
+      0.21020408163265306,
+      0.21122448979591835
+    ]
+  },
+  {
+    "id": "descending_seed2026110411",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "seed": 2026110411,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment10/cpu_compatible_Je0.21122448979591835_seed2026110411.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110411/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "currents": [
+      0.21122448979591835,
+      0.21020408163265306,
+      0.20918367346938774,
+      0.20816326530612245
+    ]
+  },
+  {
+    "id": "descending_seed2026110412",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "seed": 2026110412,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110412/segment10/cpu_compatible_Je0.21122448979591835_seed2026110412.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110412/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "currents": [
+      0.21122448979591835,
+      0.21020408163265306,
+      0.20918367346938774,
+      0.20816326530612245
+    ]
+  },
+  {
+    "id": "descending_seed2026110413",
+    "config_path": "studies/full_curl_ndr/config_T0.18.yaml",
+    "seed": 2026110413,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110413/segment10/cpu_compatible_Je0.21122448979591835_seed2026110413.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_endpoint_50000_v1/endpoint_b_seed2026110413/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "currents": [
+      0.21122448979591835,
+      0.21020408163265306,
+      0.20918367346938774,
+      0.20816326530612245
+    ]
+  }
+]

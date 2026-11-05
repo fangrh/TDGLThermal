@@ -1,0 +1,23 @@
+[
+  {
+    "Je": 0.061224489795918366,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/full_iv_50000_v1/campaign/base_i020_seed2026110411/segment1/cpu_compatible_Je0.061224489795918366_seed2026110411.h5",
+    "initial_output_sha256": "00a17a7addeb69f7c82182a8fd7dc0fa75720f325b8baf36c17394ae07186d29",
+    "source_chain_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/full_iv_50000_v1/campaign/base_i020_seed2026110411/segment1/chain.json",
+    "physical_preparation_horizon": 5000.0
+  },
+  {
+    "Je": 0.20918367346938774,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110411/segment1/cpu_compatible_Je0.20918367346938774_seed2026110411.h5",
+    "initial_output_sha256": "1a08f3255a9a4938f2a7277bfc23f2e966a985ba4bba62ffdfebe1e0c02adaab",
+    "source_chain_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_screen_5000_v1/screen_inner1_seed2026110411/segment1/chain.json",
+    "physical_preparation_horizon": 5000.0
+  },
+  {
+    "Je": 0.3,
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/full_iv_50000_v1/campaign/base_i098_seed2026110411/segment1/cpu_compatible_Je0.3_seed2026110411.h5",
+    "initial_output_sha256": "146a4999ebec904246a7608f8eda55f74e9b45ed7e9c9ffcddfd680ba26377b8",
+    "source_chain_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/full_iv_50000_v1/campaign/base_i098_seed2026110411/segment1/chain.json",
+    "physical_preparation_horizon": 5000.0
+  }
+]

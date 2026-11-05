@@ -1,0 +1,72 @@
+{
+  "schema": "tdgl-clean-checkout-source-v1",
+  "valid": true,
+  "checked_commit": "c46b155f623e593f3697ebae615a720b49e67504",
+  "files": [
+    {
+      "path": "current_sweep_thermal_nofastscan.jl",
+      "clean_sha256": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "measured_sha256": "6f39eb7d5c576e772de62de635349f0ec8f0ca53dff4498d39e9208fe0cc4b9f",
+      "lf_normalized_sha256": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "raw_equal": false,
+      "lf_normalized_equal": true,
+      "clean_crlf_count": 0,
+      "measured_crlf_count": 2647
+    },
+    {
+      "path": "src/cpu_compatible.jl",
+      "clean_sha256": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+      "measured_sha256": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+      "lf_normalized_sha256": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+      "raw_equal": true,
+      "lf_normalized_equal": true,
+      "clean_crlf_count": 0,
+      "measured_crlf_count": 0
+    },
+    {
+      "path": "bench/benchmark_cpu.jl",
+      "clean_sha256": "e465565cd487e2eab88b7d933c170000cb01026a2176f238a6792bede82300be",
+      "measured_sha256": "e465565cd487e2eab88b7d933c170000cb01026a2176f238a6792bede82300be",
+      "lf_normalized_sha256": "e465565cd487e2eab88b7d933c170000cb01026a2176f238a6792bede82300be",
+      "raw_equal": true,
+      "lf_normalized_equal": true,
+      "clean_crlf_count": 0,
+      "measured_crlf_count": 0
+    },
+    {
+      "path": "bench/fixtures.jl",
+      "clean_sha256": "5b929ae0ee59126b882e28b72b8627a28b9f067bba8845e8636fa353aa2fc9c2",
+      "measured_sha256": "5b929ae0ee59126b882e28b72b8627a28b9f067bba8845e8636fa353aa2fc9c2",
+      "lf_normalized_sha256": "5b929ae0ee59126b882e28b72b8627a28b9f067bba8845e8636fa353aa2fc9c2",
+      "raw_equal": true,
+      "lf_normalized_equal": true,
+      "clean_crlf_count": 0,
+      "measured_crlf_count": 0
+    },
+    {
+      "path": "bench/benchmark_worker_scaling.jl",
+      "clean_sha256": "fc8616dff7ef2767aafea59870c5cbfda362dc244f5927041b3f67c9e2e55ff6",
+      "measured_sha256": "63772ffc5d9218963118ccc9e0c53c80b9ecd59a60e8ed43af83a0e2720e5e5c",
+      "lf_normalized_sha256": "fc8616dff7ef2767aafea59870c5cbfda362dc244f5927041b3f67c9e2e55ff6",
+      "raw_equal": false,
+      "lf_normalized_equal": true,
+      "clean_crlf_count": 0,
+      "measured_crlf_count": 190
+    },
+    {
+      "path": "config.yaml",
+      "clean_sha256": "28d212702e6640412a587eb0df62313b31ab30dac009dabf2b2497f739f56614",
+      "measured_sha256": "28d212702e6640412a587eb0df62313b31ab30dac009dabf2b2497f739f56614",
+      "lf_normalized_sha256": "28d212702e6640412a587eb0df62313b31ab30dac009dabf2b2497f739f56614",
+      "raw_equal": true,
+      "lf_normalized_equal": true,
+      "clean_crlf_count": 0,
+      "measured_crlf_count": 0
+    }
+  ],
+  "raw_equal_count": 4,
+  "lf_normalized_equal_count": 6,
+  "full_scan_manifest_model_hash_matches": true,
+  "clean_checkout_smoke": "Existing two-time-unit configured-noise paired clean-checkout smoke passed all nine datasets; executable source unchanged since that check.",
+  "note": "Two measured files have CRLF line endings. Their original raw hashes remain in measurement manifests; only CRLF-to-LF normalization was used for this source identity check."
+}

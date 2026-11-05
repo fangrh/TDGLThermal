@@ -1,0 +1,42 @@
+{
+  "scope": "Noise-off exact psi=0 normal-state electrical control; not a superconducting NDR result",
+  "horizon": 1000,
+  "rows": [
+    {
+      "Je": 0.0,
+      "V": 0.0,
+      "V_integrated": -0.0,
+      "psi2_max": 0.0,
+      "source_hash": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "output_hash": "87026d075603c59e9c8efb1677bcfedac03cab5fe272286c3b9c155286c634c5"
+    },
+    {
+      "Je": 0.20816326530612245,
+      "V": 5.791938654177494,
+      "V_integrated": 5.791938654177497,
+      "psi2_max": 0.0,
+      "source_hash": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "output_hash": "fc13a864b5d6ece34c0763a7618ca6d2e4bce4fc37ff57a69fa9bf6b71111aed"
+    },
+    {
+      "Je": 0.21122448979591835,
+      "V": 5.877114222621209,
+      "V_integrated": 5.87711422262121,
+      "psi2_max": 0.0,
+      "source_hash": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "output_hash": "b6864666d9fb5f4a56f091aec7a9dd5a55ee99206aae784ceebcd41cc13fd58e"
+    },
+    {
+      "Je": 0.3,
+      "V": 8.347205707491087,
+      "V_integrated": 8.347205707491092,
+      "psi2_max": 0.0,
+      "source_hash": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "output_hash": "e7bc64b985563ea553e1f3c803db455a766d74e793ef5535feb46f6d58ea7cb0"
+    }
+  ],
+  "R_effective": 27.824019024970216,
+  "max_absolute_ohmic_residual": 4.973799150320701e-14,
+  "zero_current_voltage": 0.0,
+  "normal_ohmic_pass": true
+}

@@ -1,0 +1,78 @@
+{
+  "valid": true,
+  "scope": "Two current steps in each direction,2tau dwell,from5000tau states; mechanical smoke,not a50ktauphysicalhistory result",
+  "checks": [
+    {
+      "job": "history_smoke_a",
+      "step": 1,
+      "Je": 0.20816326530612245,
+      "field_errors": {
+        "times": 0.0,
+        "V": 0.0,
+        "psi_avg": 0.0,
+        "T_avg": 0.0,
+        "psi_real": 0.0,
+        "psi_imag": 0.0,
+        "T": 0.0,
+        "Ax": 0.0,
+        "Ay": 0.0
+      },
+      "rng_equal": true,
+      "source_and_rng_links_verified": true
+    },
+    {
+      "job": "history_smoke_a",
+      "step": 2,
+      "Je": 0.21122448979591835,
+      "field_errors": {
+        "times": 0.0,
+        "V": 0.0,
+        "psi_avg": 0.0,
+        "T_avg": 0.0,
+        "psi_real": 0.0,
+        "psi_imag": 0.0,
+        "T": 0.0,
+        "Ax": 0.0,
+        "Ay": 0.0
+      },
+      "rng_equal": true,
+      "source_and_rng_links_verified": true
+    },
+    {
+      "job": "history_smoke_b",
+      "step": 1,
+      "Je": 0.21122448979591835,
+      "field_errors": {
+        "times": 0.0,
+        "V": 0.0,
+        "psi_avg": 0.0,
+        "T_avg": 0.0,
+        "psi_real": 0.0,
+        "psi_imag": 0.0,
+        "T": 0.0,
+        "Ax": 0.0,
+        "Ay": 0.0
+      },
+      "rng_equal": true,
+      "source_and_rng_links_verified": true
+    },
+    {
+      "job": "history_smoke_b",
+      "step": 2,
+      "Je": 0.20816326530612245,
+      "field_errors": {
+        "times": 0.0,
+        "V": 0.0,
+        "psi_avg": 0.0,
+        "T_avg": 0.0,
+        "psi_real": 0.0,
+        "psi_imag": 0.0,
+        "T": 0.0,
+        "Ax": 0.0,
+        "Ay": 0.0
+      },
+      "rng_equal": true,
+      "source_and_rng_links_verified": true
+    }
+  ]
+}
