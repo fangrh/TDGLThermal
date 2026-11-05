@@ -1,0 +1,194 @@
+{
+  "schema": "tdgl-full-curl-ndr-enhancement-screen-v1",
+  "created_utc": "2026-11-05",
+  "reference_git": "83797dd",
+  "operator": "corrected damping sign, full mixed magnetic curl",
+  "backend": "cpu_compatible",
+  "numeric": {
+    "float": "Float64",
+    "integrator": "Tsit5",
+    "tolerance": 0.0001
+  },
+  "grid": {
+    "Nx": 60,
+    "Ny": 30,
+    "hx": 0.5,
+    "hy": 0.5
+  },
+  "preparation": "independent hot starts psi=0,T=1.2; no current-history continuation",
+  "seeds": [
+    2026110501,
+    2026110502
+  ],
+  "currents": [
+    0.18,
+    0.19,
+    0.2,
+    0.20918367346938774,
+    0.21,
+    0.21020408163265306,
+    0.22,
+    0.23,
+    0.24
+  ],
+  "variants": [
+    {
+      "id": "baseline",
+      "config": "configs/baseline.yaml",
+      "changes": "none"
+    },
+    {
+      "id": "k_eff_2p5",
+      "config": "configs/k_eff_2p5.yaml",
+      "changes": "k_eff 5.0 -> 2.5"
+    },
+    {
+      "id": "k_eff_10",
+      "config": "configs/k_eff_10.yaml",
+      "changes": "k_eff 5.0 -> 10.0"
+    },
+    {
+      "id": "eta_hole_0p05",
+      "config": "configs/eta_hole_0p05.yaml",
+      "changes": "eta_hole 0.1 -> 0.05"
+    },
+    {
+      "id": "eta_hole_0p2",
+      "config": "configs/eta_hole_0p2.yaml",
+      "changes": "eta_hole 0.1 -> 0.2"
+    },
+    {
+      "id": "T0_0p14",
+      "config": "configs/T0_0p14.yaml",
+      "changes": "T0 0.18 -> 0.14"
+    },
+    {
+      "id": "T0_0p22",
+      "config": "configs/T0_0p22.yaml",
+      "changes": "T0 0.18 -> 0.22"
+    }
+  ],
+  "config_sha256": {
+    "baseline": "d8c8a70d618b1bd17519552f483890d55fb1b0110b69a44bfdf2ad0591deca12",
+    "k_eff_2p5": "47d2b2190294c2993bc3c053b70fa2cd5a3994ecaa665f81aacf2c444588b4fe",
+    "k_eff_10": "bd74740d7840b393af9cf0d01c896b0d60e89dc8728cec3d299bc35269165106",
+    "eta_hole_0p05": "c07d18f450f333cf358e37fad0f2ee4df6a6fc33a06c9560e819e473d0ce030b",
+    "eta_hole_0p2": "d3ad870ec151a6ded2d9895f422dc8468782c71bb19d1f99ad7d3616017e676f",
+    "T0_0p14": "6e338c547ec2dac9cf44d0229929871a7552c48b155bf340798e61cca7074c12",
+    "T0_0p22": "2b3f63ec3fcaca09b473cd13c1da390f6a5c39288d45d7b96a4a8293d3ea88dd"
+  },
+  "normalized_source_hashes": {
+    "model": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+    "rhs": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe"
+  },
+  "jobs": {
+    "path": "screen_jobs.json",
+    "count": 126,
+    "variants": 7,
+    "currents_per_variant": 9,
+    "seeds_per_current": 2,
+    "segments_per_job": 2,
+    "segment_horizon": 5000,
+    "total_horizon": 10000,
+    "skip_ratio": 0.6,
+    "snapshot_interval": 1,
+    "jobs_sha256": "3ee53bacb0b559a32eecaba8850ab7ffec3bb742610527ba98dbe63871c9e470"
+  },
+  "ranking": {
+    "adjacent_pair_requires": "V_left >= 0.05 in both seeds",
+    "eligibility": "each absolute drop > 0.01",
+    "score": "min over seeds of (V_left - V_right)/V_left",
+    "rank": "best nonbaseline variant and bracket; confirm only if score exceeds baseline screen best",
+    "null_result": "honest bounded null if no candidate exceeds baseline screen best"
+  },
+  "diagnostics": {
+    "screening_only": true,
+    "stationarity_claim": false,
+    "drift_windows": [
+      [
+        3000,
+        5000
+      ],
+      [
+        8000,
+        10000
+      ]
+    ],
+    "record": "record 3-5k versus 8-10k drift"
+  },
+  "holdout_freeze": {
+    "candidate": "one candidate plus bracket frozen before fresh holdout",
+    "seeds": [
+      2026110511,
+      2026110512,
+      2026110513,
+      2026110514,
+      2026110515,
+      2026110516,
+      2026110517,
+      2026110518
+    ],
+    "currents": {
+      "count": 7,
+      "description": "five uniform currents across selected bracket plus one shoulder one grid step outside each side"
+    },
+    "final_window": [
+      48000,
+      50000
+    ],
+    "history": {
+      "seeds": [
+        2026110511,
+        2026110512,
+        2026110513,
+        2026110514
+      ],
+      "directions": [
+        "ascending",
+        "descending"
+      ],
+      "dwell_per_point": 20000,
+      "raw_window": [
+        12000,
+        20000
+      ],
+      "analysis_final_window": [
+        18000,
+        20000
+      ],
+      "equivalent_segments": 224,
+      "equivalent_tau": 1120000,
+      "segment_horizon": 5000
+    },
+    "total_horizon": 50000,
+    "segments": 10
+  },
+  "confirmation_gates": {
+    "mean_drop_fraction_min": 0.2,
+    "one_sided_95_lower_fraction_gt": 0.15,
+    "absolute_voltage_difference_upper": "< -0.01",
+    "stationarity_ci_abs_max": 0.0025,
+    "ordered_history": "two consecutive negative intervals with simultaneous bounds plus refinement before stationary-branch claim"
+  },
+  "budget": {
+    "max_segments": 1036,
+    "conditional_midpoint_segments": 160,
+    "excludes_conditional": true,
+    "conditional_midpoints": {
+      "max": 2,
+      "rule": "Only if selected candidate drop confirms but only one negative ordered interval; exploratory refinement, not independent confirmation"
+    }
+  },
+  "scope_limits": [
+    "No gamma/C_eff broadening or automatic optimization",
+    "No physical guarantee from screening",
+    "No stationary-NDR claim from screen alone"
+  ],
+  "local_source_hashes": {
+    "model_file": "current_sweep_thermal_nofastscan.jl",
+    "model_sha256": "6f39eb7d5c576e772de62de635349f0ec8f0ca53dff4498d39e9208fe0cc4b9f",
+    "rhs_file": "src/cpu_compatible.jl",
+    "rhs_sha256": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+    "note": "normalized campaign hashes above are authoritative; local model checkout differs bytewise"
+  }
+}
