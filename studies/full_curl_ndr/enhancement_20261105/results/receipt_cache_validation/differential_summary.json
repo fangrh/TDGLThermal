@@ -1,0 +1,159 @@
+{
+  "schema": "tdgl-receipt-cache-differential-v1",
+  "complete": true,
+  "errors": [],
+  "created_utc": "2026-11-05T01:59:14.579691+00:00",
+  "point_segment_pairs": 6,
+  "dataset_pair_comparisons": 54,
+  "zero_segment_import_checked": true,
+  "records": [
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 1,
+      "datasets_exact": [
+        "times",
+        "V",
+        "T_avg",
+        "psi_avg",
+        "psi_real",
+        "psi_imag",
+        "T",
+        "Ax",
+        "Ay"
+      ],
+      "rng_before_exact": true,
+      "rng_after_exact": true,
+      "initial_vector_exact": true,
+      "reference_HDF_sha256": "582fa514c26ead257d00c032f01bcace79f847b416125d7b1fedff53cf83985b",
+      "candidate_HDF_sha256": "2f50c764f845ac3071ca7dd29cf0bb476c0068ce20e0d1786e583b5de2217c60"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 2,
+      "datasets_exact": [
+        "times",
+        "V",
+        "T_avg",
+        "psi_avg",
+        "psi_real",
+        "psi_imag",
+        "T",
+        "Ax",
+        "Ay"
+      ],
+      "rng_before_exact": true,
+      "rng_after_exact": true,
+      "initial_vector_exact": true,
+      "reference_HDF_sha256": "a67491620624a415453e0a93a2b8e71a4dcf01868f0f6a8d0d9d79a309812008",
+      "candidate_HDF_sha256": "afe64fc901764dbafb89e25b2b84a9014f944e24ed3a5026a1559d278aaf8991"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 1,
+      "datasets_exact": [
+        "times",
+        "V",
+        "T_avg",
+        "psi_avg",
+        "psi_real",
+        "psi_imag",
+        "T",
+        "Ax",
+        "Ay"
+      ],
+      "rng_before_exact": true,
+      "rng_after_exact": true,
+      "initial_vector_exact": true,
+      "reference_HDF_sha256": "4e62fd3167e8ff112447842d3a33ae06aa549400014734691cd12d08acae95e9",
+      "candidate_HDF_sha256": "a95ee4da16975b972ace1a9dcb83834f1e4e3a3e2cbe0eb621f3e4b4d145a146"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 2,
+      "datasets_exact": [
+        "times",
+        "V",
+        "T_avg",
+        "psi_avg",
+        "psi_real",
+        "psi_imag",
+        "T",
+        "Ax",
+        "Ay"
+      ],
+      "rng_before_exact": true,
+      "rng_after_exact": true,
+      "initial_vector_exact": true,
+      "reference_HDF_sha256": "7ae368ef7ccd2a9dc84611777312cd2910a66fa856687cc76e288dfcf44fcd98",
+      "candidate_HDF_sha256": "152aa664b17b1d52b7a60752440a0b81576dc17690c4dc42db8d10f4e7e0c892"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_0",
+      "segment": 1,
+      "datasets_exact": [
+        "times",
+        "V",
+        "T_avg",
+        "psi_avg",
+        "psi_real",
+        "psi_imag",
+        "T",
+        "Ax",
+        "Ay"
+      ],
+      "rng_before_exact": true,
+      "rng_after_exact": true,
+      "initial_vector_exact": true,
+      "reference_HDF_sha256": "5b0989f7dd319c00d4373c4b74ac9f320fc91d51e56f30da90b9539f3b69b985",
+      "candidate_HDF_sha256": "1d6f8eda0339e9940922856332492eade4d36bf6b9963233ed09bc0b6ee74915"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_1",
+      "segment": 1,
+      "datasets_exact": [
+        "times",
+        "V",
+        "T_avg",
+        "psi_avg",
+        "psi_real",
+        "psi_imag",
+        "T",
+        "Ax",
+        "Ay"
+      ],
+      "rng_before_exact": true,
+      "rng_after_exact": true,
+      "initial_vector_exact": true,
+      "reference_HDF_sha256": "7391e2fa3e997d0c0ed8f4f5e346c574185d245617c71f11d5413b8c0763b3c1",
+      "candidate_HDF_sha256": "b6328958d60653e88fb38d5ac2ded372c99456eeef4f28804a5254e932297b7f"
+    }
+  ],
+  "source_hashes": {
+    "reference": {
+      "current_sweep_thermal_nofastscan.jl": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "src/cpu_compatible.jl": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+      "bench/reproduce_ndr.jl": "eaadd36355d1c1b0582efe91c6d1e047b867c1a4f626de4cfc51fd30fd65a248",
+      "Project.toml": "aa4bc2f881321c5a84ea62874b12750ca0eb4c25c803422a7a6dc4c829974790",
+      "Manifest.toml": "610ea1610e20f32aa7bebd31ce36d01f1ee2bab8a87e94320030592200f545ba"
+    },
+    "candidate": {
+      "current_sweep_thermal_nofastscan.jl": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "src/cpu_compatible.jl": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+      "bench/reproduce_ndr.jl": "562656fa70da934e259380fd4b1fa1ae4caf7e1da66a4b955fbf5a5aa529be19",
+      "Project.toml": "aa4bc2f881321c5a84ea62874b12750ca0eb4c25c803422a7a6dc4c829974790",
+      "Manifest.toml": "610ea1610e20f32aa7bebd31ce36d01f1ee2bab8a87e94320030592200f545ba"
+    }
+  },
+  "helper_sha256": "5fc149dc0477d94e3ce7171d82fa08d744aa7c1b768dc6dc085e056ac4ec4f91",
+  "driver_sha256": "5f307fda835d7f0a5fd08811c113105d6922d226222c0482ef58c788c6e3138d",
+  "python": "3.14.8 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:26:14) [GCC 14.3.0]",
+  "numpy": "2.5.4",
+  "h5py": "3.16.0",
+  "scope": "Short noisy fresh/continued/imported trajectories; exact saved-field, initial-vector and RNG checks. No whole-campaign performance claim."
+}

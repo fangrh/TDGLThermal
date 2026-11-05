@@ -48,7 +48,7 @@ def compare_fields(a, b):
                 raise ValueError(f"field shape/Float64 mismatch {name}")
             for i in range(0, u.shape[0], 64):
                 aa, bb = u[i:i + 64], v[i:i + 64]
-                if not np.isfinite(aa).all() or not np.isfinite(bb).all() or not np.array_equal(aa, bb):
+                if not np.isfinite(aa).all() or not np.isfinite(bb).all() or not np.array_equal(aa, bb) or aa.tobytes() != bb.tobytes():
                     raise ValueError(f"nonfinite or unequal field {name}")
 
 

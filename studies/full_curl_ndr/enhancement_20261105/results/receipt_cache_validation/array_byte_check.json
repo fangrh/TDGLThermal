@@ -1,0 +1,719 @@
+{
+  "schema": "tdgl-saved-array-byte-check-v1",
+  "complete": true,
+  "created_utc": "2026-11-05T02:02:14.937473+00:00",
+  "dataset_pairs": 54,
+  "checks": [
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 1,
+      "dataset": "times",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894",
+      "candidate_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 1,
+      "dataset": "V",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "40c50da06c7eb7acf43c22a3639ae94fb0a53044834b64a19fa029652da2a7f0",
+      "candidate_array_sha256": "40c50da06c7eb7acf43c22a3639ae94fb0a53044834b64a19fa029652da2a7f0"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 1,
+      "dataset": "T_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "bf0f85ec65f4cd20f7b953958c7e91aded71d3f74fefe855d59cccb582e6bcca",
+      "candidate_array_sha256": "bf0f85ec65f4cd20f7b953958c7e91aded71d3f74fefe855d59cccb582e6bcca"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 1,
+      "dataset": "psi_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "cc4d8b8af66631ac9bf550cd19fb102da25e79fab9ef3214ad374a29a2d8c239",
+      "candidate_array_sha256": "cc4d8b8af66631ac9bf550cd19fb102da25e79fab9ef3214ad374a29a2d8c239"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 1,
+      "dataset": "psi_real",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "41dbc7a44b7d0df853b19b68148308fd75f982f3953f93141b835fa5cc7654f2",
+      "candidate_array_sha256": "41dbc7a44b7d0df853b19b68148308fd75f982f3953f93141b835fa5cc7654f2"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 1,
+      "dataset": "psi_imag",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "3d935d2d459d92e33bbf39fa0860ca365a6d37593993b5fc7939d059ec585945",
+      "candidate_array_sha256": "3d935d2d459d92e33bbf39fa0860ca365a6d37593993b5fc7939d059ec585945"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 1,
+      "dataset": "T",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "9461cedb401d4cf6387b16864fe9c4db867923589beb63cea6691f0edfadd752",
+      "candidate_array_sha256": "9461cedb401d4cf6387b16864fe9c4db867923589beb63cea6691f0edfadd752"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 1,
+      "dataset": "Ax",
+      "shape": [
+        9,
+        31,
+        60
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "fad90da11080356a350c77cc4e6dc12aecde607b4df0d4c576fe7ac80f4cd3fb",
+      "candidate_array_sha256": "fad90da11080356a350c77cc4e6dc12aecde607b4df0d4c576fe7ac80f4cd3fb"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 1,
+      "dataset": "Ay",
+      "shape": [
+        9,
+        30,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "f4732fb2fdee6b541818bcc2b0ce2e6af6ad283f9508a893fea55b953a9a6e14",
+      "candidate_array_sha256": "f4732fb2fdee6b541818bcc2b0ce2e6af6ad283f9508a893fea55b953a9a6e14"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 2,
+      "dataset": "times",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894",
+      "candidate_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 2,
+      "dataset": "V",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "c4250bd6aee70cf18bc58a403329b521e78f0c752ba6ae3fb73ffdee4c0ea2dd",
+      "candidate_array_sha256": "c4250bd6aee70cf18bc58a403329b521e78f0c752ba6ae3fb73ffdee4c0ea2dd"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 2,
+      "dataset": "T_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "a68be8c82a57c06403a425b8a2916003a9ef18d362be366424e3572a6d885ee1",
+      "candidate_array_sha256": "a68be8c82a57c06403a425b8a2916003a9ef18d362be366424e3572a6d885ee1"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 2,
+      "dataset": "psi_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "cb16ac66e7bebcd56a1648e777fdfd94297cb9a96e98d1b63e4dde4d6639a298",
+      "candidate_array_sha256": "cb16ac66e7bebcd56a1648e777fdfd94297cb9a96e98d1b63e4dde4d6639a298"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 2,
+      "dataset": "psi_real",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "44428ac1047d2e200b2824f579482abf36c80cb821e46d01dcbed14945369380",
+      "candidate_array_sha256": "44428ac1047d2e200b2824f579482abf36c80cb821e46d01dcbed14945369380"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 2,
+      "dataset": "psi_imag",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "f16855eb755c255d8397fddbdd643e84bd9646511ff1231fab1efebcd5128d73",
+      "candidate_array_sha256": "f16855eb755c255d8397fddbdd643e84bd9646511ff1231fab1efebcd5128d73"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 2,
+      "dataset": "T",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "b1c2c6fe3c7f1c898bebf02380de000857233cae56bec87a6d8d5cb7feb98f65",
+      "candidate_array_sha256": "b1c2c6fe3c7f1c898bebf02380de000857233cae56bec87a6d8d5cb7feb98f65"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 2,
+      "dataset": "Ax",
+      "shape": [
+        9,
+        31,
+        60
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "2387a44a4232bd6e276c86d5d1116c9be4df3ffe6b520828df5ac9b185610567",
+      "candidate_array_sha256": "2387a44a4232bd6e276c86d5d1116c9be4df3ffe6b520828df5ac9b185610567"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_0",
+      "segment": 2,
+      "dataset": "Ay",
+      "shape": [
+        9,
+        30,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "8b4905d1b55d96d6d68b2db261eca7ac014285c6d3eefe15e129e0681e8d3a50",
+      "candidate_array_sha256": "8b4905d1b55d96d6d68b2db261eca7ac014285c6d3eefe15e129e0681e8d3a50"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 1,
+      "dataset": "times",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894",
+      "candidate_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 1,
+      "dataset": "V",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "bbd2cb1fa67a5543284bc91555d7d512b91e101f6077ae4332b258fbcbb0e08e",
+      "candidate_array_sha256": "bbd2cb1fa67a5543284bc91555d7d512b91e101f6077ae4332b258fbcbb0e08e"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 1,
+      "dataset": "T_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "669f5a20017b4e881e1e4af4f064352b198efd5c0e8fa69f21f9b9c953e647b2",
+      "candidate_array_sha256": "669f5a20017b4e881e1e4af4f064352b198efd5c0e8fa69f21f9b9c953e647b2"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 1,
+      "dataset": "psi_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "f1242b78acbf4c1a3db3ca28d8baf2ef09e9a57e144514b4e4c367e5787bfdce",
+      "candidate_array_sha256": "f1242b78acbf4c1a3db3ca28d8baf2ef09e9a57e144514b4e4c367e5787bfdce"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 1,
+      "dataset": "psi_real",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "f4d49287678d9fb226ddb9dc3a6c4e6f3ade4ee49a01f7d34e53efcb1fcb78ed",
+      "candidate_array_sha256": "f4d49287678d9fb226ddb9dc3a6c4e6f3ade4ee49a01f7d34e53efcb1fcb78ed"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 1,
+      "dataset": "psi_imag",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "00ac0480c1703e5a71c03e6ce2d486ec7054e3cbcc661f4cbc3b4bafbf882bea",
+      "candidate_array_sha256": "00ac0480c1703e5a71c03e6ce2d486ec7054e3cbcc661f4cbc3b4bafbf882bea"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 1,
+      "dataset": "T",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "b5de1d8a8bc2ce7dafcfb9ad720daebb404ee2ff6a3dc6292b5a053bdce20909",
+      "candidate_array_sha256": "b5de1d8a8bc2ce7dafcfb9ad720daebb404ee2ff6a3dc6292b5a053bdce20909"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 1,
+      "dataset": "Ax",
+      "shape": [
+        9,
+        31,
+        60
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "79fafcff13cce47ddd6ce93a3eba0564f8c57f2fc453e26642f0925a18bea39f",
+      "candidate_array_sha256": "79fafcff13cce47ddd6ce93a3eba0564f8c57f2fc453e26642f0925a18bea39f"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 1,
+      "dataset": "Ay",
+      "shape": [
+        9,
+        30,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "9f5dd49250966e8ce7f292a84a417e832a687f55f304715ef167d9c382795b36",
+      "candidate_array_sha256": "9f5dd49250966e8ce7f292a84a417e832a687f55f304715ef167d9c382795b36"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 2,
+      "dataset": "times",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894",
+      "candidate_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 2,
+      "dataset": "V",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "a3b394e16ec717663f4d1b5344644e100b59037e3be44dbd5b5e5449f6cebcbe",
+      "candidate_array_sha256": "a3b394e16ec717663f4d1b5344644e100b59037e3be44dbd5b5e5449f6cebcbe"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 2,
+      "dataset": "T_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "bf0b60d25b9bf900bf1a536e6fee74a7d165376b642404573eaf964dfd0885f3",
+      "candidate_array_sha256": "bf0b60d25b9bf900bf1a536e6fee74a7d165376b642404573eaf964dfd0885f3"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 2,
+      "dataset": "psi_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "056a4c4e139816bad31c24f90ebd595cf9c6c694dd90334cbd3b3ecc14f2e828",
+      "candidate_array_sha256": "056a4c4e139816bad31c24f90ebd595cf9c6c694dd90334cbd3b3ecc14f2e828"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 2,
+      "dataset": "psi_real",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "eaedef88943cdcb7a5723141585225f98151bff71aa2d5ce18c2d643837e6028",
+      "candidate_array_sha256": "eaedef88943cdcb7a5723141585225f98151bff71aa2d5ce18c2d643837e6028"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 2,
+      "dataset": "psi_imag",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "5858e89b15911240a126c60015a6b8a1b397c52edab55e37add3cd239eaab0f1",
+      "candidate_array_sha256": "5858e89b15911240a126c60015a6b8a1b397c52edab55e37add3cd239eaab0f1"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 2,
+      "dataset": "T",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "b38b75dcc8b433554b17c9b22774be614f8b738b77276c1e1fd313709a7b14a2",
+      "candidate_array_sha256": "b38b75dcc8b433554b17c9b22774be614f8b738b77276c1e1fd313709a7b14a2"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 2,
+      "dataset": "Ax",
+      "shape": [
+        9,
+        31,
+        60
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "37e4f129e393b94381b244fb59cd577f0338cb21809055ca38b7f0d7ad862367",
+      "candidate_array_sha256": "37e4f129e393b94381b244fb59cd577f0338cb21809055ca38b7f0d7ad862367"
+    },
+    {
+      "stage": "fresh",
+      "id": "probe_1",
+      "segment": 2,
+      "dataset": "Ay",
+      "shape": [
+        9,
+        30,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "111fdecf2fe6fd192472c12781f4b59e24e132ec5e0fb4ea9826ed3caf14fcd3",
+      "candidate_array_sha256": "111fdecf2fe6fd192472c12781f4b59e24e132ec5e0fb4ea9826ed3caf14fcd3"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_0",
+      "segment": 1,
+      "dataset": "times",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894",
+      "candidate_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_0",
+      "segment": 1,
+      "dataset": "V",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "96fe93901d50cabd70f87f25918c9f48a33d4bc04ed3501a6ab3ea7d2c5e20aa",
+      "candidate_array_sha256": "96fe93901d50cabd70f87f25918c9f48a33d4bc04ed3501a6ab3ea7d2c5e20aa"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_0",
+      "segment": 1,
+      "dataset": "T_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "08e8ffa638a8472ddbe49e7dd15d90491d10869ece8360afacddfa3408cd5b90",
+      "candidate_array_sha256": "08e8ffa638a8472ddbe49e7dd15d90491d10869ece8360afacddfa3408cd5b90"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_0",
+      "segment": 1,
+      "dataset": "psi_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "a121f32d9e7e7eeb5d22a638f10d22c0123f4a612f41cb5654cf10f8b98e08ff",
+      "candidate_array_sha256": "a121f32d9e7e7eeb5d22a638f10d22c0123f4a612f41cb5654cf10f8b98e08ff"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_0",
+      "segment": 1,
+      "dataset": "psi_real",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "ecccfd478465acc21eec05692a40613808e8e825d0734548696563d4f6a10a29",
+      "candidate_array_sha256": "ecccfd478465acc21eec05692a40613808e8e825d0734548696563d4f6a10a29"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_0",
+      "segment": 1,
+      "dataset": "psi_imag",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "b6a69c102e9e8f870cc43b2cd67f56ddce3d7949e022ff2844938ae41b9b4936",
+      "candidate_array_sha256": "b6a69c102e9e8f870cc43b2cd67f56ddce3d7949e022ff2844938ae41b9b4936"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_0",
+      "segment": 1,
+      "dataset": "T",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "45aaadb2d1f6582458018c0bd6c8781d0b6f97f0206d7646922083833bcb287e",
+      "candidate_array_sha256": "45aaadb2d1f6582458018c0bd6c8781d0b6f97f0206d7646922083833bcb287e"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_0",
+      "segment": 1,
+      "dataset": "Ax",
+      "shape": [
+        9,
+        31,
+        60
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "7e2c749efd0730f778771f38c570fca50b7013247586cb8e2d9fc165bff5f023",
+      "candidate_array_sha256": "7e2c749efd0730f778771f38c570fca50b7013247586cb8e2d9fc165bff5f023"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_0",
+      "segment": 1,
+      "dataset": "Ay",
+      "shape": [
+        9,
+        30,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "f561581ce0a9f58df2d88af5fcf5e409b5c72190a871b6e2fd361e7ff0460e6e",
+      "candidate_array_sha256": "f561581ce0a9f58df2d88af5fcf5e409b5c72190a871b6e2fd361e7ff0460e6e"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_1",
+      "segment": 1,
+      "dataset": "times",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894",
+      "candidate_array_sha256": "eb8654ed8c7bddebf3d02264120792c24d8a7ea3ab98e2e66631f0aff180c894"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_1",
+      "segment": 1,
+      "dataset": "V",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "c32c2e84fd8edda9ee6fe35b0a7f7b3b95eda292552d157f7646e6e3488292ba",
+      "candidate_array_sha256": "c32c2e84fd8edda9ee6fe35b0a7f7b3b95eda292552d157f7646e6e3488292ba"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_1",
+      "segment": 1,
+      "dataset": "T_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "58aaacd8c1a3c157c6fbb8a1c7e3f484d637592dadd263229fe75b5279ba1ed2",
+      "candidate_array_sha256": "58aaacd8c1a3c157c6fbb8a1c7e3f484d637592dadd263229fe75b5279ba1ed2"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_1",
+      "segment": 1,
+      "dataset": "psi_avg",
+      "shape": [
+        9
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "a922e369e5a7029a33b96619824ffdac2ab29cbcf07ed7ec4788660495d6bfd3",
+      "candidate_array_sha256": "a922e369e5a7029a33b96619824ffdac2ab29cbcf07ed7ec4788660495d6bfd3"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_1",
+      "segment": 1,
+      "dataset": "psi_real",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "e863cce9f77c836e5588e8e20840393078a4bf2b6410132be66cf7cd16541757",
+      "candidate_array_sha256": "e863cce9f77c836e5588e8e20840393078a4bf2b6410132be66cf7cd16541757"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_1",
+      "segment": 1,
+      "dataset": "psi_imag",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "c898c621759a2ca70108c0ebed2767a2abfda44e4bb515894174b6937f815522",
+      "candidate_array_sha256": "c898c621759a2ca70108c0ebed2767a2abfda44e4bb515894174b6937f815522"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_1",
+      "segment": 1,
+      "dataset": "T",
+      "shape": [
+        9,
+        31,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "91ec2fb3e2130bbb9c450db0584aee079fac4e5786d0c98eb2d24f835be0abdd",
+      "candidate_array_sha256": "91ec2fb3e2130bbb9c450db0584aee079fac4e5786d0c98eb2d24f835be0abdd"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_1",
+      "segment": 1,
+      "dataset": "Ax",
+      "shape": [
+        9,
+        31,
+        60
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "e94321d7a40bfb0b41ced26f0eb14b44aa973cc9c7384eee6ee7739b6f63aca5",
+      "candidate_array_sha256": "e94321d7a40bfb0b41ced26f0eb14b44aa973cc9c7384eee6ee7739b6f63aca5"
+    },
+    {
+      "stage": "imported",
+      "id": "import_probe_1",
+      "segment": 1,
+      "dataset": "Ay",
+      "shape": [
+        9,
+        30,
+        61
+      ],
+      "dtype": "float64",
+      "reference_array_sha256": "020d15d5d96e8bfdfecf583626097640da9d8cda43447773ce080b3331f5253e",
+      "candidate_array_sha256": "020d15d5d96e8bfdfecf583626097640da9d8cda43447773ce080b3331f5253e"
+    }
+  ],
+  "numpy": "2.5.4",
+  "h5py": "3.16.0",
+  "method": "Compare Float64 dataset shapes, finite values, and SHA256 of complete C-order array bytes. Container file byte hashes can differ while saved arrays are identical."
+}
