@@ -9,7 +9,7 @@ import analyze_ndr_enhancement_history as ah
 
 def fixture(tmp_path):
     cfg=tmp_path/"cfg.yaml"; cfg.write_text("cfg",encoding="utf-8"); ch=ah.sha(cfg)
-    currents=[.18,.19,.20,.21,.22,.23,.24]; jobs=[]; root=tmp_path/"campaign"; root.mkdir()
+    currents=[.18,.19,.20,.21,.22,.23,.24]; jobs=[]; sources={}; root=tmp_path/"campaign"; root.mkdir()
     for direction in ah.DIRECTIONS:
         seq=currents if direction=="ascending" else currents[::-1]
         for seed in ah.SEEDS:
@@ -17,6 +17,7 @@ def fixture(tmp_path):
             initial=tmp_path/(jid+"_initial.h5");initial.write_bytes(b"initial state")
             irng=tmp_path/(jid+"_initial.bin");irng.write_bytes(jid.encode())
             jobs.append({"id":jid,"seed":seed,"currents":seq,"config_path":str(cfg),"noise":.001,"initial_state_path":str(initial),"initial_rng_path":str(irng),"prior_cumulative_horizon":50000})
+            sources[jid]=[{"id":"source_"+jid,"segment":10,"cumulative_end":50000,"seed":seed,"Je":seq[0],"manifest":{"output_path":str(initial),"output_hash":ah.sha(initial)},"rng_after_path":str(irng),"rng_after_sha256":ah.sha(irng)}]
             previous_output, previous_rng = str(initial), str(irng)
             for step,je in enumerate(seq,1):
                 folder=root/jid/f"step{step}_Je{je}";folder.mkdir(parents=True)
@@ -31,7 +32,7 @@ def fixture(tmp_path):
                 previous_output, previous_rng=str(h5), str(rng)
     jp=tmp_path/"history_jobs.json"; jp.write_text(json.dumps(jobs),encoding="utf-8")
     hp={"schema":"tdgl-full-curl-ndr-history-plan-v1","currents":currents,"seeds":list(ah.SEEDS),"directions":list(ah.DIRECTIONS),"backend":"cpu_compatible","tolerance":1e-4,"source_hashes":{"config":ch,"model":ah.MODEL_HASH,"rhs_source":ah.RHS_HASH},"jobs":{"path":jp.name,"jobs_sha256":ah.sha(jp),"segment_horizon":20000,"snapshot_interval":1,"skip_ratio":.6,"prior_cumulative_horizon":50000},"raw_window":[12000,20000],"analysis_final_window":[18000,20000],"drift_windows":[[13000,15000],[18000,20000]]}
-    cp=tmp_path/"campaign.json"; cp.write_text("{}", encoding="utf-8")
+    cp=tmp_path/"campaign.json"; cp.write_text(json.dumps({"chains":sources}), encoding="utf-8")
     hp["campaign_sha256"]=ah.sha(cp)
     hp["holdout_campaign"]=str(cp)
     hp["confidence"]={"bonferroni_contrasts":12,"stationarity_ci_abs_max":.0025}
@@ -92,3 +93,11 @@ def test_integrated_voltage_uses_same_final_window():
     times=np.arange(12000.,20001.);ax=np.broadcast_to((-2*times/30)[:,None,None],(8001,3,3)).copy()
     ax[times<18000]+=100
     assert ah.integrated(ax,times)==pytest.approx(2)
+
+
+def test_history_rng_must_match_recorded_50k_source(tmp_path):
+    pp,root=fixture(tmp_path);hp=json.loads(pp.read_text());cp=Path(hp['holdout_campaign']);source=json.loads(cp.read_text())
+    first=next(iter(source['chains'].values()))[0];first['rng_after_sha256']='a'*64
+    cp.write_text(json.dumps(source));hp['campaign_sha256']=ah.sha(cp);pp.write_text(json.dumps(hp))
+    r=ah.analyze(pp,root)
+    assert not r['complete'] and any('holdout RNG lineage' in x for x in r['errors'])

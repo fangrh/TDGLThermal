@@ -62,7 +62,16 @@ def analyze(protocol:Path,campaign:Path,validate=False):
   old=read(holdout_protocol); oldjobs=holdout_protocol.parent/old.get("jobs",{}).get("path","")
   if not oldjobs.is_file() or not hp.get("holdout_jobs_sha256") or hp["holdout_jobs_sha256"]!=sha(oldjobs):errors.append("holdout jobs hash mismatch")
  campaign_source=Path(hp.get("holdout_campaign", ""))
+ source_states={}
  if not campaign_source.is_file() or not hp.get("campaign_sha256") or hp.get("campaign_sha256")!=sha(campaign_source): errors.append("campaign hash mismatch")
+ else:
+  source_campaign=read(campaign_source)
+  for entries in source_campaign.get('chains',{}).values():
+   for entry in entries:
+    if entry.get('cumulative_end')==50000 and entry.get('segment')==10:
+     sm=entry.get('manifest',{})
+     if sm.get('output_path') and entry.get('rng_after_path'):
+      source_states[(str(Path(sm['output_path']).resolve()),str(Path(entry['rng_after_path']).resolve()))]=entry
  grouped=defaultdict(list)
  for p in campaign.glob("**/step*/chain.json"):
   try:
@@ -77,6 +86,9 @@ def analyze(protocol:Path,campaign:Path,validate=False):
   if not cfg.is_file() or sha(cfg)!=hp["source_hashes"]["config"]:errors.append(f"job config mismatch {jid}")
   seq=list(job["currents"]); expected_seq=declared if jid.startswith("ascending") else list(reversed(declared))
   if seq!=expected_seq:errors.append(f"declared current order mismatch {jid}")
+  source=source_states.get((str(Path(job.get('initial_state_path','')).resolve()),str(Path(job.get('initial_rng_path','')).resolve())))
+  if source is None:errors.append(f"missing verified holdout source {jid}")
+  elif int(source.get('seed',-1))!=int(job['seed']) or not math.isclose(float(source.get('Je',math.nan)),float(expected_seq[0]),rel_tol=0,abs_tol=1e-12):errors.append(f"holdout source identity mismatch {jid}")
   if [float(e.get("Je",math.nan)) for e in es] != expected_seq: errors.append(f"current order mismatch {jid}")
   for i,e in enumerate(es,1):
    m=e.get("manifest",{}); ti=None
@@ -88,6 +100,9 @@ def analyze(protocol:Path,campaign:Path,validate=False):
    prev_rng=Path(job.get("initial_rng_path","") if i==1 else es[i-2].get("rng_after_path",""))
    if Path(e.get("preceding_hdf5") or "").resolve()!=prev_h5.resolve() or not prev_h5.is_file() or sha(prev_h5)!=m.get("initial_source_hash"): errors.append(f"HDF5 continuity mismatch {jid}/{i}")
    if Path(e.get("preceding_rng") or "").resolve()!=prev_rng.resolve() or not prev_rng.is_file() or sha(prev_rng)!=e.get("rng_before_sha256"): errors.append(f"RNG continuity mismatch {jid}/{i}")
+   if i==1 and source is not None:
+    if m.get('initial_source_hash')!=source.get('manifest',{}).get('output_hash'):errors.append(f"holdout field lineage mismatch {jid}")
+    if e.get('rng_before_sha256')!=source.get('rng_after_sha256'):errors.append(f"holdout RNG lineage mismatch {jid}")
    rng=Path(e.get("rng_after_path", ""))
    outp=Path(m.get("output_path",""))
    if not outp.is_file() or sha(outp)!=m.get("output_hash"): errors.append(f"output hash mismatch {jid}/{i}")
