@@ -34,6 +34,8 @@ The first ordered-history attempt is [invalid and excluded](results/history_inva
 
 The benchmark harness now checks return codes and strict time advancement, and records an explicit `TDGL_STREAM_MAXITERS` override. The PDE/model and RHS files are unchanged. Twenty-nine pinned-Linux tests and a distributed failure canary pass. The [guarded-versus-frozen noisy comparison](results/streaming_guard_validation/differential_summary.json), with iteration budget 10000000, has exact saved-array bytes, initial vectors and RNG states in all six point-segment pairs. The replacement ordered run keeps the original currents, seeds, initial checkpoints, dwell, output windows and statistical gates.
 
+The [replacement v2 protocol](history_plan_v2/history_protocol.json) and unchanged [eight jobs](history_plan_v2/history_jobs.json) were pushed in `b9cbebc` before the 2026-11-05 03:06 UTC launch. The separate clean runtime is pinned to `5c80eba`; the recorded guard source hash is `9c764ecaf9a58078394abc2f39651a7a5a07f054761e55c3ceeccfade9b6fa70`. Only this replacement run can contribute ordered-history results.
+
 For comparison, the original four-current/eight-seed 50000τ study has a 14.32% mean paired middle-interval drop. Its [English detail figure](results/baseline_detail/ndr_enhancement_comparison.png) retains every seed and the higher-current spread; this prepared-point response does not establish a stationary continuous negative branch. Connecting lines guide the eye between independently prepared points and do not represent an ordered current sweep.
 
 ## Full-curl identity

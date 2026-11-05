@@ -1,0 +1,52 @@
+{
+  "schema": "tdgl-history-prefix-check-v2",
+  "created_utc": "2026-11-05T03:15:53.542134+00:00",
+  "complete_prefix": true,
+  "full_history_pending": true,
+  "point_steps": 8,
+  "errors": [],
+  "all_above_old_iteration_limit": true,
+  "rows": [
+    {
+      "id": "ascending_seed2026110511",
+      "accepted_steps": 1226052,
+      "wall_seconds": 460.41814613342285
+    },
+    {
+      "id": "descending_seed2026110511",
+      "accepted_steps": 1219291,
+      "wall_seconds": 467.2392489910126
+    },
+    {
+      "id": "ascending_seed2026110512",
+      "accepted_steps": 1226083,
+      "wall_seconds": 464.7915771007538
+    },
+    {
+      "id": "descending_seed2026110512",
+      "accepted_steps": 1221138,
+      "wall_seconds": 460.1143319606781
+    },
+    {
+      "id": "ascending_seed2026110513",
+      "accepted_steps": 1225626,
+      "wall_seconds": 468.1474690437317
+    },
+    {
+      "id": "descending_seed2026110513",
+      "accepted_steps": 1220131,
+      "wall_seconds": 457.0861439704895
+    },
+    {
+      "id": "ascending_seed2026110514",
+      "accepted_steps": 1225698,
+      "wall_seconds": 457.98240900039673
+    },
+    {
+      "id": "descending_seed2026110514",
+      "accepted_steps": 1219486,
+      "wall_seconds": 460.3943028450012
+    }
+  ],
+  "scope": "First dwell metadata, actual output/RNG hashes, fixed retained schedule and 50k-to-70k source lineage; no voltage outcomes examined."
+}

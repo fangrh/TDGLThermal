@@ -1,0 +1,72 @@
+{
+  "created_utc": "2026-11-05T03:09:54.332247+00:00",
+  "timeout_pid": 3240283,
+  "masters": [
+    [
+      "3240284",
+      "3240283",
+      "3240283",
+      "3240283",
+      "/home/fangr1/julia/julia-1.12.1/bin/julia -p 8 --project=. --startup-file=no bench/reproduce_ndr_history.jl --jobs /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/plan/history_jobs.json --out /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign --horizon 20000 --skip 0.6 --backend cpu_compatible --tolerance 1e-4"
+    ]
+  ],
+  "workers": [
+    [
+      "3240298",
+      "3240284",
+      "3240298",
+      "3240298",
+      "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker"
+    ],
+    [
+      "3240302",
+      "3240284",
+      "3240302",
+      "3240302",
+      "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker"
+    ],
+    [
+      "3240303",
+      "3240284",
+      "3240303",
+      "3240303",
+      "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker"
+    ],
+    [
+      "3240304",
+      "3240284",
+      "3240304",
+      "3240304",
+      "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker"
+    ],
+    [
+      "3240305",
+      "3240284",
+      "3240305",
+      "3240305",
+      "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker"
+    ],
+    [
+      "3240307",
+      "3240284",
+      "3240307",
+      "3240307",
+      "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker"
+    ],
+    [
+      "3240310",
+      "3240284",
+      "3240310",
+      "3240310",
+      "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker"
+    ],
+    [
+      "3240311",
+      "3240284",
+      "3240311",
+      "3240311",
+      "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker"
+    ]
+  ],
+  "note": "Owned processes captured by parent-child relationships while master is live; local Julia workers use separate sessions."
+}
