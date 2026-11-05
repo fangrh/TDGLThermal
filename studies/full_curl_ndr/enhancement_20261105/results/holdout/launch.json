@@ -1,0 +1,42 @@
+{
+  "created_utc": "2026-11-05T01:17:06.074235+00:00",
+  "pid": 3224928,
+  "frozen_plan_git_commit": "0b25fd6",
+  "physics_runtime_git_commit": "3adb0005af07d9485fe56c041958b2d75c76f50d",
+  "protocol_sha256": "f6c11eca60eec7ecacf2d40d9cd6f6beba4bc9e6f88bb21a808e3135984778b5",
+  "jobs_sha256": "03d0bcff222d99f70eb9e8556f6aaa2eac861261ac8c88b9f0d6946e2f42dac3",
+  "argv": [
+    "nohup",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=60s",
+    "7200",
+    "/home/fangr1/julia/julia-1.12.1/bin/julia",
+    "-p",
+    "24",
+    "--project=.",
+    "--startup-file=no",
+    "bench/reproduce_ndr.jl",
+    "--jobs",
+    "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/plan/holdout_jobs.json",
+    "--out",
+    "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign",
+    "--segments",
+    "10",
+    "--horizon",
+    "5000",
+    "--skip",
+    "0.6",
+    "--backend",
+    "cpu_compatible"
+  ],
+  "env_overrides": {
+    "JULIA_DEPOT_PATH": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/julia_depot:/home/fangr1/.julia",
+    "GKSwstype": "100",
+    "NOFASTSCAN_SKIP_WORKERS": "1",
+    "NOFASTSCAN_SKIP_MAIN": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "JULIA_NUM_THREADS": "1"
+  },
+  "timeout_seconds": 7200
+}

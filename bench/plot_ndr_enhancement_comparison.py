@@ -53,6 +53,7 @@ def run(baseline,holdout,out):
    cs=[ci([by[(j,s)] for s in seeds]) for j in currents];means=[c['mean'] for c in cs]
    ax[1].errorbar(currents,means,yerr=[c['ci_high']-c['mean'] for c in cs],fmt='o-',capsize=4,lw=2,color='#D55E00',label='Mean ± nominal 95% seed CI');ax[1].set_title('Frozen holdout · '+holdout['protocol']['selected_candidate']['variant']);ax[1].set_xlabel('Je (native model units)');ax[1].set_ylabel('V (native model units)');ax[1].legend(fontsize=8);ax[1].grid(alpha=.2)
    ax[1].axvspan(holdout['primary']['lo'],holdout['primary']['hi'],color='#D55E00',alpha=.09)
+   ax[1].text(.03,.04,f"Frozen contrast: {holdout['primary']['lo']:.4f} → {holdout['primary']['hi']:.4f}\nMean paired decrease: {100*holdout['primary']['stats']['mean_fraction']:.2f}%",transform=ax[1].transAxes,fontsize=8.5,bbox={'facecolor':'white','alpha':.85,'edgecolor':'none'})
    all_v=np.array([*sum(bv,[]),*by.values()],dtype=float)
    if not np.isfinite(all_v).all():raise ValueError('nonfinite holdout voltages')
    pad=max(.03,.08*np.ptp(all_v))

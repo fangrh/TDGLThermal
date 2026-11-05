@@ -1,0 +1,73 @@
+{
+  "schema": "tdgl-full-curl-ndr-history-plan-v1",
+  "holdout_protocol": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/plan/holdout_protocol.json",
+  "holdout_protocol_sha256": "f6c11eca60eec7ecacf2d40d9cd6f6beba4bc9e6f88bb21a808e3135984778b5",
+  "holdout_jobs_sha256": "03d0bcff222d99f70eb9e8556f6aaa2eac861261ac8c88b9f0d6946e2f42dac3",
+  "holdout_campaign": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/campaign.json",
+  "campaign_sha256": "cc42df0064012d5cc36bd93168f8d93d39132d89ba06913101952656ac6e025f",
+  "source_hashes": {
+    "config": "2b3f63ec3fcaca09b473cd13c1da390f6a5c39288d45d7b96a4a8293d3ea88dd",
+    "model": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+    "rhs_source": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe"
+  },
+  "backend": "cpu_compatible",
+  "tolerance": 0.0001,
+  "confidence": {
+    "bonferroni_contrasts": 12,
+    "stationarity_ci_abs_max": 0.0025
+  },
+  "source_Je": {
+    "ascending": 0.1875,
+    "descending": 0.2025
+  },
+  "seeds": [
+    2026110511,
+    2026110512,
+    2026110513,
+    2026110514
+  ],
+  "directions": [
+    "ascending",
+    "descending"
+  ],
+  "currents": [
+    0.1875,
+    0.19,
+    0.1925,
+    0.195,
+    0.1975,
+    0.2,
+    0.2025
+  ],
+  "jobs": {
+    "path": "history_jobs.json",
+    "count": 8,
+    "jobs_sha256": "cc69cb9a12108d6dd9c1f48dbb34b8477d42b022d33ce629e95c558b8c3baf93",
+    "segment_horizon": 20000,
+    "segments_equivalent_5000": 224,
+    "equivalent_tau": 1120000,
+    "snapshot_interval": 1,
+    "skip_ratio": 0.6,
+    "prior_cumulative_horizon": 50000
+  },
+  "raw_window": [
+    12000,
+    20000
+  ],
+  "analysis_final_window": [
+    18000,
+    20000
+  ],
+  "drift_windows": [
+    [
+      13000,
+      15000
+    ],
+    [
+      18000,
+      20000
+    ]
+  ],
+  "validation_scope": "all 56x10 metadata/continuity checked; HDF5 content hash checked for 16 outer initialization sources only",
+  "scope": "ordered-history descriptive control; not a primary contrast"
+}

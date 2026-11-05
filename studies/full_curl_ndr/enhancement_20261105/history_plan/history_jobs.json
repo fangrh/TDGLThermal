@@ -1,0 +1,170 @@
+[
+  {
+    "id": "ascending_seed2026110511",
+    "config_path": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/configs/T0_0p22.yaml",
+    "seed": 2026110511,
+    "currents": [
+      0.1875,
+      0.19,
+      0.1925,
+      0.195,
+      0.1975,
+      0.2,
+      0.2025
+    ],
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i000_seed2026110511/segment10/cpu_compatible_Je0.1875_seed2026110511.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i000_seed2026110511/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "Nx": 60,
+    "Ny": 30,
+    "noise": 0.001,
+    "source_Je": 0.1875
+  },
+  {
+    "id": "descending_seed2026110511",
+    "config_path": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/configs/T0_0p22.yaml",
+    "seed": 2026110511,
+    "currents": [
+      0.2025,
+      0.2,
+      0.1975,
+      0.195,
+      0.1925,
+      0.19,
+      0.1875
+    ],
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i006_seed2026110511/segment10/cpu_compatible_Je0.2025_seed2026110511.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i006_seed2026110511/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "Nx": 60,
+    "Ny": 30,
+    "noise": 0.001,
+    "source_Je": 0.2025
+  },
+  {
+    "id": "ascending_seed2026110512",
+    "config_path": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/configs/T0_0p22.yaml",
+    "seed": 2026110512,
+    "currents": [
+      0.1875,
+      0.19,
+      0.1925,
+      0.195,
+      0.1975,
+      0.2,
+      0.2025
+    ],
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i000_seed2026110512/segment10/cpu_compatible_Je0.1875_seed2026110512.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i000_seed2026110512/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "Nx": 60,
+    "Ny": 30,
+    "noise": 0.001,
+    "source_Je": 0.1875
+  },
+  {
+    "id": "descending_seed2026110512",
+    "config_path": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/configs/T0_0p22.yaml",
+    "seed": 2026110512,
+    "currents": [
+      0.2025,
+      0.2,
+      0.1975,
+      0.195,
+      0.1925,
+      0.19,
+      0.1875
+    ],
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i006_seed2026110512/segment10/cpu_compatible_Je0.2025_seed2026110512.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i006_seed2026110512/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "Nx": 60,
+    "Ny": 30,
+    "noise": 0.001,
+    "source_Je": 0.2025
+  },
+  {
+    "id": "ascending_seed2026110513",
+    "config_path": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/configs/T0_0p22.yaml",
+    "seed": 2026110513,
+    "currents": [
+      0.1875,
+      0.19,
+      0.1925,
+      0.195,
+      0.1975,
+      0.2,
+      0.2025
+    ],
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i000_seed2026110513/segment10/cpu_compatible_Je0.1875_seed2026110513.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i000_seed2026110513/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "Nx": 60,
+    "Ny": 30,
+    "noise": 0.001,
+    "source_Je": 0.1875
+  },
+  {
+    "id": "descending_seed2026110513",
+    "config_path": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/configs/T0_0p22.yaml",
+    "seed": 2026110513,
+    "currents": [
+      0.2025,
+      0.2,
+      0.1975,
+      0.195,
+      0.1925,
+      0.19,
+      0.1875
+    ],
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i006_seed2026110513/segment10/cpu_compatible_Je0.2025_seed2026110513.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i006_seed2026110513/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "Nx": 60,
+    "Ny": 30,
+    "noise": 0.001,
+    "source_Je": 0.2025
+  },
+  {
+    "id": "ascending_seed2026110514",
+    "config_path": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/configs/T0_0p22.yaml",
+    "seed": 2026110514,
+    "currents": [
+      0.1875,
+      0.19,
+      0.1925,
+      0.195,
+      0.1975,
+      0.2,
+      0.2025
+    ],
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i000_seed2026110514/segment10/cpu_compatible_Je0.1875_seed2026110514.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i000_seed2026110514/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "Nx": 60,
+    "Ny": 30,
+    "noise": 0.001,
+    "source_Je": 0.1875
+  },
+  {
+    "id": "descending_seed2026110514",
+    "config_path": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/configs/T0_0p22.yaml",
+    "seed": 2026110514,
+    "currents": [
+      0.2025,
+      0.2,
+      0.1975,
+      0.195,
+      0.1925,
+      0.19,
+      0.1875
+    ],
+    "initial_state_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i006_seed2026110514/segment10/cpu_compatible_Je0.2025_seed2026110514.h5",
+    "initial_rng_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/T0_0p22_holdout_i006_seed2026110514/segment10/rng_after.bin",
+    "prior_cumulative_horizon": 50000,
+    "Nx": 60,
+    "Ny": 30,
+    "noise": 0.001,
+    "source_Je": 0.2025
+  }
+]

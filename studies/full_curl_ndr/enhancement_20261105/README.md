@@ -1,6 +1,24 @@
 # Full-curl NDR enhancement exploration
 
-This is a bounded physical-parameter exploration requested on 2026-11-05. The delivered [101-point baseline](../full_iv/README.md) remains the comparison dataset. The complete screen is verified; independent long-horizon confirmation is pending.
+This is a bounded physical-parameter exploration requested on 2026-11-05. The delivered [101-point baseline](../full_iv/README.md) remains the comparison dataset. The screen and independent 50000τ holdout are verified. The declared enhancement target failed; ordered-history controls are pending.
+
+## Long-horizon result: enhancement target not met
+
+All 56 fresh holdout chains and 560 segments passed output, initial-state, RNG, source/configuration, retained-schedule, and nine-dataset finite-value checks. The [verified holdout analysis](results/holdout/holdout_analysis.json) and [English comparison figure](results/comparison/ndr_enhancement_comparison.png) preserve every seed.
+
+At the frozen primary contrast `Je = 0.19 → 0.20`, all eight seeds decrease. The mean paired decrease is **2.978%**, with nominal one-sided 95% lower bound **2.393%**. Mean `V_hi − V_lo = −0.07409`, with upper bound `−0.05950`. This confirms a small finite-time decrease, but fails the declared ≥20% mean and >15% lower-bound enhancement criteria.
+
+| Contrast | Mean voltage decrease | Mean paired fraction | Current interval width | Secant of point means |
+|---|---:|---:|---:|---:|
+| Original `T0 = 0.18`, local comparison | 0.42041 | 14.32% | 0.0010204 | about −412.0 |
+| Frozen primary `T0 = 0.22`, `0.19 → 0.20` | 0.07409 | 2.98% | 0.01000 | −7.41 |
+| Exploratory local `T0 = 0.22`, `0.1975 → 0.20` | 0.35456 | 12.81% | 0.00250 | −141.83 |
+
+The refined local contrast was identified after inspecting the holdout curve. It is exploratory and does not replace the frozen primary endpoint. The secants are finite-interval differences between independently prepared point means, not established derivatives along a continuous stationary branch. A smaller spacing across a jump can increase the secant magnitude.
+
+The local decrease coincides with `T_avg` changing from 0.30220 to 0.29789 and mean `|ψ|²` from 0.44438 to 0.47415. This is consistent with a cooler, more superconducting response; the correlations do not determine causal direction or spatial uniformity. Six of seven currents pass the declared finite-window drift bound. The highest current, `0.2025`, fails, with drift CI `[-0.003601, 0.004948]`.
+
+The 10000τ screen did not recover an eligible baseline decrease at that same horizon. It therefore cannot exclude slower NDR behavior in the other six configurations. `T0 = 0.22` is the screen-selected candidate, not an established optimum. The stronger original baseline is retained.
 
 ## Verified screening result and frozen holdout
 
@@ -8,7 +26,9 @@ All 126 chains and 252 segments completed successfully. Output/initial-state/RNG
 
 Only `T0 = 0.22` qualified at the declared 10000τ screen horizon: `Je = 0.19 → 0.20` decreased voltage by 2.89% and 1.19% in the two seeds. No other configuration, including the baseline at this same horizon, had an eligible decrease in both seeds. This is a small exploratory decrease, not evidence that the original 50000τ baseline drop has been improved.
 
-The [frozen holdout protocol](holdout_plan/holdout_protocol.json) fixes `T0 = 0.22`, currents `0.1875, 0.19, 0.1925, 0.195, 0.1975, 0.20, 0.2025`, and eight fresh seeds. The primary contrast is exclusively `0.19 → 0.20`; choosing a different interval from the holdout results is not allowed. Each of the 56 chains will reach 50000τ. No new-seed simulation was launched before freezing these files.
+The [frozen holdout protocol](holdout_plan/holdout_protocol.json) fixes `T0 = 0.22`, currents `0.1875, 0.19, 0.1925, 0.195, 0.1975, 0.20, 0.2025`, and eight fresh seeds. The primary contrast is exclusively `0.19 → 0.20`; choosing a different interval from the holdout results is not allowed. Each of the 56 chains reached 50000τ. No new-seed simulation was launched before freezing these files.
+
+The [ordered-history plan](history_plan/history_protocol.json) fixes the first four holdout seeds and both directions, starting from their saved outer-current fields/RNG states. All 56 × 10 holdout metadata/continuity records and all sixteen outer HDF5/RNG source hashes were checked before freezing this plan. Each of the eight histories traverses all seven currents with 20000τ dwell per point. This control will assess branch accessibility without changing the failed primary enhancement result.
 
 For comparison, the original four-current/eight-seed 50000τ study has a 14.32% mean paired middle-interval drop. Its [English detail figure](results/baseline_detail/ndr_enhancement_comparison.png) retains every seed and the higher-current spread; this prepared-point response does not establish a stationary continuous negative branch. Connecting lines guide the eye between independently prepared points and do not represent an ordered current sweep.
 
