@@ -1,0 +1,41 @@
+{
+  "pid": 3219930,
+  "launched_utc": "2026-11-05T00:46:29.002057+00:00",
+  "commit": "3adb0005af07d9485fe56c041958b2d75c76f50d",
+  "protocol_sha256": "549d36b45bf0429f660d7bbfa40094717d8b8a55e5507b4a2eca4eeb7d036cf2",
+  "jobs_sha256": "3ee53bacb0b559a32eecaba8850ab7ffec3bb742610527ba98dbe63871c9e470",
+  "command": [
+    "nohup",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=60s",
+    "5400",
+    "/home/fangr1/julia/julia-1.12.1/bin/julia",
+    "-p",
+    "24",
+    "--project=.",
+    "--startup-file=no",
+    "bench/reproduce_ndr.jl",
+    "--jobs",
+    "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/screen_jobs.json",
+    "--out",
+    "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_screen_20261105_v1/campaign",
+    "--segments",
+    "2",
+    "--horizon",
+    "5000",
+    "--skip",
+    "0.6",
+    "--backend",
+    "cpu_compatible"
+  ],
+  "environment_overrides": {
+    "JULIA_DEPOT_PATH": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/julia_depot:/home/fangr1/.julia",
+    "GKSwstype": "100",
+    "NOFASTSCAN_SKIP_WORKERS": "1",
+    "NOFASTSCAN_SKIP_MAIN": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "JULIA_NUM_THREADS": "1"
+  },
+  "timeout_seconds": 5400
+}

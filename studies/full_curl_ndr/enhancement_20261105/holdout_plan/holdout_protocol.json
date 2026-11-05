@@ -1,0 +1,92 @@
+{
+  "schema": "tdgl-full-curl-ndr-holdout-v1",
+  "source": {
+    "screen_analysis": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_screen_20261105_v1/analysis/enhancement_analysis.json",
+    "screen_analysis_sha256": "f3383875b74266e4609af9cf57ae506bae54fa2ab92220185a5e89b1bb1c2a60",
+    "screen_analysis_source_sha256": {
+      "analyze_ndr_enhancement.py": "34b3d196fadf35a2c0cdf56e606d6dfcd555c06af9e9addfe0fcd2ac1dc9ffe3",
+      "analyze_full_curl_ndr.py": "26f91502595d44e936173114f510a9588b0f501add6d07e73240b741e535bf0c",
+      "analyze_full_iv.py": "5eca16e634fcedf0ab60e7da755f5505ec143f3dd83e4e2409ddd01baa16bde0",
+      "compare_results.py": "8b7fb2e89b631f8a013a351a8d8ecf9063d02aff32a84375e5505aa1af0c5c12"
+    },
+    "screen_protocol": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/screen_protocol.json",
+    "screen_protocol_sha256": "549d36b45bf0429f660d7bbfa40094717d8b8a55e5507b4a2eca4eeb7d036cf2",
+    "screen_jobs": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/screen_jobs.json",
+    "screen_jobs_sha256": "3ee53bacb0b559a32eecaba8850ab7ffec3bb742610527ba98dbe63871c9e470",
+    "screen_config_sha256": {
+      "baseline": "d8c8a70d618b1bd17519552f483890d55fb1b0110b69a44bfdf2ad0591deca12",
+      "k_eff_2p5": "47d2b2190294c2993bc3c053b70fa2cd5a3994ecaa665f81aacf2c444588b4fe",
+      "k_eff_10": "bd74740d7840b393af9cf0d01c896b0d60e89dc8728cec3d299bc35269165106",
+      "eta_hole_0p05": "c07d18f450f333cf358e37fad0f2ee4df6a6fc33a06c9560e819e473d0ce030b",
+      "eta_hole_0p2": "d3ad870ec151a6ded2d9895f422dc8468782c71bb19d1f99ad7d3616017e676f",
+      "T0_0p14": "6e338c547ec2dac9cf44d0229929871a7552c48b155bf340798e61cca7074c12",
+      "T0_0p22": "2b3f63ec3fcaca09b473cd13c1da390f6a5c39288d45d7b96a4a8293d3ea88dd"
+    },
+    "model_hash": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+    "rhs_source_hash": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+    "freeze_builder_sha256": "4de2dcd5d66b98a669b8ef05ffe8034f0925fec078dc785bc96d1b97d882cc1d"
+  },
+  "selected_candidate": {
+    "variant": "T0_0p22",
+    "score": 0.011931508364339509,
+    "screen_bracket": [
+      0.19,
+      0.2
+    ],
+    "baseline_best_score": 0.0
+  },
+  "currents": [
+    0.1875,
+    0.19,
+    0.1925,
+    0.195,
+    0.1975,
+    0.2,
+    0.2025
+  ],
+  "seeds": [
+    2026110511,
+    2026110512,
+    2026110513,
+    2026110514,
+    2026110515,
+    2026110516,
+    2026110517,
+    2026110518
+  ],
+  "jobs": {
+    "path": "holdout_jobs.json",
+    "count": 56,
+    "jobs_sha256": "03d0bcff222d99f70eb9e8556f6aaa2eac861261ac8c88b9f0d6946e2f42dac3",
+    "segments": 10,
+    "segment_horizon": 5000,
+    "total_horizon": 50000,
+    "snapshot_interval": 1,
+    "skip_ratio": 0.6,
+    "tolerance": 0.0001,
+    "backend": "cpu_compatible",
+    "precision": "Float64",
+    "integrator": "Tsit5"
+  },
+  "primary_contrast": {
+    "only": true,
+    "lo": 0.19,
+    "hi": 0.2,
+    "final_window": [
+      48000,
+      50000
+    ],
+    "prior_window": [
+      43000,
+      45000
+    ]
+  },
+  "gates": {
+    "mean_paired_fraction_min": 0.2,
+    "nominal_student_one_sided_95_lower_gt": 0.15,
+    "paired_V_hi_minus_V_lo_upper": "< -0.01",
+    "stationarity_ci_abs_max": 0.0025,
+    "stationarity_scope": "descriptive if mixed"
+  },
+  "scope": "frozen holdout; primary contrast is the selected screen bracket, not a best holdout interval"
+}

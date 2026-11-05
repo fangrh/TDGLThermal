@@ -1,0 +1,3129 @@
+{
+  "schema": "tdgl-ndr-enhancement-analysis-v1",
+  "complete": true,
+  "pending": false,
+  "artifact_validation": true,
+  "finite_saved_fields_validation": true,
+  "protocol": {
+    "schema": "tdgl-full-curl-ndr-enhancement-screen-v1",
+    "created_utc": "2026-11-05",
+    "reference_git": "83797dd",
+    "operator": "corrected damping sign, full mixed magnetic curl",
+    "backend": "cpu_compatible",
+    "numeric": {
+      "float": "Float64",
+      "integrator": "Tsit5",
+      "tolerance": 0.0001
+    },
+    "grid": {
+      "Nx": 60,
+      "Ny": 30,
+      "hx": 0.5,
+      "hy": 0.5
+    },
+    "preparation": "independent hot starts psi=0,T=1.2; no current-history continuation",
+    "seeds": [
+      2026110501,
+      2026110502
+    ],
+    "currents": [
+      0.18,
+      0.19,
+      0.2,
+      0.20918367346938774,
+      0.21,
+      0.21020408163265306,
+      0.22,
+      0.23,
+      0.24
+    ],
+    "variants": [
+      {
+        "id": "baseline",
+        "config": "configs/baseline.yaml",
+        "changes": "none"
+      },
+      {
+        "id": "k_eff_2p5",
+        "config": "configs/k_eff_2p5.yaml",
+        "changes": "k_eff 5.0 -> 2.5"
+      },
+      {
+        "id": "k_eff_10",
+        "config": "configs/k_eff_10.yaml",
+        "changes": "k_eff 5.0 -> 10.0"
+      },
+      {
+        "id": "eta_hole_0p05",
+        "config": "configs/eta_hole_0p05.yaml",
+        "changes": "eta_hole 0.1 -> 0.05"
+      },
+      {
+        "id": "eta_hole_0p2",
+        "config": "configs/eta_hole_0p2.yaml",
+        "changes": "eta_hole 0.1 -> 0.2"
+      },
+      {
+        "id": "T0_0p14",
+        "config": "configs/T0_0p14.yaml",
+        "changes": "T0 0.18 -> 0.14"
+      },
+      {
+        "id": "T0_0p22",
+        "config": "configs/T0_0p22.yaml",
+        "changes": "T0 0.18 -> 0.22"
+      }
+    ],
+    "config_sha256": {
+      "baseline": "d8c8a70d618b1bd17519552f483890d55fb1b0110b69a44bfdf2ad0591deca12",
+      "k_eff_2p5": "47d2b2190294c2993bc3c053b70fa2cd5a3994ecaa665f81aacf2c444588b4fe",
+      "k_eff_10": "bd74740d7840b393af9cf0d01c896b0d60e89dc8728cec3d299bc35269165106",
+      "eta_hole_0p05": "c07d18f450f333cf358e37fad0f2ee4df6a6fc33a06c9560e819e473d0ce030b",
+      "eta_hole_0p2": "d3ad870ec151a6ded2d9895f422dc8468782c71bb19d1f99ad7d3616017e676f",
+      "T0_0p14": "6e338c547ec2dac9cf44d0229929871a7552c48b155bf340798e61cca7074c12",
+      "T0_0p22": "2b3f63ec3fcaca09b473cd13c1da390f6a5c39288d45d7b96a4a8293d3ea88dd"
+    },
+    "normalized_source_hashes": {
+      "model": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "rhs": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe"
+    },
+    "jobs": {
+      "path": "screen_jobs.json",
+      "count": 126,
+      "variants": 7,
+      "currents_per_variant": 9,
+      "seeds_per_current": 2,
+      "segments_per_job": 2,
+      "segment_horizon": 5000,
+      "total_horizon": 10000,
+      "skip_ratio": 0.6,
+      "snapshot_interval": 1,
+      "jobs_sha256": "3ee53bacb0b559a32eecaba8850ab7ffec3bb742610527ba98dbe63871c9e470"
+    },
+    "ranking": {
+      "adjacent_pair_requires": "V_left >= 0.05 in both seeds",
+      "eligibility": "each absolute drop > 0.01",
+      "score": "min over seeds of (V_left - V_right)/V_left",
+      "rank": "best nonbaseline variant and bracket; confirm only if score exceeds baseline screen best",
+      "null_result": "honest bounded null if no candidate exceeds baseline screen best"
+    },
+    "diagnostics": {
+      "screening_only": true,
+      "stationarity_claim": false,
+      "drift_windows": [
+        [
+          3000,
+          5000
+        ],
+        [
+          8000,
+          10000
+        ]
+      ],
+      "record": "record 3-5k versus 8-10k drift"
+    },
+    "holdout_freeze": {
+      "candidate": "one candidate plus bracket frozen before fresh holdout",
+      "seeds": [
+        2026110511,
+        2026110512,
+        2026110513,
+        2026110514,
+        2026110515,
+        2026110516,
+        2026110517,
+        2026110518
+      ],
+      "currents": {
+        "count": 7,
+        "description": "five uniform currents across selected bracket plus one shoulder one grid step outside each side"
+      },
+      "final_window": [
+        48000,
+        50000
+      ],
+      "history": {
+        "seeds": [
+          2026110511,
+          2026110512,
+          2026110513,
+          2026110514
+        ],
+        "directions": [
+          "ascending",
+          "descending"
+        ],
+        "dwell_per_point": 20000,
+        "raw_window": [
+          12000,
+          20000
+        ],
+        "analysis_final_window": [
+          18000,
+          20000
+        ],
+        "equivalent_segments": 224,
+        "equivalent_tau": 1120000,
+        "segment_horizon": 5000
+      },
+      "total_horizon": 50000,
+      "segments": 10
+    },
+    "confirmation_gates": {
+      "mean_drop_fraction_min": 0.2,
+      "one_sided_95_lower_fraction_gt": 0.15,
+      "absolute_voltage_difference_upper": "< -0.01",
+      "stationarity_ci_abs_max": 0.0025,
+      "ordered_history": "two consecutive negative intervals with simultaneous bounds plus refinement before stationary-branch claim"
+    },
+    "budget": {
+      "max_segments": 1036,
+      "conditional_midpoint_segments": 160,
+      "excludes_conditional": true,
+      "conditional_midpoints": {
+        "max": 2,
+        "rule": "Only if selected candidate drop confirms but only one negative ordered interval; exploratory refinement, not independent confirmation"
+      }
+    },
+    "scope_limits": [
+      "No gamma/C_eff broadening or automatic optimization",
+      "No physical guarantee from screening",
+      "No stationary-NDR claim from screen alone"
+    ],
+    "local_source_hashes": {
+      "model_file": "current_sweep_thermal_nofastscan.jl",
+      "model_sha256": "6f39eb7d5c576e772de62de635349f0ec8f0ca53dff4498d39e9208fe0cc4b9f",
+      "rhs_file": "src/cpu_compatible.jl",
+      "rhs_sha256": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+      "note": "normalized campaign hashes above are authoritative; local model checkout differs bytewise"
+    }
+  },
+  "provenance": {
+    "protocol_path": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/screen_protocol.json",
+    "protocol_sha256": "549d36b45bf0429f660d7bbfa40094717d8b8a55e5507b4a2eca4eeb7d036cf2",
+    "jobs_path": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-enhance/studies/full_curl_ndr/enhancement_20261105/screen_jobs.json",
+    "jobs_sha256": "3ee53bacb0b559a32eecaba8850ab7ffec3bb742610527ba98dbe63871c9e470",
+    "campaign_root": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_screen_20261105_v1/campaign",
+    "config_sha256": {
+      "baseline": "d8c8a70d618b1bd17519552f483890d55fb1b0110b69a44bfdf2ad0591deca12",
+      "k_eff_2p5": "47d2b2190294c2993bc3c053b70fa2cd5a3994ecaa665f81aacf2c444588b4fe",
+      "k_eff_10": "bd74740d7840b393af9cf0d01c896b0d60e89dc8728cec3d299bc35269165106",
+      "eta_hole_0p05": "c07d18f450f333cf358e37fad0f2ee4df6a6fc33a06c9560e819e473d0ce030b",
+      "eta_hole_0p2": "d3ad870ec151a6ded2d9895f422dc8468782c71bb19d1f99ad7d3616017e676f",
+      "T0_0p14": "6e338c547ec2dac9cf44d0229929871a7552c48b155bf340798e61cca7074c12",
+      "T0_0p22": "2b3f63ec3fcaca09b473cd13c1da390f6a5c39288d45d7b96a4a8293d3ea88dd"
+    },
+    "analysis_source_sha256": {
+      "analyze_ndr_enhancement.py": "34b3d196fadf35a2c0cdf56e606d6dfcd555c06af9e9addfe0fcd2ac1dc9ffe3",
+      "analyze_full_curl_ndr.py": "26f91502595d44e936173114f510a9588b0f501add6d07e73240b741e535bf0c",
+      "analyze_full_iv.py": "5eca16e634fcedf0ab60e7da755f5505ec143f3dd83e4e2409ddd01baa16bde0",
+      "compare_results.py": "8b7fb2e89b631f8a013a351a8d8ecf9063d02aff32a84375e5505aa1af0c5c12"
+    },
+    "python": "3.14.8 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:26:14) [GCC 14.3.0]",
+    "numpy": "2.5.4"
+  },
+  "errors": [],
+  "rows": [
+    {
+      "variant": "baseline",
+      "Je": 0.18,
+      "seed": 2026110501,
+      "V": 0.821855915343411,
+      "T_avg": 0.20964649795382126,
+      "psi_avg": 0.6262131233475692,
+      "V_integrated": 0.821699657537605,
+      "drift": -0.002383390787961015,
+      "job_id": "baseline_i000_seed2026110501"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.18,
+      "seed": 2026110502,
+      "V": 0.820348346536466,
+      "T_avg": 0.20959559190978524,
+      "psi_avg": 0.6259290019126903,
+      "V_integrated": 0.8202806876494717,
+      "drift": -0.0031865083116023873,
+      "job_id": "baseline_i000_seed2026110502"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.19,
+      "seed": 2026110501,
+      "V": 2.2062018711644695,
+      "T_avg": 0.240139511224034,
+      "psi_avg": 0.5127174120206576,
+      "V_integrated": 2.205991543685202,
+      "drift": 1.2041804583265547,
+      "job_id": "baseline_i001_seed2026110501"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.19,
+      "seed": 2026110502,
+      "V": 2.1790477042316874,
+      "T_avg": 0.2393865971434182,
+      "psi_avg": 0.5145457605042116,
+      "V_integrated": 2.178968844794958,
+      "drift": 1.0131165379852123,
+      "job_id": "baseline_i001_seed2026110502"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.2,
+      "seed": 2026110501,
+      "V": 2.6273183018599435,
+      "T_avg": 0.25587951879699244,
+      "psi_avg": 0.4918328219699047,
+      "V_integrated": 2.6270567658442765,
+      "drift": -0.024980064332114083,
+      "job_id": "baseline_i002_seed2026110501"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.2,
+      "seed": 2026110502,
+      "V": 2.6131887662404956,
+      "T_avg": 0.2553625343492521,
+      "psi_avg": 0.49302241690467136,
+      "V_integrated": 2.6128413383348525,
+      "drift": -0.029746266934429944,
+      "job_id": "baseline_i002_seed2026110502"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110501,
+      "V": 2.540364273222093,
+      "T_avg": 0.2666292164857,
+      "psi_avg": 0.48478185021945014,
+      "V_integrated": 2.540112494469586,
+      "drift": -0.4578161290796934,
+      "job_id": "baseline_i003_seed2026110501"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110502,
+      "V": 2.936047900122075,
+      "T_avg": 0.2744447912031424,
+      "psi_avg": 0.4626840831103741,
+      "V_integrated": 2.936110329051742,
+      "drift": -0.12350228505326433,
+      "job_id": "baseline_i003_seed2026110502"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.21,
+      "seed": 2026110501,
+      "V": 2.729665076155724,
+      "T_avg": 0.26813326910706325,
+      "psi_avg": 0.46503582981281594,
+      "V_integrated": 2.730019300145545,
+      "drift": -0.11893435394482044,
+      "job_id": "baseline_i004_seed2026110501"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.21,
+      "seed": 2026110502,
+      "V": 2.539266196861403,
+      "T_avg": 0.26612598589696507,
+      "psi_avg": 0.4894802985168991,
+      "V_integrated": 2.539240465822832,
+      "drift": -0.5131344325839988,
+      "job_id": "baseline_i004_seed2026110502"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110501,
+      "V": 2.5145995199393885,
+      "T_avg": 0.2658462614709492,
+      "psi_avg": 0.4966252054672318,
+      "V_integrated": 2.5143697045599156,
+      "drift": -0.4594106514216336,
+      "job_id": "baseline_i005_seed2026110501"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110502,
+      "V": 2.5397818638394383,
+      "T_avg": 0.26646207935147986,
+      "psi_avg": 0.47676912560057716,
+      "V_integrated": 2.539600068694375,
+      "drift": -0.4852009879248156,
+      "job_id": "baseline_i005_seed2026110502"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.22,
+      "seed": 2026110501,
+      "V": 3.430792561787283,
+      "T_avg": 0.30583110959077114,
+      "psi_avg": 0.3794956816156055,
+      "V_integrated": 3.43079184184669,
+      "drift": -0.0031803068351914376,
+      "job_id": "baseline_i006_seed2026110501"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.22,
+      "seed": 2026110502,
+      "V": 3.4322983891863266,
+      "T_avg": 0.305867364041521,
+      "psi_avg": 0.3794491231139241,
+      "V_integrated": 3.432302286491773,
+      "drift": -0.0022999416901101633,
+      "job_id": "baseline_i006_seed2026110502"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.23,
+      "seed": 2026110501,
+      "V": 3.97132386598236,
+      "T_avg": 0.326470919765841,
+      "psi_avg": 0.3518261035349543,
+      "V_integrated": 3.9713241661908425,
+      "drift": 0.0005392030378490453,
+      "job_id": "baseline_i007_seed2026110501"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.23,
+      "seed": 2026110502,
+      "V": 3.972556664542087,
+      "T_avg": 0.32649810071846425,
+      "psi_avg": 0.3516685589743802,
+      "V_integrated": 3.9725595225444703,
+      "drift": 0.0015489987597523402,
+      "job_id": "baseline_i007_seed2026110502"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.24,
+      "seed": 2026110501,
+      "V": 4.461547081964782,
+      "T_avg": 0.34579146056458127,
+      "psi_avg": 0.3284485068778066,
+      "V_integrated": 4.461550617245673,
+      "drift": 0.0016074300705284372,
+      "job_id": "baseline_i008_seed2026110501"
+    },
+    {
+      "variant": "baseline",
+      "Je": 0.24,
+      "seed": 2026110502,
+      "V": 4.460644662432181,
+      "T_avg": 0.34577500991922605,
+      "psi_avg": 0.32861751893940444,
+      "V_integrated": 4.460647109959154,
+      "drift": -0.0022787099390964016,
+      "job_id": "baseline_i008_seed2026110502"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.18,
+      "seed": 2026110501,
+      "V": 1.3851800557143097,
+      "T_avg": 0.23536228545904828,
+      "psi_avg": 0.5636431767882553,
+      "V_integrated": 1.3856443969242478,
+      "drift": 0.4485136284158836,
+      "job_id": "k_eff_2p5_i000_seed2026110501"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.18,
+      "seed": 2026110502,
+      "V": 1.9576351339360087,
+      "T_avg": 0.2513739059434659,
+      "psi_avg": 0.5059888067350653,
+      "V_integrated": 1.9572794386571077,
+      "drift": 1.0044294857528495,
+      "job_id": "k_eff_2p5_i000_seed2026110502"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.19,
+      "seed": 2026110501,
+      "V": 2.43215464228303,
+      "T_avg": 0.2717852489241231,
+      "psi_avg": 0.4842692702178293,
+      "V_integrated": 2.432176289885078,
+      "drift": 0.5847327853701934,
+      "job_id": "k_eff_2p5_i001_seed2026110501"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.19,
+      "seed": 2026110502,
+      "V": 2.4333852579032196,
+      "T_avg": 0.27184009037909274,
+      "psi_avg": 0.48423497718929415,
+      "V_integrated": 2.4333101561871926,
+      "drift": 0.5811322866623256,
+      "job_id": "k_eff_2p5_i001_seed2026110502"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.2,
+      "seed": 2026110501,
+      "V": 2.4959879952509842,
+      "T_avg": 0.2961740091134844,
+      "psi_avg": 0.4395305784784314,
+      "V_integrated": 2.495866622509561,
+      "drift": -0.003195640684960921,
+      "job_id": "k_eff_2p5_i002_seed2026110501"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.2,
+      "seed": 2026110502,
+      "V": 2.4857166201297956,
+      "T_avg": 0.29584257196288427,
+      "psi_avg": 0.4404554651606621,
+      "V_integrated": 2.4856393977857905,
+      "drift": -0.008886485791742338,
+      "job_id": "k_eff_2p5_i002_seed2026110502"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.20918367346938774,
+      "seed": 2026110501,
+      "V": 3.0826139440534757,
+      "T_avg": 0.3245542882071645,
+      "psi_avg": 0.4024215634988704,
+      "V_integrated": 3.0826182354899196,
+      "drift": 0.0034433286250923345,
+      "job_id": "k_eff_2p5_i003_seed2026110501"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.20918367346938774,
+      "seed": 2026110502,
+      "V": 3.084351198160551,
+      "T_avg": 0.32461189508076166,
+      "psi_avg": 0.4024344274653244,
+      "V_integrated": 3.0843545854828465,
+      "drift": 0.003984651772183767,
+      "job_id": "k_eff_2p5_i003_seed2026110502"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.21,
+      "seed": 2026110501,
+      "V": 3.135826245722792,
+      "T_avg": 0.327061741796968,
+      "psi_avg": 0.3991671649188009,
+      "V_integrated": 3.1358287872849093,
+      "drift": 0.0016037637816217476,
+      "job_id": "k_eff_2p5_i004_seed2026110501"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.21,
+      "seed": 2026110502,
+      "V": 3.1365806381695074,
+      "T_avg": 0.3270858856985858,
+      "psi_avg": 0.3991669477251308,
+      "V_integrated": 3.136582697716874,
+      "drift": 0.001961963959692614,
+      "job_id": "k_eff_2p5_i004_seed2026110502"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.21020408163265306,
+      "seed": 2026110501,
+      "V": 3.1516085326547016,
+      "T_avg": 0.3277700715526856,
+      "psi_avg": 0.3982724167491404,
+      "V_integrated": 3.151609900662015,
+      "drift": 0.004005562584250999,
+      "job_id": "k_eff_2p5_i005_seed2026110501"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.21020408163265306,
+      "seed": 2026110502,
+      "V": 3.1504712886687796,
+      "T_avg": 0.3277334419515422,
+      "psi_avg": 0.3984683153894509,
+      "V_integrated": 3.150472962101831,
+      "drift": 0.00465384775574984,
+      "job_id": "k_eff_2p5_i005_seed2026110502"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.22,
+      "seed": 2026110501,
+      "V": 3.73400441163639,
+      "T_avg": 0.35549451489222317,
+      "psi_avg": 0.3650350083655372,
+      "V_integrated": 3.734005977365495,
+      "drift": 0.0019353100100323317,
+      "job_id": "k_eff_2p5_i006_seed2026110501"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.22,
+      "seed": 2026110502,
+      "V": 3.7356553959940526,
+      "T_avg": 0.3555401878414076,
+      "psi_avg": 0.3649734375717513,
+      "V_integrated": 3.7356559287108304,
+      "drift": -0.0011200618733417933,
+      "job_id": "k_eff_2p5_i006_seed2026110502"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.23,
+      "seed": 2026110501,
+      "V": 4.24050325861264,
+      "T_avg": 0.3806532560173923,
+      "psi_avg": 0.3388575837875301,
+      "V_integrated": 4.240505104485697,
+      "drift": 0.001532184472121223,
+      "job_id": "k_eff_2p5_i007_seed2026110501"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.23,
+      "seed": 2026110502,
+      "V": 4.238978461315166,
+      "T_avg": 0.3806208482333253,
+      "psi_avg": 0.3390954481225909,
+      "V_integrated": 4.238980280517175,
+      "drift": 0.0005754395222483666,
+      "job_id": "k_eff_2p5_i007_seed2026110502"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.24,
+      "seed": 2026110501,
+      "V": 4.687727943831777,
+      "T_avg": 0.4042347873517184,
+      "psi_avg": 0.31819123227463975,
+      "V_integrated": 4.687730716162943,
+      "drift": 0.0008870300646570684,
+      "job_id": "k_eff_2p5_i008_seed2026110501"
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je": 0.24,
+      "seed": 2026110502,
+      "V": 4.68841937719234,
+      "T_avg": 0.40424838988315265,
+      "psi_avg": 0.318286433880724,
+      "V_integrated": 4.688421820661608,
+      "drift": -0.0005821025129542079,
+      "job_id": "k_eff_2p5_i008_seed2026110502"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.18,
+      "seed": 2026110501,
+      "V": 0.7394352509040703,
+      "T_avg": 0.1990330620216453,
+      "psi_avg": 0.6362598446445317,
+      "V_integrated": 0.7394567001046488,
+      "drift": -0.00020174267525252532,
+      "job_id": "k_eff_10_i000_seed2026110501"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.18,
+      "seed": 2026110502,
+      "V": 0.7506506353417546,
+      "T_avg": 0.19930011213480056,
+      "psi_avg": 0.6356172986207185,
+      "V_integrated": 0.750669575036162,
+      "drift": 0.0002212781595447577,
+      "job_id": "k_eff_10_i000_seed2026110502"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.19,
+      "seed": 2026110501,
+      "V": 1.9849282555076189,
+      "T_avg": 0.2174410094222478,
+      "psi_avg": 0.531937903977277,
+      "V_integrated": 1.9846869129264115,
+      "drift": 1.0904731770910172,
+      "job_id": "k_eff_10_i001_seed2026110501"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.19,
+      "seed": 2026110502,
+      "V": 1.9851722716308973,
+      "T_avg": 0.21741974819602922,
+      "psi_avg": 0.5317302687436294,
+      "V_integrated": 1.9858804041627345,
+      "drift": 1.0909489394257053,
+      "job_id": "k_eff_10_i001_seed2026110502"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.2,
+      "seed": 2026110501,
+      "V": 2.4174400385950827,
+      "T_avg": 0.22737769529008528,
+      "psi_avg": 0.5151403611578296,
+      "V_integrated": 2.4174225473607343,
+      "drift": -0.008436045973607254,
+      "job_id": "k_eff_10_i002_seed2026110501"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.2,
+      "seed": 2026110502,
+      "V": 2.4068059465142344,
+      "T_avg": 0.22707660883053946,
+      "psi_avg": 0.5157717976548867,
+      "V_integrated": 2.4071885421167307,
+      "drift": -0.009711236847500526,
+      "job_id": "k_eff_10_i002_seed2026110502"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.20918367346938774,
+      "seed": 2026110501,
+      "V": 2.7739411610055393,
+      "T_avg": 0.2362235330770082,
+      "psi_avg": 0.5003623043881122,
+      "V_integrated": 2.7738599230404297,
+      "drift": -0.01678139278677948,
+      "job_id": "k_eff_10_i003_seed2026110501"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.20918367346938774,
+      "seed": 2026110502,
+      "V": 2.784606081943755,
+      "T_avg": 0.2365156108932616,
+      "psi_avg": 0.4996121194357007,
+      "V_integrated": 2.7847977065066862,
+      "drift": -0.01808638435664589,
+      "job_id": "k_eff_10_i003_seed2026110502"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.21,
+      "seed": 2026110501,
+      "V": 2.817004111788545,
+      "T_avg": 0.23735426018933997,
+      "psi_avg": 0.4981598249186164,
+      "V_integrated": 2.817138303217232,
+      "drift": -0.01903669480941783,
+      "job_id": "k_eff_10_i004_seed2026110501"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.21,
+      "seed": 2026110502,
+      "V": 2.81645208747644,
+      "T_avg": 0.2373490120459218,
+      "psi_avg": 0.4981431822401661,
+      "V_integrated": 2.816541578722371,
+      "drift": -0.02059829725507223,
+      "job_id": "k_eff_10_i004_seed2026110502"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.21020408163265306,
+      "seed": 2026110501,
+      "V": 2.828799011119762,
+      "T_avg": 0.23701375964778787,
+      "psi_avg": 0.49787105781835284,
+      "V_integrated": 2.8288105534342267,
+      "drift": -0.019181373560305026,
+      "job_id": "k_eff_10_i005_seed2026110501"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.21020408163265306,
+      "seed": 2026110502,
+      "V": 2.8124447617642816,
+      "T_avg": 0.23721904456068746,
+      "psi_avg": 0.4986617147239788,
+      "V_integrated": 2.8131569937471452,
+      "drift": -0.019779047081128542,
+      "job_id": "k_eff_10_i005_seed2026110502"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.22,
+      "seed": 2026110501,
+      "V": 3.198366966871151,
+      "T_avg": 0.24768411028071613,
+      "psi_avg": 0.4801129675665468,
+      "V_integrated": 3.1984944763360095,
+      "drift": -0.05197267179994958,
+      "job_id": "k_eff_10_i006_seed2026110501"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.22,
+      "seed": 2026110502,
+      "V": 3.1986701164478952,
+      "T_avg": 0.24769672846236337,
+      "psi_avg": 0.48004426164549724,
+      "V_integrated": 3.1986907354888228,
+      "drift": -0.055768356391297846,
+      "job_id": "k_eff_10_i006_seed2026110502"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.23,
+      "seed": 2026110501,
+      "V": 3.784685901040948,
+      "T_avg": 0.278889613741958,
+      "psi_avg": 0.3523773829539965,
+      "V_integrated": 3.784640370650477,
+      "drift": -0.008880778730719019,
+      "job_id": "k_eff_10_i007_seed2026110501"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.23,
+      "seed": 2026110502,
+      "V": 3.7912364266825547,
+      "T_avg": 0.2789813500765968,
+      "psi_avg": 0.35185970959082064,
+      "V_integrated": 3.7911922768947863,
+      "drift": -0.011996863865188168,
+      "job_id": "k_eff_10_i007_seed2026110502"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.24,
+      "seed": 2026110501,
+      "V": 4.244926615664641,
+      "T_avg": 0.29243055774209314,
+      "psi_avg": 0.33212818323051496,
+      "V_integrated": 4.244929121141159,
+      "drift": -0.004954216878061857,
+      "job_id": "k_eff_10_i008_seed2026110501"
+    },
+    {
+      "variant": "k_eff_10",
+      "Je": 0.24,
+      "seed": 2026110502,
+      "V": 4.244614767717366,
+      "T_avg": 0.29242680833750706,
+      "psi_avg": 0.3322064238264762,
+      "V_integrated": 4.2446154387346775,
+      "drift": -0.004280954829438244,
+      "job_id": "k_eff_10_i008_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.18,
+      "seed": 2026110501,
+      "V": 1.9121694477618476,
+      "T_avg": 0.24780197682916688,
+      "psi_avg": 0.5119470224623223,
+      "V_integrated": 1.9120381837902563,
+      "drift": 0.9962543189238512,
+      "job_id": "eta_hole_0p05_i000_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.18,
+      "seed": 2026110502,
+      "V": 1.418421908003314,
+      "T_avg": 0.23458123081898347,
+      "psi_avg": 0.5504545853474437,
+      "V_integrated": 1.4182483120324865,
+      "drift": 0.5215297521908437,
+      "job_id": "eta_hole_0p05_i000_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.19,
+      "seed": 2026110501,
+      "V": 2.4126358096236387,
+      "T_avg": 0.2710008236837971,
+      "psi_avg": 0.48297240856749846,
+      "V_integrated": 2.4126840101020472,
+      "drift": 0.18807722908763713,
+      "job_id": "eta_hole_0p05_i001_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.19,
+      "seed": 2026110502,
+      "V": 2.412146103584481,
+      "T_avg": 0.2709905775323537,
+      "psi_avg": 0.4829059986420556,
+      "V_integrated": 2.4122455929001925,
+      "drift": 0.16416679770846176,
+      "job_id": "eta_hole_0p05_i001_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.2,
+      "seed": 2026110501,
+      "V": 2.508737258476451,
+      "T_avg": 0.2960633970373135,
+      "psi_avg": 0.4341401550992757,
+      "V_integrated": 2.508711040082161,
+      "drift": -0.01130078971280657,
+      "job_id": "eta_hole_0p05_i002_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.2,
+      "seed": 2026110502,
+      "V": 2.4999727778691034,
+      "T_avg": 0.29576347769607847,
+      "psi_avg": 0.4351122706865264,
+      "V_integrated": 2.4999477836427806,
+      "drift": -0.004074723050769613,
+      "job_id": "eta_hole_0p05_i002_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.20918367346938774,
+      "seed": 2026110501,
+      "V": 3.1142394194985368,
+      "T_avg": 0.3241741278880213,
+      "psi_avg": 0.3967864599611305,
+      "V_integrated": 3.1142392056647084,
+      "drift": 0.001264998333959877,
+      "job_id": "eta_hole_0p05_i003_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.20918367346938774,
+      "seed": 2026110502,
+      "V": 3.1139371810843874,
+      "T_avg": 0.32416424278228156,
+      "psi_avg": 0.3967982613589453,
+      "V_integrated": 3.1139385200361582,
+      "drift": 0.0015264075211236516,
+      "job_id": "eta_hole_0p05_i003_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.21,
+      "seed": 2026110501,
+      "V": 3.1656024505720306,
+      "T_avg": 0.32654002673914667,
+      "psi_avg": 0.39360842389180767,
+      "V_integrated": 3.1656047697814276,
+      "drift": 0.002569931210224752,
+      "job_id": "eta_hole_0p05_i004_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.21,
+      "seed": 2026110502,
+      "V": 3.1685909637384477,
+      "T_avg": 0.3266318577920765,
+      "psi_avg": 0.39351801563495425,
+      "V_integrated": 3.1685941548360708,
+      "drift": 0.0014465614827940954,
+      "job_id": "eta_hole_0p05_i004_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.21020408163265306,
+      "seed": 2026110501,
+      "V": 3.1800839290297263,
+      "T_avg": 0.327179849053689,
+      "psi_avg": 0.39270450640944016,
+      "V_integrated": 3.180086698645259,
+      "drift": 0.004929142439290768,
+      "job_id": "eta_hole_0p05_i005_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.21020408163265306,
+      "seed": 2026110502,
+      "V": 3.1810766362852116,
+      "T_avg": 0.3272129915361392,
+      "psi_avg": 0.39278640542495585,
+      "V_integrated": 3.1810776030160945,
+      "drift": 0.004122647043740546,
+      "job_id": "eta_hole_0p05_i005_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.22,
+      "seed": 2026110501,
+      "V": 3.7392860477026653,
+      "T_avg": 0.3533617240906498,
+      "psi_avg": 0.3616465092076328,
+      "V_integrated": 3.739287680995825,
+      "drift": -0.0005238019043005693,
+      "job_id": "eta_hole_0p05_i006_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.22,
+      "seed": 2026110502,
+      "V": 3.739403810984059,
+      "T_avg": 0.35336443147859586,
+      "psi_avg": 0.3616202925545445,
+      "V_integrated": 3.7394047347973447,
+      "drift": -0.0003581094156661635,
+      "job_id": "eta_hole_0p05_i006_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.23,
+      "seed": 2026110501,
+      "V": 4.235036282611367,
+      "T_avg": 0.3775716570682515,
+      "psi_avg": 0.33633727535854374,
+      "V_integrated": 4.235036975472296,
+      "drift": 0.0009362070153926538,
+      "job_id": "eta_hole_0p05_i007_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.23,
+      "seed": 2026110502,
+      "V": 4.233198546755407,
+      "T_avg": 0.3775331472800351,
+      "psi_avg": 0.33651727452496394,
+      "V_integrated": 4.233199921276444,
+      "drift": 9.611578416723887e-05,
+      "job_id": "eta_hole_0p05_i007_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.24,
+      "seed": 2026110501,
+      "V": 4.679427434675668,
+      "T_avg": 0.40054425039249103,
+      "psi_avg": 0.31602078830608255,
+      "V_integrated": 4.679427330518842,
+      "drift": 0.000505846271372512,
+      "job_id": "eta_hole_0p05_i008_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je": 0.24,
+      "seed": 2026110502,
+      "V": 4.679699734539782,
+      "T_avg": 0.40054769923723144,
+      "psi_avg": 0.3158563705862779,
+      "V_integrated": 4.679701231895595,
+      "drift": -0.0011583654361793094,
+      "job_id": "eta_hole_0p05_i008_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.18,
+      "seed": 2026110501,
+      "V": 0.7483034274026087,
+      "T_avg": 0.19858787255805938,
+      "psi_avg": 0.6425319726412191,
+      "V_integrated": 0.7483101358989347,
+      "drift": -0.001874046042140698,
+      "job_id": "eta_hole_0p2_i000_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.18,
+      "seed": 2026110502,
+      "V": 0.749325528218367,
+      "T_avg": 0.19860168673452153,
+      "psi_avg": 0.6426186321101207,
+      "V_integrated": 0.7495045328473191,
+      "drift": -0.0002868583509743061,
+      "job_id": "eta_hole_0p2_i000_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.19,
+      "seed": 2026110501,
+      "V": 1.989223485058302,
+      "T_avg": 0.2169397540430077,
+      "psi_avg": 0.5361100076922647,
+      "V_integrated": 1.9894809016519823,
+      "drift": 1.072881743536759,
+      "job_id": "eta_hole_0p2_i001_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.19,
+      "seed": 2026110502,
+      "V": 1.980981015213062,
+      "T_avg": 0.2167389324996409,
+      "psi_avg": 0.5364470857708771,
+      "V_integrated": 1.9810723749753751,
+      "drift": 1.0766150961918175,
+      "job_id": "eta_hole_0p2_i001_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.2,
+      "seed": 2026110501,
+      "V": 2.402138239558763,
+      "T_avg": 0.22623438180635835,
+      "psi_avg": 0.5208719071332389,
+      "V_integrated": 2.402103970965266,
+      "drift": -0.007826944256904333,
+      "job_id": "eta_hole_0p2_i002_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.2,
+      "seed": 2026110502,
+      "V": 2.412518281019241,
+      "T_avg": 0.22649788150042707,
+      "psi_avg": 0.5201000626382051,
+      "V_integrated": 2.412642253567796,
+      "drift": -0.008619360466209702,
+      "job_id": "eta_hole_0p2_i002_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.20918367346938774,
+      "seed": 2026110501,
+      "V": 2.7697538556490158,
+      "T_avg": 0.2352073730042339,
+      "psi_avg": 0.5057272977392501,
+      "V_integrated": 2.769808631072499,
+      "drift": -0.02009555125353124,
+      "job_id": "eta_hole_0p2_i003_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.20918367346938774,
+      "seed": 2026110502,
+      "V": 2.7811585266634924,
+      "T_avg": 0.23552364567776124,
+      "psi_avg": 0.5049722422039165,
+      "V_integrated": 2.781073484822742,
+      "drift": -0.018032467552434817,
+      "job_id": "eta_hole_0p2_i003_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.21,
+      "seed": 2026110501,
+      "V": 2.810898236090188,
+      "T_avg": 0.23629127878429204,
+      "psi_avg": 0.5036432666467443,
+      "V_integrated": 2.8110644135598895,
+      "drift": -0.019555150805543153,
+      "job_id": "eta_hole_0p2_i004_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.21,
+      "seed": 2026110502,
+      "V": 2.8260473677035716,
+      "T_avg": 0.23600857423305158,
+      "psi_avg": 0.5028989167918616,
+      "V_integrated": 2.8260416209993773,
+      "drift": -0.0182410363581762,
+      "job_id": "eta_hole_0p2_i004_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.21020408163265306,
+      "seed": 2026110501,
+      "V": 2.8262574085986323,
+      "T_avg": 0.23601685914822654,
+      "psi_avg": 0.5033304318472492,
+      "V_integrated": 2.8234782291423954,
+      "drift": -0.019112235222853435,
+      "job_id": "eta_hole_0p2_i005_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.21020408163265306,
+      "seed": 2026110502,
+      "V": 2.820327555526345,
+      "T_avg": 0.23652982861295296,
+      "psi_avg": 0.503092872696957,
+      "V_integrated": 2.820301266334643,
+      "drift": -0.01952801332818721,
+      "job_id": "eta_hole_0p2_i005_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.22,
+      "seed": 2026110501,
+      "V": 3.1815942284791277,
+      "T_avg": 0.24614360015410433,
+      "psi_avg": 0.4864300934047064,
+      "V_integrated": 3.1816458668464356,
+      "drift": -0.048533746196644856,
+      "job_id": "eta_hole_0p2_i006_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.22,
+      "seed": 2026110502,
+      "V": 3.1812166007147424,
+      "T_avg": 0.24613936622350113,
+      "psi_avg": 0.48660501527363603,
+      "V_integrated": 3.181012652702111,
+      "drift": -0.05954465822051658,
+      "job_id": "eta_hole_0p2_i006_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.23,
+      "seed": 2026110501,
+      "V": 3.77504108869611,
+      "T_avg": 0.27680582784093555,
+      "psi_avg": 0.3573456442465383,
+      "V_integrated": 3.774980108942907,
+      "drift": -0.01416023957368484,
+      "job_id": "eta_hole_0p2_i007_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.23,
+      "seed": 2026110502,
+      "V": 3.7843379282985152,
+      "T_avg": 0.2769285283289772,
+      "psi_avg": 0.3566736118354994,
+      "V_integrated": 3.7842683895599887,
+      "drift": 0.006145844977626602,
+      "job_id": "eta_hole_0p2_i007_seed2026110502"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.24,
+      "seed": 2026110501,
+      "V": 4.198143300879411,
+      "T_avg": 0.2897969426785488,
+      "psi_avg": 0.3407486197541748,
+      "V_integrated": 4.198144979877188,
+      "drift": -0.005503677548703401,
+      "job_id": "eta_hole_0p2_i008_seed2026110501"
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je": 0.24,
+      "seed": 2026110502,
+      "V": 4.197227850127397,
+      "T_avg": 0.289783416321732,
+      "psi_avg": 0.34082629167919015,
+      "V_integrated": 4.197231046580799,
+      "drift": -0.007536596113989269,
+      "job_id": "eta_hole_0p2_i008_seed2026110502"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.18,
+      "seed": 2026110501,
+      "V": 0.6669944090560331,
+      "T_avg": 0.1645845216726962,
+      "psi_avg": 0.6889210468630886,
+      "V_integrated": 0.6670406135491033,
+      "drift": -0.0010494160909332306,
+      "job_id": "T0_0p14_i000_seed2026110501"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.18,
+      "seed": 2026110502,
+      "V": 0.6778508715769052,
+      "T_avg": 0.16495227904607315,
+      "psi_avg": 0.6879642650022857,
+      "V_integrated": 0.6778851665117668,
+      "drift": -0.000616326099008635,
+      "job_id": "T0_0p14_i000_seed2026110502"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.19,
+      "seed": 2026110501,
+      "V": 1.8170548115414138,
+      "T_avg": 0.19133619395171939,
+      "psi_avg": 0.5634603549201472,
+      "V_integrated": 1.8170243861120088,
+      "drift": 0.9479774611698455,
+      "job_id": "T0_0p14_i001_seed2026110501"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.19,
+      "seed": 2026110502,
+      "V": 1.083857336108132,
+      "T_avg": 0.17696307908973163,
+      "psi_avg": 0.5991851450572023,
+      "V_integrated": 1.0835160286198209,
+      "drift": 0.22549313566090778,
+      "job_id": "T0_0p14_i001_seed2026110502"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.2,
+      "seed": 2026110501,
+      "V": 2.3081638571170697,
+      "T_avg": 0.20683569804110477,
+      "psi_avg": 0.5415692024314427,
+      "V_integrated": 2.3083431702779285,
+      "drift": 1.0156023278119322,
+      "job_id": "T0_0p14_i002_seed2026110501"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.2,
+      "seed": 2026110502,
+      "V": 2.3058395015005666,
+      "T_avg": 0.2062199991947171,
+      "psi_avg": 0.54246043326562,
+      "V_integrated": 2.3055223522494734,
+      "drift": 1.0169557063118018,
+      "job_id": "T0_0p14_i002_seed2026110502"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.20918367346938774,
+      "seed": 2026110501,
+      "V": 2.7095959599389854,
+      "T_avg": 0.221904846325907,
+      "psi_avg": 0.5214089768969916,
+      "V_integrated": 2.7097610559835545,
+      "drift": -0.023072533817622976,
+      "job_id": "T0_0p14_i003_seed2026110501"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.20918367346938774,
+      "seed": 2026110502,
+      "V": 2.7224490294161248,
+      "T_avg": 0.22240064291389738,
+      "psi_avg": 0.5204754683665214,
+      "V_integrated": 2.722422767018968,
+      "drift": -0.022845937930541904,
+      "job_id": "T0_0p14_i003_seed2026110502"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.21,
+      "seed": 2026110501,
+      "V": 2.745091516817734,
+      "T_avg": 0.2232353493426582,
+      "psi_avg": 0.5194333619421287,
+      "V_integrated": 2.7450150722143998,
+      "drift": -0.02303701771492417,
+      "job_id": "T0_0p14_i004_seed2026110501"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.21,
+      "seed": 2026110502,
+      "V": 2.7452495250440494,
+      "T_avg": 0.22323190217987754,
+      "psi_avg": 0.5195990896417748,
+      "V_integrated": 2.7452510670874526,
+      "drift": -0.02874374928083201,
+      "job_id": "T0_0p14_i004_seed2026110502"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.21020408163265306,
+      "seed": 2026110501,
+      "V": 2.7540135423843446,
+      "T_avg": 0.22357321332170593,
+      "psi_avg": 0.5191314025571919,
+      "V_integrated": 2.7537969301146985,
+      "drift": -0.025602938922345775,
+      "job_id": "T0_0p14_i005_seed2026110501"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.21020408163265306,
+      "seed": 2026110502,
+      "V": 2.7550912768955342,
+      "T_avg": 0.22359250995106122,
+      "psi_avg": 0.5190101464069035,
+      "V_integrated": 2.7551389093401673,
+      "drift": -0.025825990858846293,
+      "job_id": "T0_0p14_i005_seed2026110502"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.22,
+      "seed": 2026110501,
+      "V": 3.0841373909892176,
+      "T_avg": 0.2444090783345467,
+      "psi_avg": 0.487214320348968,
+      "V_integrated": 3.084077490669155,
+      "drift": -0.12096023020441882,
+      "job_id": "T0_0p14_i006_seed2026110501"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.22,
+      "seed": 2026110502,
+      "V": 3.1044840213471416,
+      "T_avg": 0.24348795176809926,
+      "psi_avg": 0.4905235835405812,
+      "V_integrated": 3.104521759487354,
+      "drift": -0.11927277855328944,
+      "job_id": "T0_0p14_i006_seed2026110502"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.23,
+      "seed": 2026110501,
+      "V": 3.595467488571864,
+      "T_avg": 0.2777654726096505,
+      "psi_avg": 0.3975376822449913,
+      "V_integrated": 3.595471693116799,
+      "drift": -0.0024865393241695344,
+      "job_id": "T0_0p14_i007_seed2026110501"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.23,
+      "seed": 2026110502,
+      "V": 3.590721882067521,
+      "T_avg": 0.2776470050378563,
+      "psi_avg": 0.3979903157341398,
+      "V_integrated": 3.5907206587180562,
+      "drift": -0.007932262661379141,
+      "job_id": "T0_0p14_i007_seed2026110502"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.24,
+      "seed": 2026110501,
+      "V": 4.13207387029765,
+      "T_avg": 0.29924265660053123,
+      "psi_avg": 0.3701950470447241,
+      "V_integrated": 4.132073319896453,
+      "drift": -0.0012717218974360733,
+      "job_id": "T0_0p14_i008_seed2026110501"
+    },
+    {
+      "variant": "T0_0p14",
+      "Je": 0.24,
+      "seed": 2026110502,
+      "V": 4.133289867185311,
+      "T_avg": 0.29926900494896913,
+      "psi_avg": 0.3701187380941548,
+      "V_integrated": 4.133290974018629,
+      "drift": -0.00038113392721861317,
+      "job_id": "T0_0p14_i008_seed2026110502"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.18,
+      "seed": 2026110501,
+      "V": 2.0605688700071787,
+      "T_avg": 0.2731555925864842,
+      "psi_avg": 0.4861121283737086,
+      "V_integrated": 2.060135158576743,
+      "drift": 0.9166350997211732,
+      "job_id": "T0_0p22_i000_seed2026110501"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.18,
+      "seed": 2026110502,
+      "V": 2.089680422330186,
+      "T_avg": 0.2738765369172785,
+      "psi_avg": 0.484338958089127,
+      "V_integrated": 2.0897696355476585,
+      "drift": 1.034242070653611,
+      "job_id": "T0_0p22_i000_seed2026110502"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.19,
+      "seed": 2026110501,
+      "V": 2.4904166297227643,
+      "T_avg": 0.2886905346746068,
+      "psi_avg": 0.46457972688368676,
+      "V_integrated": 2.4904156324770557,
+      "drift": -0.03397902568150979,
+      "job_id": "T0_0p22_i001_seed2026110501"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.19,
+      "seed": 2026110502,
+      "V": 2.4889371015932875,
+      "T_avg": 0.28809936654322077,
+      "psi_avg": 0.4656867927890876,
+      "V_integrated": 2.4888293386068807,
+      "drift": -0.029931289693054808,
+      "job_id": "T0_0p22_i001_seed2026110502"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.2,
+      "seed": 2026110501,
+      "V": 2.418330963540751,
+      "T_avg": 0.29844041611984656,
+      "psi_avg": 0.4704881953168106,
+      "V_integrated": 2.4183345832918293,
+      "drift": -0.3163338457710356,
+      "job_id": "T0_0p22_i002_seed2026110501"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.2,
+      "seed": 2026110502,
+      "V": 2.4592403277473123,
+      "T_avg": 0.2984864105569225,
+      "psi_avg": 0.47551258579362116,
+      "V_integrated": 2.458945434611248,
+      "drift": -0.3583567277574722,
+      "job_id": "T0_0p22_i002_seed2026110502"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.20918367346938774,
+      "seed": 2026110501,
+      "V": 3.2292670886205777,
+      "T_avg": 0.3329760485397467,
+      "psi_avg": 0.3629980056926523,
+      "V_integrated": 3.2292707521037247,
+      "drift": -0.003901679168682559,
+      "job_id": "T0_0p22_i003_seed2026110501"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.20918367346938774,
+      "seed": 2026110502,
+      "V": 3.230468395815638,
+      "T_avg": 0.3330056032845901,
+      "psi_avg": 0.36301794078677774,
+      "V_integrated": 3.230473457072334,
+      "drift": -0.0033127137956117103,
+      "job_id": "T0_0p22_i003_seed2026110502"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.21,
+      "seed": 2026110501,
+      "V": 3.276574946102636,
+      "T_avg": 0.3346722163788181,
+      "psi_avg": 0.36058719036703674,
+      "V_integrated": 3.276580138366605,
+      "drift": -0.0025629185605291482,
+      "job_id": "T0_0p22_i004_seed2026110501"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.21,
+      "seed": 2026110502,
+      "V": 3.2753939617113708,
+      "T_avg": 0.3346465914186275,
+      "psi_avg": 0.36065749141276676,
+      "V_integrated": 3.2753929078925283,
+      "drift": -0.003470561539597128,
+      "job_id": "T0_0p22_i004_seed2026110502"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.21020408163265306,
+      "seed": 2026110501,
+      "V": 3.2879623375045566,
+      "T_avg": 0.33508666983653246,
+      "psi_avg": 0.35995816385432533,
+      "V_integrated": 3.2879630734105745,
+      "drift": 0.00027307024931255697,
+      "job_id": "T0_0p22_i005_seed2026110501"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.21020408163265306,
+      "seed": 2026110502,
+      "V": 3.2870960508015896,
+      "T_avg": 0.3350669973183543,
+      "psi_avg": 0.36002416781939833,
+      "V_integrated": 3.287098595100908,
+      "drift": -0.00317152129314735,
+      "job_id": "T0_0p22_i005_seed2026110502"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.22,
+      "seed": 2026110501,
+      "V": 3.8135350682393705,
+      "T_avg": 0.3542925844446135,
+      "psi_avg": 0.33328431900480404,
+      "V_integrated": 3.8135353079652567,
+      "drift": -0.001892280154515813,
+      "job_id": "T0_0p22_i006_seed2026110501"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.22,
+      "seed": 2026110502,
+      "V": 3.81553473162376,
+      "T_avg": 0.3543321466736012,
+      "psi_avg": 0.3331543453808996,
+      "V_integrated": 3.8155351995136324,
+      "drift": 0.0010039755817543572,
+      "job_id": "T0_0p22_i006_seed2026110502"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.23,
+      "seed": 2026110501,
+      "V": 4.301089673060326,
+      "T_avg": 0.3726788644860066,
+      "psi_avg": 0.31025129660341155,
+      "V_integrated": 4.301091204816513,
+      "drift": 0.0007052881281497392,
+      "job_id": "T0_0p22_i007_seed2026110501"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.23,
+      "seed": 2026110502,
+      "V": 4.302681776389143,
+      "T_avg": 0.37270516431406686,
+      "psi_avg": 0.31017451224257253,
+      "V_integrated": 4.302684531384979,
+      "drift": 0.001187631242659748,
+      "job_id": "T0_0p22_i007_seed2026110502"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.24,
+      "seed": 2026110501,
+      "V": 4.7461923679858735,
+      "T_avg": 0.39031294523197424,
+      "psi_avg": 0.2910704264017609,
+      "V_integrated": 4.746194242275871,
+      "drift": 0.0005342789394013892,
+      "job_id": "T0_0p22_i008_seed2026110501"
+    },
+    {
+      "variant": "T0_0p22",
+      "Je": 0.24,
+      "seed": 2026110502,
+      "V": 4.747429471998108,
+      "T_avg": 0.3903294866498453,
+      "psi_avg": 0.290938504689989,
+      "V_integrated": 4.747433116824285,
+      "drift": 0.0005832220705634938,
+      "job_id": "T0_0p22_i008_seed2026110502"
+    }
+  ],
+  "pair_outcomes": [
+    {
+      "variant": "T0_0p14",
+      "Je_left": 0.18,
+      "Je_right": 0.19,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 0.6669944090560331,
+          "V_right": 1.8170548115414138,
+          "absolute_drop": -1.1500604024853807,
+          "fraction": -1.7242429424753483,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 0.6778508715769052,
+          "V_right": 1.083857336108132,
+          "absolute_drop": -0.4060064645312269,
+          "fraction": -0.5989613373022914,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p14",
+      "Je_left": 0.19,
+      "Je_right": 0.2,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 1.8170548115414138,
+          "V_right": 2.3081638571170697,
+          "absolute_drop": -0.49110904557565593,
+          "fraction": -0.2702775075667896,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 1.083857336108132,
+          "V_right": 2.3058395015005666,
+          "absolute_drop": -1.2219821653924345,
+          "fraction": -1.1274382012122326,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p14",
+      "Je_left": 0.2,
+      "Je_right": 0.20918367346938774,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.3081638571170697,
+          "V_right": 2.7095959599389854,
+          "absolute_drop": -0.40143210282191566,
+          "fraction": -0.17391837307569238,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.3058395015005666,
+          "V_right": 2.7224490294161248,
+          "absolute_drop": -0.41660952791555816,
+          "fraction": -0.18067585694686988,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p14",
+      "Je_left": 0.20918367346938774,
+      "Je_right": 0.21,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.7095959599389854,
+          "V_right": 2.745091516817734,
+          "absolute_drop": -0.0354955568787485,
+          "fraction": -0.013099944568690526,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.7224490294161248,
+          "V_right": 2.7452495250440494,
+          "absolute_drop": -0.022800495627924633,
+          "fraction": -0.008374994492666253,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p14",
+      "Je_left": 0.21,
+      "Je_right": 0.21020408163265306,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.745091516817734,
+          "V_right": 2.7540135423843446,
+          "absolute_drop": -0.008922025566610703,
+          "fraction": -0.0032501741788753266,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.7452495250440494,
+          "V_right": 2.7550912768955342,
+          "absolute_drop": -0.009841751851484837,
+          "fraction": -0.003585011767309902,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p14",
+      "Je_left": 0.21020408163265306,
+      "Je_right": 0.22,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.7540135423843446,
+          "V_right": 3.0841373909892176,
+          "absolute_drop": -0.330123848604873,
+          "fraction": -0.11987008906247476,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.7550912768955342,
+          "V_right": 3.1044840213471416,
+          "absolute_drop": -0.3493927444516074,
+          "fraction": -0.126817121226309,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p14",
+      "Je_left": 0.22,
+      "Je_right": 0.23,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.0841373909892176,
+          "V_right": 3.595467488571864,
+          "absolute_drop": -0.5113300975826465,
+          "fraction": -0.16579355351566896,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.1044840213471416,
+          "V_right": 3.590721882067521,
+          "absolute_drop": -0.48623786072037944,
+          "fraction": -0.15662437215875386,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p14",
+      "Je_left": 0.23,
+      "Je_right": 0.24,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.595467488571864,
+          "V_right": 4.13207387029765,
+          "absolute_drop": -0.536606381725786,
+          "fraction": -0.14924523262451428,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.590721882067521,
+          "V_right": 4.133289867185311,
+          "absolute_drop": -0.5425679851177896,
+          "fraction": -0.15110275953908783,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p22",
+      "Je_left": 0.18,
+      "Je_right": 0.19,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.0605688700071787,
+          "V_right": 2.4904166297227643,
+          "absolute_drop": -0.42984775971558564,
+          "fraction": -0.20860635428025665,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.089680422330186,
+          "V_right": 2.4889371015932875,
+          "absolute_drop": -0.3992566792631016,
+          "fraction": -0.19106111872259093,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p22",
+      "Je_left": 0.19,
+      "Je_right": 0.2,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.4904166297227643,
+          "V_right": 2.418330963540751,
+          "absolute_drop": 0.07208566618201351,
+          "fraction": 0.028945223590977287,
+          "eligible": true
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.4889371015932875,
+          "V_right": 2.4592403277473123,
+          "absolute_drop": 0.029696773845975244,
+          "fraction": 0.011931508364339509,
+          "eligible": true
+        }
+      ],
+      "excluded": [],
+      "eligible": true,
+      "score": 0.011931508364339509
+    },
+    {
+      "variant": "T0_0p22",
+      "Je_left": 0.2,
+      "Je_right": 0.20918367346938774,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.418330963540751,
+          "V_right": 3.2292670886205777,
+          "absolute_drop": -0.8109361250798268,
+          "fraction": -0.3353288434485042,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.4592403277473123,
+          "V_right": 3.230468395815638,
+          "absolute_drop": -0.7712280680683259,
+          "fraction": -0.313604188808492,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p22",
+      "Je_left": 0.20918367346938774,
+      "Je_right": 0.21,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.2292670886205777,
+          "V_right": 3.276574946102636,
+          "absolute_drop": -0.047307857482058235,
+          "fraction": -0.01464971963724016,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.230468395815638,
+          "V_right": 3.2753939617113708,
+          "absolute_drop": -0.0449255658957326,
+          "fraction": -0.013906827243356968,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p22",
+      "Je_left": 0.21,
+      "Je_right": 0.21020408163265306,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.276574946102636,
+          "V_right": 3.2879623375045566,
+          "absolute_drop": -0.011387391401920688,
+          "fraction": -0.003475394761064619,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.2753939617113708,
+          "V_right": 3.2870960508015896,
+          "absolute_drop": -0.011702089090218859,
+          "fraction": -0.0035727271977092486,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p22",
+      "Je_left": 0.21020408163265306,
+      "Je_right": 0.22,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.2879623375045566,
+          "V_right": 3.8135350682393705,
+          "absolute_drop": -0.5255727307348139,
+          "fraction": -0.15984755200502218,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.2870960508015896,
+          "V_right": 3.81553473162376,
+          "absolute_drop": -0.5284386808221702,
+          "fraction": -0.16076155751314458,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p22",
+      "Je_left": 0.22,
+      "Je_right": 0.23,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.8135350682393705,
+          "V_right": 4.301089673060326,
+          "absolute_drop": -0.48755460482095536,
+          "fraction": -0.1278484650322225,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.81553473162376,
+          "V_right": 4.302681776389143,
+          "absolute_drop": -0.4871470447653832,
+          "fraction": -0.12767464563428838,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "T0_0p22",
+      "Je_left": 0.23,
+      "Je_right": 0.24,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 4.301089673060326,
+          "V_right": 4.7461923679858735,
+          "absolute_drop": -0.44510269492554766,
+          "fraction": -0.10348602999686976,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 4.302681776389143,
+          "V_right": 4.747429471998108,
+          "absolute_drop": -0.44474769560896465,
+          "fraction": -0.10336523097048597,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "baseline",
+      "Je_left": 0.18,
+      "Je_right": 0.19,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 0.821855915343411,
+          "V_right": 2.2062018711644695,
+          "absolute_drop": -1.3843459558210585,
+          "fraction": -1.6844144210394982,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 0.820348346536466,
+          "V_right": 2.1790477042316874,
+          "absolute_drop": -1.3586993576952213,
+          "fraction": -1.656246841273818,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "baseline",
+      "Je_left": 0.19,
+      "Je_right": 0.2,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.2062018711644695,
+          "V_right": 2.6273183018599435,
+          "absolute_drop": -0.421116430695474,
+          "fraction": -0.19087846683458837,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.1790477042316874,
+          "V_right": 2.6131887662404956,
+          "absolute_drop": -0.4341410620088082,
+          "fraction": -0.1992343082557169,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "baseline",
+      "Je_left": 0.2,
+      "Je_right": 0.20918367346938774,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.6273183018599435,
+          "V_right": 2.540364273222093,
+          "absolute_drop": 0.08695402863785073,
+          "fraction": 0.03309611499158432,
+          "eligible": true
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.6131887662404956,
+          "V_right": 2.936047900122075,
+          "absolute_drop": -0.3228591338815794,
+          "fraction": -0.12354987058438402,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": 0.03309611499158432
+    },
+    {
+      "variant": "baseline",
+      "Je_left": 0.20918367346938774,
+      "Je_right": 0.21,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.540364273222093,
+          "V_right": 2.729665076155724,
+          "absolute_drop": -0.18930080293363138,
+          "fraction": -0.07451718831391456,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.936047900122075,
+          "V_right": 2.539266196861403,
+          "absolute_drop": 0.39678170326067175,
+          "fraction": 0.13514142710143603,
+          "eligible": true
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": 0.13514142710143603
+    },
+    {
+      "variant": "baseline",
+      "Je_left": 0.21,
+      "Je_right": 0.21020408163265306,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.729665076155724,
+          "V_right": 2.5145995199393885,
+          "absolute_drop": 0.21506555621633572,
+          "fraction": 0.0787882579789677,
+          "eligible": true
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.539266196861403,
+          "V_right": 2.5397818638394383,
+          "absolute_drop": -0.0005156669780350676,
+          "fraction": -0.0002030771640533178,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": 0.0787882579789677
+    },
+    {
+      "variant": "baseline",
+      "Je_left": 0.21020408163265306,
+      "Je_right": 0.22,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.5145995199393885,
+          "V_right": 3.430792561787283,
+          "absolute_drop": -0.9161930418478947,
+          "fraction": -0.36434948570656633,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.5397818638394383,
+          "V_right": 3.4322983891863266,
+          "absolute_drop": -0.8925165253468883,
+          "fraction": -0.3514146384200309,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "baseline",
+      "Je_left": 0.22,
+      "Je_right": 0.23,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.430792561787283,
+          "V_right": 3.97132386598236,
+          "absolute_drop": -0.5405313041950768,
+          "fraction": -0.15755289614872114,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.4322983891863266,
+          "V_right": 3.972556664542087,
+          "absolute_drop": -0.5402582753557605,
+          "fraction": -0.15740422716681,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "baseline",
+      "Je_left": 0.23,
+      "Je_right": 0.24,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.97132386598236,
+          "V_right": 4.461547081964782,
+          "absolute_drop": -0.490223215982422,
+          "fraction": -0.12344075490331705,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.972556664542087,
+          "V_right": 4.460644662432181,
+          "absolute_drop": -0.48808799789009427,
+          "fraction": -0.12286495552011358,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je_left": 0.18,
+      "Je_right": 0.19,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 1.9121694477618476,
+          "V_right": 2.4126358096236387,
+          "absolute_drop": -0.500466361861791,
+          "fraction": -0.261726994146662,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 1.418421908003314,
+          "V_right": 2.412146103584481,
+          "absolute_drop": -0.9937241955811669,
+          "fraction": -0.7005843536215637,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je_left": 0.19,
+      "Je_right": 0.2,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.4126358096236387,
+          "V_right": 2.508737258476451,
+          "absolute_drop": -0.09610144885281224,
+          "fraction": -0.03983255511232907,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.412146103584481,
+          "V_right": 2.4999727778691034,
+          "absolute_drop": -0.08782667428462254,
+          "fraction": -0.03641018019352598,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je_left": 0.2,
+      "Je_right": 0.20918367346938774,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.508737258476451,
+          "V_right": 3.1142394194985368,
+          "absolute_drop": -0.6055021610220859,
+          "fraction": -0.24135734380961266,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.4999727778691034,
+          "V_right": 3.1139371810843874,
+          "absolute_drop": -0.613964403215284,
+          "fraction": -0.24558843546232834,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je_left": 0.20918367346938774,
+      "Je_right": 0.21,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.1142394194985368,
+          "V_right": 3.1656024505720306,
+          "absolute_drop": -0.051363031073493826,
+          "fraction": -0.016492961572544877,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.1139371810843874,
+          "V_right": 3.1685909637384477,
+          "absolute_drop": -0.05465378265406029,
+          "fraction": -0.017551343998220233,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je_left": 0.21,
+      "Je_right": 0.21020408163265306,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.1656024505720306,
+          "V_right": 3.1800839290297263,
+          "absolute_drop": -0.014481478457695651,
+          "fraction": -0.004574635850145624,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.1685909637384477,
+          "V_right": 3.1810766362852116,
+          "absolute_drop": -0.012485672546763915,
+          "fraction": -0.003940449458339915,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je_left": 0.21020408163265306,
+      "Je_right": 0.22,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.1800839290297263,
+          "V_right": 3.7392860477026653,
+          "absolute_drop": -0.559202118672939,
+          "fraction": -0.17584508181315733,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.1810766362852116,
+          "V_right": 3.739403810984059,
+          "absolute_drop": -0.5583271746988472,
+          "fraction": -0.17551515997138908,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je_left": 0.22,
+      "Je_right": 0.23,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.7392860477026653,
+          "V_right": 4.235036282611367,
+          "absolute_drop": -0.49575023490870196,
+          "fraction": -0.13257884756189753,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.739403810984059,
+          "V_right": 4.233198546755407,
+          "absolute_drop": -0.49379473577134814,
+          "fraction": -0.13205172822493366,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p05",
+      "Je_left": 0.23,
+      "Je_right": 0.24,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 4.235036282611367,
+          "V_right": 4.679427434675668,
+          "absolute_drop": -0.44439115206430113,
+          "fraction": -0.10493207670709374,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 4.233198546755407,
+          "V_right": 4.679699734539782,
+          "absolute_drop": -0.4465011877843752,
+          "fraction": -0.10547607981359677,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je_left": 0.18,
+      "Je_right": 0.19,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 0.7483034274026087,
+          "V_right": 1.989223485058302,
+          "absolute_drop": -1.2409200576556931,
+          "fraction": -1.658311337638766,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 0.749325528218367,
+          "V_right": 1.980981015213062,
+          "absolute_drop": -1.2316554869946952,
+          "fraction": -1.6436854752875423,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je_left": 0.19,
+      "Je_right": 0.2,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 1.989223485058302,
+          "V_right": 2.402138239558763,
+          "absolute_drop": -0.412914754500461,
+          "fraction": -0.20757584937137363,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 1.980981015213062,
+          "V_right": 2.412518281019241,
+          "absolute_drop": -0.4315372658061791,
+          "fraction": -0.2178401824611962,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je_left": 0.2,
+      "Je_right": 0.20918367346938774,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.402138239558763,
+          "V_right": 2.7697538556490158,
+          "absolute_drop": -0.36761561609025284,
+          "fraction": -0.15303682778797043,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.412518281019241,
+          "V_right": 2.7811585266634924,
+          "absolute_drop": -0.36864024564425124,
+          "fraction": -0.15280308901473197,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je_left": 0.20918367346938774,
+      "Je_right": 0.21,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.7697538556490158,
+          "V_right": 2.810898236090188,
+          "absolute_drop": -0.04114438044117241,
+          "fraction": -0.01485488696306241,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.7811585266634924,
+          "V_right": 2.8260473677035716,
+          "absolute_drop": -0.044888841040079175,
+          "fraction": -0.01614033885868834,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je_left": 0.21,
+      "Je_right": 0.21020408163265306,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.810898236090188,
+          "V_right": 2.8262574085986323,
+          "absolute_drop": -0.015359172508444097,
+          "fraction": -0.0054641510358652825,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.8260473677035716,
+          "V_right": 2.820327555526345,
+          "absolute_drop": 0.005719812177226391,
+          "fraction": 0.0020239618920026366,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je_left": 0.21020408163265306,
+      "Je_right": 0.22,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.8262574085986323,
+          "V_right": 3.1815942284791277,
+          "absolute_drop": -0.35533681988049537,
+          "fraction": -0.12572698396098503,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.820327555526345,
+          "V_right": 3.1812166007147424,
+          "absolute_drop": -0.36088904518839726,
+          "fraction": -0.12795997559973,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je_left": 0.22,
+      "Je_right": 0.23,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.1815942284791277,
+          "V_right": 3.77504108869611,
+          "absolute_drop": -0.5934468602169822,
+          "fraction": -0.18652499897847216,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.1812166007147424,
+          "V_right": 3.7843379282985152,
+          "absolute_drop": -0.6031213275837728,
+          "fraction": -0.18958826237995427,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "eta_hole_0p2",
+      "Je_left": 0.23,
+      "Je_right": 0.24,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.77504108869611,
+          "V_right": 4.198143300879411,
+          "absolute_drop": -0.42310221218330124,
+          "fraction": -0.11207883629405467,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.7843379282985152,
+          "V_right": 4.197227850127397,
+          "absolute_drop": -0.4128899218288815,
+          "fraction": -0.10910492922457427,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_10",
+      "Je_left": 0.18,
+      "Je_right": 0.19,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 0.7394352509040703,
+          "V_right": 1.9849282555076189,
+          "absolute_drop": -1.2454930046035486,
+          "fraction": -1.684384133811239,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 0.7506506353417546,
+          "V_right": 1.9851722716308973,
+          "absolute_drop": -1.2345216362891427,
+          "fraction": -1.6446021333574072,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_10",
+      "Je_left": 0.19,
+      "Je_right": 0.2,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 1.9849282555076189,
+          "V_right": 2.4174400385950827,
+          "absolute_drop": -0.43251178308746385,
+          "fraction": -0.21789794260188752,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 1.9851722716308973,
+          "V_right": 2.4068059465142344,
+          "absolute_drop": -0.42163367488333714,
+          "fraction": -0.2123914790210869,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_10",
+      "Je_left": 0.2,
+      "Je_right": 0.20918367346938774,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.4174400385950827,
+          "V_right": 2.7739411610055393,
+          "absolute_drop": -0.3565011224104566,
+          "fraction": -0.14747051290572671,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.4068059465142344,
+          "V_right": 2.784606081943755,
+          "absolute_drop": -0.3778001354295206,
+          "fraction": -0.15697158135107933,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_10",
+      "Je_left": 0.20918367346938774,
+      "Je_right": 0.21,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.7739411610055393,
+          "V_right": 2.817004111788545,
+          "absolute_drop": -0.043062950783005594,
+          "fraction": -0.015524103895338391,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.784606081943755,
+          "V_right": 2.81645208747644,
+          "absolute_drop": -0.031846005532684796,
+          "fraction": -0.011436449032839554,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_10",
+      "Je_left": 0.21,
+      "Je_right": 0.21020408163265306,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.817004111788545,
+          "V_right": 2.828799011119762,
+          "absolute_drop": -0.011794899331217135,
+          "fraction": -0.0041870366045466765,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.81645208747644,
+          "V_right": 2.8124447617642816,
+          "absolute_drop": 0.004007325712158227,
+          "fraction": 0.0014228275815438489,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_10",
+      "Je_left": 0.21020408163265306,
+      "Je_right": 0.22,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.828799011119762,
+          "V_right": 3.198366966871151,
+          "absolute_drop": -0.3695679557513891,
+          "fraction": -0.13064482640818587,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.8124447617642816,
+          "V_right": 3.1986701164478952,
+          "absolute_drop": -0.38622535468361363,
+          "fraction": -0.1373272676976346,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_10",
+      "Je_left": 0.22,
+      "Je_right": 0.23,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.198366966871151,
+          "V_right": 3.784685901040948,
+          "absolute_drop": -0.586318934169797,
+          "fraction": -0.18331821840424145,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.1986701164478952,
+          "V_right": 3.7912364266825547,
+          "absolute_drop": -0.5925663102346594,
+          "fraction": -0.18525396138464598,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_10",
+      "Je_left": 0.23,
+      "Je_right": 0.24,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.784685901040948,
+          "V_right": 4.244926615664641,
+          "absolute_drop": -0.4602407146236924,
+          "fraction": -0.12160605309336418,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.7912364266825547,
+          "V_right": 4.244614767717366,
+          "absolute_drop": -0.4533783410348109,
+          "fraction": -0.11958587911952791,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je_left": 0.18,
+      "Je_right": 0.19,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 1.3851800557143097,
+          "V_right": 2.43215464228303,
+          "absolute_drop": -1.0469745865687203,
+          "fraction": -0.7558400673252665,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 1.9576351339360087,
+          "V_right": 2.4333852579032196,
+          "absolute_drop": -0.47575012396721084,
+          "fraction": -0.243022877818233,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je_left": 0.19,
+      "Je_right": 0.2,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.43215464228303,
+          "V_right": 2.4959879952509842,
+          "absolute_drop": -0.06383335296795423,
+          "fraction": -0.0262455979805769,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.4333852579032196,
+          "V_right": 2.4857166201297956,
+          "absolute_drop": -0.05233136222657597,
+          "fraction": -0.021505580366533678,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je_left": 0.2,
+      "Je_right": 0.20918367346938774,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.4959879952509842,
+          "V_right": 3.0826139440534757,
+          "absolute_drop": -0.5866259488024914,
+          "fraction": -0.23502755218319998,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.4857166201297956,
+          "V_right": 3.084351198160551,
+          "absolute_drop": -0.5986345780307554,
+          "fraction": -0.24082977648493847,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je_left": 0.20918367346938774,
+      "Je_right": 0.21,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.0826139440534757,
+          "V_right": 3.135826245722792,
+          "absolute_drop": -0.05321230166931645,
+          "fraction": -0.01726207129243861,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.084351198160551,
+          "V_right": 3.1365806381695074,
+          "absolute_drop": -0.05222944000895646,
+          "fraction": -0.016933687720161412,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je_left": 0.21,
+      "Je_right": 0.21020408163265306,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.135826245722792,
+          "V_right": 3.1516085326547016,
+          "absolute_drop": -0.015782286931909528,
+          "fraction": -0.005032895860679867,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.1365806381695074,
+          "V_right": 3.1504712886687796,
+          "absolute_drop": -0.013890650499272184,
+          "fraction": -0.004428596647647069,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je_left": 0.21020408163265306,
+      "Je_right": 0.22,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.1516085326547016,
+          "V_right": 3.73400441163639,
+          "absolute_drop": -0.5823958789816883,
+          "fraction": -0.1847932168438183,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.1504712886687796,
+          "V_right": 3.7356553959940526,
+          "absolute_drop": -0.585184107325273,
+          "fraction": -0.18574494217103008,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je_left": 0.22,
+      "Je_right": 0.23,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 3.73400441163639,
+          "V_right": 4.24050325861264,
+          "absolute_drop": -0.5064988469762501,
+          "fraction": -0.13564495140868946,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 3.7356553959940526,
+          "V_right": 4.238978461315166,
+          "absolute_drop": -0.5033230653211134,
+          "fraction": -0.1347348756688998,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "k_eff_2p5",
+      "Je_left": 0.23,
+      "Je_right": 0.24,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 4.24050325861264,
+          "V_right": 4.687727943831777,
+          "absolute_drop": -0.44722468521913683,
+          "fraction": -0.10546500213407566,
+          "eligible": false
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 4.238978461315166,
+          "V_right": 4.68841937719234,
+          "absolute_drop": -0.44944091587717416,
+          "fraction": -0.10602576068238212,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    }
+  ],
+  "variant_best": {
+    "T0_0p22": {
+      "variant": "T0_0p22",
+      "Je_left": 0.19,
+      "Je_right": 0.2,
+      "seeds": [
+        {
+          "seed": 2026110501,
+          "V_left": 2.4904166297227643,
+          "V_right": 2.418330963540751,
+          "absolute_drop": 0.07208566618201351,
+          "fraction": 0.028945223590977287,
+          "eligible": true
+        },
+        {
+          "seed": 2026110502,
+          "V_left": 2.4889371015932875,
+          "V_right": 2.4592403277473123,
+          "absolute_drop": 0.029696773845975244,
+          "fraction": 0.011931508364339509,
+          "eligible": true
+        }
+      ],
+      "excluded": [],
+      "eligible": true,
+      "score": 0.011931508364339509
+    }
+  },
+  "baseline_best_score": 0.0,
+  "selected_candidate": {
+    "variant": "T0_0p22",
+    "Je_left": 0.19,
+    "Je_right": 0.2,
+    "seeds": [
+      {
+        "seed": 2026110501,
+        "V_left": 2.4904166297227643,
+        "V_right": 2.418330963540751,
+        "absolute_drop": 0.07208566618201351,
+        "fraction": 0.028945223590977287,
+        "eligible": true
+      },
+      {
+        "seed": 2026110502,
+        "V_left": 2.4889371015932875,
+        "V_right": 2.4592403277473123,
+        "absolute_drop": 0.029696773845975244,
+        "fraction": 0.011931508364339509,
+        "eligible": true
+      }
+    ],
+    "excluded": [],
+    "eligible": true,
+    "score": 0.011931508364339509
+  },
+  "classification": "exploratory screening only; no stationarity claim",
+  "frame_correlation_note": "frames within a trajectory are not independent replicates"
+}

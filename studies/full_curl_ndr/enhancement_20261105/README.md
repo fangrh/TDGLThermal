@@ -1,6 +1,16 @@
 # Full-curl NDR enhancement exploration
 
-This is a bounded physical-parameter exploration requested on 2026-11-05. The delivered [101-point baseline](../full_iv/README.md) remains the comparison dataset. Results of the new exploration are pending.
+This is a bounded physical-parameter exploration requested on 2026-11-05. The delivered [101-point baseline](../full_iv/README.md) remains the comparison dataset. The complete screen is verified; independent long-horizon confirmation is pending.
+
+## Verified screening result and frozen holdout
+
+All 126 chains and 252 segments completed successfully. Output/initial-state/RNG hashes, chain continuity, retained schedules, and all nine saved numeric datasets passed validation with no errors. See [the screen analysis](results/screen/enhancement_analysis.json) and [all seven I–V/temperature/condensate curves](results/screen/enhancement_screen.png).
+
+Only `T0 = 0.22` qualified at the declared 10000τ screen horizon: `Je = 0.19 → 0.20` decreased voltage by 2.89% and 1.19% in the two seeds. No other configuration, including the baseline at this same horizon, had an eligible decrease in both seeds. This is a small exploratory decrease, not evidence that the original 50000τ baseline drop has been improved.
+
+The [frozen holdout protocol](holdout_plan/holdout_protocol.json) fixes `T0 = 0.22`, currents `0.1875, 0.19, 0.1925, 0.195, 0.1975, 0.20, 0.2025`, and eight fresh seeds. The primary contrast is exclusively `0.19 → 0.20`; choosing a different interval from the holdout results is not allowed. Each of the 56 chains will reach 50000τ. No new-seed simulation was launched before freezing these files.
+
+For comparison, the original four-current/eight-seed 50000τ study has a 14.32% mean paired middle-interval drop. Its [English detail figure](results/baseline_detail/ndr_enhancement_comparison.png) retains every seed and the higher-current spread; this prepared-point response does not establish a stationary continuous negative branch.
 
 ## Full-curl identity
 
