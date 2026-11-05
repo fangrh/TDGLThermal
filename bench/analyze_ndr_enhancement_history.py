@@ -116,6 +116,8 @@ def analyze(protocol:Path,campaign:Path,validate=False):
    if validate:
     side=Path(str(m.get("output_path", "")).replace(".h5", ".json"))
     try:
+     initial=Path(m.get('initial_vector_path',''))
+     if not initial.is_file() or sha(initial)!=m.get('initial_vector_hash'):errors.append(f"initial vector hash mismatch {jid}/{i}")
      ae,_=validate_artifact(side,m); errors.extend(f"{jid}/{i}: {x}" for x in ae)
      if not ae:errors.extend(_finite_fields_errors([e]))
     except Exception as exc: errors.append(f"artifact validation failure {jid}/{i}: {exc}")

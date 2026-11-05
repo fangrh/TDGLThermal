@@ -1,0 +1,1141 @@
+{
+  "schema": "tdgl-full-curl-ndr-history-analysis-v1",
+  "complete": true,
+  "pending": false,
+  "errors": [],
+  "artifact_validation": true,
+  "finite_saved_fields_validation": true,
+  "protocol": {
+    "schema": "tdgl-full-curl-ndr-history-plan-v2",
+    "holdout_protocol": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/plan/holdout_protocol.json",
+    "holdout_protocol_sha256": "f6c11eca60eec7ecacf2d40d9cd6f6beba4bc9e6f88bb21a808e3135984778b5",
+    "holdout_jobs_sha256": "03d0bcff222d99f70eb9e8556f6aaa2eac861261ac8c88b9f0d6946e2f42dac3",
+    "holdout_campaign": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1/campaign/campaign.json",
+    "campaign_sha256": "cc42df0064012d5cc36bd93168f8d93d39132d89ba06913101952656ac6e025f",
+    "source_hashes": {
+      "config": "2b3f63ec3fcaca09b473cd13c1da390f6a5c39288d45d7b96a4a8293d3ea88dd",
+      "model": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "rhs_source": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe"
+    },
+    "backend": "cpu_compatible",
+    "tolerance": 0.0001,
+    "confidence": {
+      "bonferroni_contrasts": 12,
+      "stationarity_ci_abs_max": 0.0025
+    },
+    "source_Je": {
+      "ascending": 0.1875,
+      "descending": 0.2025
+    },
+    "seeds": [
+      2026110511,
+      2026110512,
+      2026110513,
+      2026110514
+    ],
+    "directions": [
+      "ascending",
+      "descending"
+    ],
+    "currents": [
+      0.1875,
+      0.19,
+      0.1925,
+      0.195,
+      0.1975,
+      0.2,
+      0.2025
+    ],
+    "jobs": {
+      "path": "history_jobs.json",
+      "count": 8,
+      "jobs_sha256": "cc69cb9a12108d6dd9c1f48dbb34b8477d42b022d33ce629e95c558b8c3baf93",
+      "segment_horizon": 20000,
+      "segments_equivalent_5000": 224,
+      "equivalent_tau": 1120000,
+      "snapshot_interval": 1,
+      "skip_ratio": 0.6,
+      "prior_cumulative_horizon": 50000
+    },
+    "raw_window": [
+      12000,
+      20000
+    ],
+    "analysis_final_window": [
+      18000,
+      20000
+    ],
+    "drift_windows": [
+      [
+        13000,
+        15000
+      ],
+      [
+        18000,
+        20000
+      ]
+    ],
+    "validation_scope": "all 56x10 metadata/continuity checked; HDF5 content hash checked for 16 outer initialization sources only",
+    "scope": "ordered-history descriptive control; not a primary contrast",
+    "amended_utc": "2026-11-05T03:05:58.935338+00:00",
+    "solver_guard": {
+      "maxiters_override": 10000000,
+      "fail_fast": true,
+      "source_sha256": "9c764ecaf9a58078394abc2f39651a7a5a07f054761e55c3ceeccfade9b6fa70"
+    },
+    "supersedes_invalid_run": {
+      "run": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v1",
+      "incident_sha256": "4aa9f078074f650b625e68f68b7b14ff8a127a7d1afbc0feed483d707f81d960",
+      "protocol_sha256": "60b5115aa5ae6f736acc7bbfea68a8eca43d199cb5556f0680c46fccf4428465",
+      "reason": "Only computational iteration budget and fail-fast control change. All physical parameters, currents, seeds, source checkpoints, dwell, snapshots, analysis windows and gates are retained."
+    },
+    "numerical_identity_validation": {
+      "path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/stream_guard_differential_20261105_v1/differential_summary.json",
+      "sha256": "78192219d4c3d30dffdb415957eebe5e5cd41f76fdc7e56be2c8bdfb12e46b4e",
+      "saved_dataset_byte_pairs": 54,
+      "point_segment_pairs": 6,
+      "same_model_and_rhs": true
+    },
+    "runtime": {
+      "path": "/data/User/fangr1/projects/TDGLThermal-linux-ndr-history-safe",
+      "git_commit": "5c80eba54ff50be8c1a16f981d0a194ee3837ed7",
+      "benchmark_cpu_sha256": "7b697427654d75e2248b5c586dc4e115ff31bed842705d98916ea6b6bd0d3bc8",
+      "Manifest_sha256": "610ea1610e20f32aa7bebd31ce36d01f1ee2bab8a87e94320030592200f545ba"
+    }
+  },
+  "rows": [
+    {
+      "job_id": "ascending_seed2026110511",
+      "direction": "ascending",
+      "seed": 2026110511,
+      "Je": 0.1875,
+      "V": 2.3579369752638057,
+      "T_avg": 0.2860756174261042,
+      "psi_avg": 0.4690983745230857,
+      "V_integrated": 2.3579539392160633,
+      "drift": 0.0006197927859408203
+    },
+    {
+      "job_id": "ascending_seed2026110511",
+      "direction": "ascending",
+      "seed": 2026110511,
+      "Je": 0.19,
+      "V": 2.4645284164878722,
+      "T_avg": 0.2898024788949887,
+      "psi_avg": 0.4638415086928178,
+      "V_integrated": 2.4645137064038365,
+      "drift": -0.00041992872990892494
+    },
+    {
+      "job_id": "ascending_seed2026110511",
+      "direction": "ascending",
+      "seed": 2026110511,
+      "Je": 0.1925,
+      "V": 2.5681247374188114,
+      "T_avg": 0.29351353609732783,
+      "psi_avg": 0.4584828936737946,
+      "V_integrated": 2.5681396678170585,
+      "drift": -0.00016177931368366316
+    },
+    {
+      "job_id": "ascending_seed2026110511",
+      "direction": "ascending",
+      "seed": 2026110511,
+      "Je": 0.195,
+      "V": 2.6729412215855377,
+      "T_avg": 0.2973268717408925,
+      "psi_avg": 0.45281180811840493,
+      "V_integrated": 2.6729979163387996,
+      "drift": 0.0010048926262768987
+    },
+    {
+      "job_id": "ascending_seed2026110511",
+      "direction": "ascending",
+      "seed": 2026110511,
+      "Je": 0.1975,
+      "V": 2.7739918038796474,
+      "T_avg": 0.30109092497731166,
+      "psi_avg": 0.4475239472301802,
+      "V_integrated": 2.7740038349511633,
+      "drift": 0.00016315733937499743
+    },
+    {
+      "job_id": "ascending_seed2026110511",
+      "direction": "ascending",
+      "seed": 2026110511,
+      "Je": 0.2,
+      "V": 2.8789827488277244,
+      "T_avg": 0.3050466057617507,
+      "psi_avg": 0.44152739186886547,
+      "V_integrated": 2.8789664337032628,
+      "drift": 0.0004052425534162296
+    },
+    {
+      "job_id": "ascending_seed2026110511",
+      "direction": "ascending",
+      "seed": 2026110511,
+      "Je": 0.2025,
+      "V": 2.9808819191654035,
+      "T_avg": 0.3089613326496617,
+      "psi_avg": 0.4356379200263596,
+      "V_integrated": 2.980778783264559,
+      "drift": 0.0012971399160068842
+    },
+    {
+      "job_id": "descending_seed2026110511",
+      "direction": "descending",
+      "seed": 2026110511,
+      "Je": 0.2025,
+      "V": 2.8709693289551788,
+      "T_avg": 0.31968310174191,
+      "psi_avg": 0.3815851400355535,
+      "V_integrated": 2.8709666067258195,
+      "drift": 0.0035246990347466145
+    },
+    {
+      "job_id": "descending_seed2026110511",
+      "direction": "descending",
+      "seed": 2026110511,
+      "Je": 0.2,
+      "V": 2.741047519165309,
+      "T_avg": 0.31478124622195136,
+      "psi_avg": 0.38666618969685346,
+      "V_integrated": 2.741051063714849,
+      "drift": 0.008178536374015444
+    },
+    {
+      "job_id": "descending_seed2026110511",
+      "direction": "descending",
+      "seed": 2026110511,
+      "Je": 0.1975,
+      "V": 2.3572631414503706,
+      "T_avg": 0.29386630977230993,
+      "psi_avg": 0.4878462704276106,
+      "V_integrated": 2.3573470648295007,
+      "drift": 0.00040697780151388585
+    },
+    {
+      "job_id": "descending_seed2026110511",
+      "direction": "descending",
+      "seed": 2026110511,
+      "Je": 0.195,
+      "V": 2.2721076068982233,
+      "T_avg": 0.29045524556344415,
+      "psi_avg": 0.4952822041498448,
+      "V_integrated": 2.2720442994090355,
+      "drift": 0.0017946550258352012
+    },
+    {
+      "job_id": "descending_seed2026110511",
+      "direction": "descending",
+      "seed": 2026110511,
+      "Je": 0.1925,
+      "V": 2.18601204775616,
+      "T_avg": 0.2870622781290468,
+      "psi_avg": 0.5021676767040784,
+      "V_integrated": 2.185976714612343,
+      "drift": 0.0011213603432747021
+    },
+    {
+      "job_id": "descending_seed2026110511",
+      "direction": "descending",
+      "seed": 2026110511,
+      "Je": 0.19,
+      "V": 2.100813071724259,
+      "T_avg": 0.2837624375437618,
+      "psi_avg": 0.5087682288870834,
+      "V_integrated": 2.1007578941332303,
+      "drift": 0.00030463283557091714
+    },
+    {
+      "job_id": "descending_seed2026110511",
+      "direction": "descending",
+      "seed": 2026110511,
+      "Je": 0.1875,
+      "V": 2.015469822521561,
+      "T_avg": 0.28051230000679384,
+      "psi_avg": 0.5150432218953385,
+      "V_integrated": 2.0154672344437587,
+      "drift": -0.00038456140834508545
+    },
+    {
+      "job_id": "ascending_seed2026110512",
+      "direction": "ascending",
+      "seed": 2026110512,
+      "Je": 0.1875,
+      "V": 2.364391241598841,
+      "T_avg": 0.2850907544893493,
+      "psi_avg": 0.4705611080771986,
+      "V_integrated": 2.3644428885661775,
+      "drift": -0.00011372481384963606
+    },
+    {
+      "job_id": "ascending_seed2026110512",
+      "direction": "ascending",
+      "seed": 2026110512,
+      "Je": 0.19,
+      "V": 2.4705405304614376,
+      "T_avg": 0.2887459165332929,
+      "psi_avg": 0.465401130684621,
+      "V_integrated": 2.4704329682423984,
+      "drift": -0.0009796110598085939
+    },
+    {
+      "job_id": "ascending_seed2026110512",
+      "direction": "ascending",
+      "seed": 2026110512,
+      "Je": 0.1925,
+      "V": 2.5768210813181924,
+      "T_avg": 0.2924552179023442,
+      "psi_avg": 0.46007308103064204,
+      "V_integrated": 2.5765572053985943,
+      "drift": 0.0015771511418027906
+    },
+    {
+      "job_id": "ascending_seed2026110512",
+      "direction": "ascending",
+      "seed": 2026110512,
+      "Je": 0.195,
+      "V": 2.6794891485292296,
+      "T_avg": 0.29613802756734053,
+      "psi_avg": 0.4548077713522172,
+      "V_integrated": 2.679418718341176,
+      "drift": -0.0005236203566769682
+    },
+    {
+      "job_id": "ascending_seed2026110512",
+      "direction": "ascending",
+      "seed": 2026110512,
+      "Je": 0.1975,
+      "V": 2.7816831446385053,
+      "T_avg": 0.29988793964961585,
+      "psi_avg": 0.44942502424467884,
+      "V_integrated": 2.7820490808331213,
+      "drift": -6.969819119495568e-05
+    },
+    {
+      "job_id": "ascending_seed2026110512",
+      "direction": "ascending",
+      "seed": 2026110512,
+      "Je": 0.2,
+      "V": 2.88601091352689,
+      "T_avg": 0.30375721760990865,
+      "psi_avg": 0.443654521437832,
+      "V_integrated": 2.886234878454534,
+      "drift": 0.0015782205856744724
+    },
+    {
+      "job_id": "ascending_seed2026110512",
+      "direction": "ascending",
+      "seed": 2026110512,
+      "Je": 0.2025,
+      "V": 2.988225047341115,
+      "T_avg": 0.3076379673579869,
+      "psi_avg": 0.43792695532375636,
+      "V_integrated": 2.9881907432877686,
+      "drift": 0.00134469767210188
+    },
+    {
+      "job_id": "descending_seed2026110512",
+      "direction": "descending",
+      "seed": 2026110512,
+      "Je": 0.2025,
+      "V": 2.858169284333313,
+      "T_avg": 0.31936205457989775,
+      "psi_avg": 0.38246310846859327,
+      "V_integrated": 2.8581751017574106,
+      "drift": -0.004104841865046449
+    },
+    {
+      "job_id": "descending_seed2026110512",
+      "direction": "descending",
+      "seed": 2026110512,
+      "Je": 0.2,
+      "V": 2.7435749168685337,
+      "T_avg": 0.31486673899956014,
+      "psi_avg": 0.38665287929258113,
+      "V_integrated": 2.7435909718445237,
+      "drift": 0.002917605268179635
+    },
+    {
+      "job_id": "descending_seed2026110512",
+      "direction": "descending",
+      "seed": 2026110512,
+      "Je": 0.1975,
+      "V": 2.337623583843209,
+      "T_avg": 0.2938548749523793,
+      "psi_avg": 0.48700364560095644,
+      "V_integrated": 2.3374336657488404,
+      "drift": 0.0009511512699535984
+    },
+    {
+      "job_id": "descending_seed2026110512",
+      "direction": "descending",
+      "seed": 2026110512,
+      "Je": 0.195,
+      "V": 2.251749469256163,
+      "T_avg": 0.29041340911996893,
+      "psi_avg": 0.4947227821291698,
+      "V_integrated": 2.2517334941502214,
+      "drift": 0.0012189525573993443
+    },
+    {
+      "job_id": "descending_seed2026110512",
+      "direction": "descending",
+      "seed": 2026110512,
+      "Je": 0.1925,
+      "V": 2.1662654775943877,
+      "T_avg": 0.2870375156278318,
+      "psi_avg": 0.502034033755927,
+      "V_integrated": 2.166328042418527,
+      "drift": -0.000973987389147446
+    },
+    {
+      "job_id": "descending_seed2026110512",
+      "direction": "descending",
+      "seed": 2026110512,
+      "Je": 0.19,
+      "V": 2.082378295004446,
+      "T_avg": 0.2837614967762573,
+      "psi_avg": 0.5085935869506174,
+      "V_integrated": 2.0823939750652607,
+      "drift": -0.0005009933924076115
+    },
+    {
+      "job_id": "descending_seed2026110512",
+      "direction": "descending",
+      "seed": 2026110512,
+      "Je": 0.1875,
+      "V": 1.99822799468312,
+      "T_avg": 0.2805330475600757,
+      "psi_avg": 0.5151138476411157,
+      "V_integrated": 1.9982763593531125,
+      "drift": -0.001307684045678048
+    },
+    {
+      "job_id": "ascending_seed2026110513",
+      "direction": "ascending",
+      "seed": 2026110513,
+      "Je": 0.1875,
+      "V": 2.3575670331957466,
+      "T_avg": 0.2860632983441179,
+      "psi_avg": 0.46915576826807004,
+      "V_integrated": 2.3575007447187453,
+      "drift": -0.0010101570320761866
+    },
+    {
+      "job_id": "ascending_seed2026110513",
+      "direction": "ascending",
+      "seed": 2026110513,
+      "Je": 0.19,
+      "V": 2.463558392459458,
+      "T_avg": 0.28977640460765247,
+      "psi_avg": 0.4639041602957829,
+      "V_integrated": 2.4634825817876753,
+      "drift": -0.0001793970138401768
+    },
+    {
+      "job_id": "ascending_seed2026110513",
+      "direction": "ascending",
+      "seed": 2026110513,
+      "Je": 0.1925,
+      "V": 2.568345275487337,
+      "T_avg": 0.2935232693670488,
+      "psi_avg": 0.4584472387646732,
+      "V_integrated": 2.5683839215328588,
+      "drift": -0.001609150806384907
+    },
+    {
+      "job_id": "ascending_seed2026110513",
+      "direction": "ascending",
+      "seed": 2026110513,
+      "Je": 0.195,
+      "V": 2.6716259213159965,
+      "T_avg": 0.29728399687194057,
+      "psi_avg": 0.45310227190978186,
+      "V_integrated": 2.6716326464885243,
+      "drift": -0.00011794638825879389
+    },
+    {
+      "job_id": "ascending_seed2026110513",
+      "direction": "ascending",
+      "seed": 2026110513,
+      "Je": 0.1975,
+      "V": 2.774976359500114,
+      "T_avg": 0.30111047400270113,
+      "psi_avg": 0.4474013261517548,
+      "V_integrated": 2.775133815861991,
+      "drift": 0.00014917014475246404
+    },
+    {
+      "job_id": "ascending_seed2026110513",
+      "direction": "ascending",
+      "seed": 2026110513,
+      "Je": 0.2,
+      "V": 2.8787829504508786,
+      "T_avg": 0.3050396552460397,
+      "psi_avg": 0.4414571699563061,
+      "V_integrated": 2.878891087272095,
+      "drift": 0.0014296212078015458
+    },
+    {
+      "job_id": "ascending_seed2026110513",
+      "direction": "ascending",
+      "seed": 2026110513,
+      "Je": 0.2025,
+      "V": 2.9799275371568155,
+      "T_avg": 0.3089474024055539,
+      "psi_avg": 0.43571407875548657,
+      "V_integrated": 2.9799695592844273,
+      "drift": -0.001292482496241476
+    },
+    {
+      "job_id": "descending_seed2026110513",
+      "direction": "descending",
+      "seed": 2026110513,
+      "Je": 0.2025,
+      "V": 2.864830828512942,
+      "T_avg": 0.31953038045686766,
+      "psi_avg": 0.3822107589311526,
+      "V_integrated": 2.864827014543707,
+      "drift": 0.00892148335407672
+    },
+    {
+      "job_id": "descending_seed2026110513",
+      "direction": "descending",
+      "seed": 2026110513,
+      "Je": 0.2,
+      "V": 2.7390800956449914,
+      "T_avg": 0.3147206918621402,
+      "psi_avg": 0.3867495387188822,
+      "V_integrated": 2.739075169865209,
+      "drift": -0.0019157069508555225
+    },
+    {
+      "job_id": "descending_seed2026110513",
+      "direction": "descending",
+      "seed": 2026110513,
+      "Je": 0.1975,
+      "V": 2.3368870224604974,
+      "T_avg": 0.2938981042118554,
+      "psi_avg": 0.48789988948845475,
+      "V_integrated": 2.3369005513446974,
+      "drift": 0.0012283552513658869
+    },
+    {
+      "job_id": "descending_seed2026110513",
+      "direction": "descending",
+      "seed": 2026110513,
+      "Je": 0.195,
+      "V": 2.2507128406841033,
+      "T_avg": 0.29043332418184226,
+      "psi_avg": 0.49541253629283155,
+      "V_integrated": 2.25065875480037,
+      "drift": -0.0014136575893477499
+    },
+    {
+      "job_id": "descending_seed2026110513",
+      "direction": "descending",
+      "seed": 2026110513,
+      "Je": 0.1925,
+      "V": 2.1687649958489073,
+      "T_avg": 0.28716165738473437,
+      "psi_avg": 0.5023751743912157,
+      "V_integrated": 2.1679511971100784,
+      "drift": 0.0020268412880901643
+    },
+    {
+      "job_id": "descending_seed2026110513",
+      "direction": "descending",
+      "seed": 2026110513,
+      "Je": 0.19,
+      "V": 2.083638524222151,
+      "T_avg": 0.2838345994343021,
+      "psi_avg": 0.5089173355256906,
+      "V_integrated": 2.083688261317793,
+      "drift": 0.0003450875665058639
+    },
+    {
+      "job_id": "descending_seed2026110513",
+      "direction": "descending",
+      "seed": 2026110513,
+      "Je": 0.1875,
+      "V": 1.9994536475863154,
+      "T_avg": 0.28060861108087215,
+      "psi_avg": 0.5152112528706924,
+      "V_integrated": 1.9993651323950143,
+      "drift": 0.00032515553718392987
+    },
+    {
+      "job_id": "ascending_seed2026110514",
+      "direction": "ascending",
+      "seed": 2026110514,
+      "Je": 0.1875,
+      "V": 2.395520050471982,
+      "T_avg": 0.285457739342038,
+      "psi_avg": 0.46889228496573604,
+      "V_integrated": 2.3954614846584765,
+      "drift": 0.0013250714878698666
+    },
+    {
+      "job_id": "ascending_seed2026110514",
+      "direction": "ascending",
+      "seed": 2026110514,
+      "Je": 0.19,
+      "V": 2.503020263904684,
+      "T_avg": 0.2891011326911825,
+      "psi_avg": 0.4637949253844034,
+      "V_integrated": 2.5017050314646303,
+      "drift": 0.0017143130981884802
+    },
+    {
+      "job_id": "ascending_seed2026110514",
+      "direction": "ascending",
+      "seed": 2026110514,
+      "Je": 0.1925,
+      "V": 2.607910986121903,
+      "T_avg": 0.2927612647104408,
+      "psi_avg": 0.4586525351478708,
+      "V_integrated": 2.607997436691394,
+      "drift": -0.0015135786180291433
+    },
+    {
+      "job_id": "ascending_seed2026110514",
+      "direction": "ascending",
+      "seed": 2026110514,
+      "Je": 0.195,
+      "V": 2.7123701897975665,
+      "T_avg": 0.2965225942696495,
+      "psi_avg": 0.4532501839907457,
+      "V_integrated": 2.7123615820333726,
+      "drift": 0.0007208967130272192
+    },
+    {
+      "job_id": "ascending_seed2026110514",
+      "direction": "ascending",
+      "seed": 2026110514,
+      "Je": 0.1975,
+      "V": 2.814132463829471,
+      "T_avg": 0.30023578335311735,
+      "psi_avg": 0.4478621191436374,
+      "V_integrated": 2.814055286811854,
+      "drift": -0.00021181127769365204
+    },
+    {
+      "job_id": "ascending_seed2026110514",
+      "direction": "ascending",
+      "seed": 2026110514,
+      "Je": 0.2,
+      "V": 2.916849486546835,
+      "T_avg": 0.3040120747445141,
+      "psi_avg": 0.44226716719487974,
+      "V_integrated": 2.9168991055046174,
+      "drift": -7.50343311706203e-05
+    },
+    {
+      "job_id": "ascending_seed2026110514",
+      "direction": "ascending",
+      "seed": 2026110514,
+      "Je": 0.2025,
+      "V": 3.018621322170573,
+      "T_avg": 0.3078378326582908,
+      "psi_avg": 0.43663151531919686,
+      "V_integrated": 3.0186090529577085,
+      "drift": -0.0003766389175496876
+    },
+    {
+      "job_id": "descending_seed2026110514",
+      "direction": "descending",
+      "seed": 2026110514,
+      "Je": 0.2025,
+      "V": 2.866766512793569,
+      "T_avg": 0.31957862718586366,
+      "psi_avg": 0.38189293781784356,
+      "V_integrated": 2.8667586012909623,
+      "drift": -0.0049373505703926845
+    },
+    {
+      "job_id": "descending_seed2026110514",
+      "direction": "descending",
+      "seed": 2026110514,
+      "Je": 0.2,
+      "V": 2.74564122915703,
+      "T_avg": 0.31490588744585885,
+      "psi_avg": 0.3863312636627785,
+      "V_integrated": 2.745647775459238,
+      "drift": 0.00747731948320407
+    },
+    {
+      "job_id": "descending_seed2026110514",
+      "direction": "descending",
+      "seed": 2026110514,
+      "Je": 0.1975,
+      "V": 2.3448080437580208,
+      "T_avg": 0.29473657582981466,
+      "psi_avg": 0.4851860159534202,
+      "V_integrated": 2.344841756137748,
+      "drift": -3.345744828830988e-05
+    },
+    {
+      "job_id": "descending_seed2026110514",
+      "direction": "descending",
+      "seed": 2026110514,
+      "Je": 0.195,
+      "V": 2.2572798130115497,
+      "T_avg": 0.29123056189493357,
+      "psi_avg": 0.49313164189523434,
+      "V_integrated": 2.2573041437985375,
+      "drift": -8.986664869325978e-05
+    },
+    {
+      "job_id": "descending_seed2026110514",
+      "direction": "descending",
+      "seed": 2026110514,
+      "Je": 0.1925,
+      "V": 2.1723644074907753,
+      "T_avg": 0.2878402684979912,
+      "psi_avg": 0.5004946525607522,
+      "V_integrated": 2.172371469263571,
+      "drift": 0.00015601802392373187
+    },
+    {
+      "job_id": "descending_seed2026110514",
+      "direction": "descending",
+      "seed": 2026110514,
+      "Je": 0.19,
+      "V": 2.087952473076201,
+      "T_avg": 0.28452403385039543,
+      "psi_avg": 0.5072267950868256,
+      "V_integrated": 2.0879283493794993,
+      "drift": 0.0004986571447012089
+    },
+    {
+      "job_id": "descending_seed2026110514",
+      "direction": "descending",
+      "seed": 2026110514,
+      "Je": 0.1875,
+      "V": 2.0033565245502416,
+      "T_avg": 0.28125979717360206,
+      "psi_avg": 0.5137490378230559,
+      "V_integrated": 2.003350704710674,
+      "drift": -0.0006280416590422888
+    }
+  ],
+  "stationarity": {
+    "ascending": {
+      "0.1875": {
+        "n": 4,
+        "mean": 0.00020524560697121608,
+        "ci_low": -0.0013872513593101872,
+        "ci_high": 0.0017977425732526194,
+        "bound": 0.0025,
+        "pass": true
+      },
+      "0.19": {
+        "n": 4,
+        "mean": 3.384407365769615e-05,
+        "ci_low": -0.0018269231843072516,
+        "ci_high": 0.0018946113316226439,
+        "bound": 0.0025,
+        "pass": true
+      },
+      "0.1925": {
+        "n": 4,
+        "mean": -0.0004268393990737307,
+        "ci_low": -0.0027986156156953983,
+        "ci_high": 0.0019449368175479369,
+        "bound": 0.0025,
+        "pass": false
+      },
+      "0.195": {
+        "n": 4,
+        "mean": 0.00027105564859208897,
+        "ci_low": -0.0008629653166623927,
+        "ci_high": 0.0014050766138465707,
+        "bound": 0.0025,
+        "pass": true
+      },
+      "0.1975": {
+        "n": 4,
+        "mean": 7.704503809713437e-06,
+        "ci_low": -0.0002804145118945572,
+        "ci_high": 0.0002958235195139841,
+        "bound": 0.0025,
+        "pass": true
+      },
+      "0.2": {
+        "n": 4,
+        "mean": 0.0008345125039304069,
+        "ci_low": -0.0004380695482560997,
+        "ci_high": 0.0021070945561169133,
+        "bound": 0.0025,
+        "pass": true
+      },
+      "0.2025": {
+        "n": 4,
+        "mean": 0.00024317904357940012,
+        "ci_low": -0.0018247188547719537,
+        "ci_high": 0.002311076941930754,
+        "bound": 0.0025,
+        "pass": true
+      }
+    },
+    "descending": {
+      "0.1875": {
+        "n": 4,
+        "mean": -0.0004987828939703731,
+        "ci_low": -0.0015713152971938407,
+        "ci_high": 0.0005737495092530945,
+        "bound": 0.0025,
+        "pass": true
+      },
+      "0.19": {
+        "n": 4,
+        "mean": 0.0001618460385925946,
+        "ci_low": -0.0005537701152521527,
+        "ci_high": 0.000877462192437342,
+        "bound": 0.0025,
+        "pass": true
+      },
+      "0.1925": {
+        "n": 4,
+        "mean": 0.0005825580665352881,
+        "ci_low": -0.0014678019835634515,
+        "ci_high": 0.0026329181166340277,
+        "bound": 0.0025,
+        "pass": false
+      },
+      "0.195": {
+        "n": 4,
+        "mean": 0.00037752083629838395,
+        "ci_low": -0.0018994759178952388,
+        "ci_high": 0.0026545175904920068,
+        "bound": 0.0025,
+        "pass": false
+      },
+      "0.1975": {
+        "n": 4,
+        "mean": 0.0006382567186362653,
+        "ci_low": -0.0002575558168084978,
+        "ci_high": 0.0015340692540810285,
+        "bound": 0.0025,
+        "pass": true
+      },
+      "0.2": {
+        "n": 4,
+        "mean": 0.004164438543635907,
+        "ci_low": -0.0032770280892910437,
+        "ci_high": 0.011605905176562858,
+        "bound": 0.0025,
+        "pass": false
+      },
+      "0.2025": {
+        "n": 4,
+        "mean": 0.0008509974883460503,
+        "ci_low": -0.009637675543392852,
+        "ci_high": 0.011339670520084952,
+        "bound": 0.0025,
+        "pass": false
+      }
+    }
+  },
+  "deltas": {
+    "ascending": [
+      {
+        "Je_low": 0.1875,
+        "Je_high": 0.19,
+        "stats": {
+          "n": 4,
+          "mean": 0.10655807569576925,
+          "sem": 0.00033874904220908053,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.10866900507885639,
+          "values": [
+            0.1065914412240665,
+            0.10614928886259678,
+            0.10599135926371162,
+            0.10750021343270211
+          ],
+          "negative": false
+        }
+      },
+      {
+        "Je_low": 0.19,
+        "Je_high": 0.1925,
+        "stats": {
+          "n": 4,
+          "mean": 0.10488861925819792,
+          "sem": 0.0005490797774984597,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.10831023376202598,
+          "values": [
+            0.10359632093093918,
+            0.10628055085675481,
+            0.10478688302787864,
+            0.10489072221721907
+          ],
+          "negative": false
+        }
+      },
+      {
+        "Je_low": 0.1925,
+        "Je_high": 0.195,
+        "stats": {
+          "n": 4,
+          "mean": 0.10380610022052161,
+          "sem": 0.0005015510351623711,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.1069315373002479,
+          "values": [
+            0.10481648416672629,
+            0.10266806721103716,
+            0.1032806458286597,
+            0.1044592036756633
+          ],
+          "negative": false
+        }
+      },
+      {
+        "Je_low": 0.195,
+        "Je_high": 0.1975,
+        "stats": {
+          "n": 4,
+          "mean": 0.10208932265485182,
+          "sem": 0.00048195013997143736,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.10509261590407891,
+          "values": [
+            0.10105058229410968,
+            0.10219399610927571,
+            0.10335043818411727,
+            0.10176227403190463
+          ],
+          "negative": false
+        }
+      },
+      {
+        "Je_low": 0.1975,
+        "Je_high": 0.2,
+        "stats": {
+          "n": 4,
+          "mean": 0.10396058187614754,
+          "sem": 0.00048015856308505927,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.10695271083612128,
+          "values": [
+            0.10499094494807704,
+            0.10432776888838458,
+            0.10380659095076483,
+            0.10271702271736372
+          ],
+          "negative": false
+        }
+      },
+      {
+        "Je_low": 0.2,
+        "Je_high": 0.2025,
+        "stats": {
+          "n": 4,
+          "mean": 0.10175743162039474,
+          "sem": 0.0002244350541389133,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.10315600841720875,
+          "values": [
+            0.10189917033767903,
+            0.10221413381422506,
+            0.10114458670593685,
+            0.10177183562373804
+          ],
+          "negative": false
+        }
+      }
+    ],
+    "descending": [
+      {
+        "Je_low": 0.1875,
+        "Je_high": 0.19,
+        "stats": {
+          "n": 4,
+          "mean": 0.08456859367145475,
+          "sem": 0.0002773456883771723,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.08629688538572786,
+          "values": [
+            0.08534324920269798,
+            0.08415030032132598,
+            0.08418487663583574,
+            0.08459594852595931
+          ],
+          "negative": false
+        }
+      },
+      {
+        "Je_low": 0.19,
+        "Je_high": 0.1925,
+        "stats": {
+          "n": 4,
+          "mean": 0.08465614116579334,
+          "sem": 0.00031182455845776396,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.08659928945788621,
+          "values": [
+            0.08519897603190119,
+            0.08388718258994166,
+            0.08512647162675613,
+            0.0844119344145744
+          ],
+          "negative": false
+        }
+      },
+      {
+        "Je_low": 0.1925,
+        "Je_high": 0.195,
+        "stats": {
+          "n": 4,
+          "mean": 0.08461070028995221,
+          "sem": 0.0009197412716541572,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.09034210800851449,
+          "values": [
+            0.08609555914206313,
+            0.08548399166177534,
+            0.08194784483519602,
+            0.08491540552077437
+          ],
+          "negative": false
+        }
+      },
+      {
+        "Je_low": 0.195,
+        "Je_high": 0.1975,
+        "stats": {
+          "n": 4,
+          "mean": 0.08618301541551465,
+          "sem": 0.0004967241828750837,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.08927837375537319,
+          "values": [
+            0.0851555345521473,
+            0.08587411458704608,
+            0.08617418177639413,
+            0.08752823074647109
+          ],
+          "negative": false
+        }
+      },
+      {
+        "Je_low": 0.1975,
+        "Je_high": 0.2,
+        "stats": {
+          "n": 4,
+          "mean": 0.3981904923309415,
+          "sem": 0.004922493158571936,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.4288652224459317,
+          "values": [
+            0.38378437771493834,
+            0.4059513330253246,
+            0.40219307318449404,
+            0.40083318539900903
+          ],
+          "negative": false
+        }
+      },
+      {
+        "Je_low": 0.2,
+        "Je_high": 0.2025,
+        "stats": {
+          "n": 4,
+          "mean": 0.1228480484397847,
+          "sem": 0.003285762782215864,
+          "tcrit_bonferroni12": 6.231543473366502,
+          "upper95_bonferroni12": 0.14332342206033252,
+          "values": [
+            0.12992180978986978,
+            0.11459436746477936,
+            0.12575073286795035,
+            0.1211252836365393
+          ],
+          "negative": false
+        }
+      }
+    ]
+  },
+  "stationary_branch_confirmed": false,
+  "ordered_negative_pair_found": false,
+  "provenance": {
+    "protocol": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/plan/history_protocol.json",
+    "protocol_sha256": "3d73efa8e0f1985cf1f3461b25da032f188b1a15560a6738662c4ce4b7f7686d",
+    "campaign_root": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign",
+    "campaign_sha256": "54bda6fd593ab402b2b650b43caaa37fde5f031c07754452a8319e17072e1b05",
+    "chain_receipt_sha256": {
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110513/step2_Je0.2/chain.json": "ee6b876a51a18c59f2278b4a37cd49aa975abff5192238f44183de20f3e9a9bb",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110513/step5_Je0.1925/chain.json": "c9b6f3788df997cd7142ee0bef9f825bacf284428a0e11dba17be46c0257289c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110513/step7_Je0.1875/chain.json": "b080f26e7c78532beb70fe110baf2c97ded069a77a8aac623c8a2c8fc293de98",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110513/step4_Je0.195/chain.json": "73444a3c343e53061cb2f4a4f0dbaaf38dd71b6554a8135fac608e6f161e586f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110513/step6_Je0.19/chain.json": "8b8638b9d910527c7f51c66934f456a29701a179caedbc18ea60ae20b875a01d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110513/step1_Je0.2025/chain.json": "4fac0d39a6026e9d2b80639e2dbaada93d18ca5fe32372ea99244dd059cd8f5d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110513/step3_Je0.1975/chain.json": "aa8a9a6e3ab19668cd7f19ead7de9050092f8016f0e19cc79ad85c8cdf818919",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110513/step3_Je0.1925/chain.json": "d0bf50afc52097de157fd8b0c31d472cab5d2c27d4b3d9310e0693dee22db141",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110513/step6_Je0.2/chain.json": "6fc473ac442e2f47b00c9601e4d930a60e91484400b69c68d481bfdae3ab4be4",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110513/step7_Je0.2025/chain.json": "e5605fc651ddc99a6e0923b2f622d4e9eafbbd607826701b57e87bf1025b64b0",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110513/step4_Je0.195/chain.json": "391fef3d8fa72cbbb7952eb90e089f61e88b3478e2cd5b6c78cd18078bfaf88d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110513/step2_Je0.19/chain.json": "4cfcd6adf88c6d5494a3e738a8c548b7c40baadb9dc58260a5c537a8c9faafe4",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110513/step1_Je0.1875/chain.json": "4d5f344018aabd82cce283455bec3b038818cd079dbc6fe44dfafba96e8b7862",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110513/step5_Je0.1975/chain.json": "da7f247b891d5a37f59ed209cd0c20ac6e5392c408ecffae2aa91c40485b9ce0",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110511/step3_Je0.1925/chain.json": "c57c5392426f77163da4e261e4daf4367ff57fc4c504403763491452afce3bf5",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110511/step6_Je0.2/chain.json": "1f6253de61e87a8c68fc9973bfce3a66bc16328b2484c6dd1657912b041ceb65",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110511/step7_Je0.2025/chain.json": "02b23dc93d6e0f7b17108ffd8297b8dc4277f86ece2f767a2eb50676f3b4a9af",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110511/step4_Je0.195/chain.json": "d18db7f7bfd69d3fd94185e9991ff628d02ef1fa55f3343c00d236eac456b494",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110511/step2_Je0.19/chain.json": "a5bef7931bc52da549118d3927ca122ef7490f297db08e9770e349be9cb4c993",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110511/step1_Je0.1875/chain.json": "4b64833c97f0737fac91dd2b4410d55aec6bcb23654d07c9ec984ca9ae371494",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110511/step5_Je0.1975/chain.json": "5151f16447376d2189d2fa795ecf0b3b91d3dfd833e693aa0100e21f46d2731d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110512/step2_Je0.2/chain.json": "924b663b28f28b4b37db7f155c6cfca9fe6ff03ce5f4da0060e8811da749c87b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110512/step5_Je0.1925/chain.json": "f367d4201f0744d7e348c56308bd01dfb991e2188305fc13c4ad2bed21f45efa",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110512/step7_Je0.1875/chain.json": "9b90356778bffa089f46cad1a6c56305b5f293b30e262cb1b0e8c9b748ce1879",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110512/step4_Je0.195/chain.json": "594c8ee7f223b8c069cbf52048351d0a63634f97e8cbd68e7527d2153d6ae41e",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110512/step6_Je0.19/chain.json": "a56d19c6df7ae0c394e85fcc135835d7f445ddb02e6a5c0cae729d9490f32dd4",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110512/step1_Je0.2025/chain.json": "8b0d9aaf2f4c6f363b608ad03b84cbf221e3d1ca76be7bea2444b0a749d8aa69",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110512/step3_Je0.1975/chain.json": "6c50dd1d1284019faaa529e3dbc5f7b7ef0dc067f83a6b5d8dfff1bc5cdbde2c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110514/step2_Je0.2/chain.json": "c3d1edb9d0872ceb2a7a21b589c78eef3d5b8f215a0503353121d7ea573c0274",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110514/step5_Je0.1925/chain.json": "6bca2d79181d5b2949ce22f72f79953164af6d65b81f022bb27cffcf688353d2",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110514/step7_Je0.1875/chain.json": "cb08ad1262dd71909cb96dd7e262f0dc6f7021d64a03be9c67ad95fdef617e59",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110514/step4_Je0.195/chain.json": "ae79227e88952ffff4afce1930fb5aa649c089553e6d3411871c69a5c48bf7db",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110514/step6_Je0.19/chain.json": "30b2f4e361593ca001f4affd2c14776c0d191ca8ea88ee984c60fd989190a690",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110514/step1_Je0.2025/chain.json": "ce0181df2ed5fdbabcbc24cd0a8d98093444215643795562739dec6012b8e325",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110514/step3_Je0.1975/chain.json": "7db06c14ae199357d4f0884d43fe18a7b6ef3aaefe112f5a0d774708cc36980c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110512/step3_Je0.1925/chain.json": "0a9e7f63bbacec7866e1069a0465eaf169ad6b354c242e8107561a4faf8e37eb",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110512/step6_Je0.2/chain.json": "c07f4adb85d7d7fd33d0f898e4e89d355814109449b227856a331a97178b96f0",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110512/step7_Je0.2025/chain.json": "ccb5014f927e391dcfa10ccdbcf4761a8e83b0ee0939fb27ca6b3253985a7266",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110512/step4_Je0.195/chain.json": "4cbe5d87d21c3fb761073337360f0a18888afa9650c8cdbebae023548a80cf01",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110512/step2_Je0.19/chain.json": "e701713642dc721e396fd4dc65c359bbfc49358d283293b1b999eadeea313efe",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110512/step1_Je0.1875/chain.json": "8c2a9ad78c946c25488bb682a40e5e0bc9e00fb2d3e20abae6e1d6694fed4d27",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110512/step5_Je0.1975/chain.json": "c72524720650329381eb92559e7c560783bff179e41b182c2c16b1a96c8cf744",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110514/step3_Je0.1925/chain.json": "5a096ad38574610200f4d8dc389c947d12cd8ff44410b696ae14463ef98cf7d2",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110514/step6_Je0.2/chain.json": "4a84818462a0adc5f9b4f60c8ef786bf0ca50689b74f095572348d1ba4932a32",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110514/step7_Je0.2025/chain.json": "8882899d4d1916ef33463773d77c9a3d2b04b607420a6baa0d4ab87a71beecdf",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110514/step4_Je0.195/chain.json": "e67796583126e6b5ff7552a1845db8d65ad9338a33b1e1ef27ed486239ca9fbf",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110514/step2_Je0.19/chain.json": "75d23c8ab6c2b338774dfb5f4e4a4765cc129e8843243462824c1f5f77e462e8",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110514/step1_Je0.1875/chain.json": "0be8ffd17f8b2712036c5d4d0d173d9255dbf43cdff50e5c0101e2a9dab50fdd",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/ascending_seed2026110514/step5_Je0.1975/chain.json": "8b26745e04c6dcfae2b47c684a7b708b2941bc410276bdb4695e26bfbaa7b0c7",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110511/step2_Je0.2/chain.json": "168897a65a41b58830a21ea0fb6bd13eaf03bdb31f7ec77ee3a875c02d9b8bd7",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110511/step5_Je0.1925/chain.json": "533cd990dedcf6a49b28698d7425338126601ce104bb5617792d89ee27083cda",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110511/step7_Je0.1875/chain.json": "7149ae4ffc66e3555483c0ed46a45b8bf52d03fa1312f7fc9dbdac11591ac1f8",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110511/step4_Je0.195/chain.json": "55eeb4e3c8afeaa98ec30554118cfc4262063cc18b6410aabba4610a0ec591e8",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110511/step6_Je0.19/chain.json": "f7297558e85e09d50a01a302f4eaba09787e848a5652ab4c18c0e7eee594818d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110511/step1_Je0.2025/chain.json": "04eef0120f1fe3ab8187bf18edab4e9fd0b85aec07047d0752d95d1acd6616be",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2/campaign/descending_seed2026110511/step3_Je0.1975/chain.json": "af488cefa97c25eaa2247b90c75efeafb110223d60b9306139abcd3bf558c2ae"
+    },
+    "analysis_source_sha256": {
+      "analyze_ndr_enhancement_history.py": "844327a6f8b6fa12b28e8a0dd48970e0cacf48de6631bf64ede9d0dce6ee56ca",
+      "compare_results.py": "8b7fb2e89b631f8a013a351a8d8ecf9063d02aff32a84375e5505aa1af0c5c12",
+      "analyze_full_iv.py": "5eca16e634fcedf0ab60e7da755f5505ec143f3dd83e4e2409ddd01baa16bde0",
+      "analyze_full_curl_ndr.py": "26f91502595d44e936173114f510a9588b0f501add6d07e73240b741e535bf0c"
+    },
+    "python": "3.14.8 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:26:14) [GCC 14.3.0]",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "h5py": "3.16.0"
+  },
+  "scope": "ordered-history descriptive analysis; frames are not independent replicates; stationary branch requires refinement and further convergence checks"
+}

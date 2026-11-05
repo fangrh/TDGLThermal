@@ -25,6 +25,7 @@ def fixture(tmp_path):
                 with h5py.File(h5,"w") as h:
                     h["times"]=times; h["V"]=np.full(8001,3-je*2); h["T_avg"]=np.full(8001,.27); h["psi_avg"]=np.full(8001,.45); h["Ax"]=np.zeros((8001,3,3))
                 m={"output_path":str(h5),"output_hash":ah.sha(h5),"config_hash":ch,"model_hash":ah.MODEL_HASH,"rhs_source_hash":ah.RHS_HASH,"Je":je,"seed":seed,"horizon":20000,"final_time":20000,"snapshot_interval":1,"skip_ratio":.6,"tolerance":1e-4,"noise":.001,"Nx":60,"Ny":30,"hx":.5,"hy":.5,"solver":"Tsit5","precision":"Float64","save_fields":True,"output_schema":"streamed_hdf5_fields","backend":"cpu_compatible","complete":True,"status":"success","initial_source_hash":ah.sha(Path(previous_output))}
+                initial_vector=folder/'initial.bin';initial_vector.write_bytes(f'{jid}/{step}/initial'.encode());m.update(initial_vector_path=str(initial_vector),initial_vector_hash=ah.sha(initial_vector))
                 rng=folder/"rng_after.bin"; rng.write_bytes(f"{jid}/{step}".encode())
                 before=ah.sha(Path(previous_rng))
                 e={"id":jid,"step":step,"Je":je,"seed":seed,"cumulative_start":50000+(step-1)*20000,"cumulative_end":50000+step*20000,"manifest":m,"rng_after_path":str(rng),"rng_after_sha256":ah.sha(rng),"rng_before_sha256":before,"preceding_hdf5":previous_output,"preceding_rng":previous_rng,"preceding_sha256":previous_output}
@@ -112,3 +113,10 @@ def test_v2_requires_declared_guard_in_every_manifest(tmp_path):
     p=next(root.glob('*/step1*/chain.json'));e=json.loads(p.read_text());e['manifest']['stream_maxiters_override']=1000000;p.write_text(json.dumps(e))
     r=ah.analyze(pp,root)
     assert not r['complete'] and any('streaming guard metadata' in x for x in r['errors'])
+
+
+def test_corrupt_packed_initial_vector_disables_verified_result(tmp_path,monkeypatch):
+    pp,root=fixture(tmp_path);next(root.glob('*/step1*/initial.bin')).write_bytes(b'corrupted')
+    monkeypatch.setattr(ah,'validate_artifact',lambda *_:([],None));monkeypatch.setattr(ah,'_finite_fields_errors',lambda _:[])
+    r=ah.analyze(pp,root,True)
+    assert not r['complete'] and any('initial vector hash' in x for x in r['errors'])

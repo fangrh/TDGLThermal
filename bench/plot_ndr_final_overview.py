@@ -83,7 +83,8 @@ def run(b,h,hist,out,bp,hp,his):
   ax[2].plot(cx,means,'o-',color=color,lw=2,label=f'{direction} · 4 seeds');ax[2].fill_between(cx,lows,highs,color=color,alpha=.12)
  jitter=np.linspace(-.08,.08,8)
  ax[3].axhline(0,color='k',lw=.7);ax[3].plot(jitter,bfrac,'o',color='#0072B2',label='Baseline middle interval · 8 seeds');ax[3].plot(1+jitter,hfrac,'o',color='#D55E00',label='Fresh holdout primary · 8 seeds');ax[3].set_xticks([0,1],['Baseline','Fresh holdout']);ax[3].set_ylabel('(V_lo−V_hi)/V_lo');ax[3].set_title(f'D. Frozen primary contrast · enhancement target '+('met' if h['primary']['stronger_drop_pass'] else 'not met'));ax[3].legend(fontsize=8);ax[3].grid(alpha=.2)
- ax[0].set(xlabel='Je (native model units)',ylabel='V',title='A. Baseline prepared points · final 48–50kτ');ax[1].set(xlabel='Je (native model units)',ylabel='V',title='B. Frozen candidate · final 48–50kτ');ax[2].set(xlabel='Je (native model units)',ylabel='V',title='C. Ordered histories · 20kτ dwell / final 18–20kτ')
+ variant=h['protocol']['selected_candidate']['variant'];candidate={'T0_0p22':r'$T_0=0.22$'}.get(variant,variant)
+ ax[0].set(xlabel='Je (native model units)',ylabel='V',title=r'A. Baseline $T_0=0.18$ · prepared 48–50kτ');ax[1].set(xlabel='Je (native model units)',ylabel='V',title=f'B. Candidate {candidate} · prepared 48–50kτ');ax[2].set(xlabel='Je (native model units)',ylabel='V',title=f'C. {candidate} · ordered 20kτ dwell / final 18–20kτ')
  for a in ax[:3]:a.grid(alpha=.2);a.legend(fontsize=8)
  allv=list(np.asarray(bv,float).ravel())+[float(r['V']) for r in hr]+[float(r['V']) for r in cr]
  for vals in bv:allv.extend(_ci(vals)[1:])

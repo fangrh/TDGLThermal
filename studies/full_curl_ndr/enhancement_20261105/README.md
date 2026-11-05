@@ -1,6 +1,8 @@
 # Full-curl NDR enhancement exploration
 
-This is a bounded physical-parameter exploration requested on 2026-11-05. The delivered [101-point baseline](../full_iv/README.md) remains the comparison dataset. The screen and independent 50000τ holdout are verified. The declared enhancement target failed; ordered-history controls are pending.
+This is a bounded physical-parameter exploration requested on 2026-11-05. The delivered [101-point baseline](../full_iv/README.md) remains the comparison dataset. The screen, independent 50000τ holdout, and guarded ordered histories are verified. The declared enhancement target failed. All tested ordered neighboring-current contrasts are positive; a stationary continuous negative branch is not established.
+
+The [English final overview](results/final_overview/ndr_final_overview.png) ([PDF](results/final_overview/ndr_final_overview.pdf)) puts the original prepared-point response, new candidate, ordered histories, and frozen primary contrast together. The original approximately 14.3% prepared-point decrease remains the stronger verified reference in this comparison.
 
 ## Long-horizon result: enhancement target not met
 
@@ -20,6 +22,18 @@ The local decrease coincides with `T_avg` changing from 0.30220 to 0.29789 and m
 
 The 10000τ screen did not recover an eligible baseline decrease at that same horizon. It therefore cannot exclude slower NDR behavior in the other six configurations. `T0 = 0.22` is the screen-selected candidate, not an established optimum. The stronger original baseline is retained.
 
+## Verified ordered-history outcome
+
+All eight histories traversed seven currents with 20000τ per dwell. All 56 dwell outputs passed source/configuration/guard checks, HDF5 and initial-vector hashes, RNG and field-source continuity, retained-time schedules, and all nine saved-dataset finite scans. The [analysis](results/history_v2/history_analysis.json), [seed rows](results/history_v2/history_seed_rows.csv), [adjacent contrasts](results/history_v2/history_deltas.csv), and [V/temperature/condensate figure](results/history_v2/history_V_T_psi.png) preserve the complete result.
+
+Every one of the 48 seed-level neighboring-current differences `V(higher Je) − V(lower Je)` is positive. Ascending mean differences range from 0.10176 to 0.10656; descending mean differences range from 0.08457 to 0.39819. None of the twelve direction/interval comparisons satisfies the declared negative-difference bound, and there are no consecutive confirmed negative intervals.
+
+Five of fourteen direction/current combinations fail the nominal finite-window drift-equivalence criterion: ascending `0.1925`; descending `0.1925`, `0.195`, `0.20`, and `0.2025`. The remaining nine pass. These tests describe the recorded windows and do not rule out rare switching. The largest discrepancy between sampled voltage and the Ax-integrated voltage over the same 18000–20000τ window is 0.001315 native voltage units.
+
+The ordered curves show different response levels for the two directions while retaining positive neighboring-current increments. Together with the prepared-point results, this supports sensitivity to preparation and scan protocol in this model. The comparison does not isolate preparation from dwell, restart, or the legacy forcing/evaluation schedule, and it does not identify a unique physical cause. It does not establish that full-curl NDR is impossible under other parameters or protocols.
+
+The declared scientific campaign completed 252 screen segments + 560 holdout segments + 224 equivalent history segments = **1036 equivalent 5000τ segments**. Invalid ordered v1 output and separate software-validation probes are excluded from scientific results. The conditional refinement was not triggered because the frozen enhancement target failed. A follow-on should resolve local responses on identified dynamical states around the stronger original `T0=0.18` region, rather than silently widening this search or relabeling a post-hoc peak as confirmation. Spatial convergence and a calibrated stochastic thermal model remain outside this study.
+
 ## Verified screening result and frozen holdout
 
 All 126 chains and 252 segments completed successfully. Output/initial-state/RNG hashes, chain continuity, retained schedules, and all nine saved numeric datasets passed validation with no errors. See [the screen analysis](results/screen/enhancement_analysis.json) and [all seven I–V/temperature/condensate curves](results/screen/enhancement_screen.png).
@@ -28,13 +42,13 @@ Only `T0 = 0.22` qualified at the declared 10000τ screen horizon: `Je = 0.19 �
 
 The [frozen holdout protocol](holdout_plan/holdout_protocol.json) fixes `T0 = 0.22`, currents `0.1875, 0.19, 0.1925, 0.195, 0.1975, 0.20, 0.2025`, and eight fresh seeds. The primary contrast is exclusively `0.19 → 0.20`; choosing a different interval from the holdout results is not allowed. Each of the 56 chains reached 50000τ. No new-seed simulation was launched before freezing these files.
 
-The [original ordered-history plan](history_plan/history_protocol.json) fixes the first four holdout seeds and both directions, starting from their saved outer-current fields/RNG states. All 56 × 10 holdout metadata/continuity records and all sixteen outer HDF5/RNG source hashes were checked before freezing this plan. Each of the eight histories traverses all seven currents with 20000τ dwell per point. This control will assess branch accessibility without changing the failed primary enhancement result.
+The [original ordered-history plan](history_plan/history_protocol.json) fixes the first four holdout seeds and both directions, starting from their saved outer-current fields/RNG states. All 56 × 10 holdout metadata/continuity records and all sixteen outer HDF5/RNG source hashes were checked before freezing this plan. Each of the eight histories traverses all seven currents with 20000τ dwell per point. The completed replacement run assessed branch accessibility without changing the failed primary enhancement result.
 
 The first ordered-history attempt is [invalid and excluded](results/history_invalid_v1/invalid_run.json). Adaptive Tsit5 defaults to one million iterations. A 20000τ dwell needs more, and the original manual target-advance loop ignored `MaxIters`, repeatedly calling `step!` without advancing time. The owned processes were stopped and partial output preserved. Completed 5000τ segments have about 300000 accepted steps and their verified results remain valid.
 
-The benchmark harness now checks return codes and strict time advancement, and records an explicit `TDGL_STREAM_MAXITERS` override. The PDE/model and RHS files are unchanged. Twenty-nine pinned-Linux tests and a distributed failure canary pass. The [guarded-versus-frozen noisy comparison](results/streaming_guard_validation/differential_summary.json), with iteration budget 10000000, has exact saved-array bytes, initial vectors and RNG states in all six point-segment pairs. The replacement ordered run keeps the original currents, seeds, initial checkpoints, dwell, output windows and statistical gates.
+The benchmark harness now checks return codes and strict time advancement, and records an explicit `TDGL_STREAM_MAXITERS` override. The PDE/model and RHS files are unchanged. Twenty-nine pinned-Linux tests and a distributed failure canary pass. The [guarded-versus-frozen noisy comparison](results/streaming_guard_validation/differential_summary.json), with iteration budget 10000000, has exact saved-array bytes, initial vectors and RNG states in all six point-segment pairs. The replacement ordered run retained the original currents, seeds, initial checkpoints, dwell, output windows and statistical gates and completed successfully.
 
-The [replacement v2 protocol](history_plan_v2/history_protocol.json) and unchanged [eight jobs](history_plan_v2/history_jobs.json) were pushed in `b9cbebc` before the 2026-11-05 03:06 UTC launch. The separate clean runtime is pinned to `5c80eba`; the recorded guard source hash is `9c764ecaf9a58078394abc2f39651a7a5a07f054761e55c3ceeccfade9b6fa70`. Only this replacement run can contribute ordered-history results.
+The [replacement v2 protocol](history_plan_v2/history_protocol.json) and unchanged [eight jobs](history_plan_v2/history_jobs.json) were pushed in `b9cbebc` before the 2026-11-05 03:06 UTC launch. The separate runtime is pinned to `5c80eba`; the recorded guard source hash is `9c764ecaf9a58078394abc2f39651a7a5a07f054761e55c3ceeccfade9b6fa70`. Only this replacement run contributes ordered-history results.
 
 For comparison, the original four-current/eight-seed 50000τ study has a 14.32% mean paired middle-interval drop. Its [English detail figure](results/baseline_detail/ndr_enhancement_comparison.png) retains every seed and the higher-current spread; this prepared-point response does not establish a stationary continuous negative branch. Connecting lines guide the eye between independently prepared points and do not represent an ordered current sweep.
 
@@ -87,6 +101,7 @@ The existing Linux raw-data roots are:
 ```text
 /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_screen_20261105_v1
 /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1
+/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v2
 ```
 
 The screen was run with `bench/reproduce_ndr.jl --segments 2 --horizon 5000 --skip 0.6 --backend cpu_compatible`, and the holdout with the same arguments except `--segments 10`. Both use 24 persistent Julia workers, one BLAS thread, and the declared immutable job file. The runner refuses to overwrite an existing segment. Original absolute Linux paths are retained in the receipts; relocation requires an explicit new job/protocol snapshot with updated hashes.
