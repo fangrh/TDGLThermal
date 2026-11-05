@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-05T07:05:33.749948+00:00",
+  "commands": [
+    [
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/report_env/bin/python",
+      "bench/analyze_ndr_state_response.py",
+      "--protocol",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/plan/protocol.json",
+      "--campaign-root",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign",
+      "--out",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/analysis",
+      "--validate-artifacts"
+    ],
+    [
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/report_env/bin/python",
+      "bench/plot_ndr_state_response_fields.py",
+      "--analysis",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/analysis/state_response_analysis.json",
+      "--campaign-root",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign",
+      "--out",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/fields"
+    ]
+  ],
+  "python_sources_sha256": {
+    "analyze_ndr_state_response.py": "194d1ef85691695b8322baec38b4439ade2cf73617aad9ffcb9e8f0df38a39cc",
+    "prepare_ndr_state_response.py": "e0e6a7933a4769004de1625ce88715ad1a4b46422133d1af18854c20d69d4cd1",
+    "plot_ndr_state_response_fields.py": "bc09d75846ffd186204032659e1b2a046a5429106ae74bf26a5bcef48b11936b"
+  }
+}

@@ -93,8 +93,7 @@ def plot(analysis_path: Path, campaign_root: Path, out: Path) -> dict:
     for row, label in ((0, r"$|\psi|^2$"), (1, "T"), (2, r"$|\psi|^2$"), (3, "T")):
         group = [ims[i][1] for i in range(len(ims)) if ims[i][0] == row]
         fig.colorbar(group[0], ax=axes[row, :], label=label, shrink=.85)
-    fig.suptitle("Illustrative local current-state response: seed 2026110411\nSelected snapshots at cumulative time 75000τ")
-    fig.text(.5, .005, "Illustrative reused-seed snapshots; not population-representative and not proof of a stationary state.", ha="center", fontsize=9)
+    fig.suptitle("Illustrative local current-state response: seed 2026110411\nSelected snapshots at cumulative time 75000τ\nIllustrative snapshots only; stationary state unconfirmed.", fontsize=14)
     out.mkdir(parents=True, exist_ok=True)
     fig.savefig(out / "state_response_fields.png", dpi=180)
     fig.savefig(out / "state_response_fields.pdf")

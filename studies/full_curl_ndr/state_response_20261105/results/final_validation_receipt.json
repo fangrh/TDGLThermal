@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-05T07:08:10.530926+00:00",
+  "complete": true,
+  "aggregate_receipts_equal": 120,
+  "jobs": 24,
+  "source_protocol_sha256": "48081afaf06961ad5e0b2e995f504995dd9995f637882b968113eb979d00727b",
+  "analysis_sha256": "28d216bf4ba8c6e4ece68246b75452aa340944ebfab2855915339cc7a28e17ac",
+  "campaign_sha256": "5d448f5cc1dd33802245e9a8ce87373e89d556bc35a29f5c582fc8f6c4c36037",
+  "launch_sha256": "3ecf831ca61c2e9a88e274923186c2abb85dd0d0f6e990e7a2a395e9dbc26bc6",
+  "field_provenance_sha256": "db5f7a2bc502f7ab997c9df93c813c298a5eecd632e4d81d098d9e98685179e1",
+  "owned_session_processes": [],
+  "conditioning_verified": true,
+  "all16_neighbor_seed_differences_positive": true,
+  "stationary_branch_confirmed": false
+}

@@ -1,0 +1,78 @@
+{
+  "analysis_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/analysis/state_response_analysis.json",
+  "analysis_sha256": "28d216bf4ba8c6e4ece68246b75452aa340944ebfab2855915339cc7a28e17ac",
+  "script_sha256": "edd11b30ecea470492e2e4128490429169ade86612a523add206e1edbaab91b9",
+  "seed": 2026110411,
+  "cumulative_time": 75000,
+  "extent": [
+    0,
+    30,
+    0,
+    15
+  ],
+  "psi2_range": [
+    0.017916189140278604,
+    0.9276784445919085
+  ],
+  "T_range": [
+    0.18036305140537073,
+    0.6386563966397818
+  ],
+  "selected": {
+    "inner1_minus_seed2026110411": {
+      "chain_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner1_minus_seed2026110411/step5_Je0.2089285714285714/chain.json",
+      "chain_sha256": "61b12ed81c5382c39a10b84532acab1b5534e093659a59b4ddf75eda9ee420e2",
+      "hdf5_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner1_minus_seed2026110411/step5_Je0.2089285714285714/cpu_compatible_Je0.2089285714285714_seed2026110411.h5",
+      "hdf5_sha256": "56246a730364b30323c1af7742ec4f66f1b2ebffc51927affbc8c9bf5aaa7a4c",
+      "local_time": 5000.0,
+      "source_Je": 0.20918367346938774,
+      "target_Je": 0.2089285714285714
+    },
+    "inner1_plus_seed2026110411": {
+      "chain_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner1_plus_seed2026110411/step5_Je0.20943877551020407/chain.json",
+      "chain_sha256": "b4a70b28b12129766c1f6639944ad4d32b3710d999feabeadcfd3130dbd881a3",
+      "hdf5_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner1_plus_seed2026110411/step5_Je0.20943877551020407/cpu_compatible_Je0.20943877551020407_seed2026110411.h5",
+      "hdf5_sha256": "378027c89e67db52db954092a0a64817b83e8f2347c0cd9f56ef977d9a370c48",
+      "local_time": 5000.0,
+      "source_Je": 0.20918367346938774,
+      "target_Je": 0.20943877551020407
+    },
+    "inner1_sham_seed2026110411": {
+      "chain_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner1_sham_seed2026110411/step5_Je0.20918367346938774/chain.json",
+      "chain_sha256": "ce948a3a586708bbbcdba7ab53301ab76daf73665355d1a021ce62db2587bde3",
+      "hdf5_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner1_sham_seed2026110411/step5_Je0.20918367346938774/cpu_compatible_Je0.20918367346938774_seed2026110411.h5",
+      "hdf5_sha256": "288170f4a957fd87c11e56313127c0567438dd8c8006835ecd424fddda5d1827",
+      "local_time": 5000.0,
+      "source_Je": 0.20918367346938774,
+      "target_Je": 0.20918367346938774
+    },
+    "inner2_minus_seed2026110411": {
+      "chain_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner2_minus_seed2026110411/step5_Je0.20994897959183673/chain.json",
+      "chain_sha256": "c728e40eafa4bb9047acbb54afc1b96bb6c09ba3fe087423f2bfffa0a851e6f0",
+      "hdf5_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner2_minus_seed2026110411/step5_Je0.20994897959183673/cpu_compatible_Je0.20994897959183673_seed2026110411.h5",
+      "hdf5_sha256": "66514ae2a170b65aa6a7e232643c2d45fa535f13a66bc253ad85a7e552557d12",
+      "local_time": 5000.0,
+      "source_Je": 0.21020408163265306,
+      "target_Je": 0.20994897959183673
+    },
+    "inner2_plus_seed2026110411": {
+      "chain_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner2_plus_seed2026110411/step5_Je0.21045918367346939/chain.json",
+      "chain_sha256": "985c0d9d832d0325af5e8222144130a0da58794142596b2b87a2d2abfb31dc5b",
+      "hdf5_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner2_plus_seed2026110411/step5_Je0.21045918367346939/cpu_compatible_Je0.21045918367346939_seed2026110411.h5",
+      "hdf5_sha256": "bc4ebc462a31eac46eca0aaf07b6f5741fdd6698270472ce2be329cd01948640",
+      "local_time": 5000.0,
+      "source_Je": 0.21020408163265306,
+      "target_Je": 0.21045918367346939
+    },
+    "inner2_sham_seed2026110411": {
+      "chain_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner2_sham_seed2026110411/step5_Je0.21020408163265306/chain.json",
+      "chain_sha256": "85f542ecde002295eb6a1b6619ce6cbeb0d8f1635fe85be697a9486437d60034",
+      "hdf5_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_state_response_20261105_v1/campaign/inner2_sham_seed2026110411/step5_Je0.21020408163265306/cpu_compatible_Je0.21020408163265306_seed2026110411.h5",
+      "hdf5_sha256": "44ec1d16b390d436fde589ca07a3326611def2ffc48a0599765113ad394c0acc",
+      "local_time": 5000.0,
+      "source_Je": 0.21020408163265306,
+      "target_Je": 0.21020408163265306
+    }
+  },
+  "scope": "illustrative verified spatial snapshots; no population or stationary-state claim"
+}
