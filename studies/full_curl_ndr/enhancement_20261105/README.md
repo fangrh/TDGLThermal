@@ -51,3 +51,18 @@ The stronger-drop target is a mean fractional decrease of at least 20%, a nomina
 Evidence for a stationary negative-slope branch additionally requires at least two consecutive negative ordered-current intervals with simultaneous uncertainty bounds, late-window drift-equivalence intervals inside ±0.0025, and persistence under longer dwell and conditional current refinement. Frames are correlated time samples; independent seeds are the replicates. This native-grid study does not establish spatial convergence or a calibrated thermal-noise model.
 
 The declared ceiling is 1036 equivalent 5000τ point-segments, with at most 160 more for the explicitly conditional two-current refinement. Wall time will be measured at each stage because changed parameters can change integration cost. Gamma, heat capacity and contact geometry are not automatically added to this search.
+
+## Reproduction records
+
+[Environment and source hashes](provenance/environment.json), the exact [Julia project](provenance/Project.toml), and its [dependency lockfile](provenance/Manifest.toml) preserve the Linux environment. Physics and Julia harnesses remain at `3adb0005af07d9485fe56c041958b2d75c76f50d`; Python analysis tools are separately versioned and hashed in their output receipts. The holdout plan was pushed in `0b25fd6` before its 2026-11-05 01:17 UTC launch.
+
+The existing Linux raw-data roots are:
+
+```text
+/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_screen_20261105_v1
+/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_holdout_20261105_v1
+```
+
+The screen was run with `bench/reproduce_ndr.jl --segments 2 --horizon 5000 --skip 0.6 --backend cpu_compatible`, and the holdout with the same arguments except `--segments 10`. Both use 24 persistent Julia workers, one BLAS thread, and the declared immutable job file. The runner refuses to overwrite an existing segment. Original absolute Linux paths are retained in the receipts; relocation requires an explicit new job/protocol snapshot with updated hashes.
+
+Analysis commands are `bench/analyze_ndr_enhancement.py` for the screen, `bench/analyze_ndr_holdout.py` for the frozen 50000τ contrast, and `bench/analyze_ndr_enhancement_history.py` for the ordered histories. Each accepts `--protocol`, `--campaign-root`, `--out`, and `--validate-artifacts`. The history analysis uses only 18000–20000τ of each 20000τ dwell for its final mean; its voltage-integral check uses the same window. Independent seed trajectories, not saved frames, determine uncertainty.

@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-11-05T01:25:04.576229+00:00",
+  "system": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "julia": "julia version 1.12.1",
+  "physics_runtime_git_commit": "3adb0005af07d9485fe56c041958b2d75c76f50d",
+  "file_sha256": {
+    "Project.toml": "aa4bc2f881321c5a84ea62874b12750ca0eb4c25c803422a7a6dc4c829974790",
+    "Manifest.toml": "610ea1610e20f32aa7bebd31ce36d01f1ee2bab8a87e94320030592200f545ba",
+    "current_sweep_thermal_nofastscan.jl": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+    "src/cpu_compatible.jl": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+    "bench/reproduce_ndr.jl": "eaadd36355d1c1b0582efe91c6d1e047b867c1a4f626de4cfc51fd30fd65a248",
+    "bench/reproduce_ndr_history.jl": "bca3c3b26054c150db8cb787a53a34eb5ae7e0326ea25782b9425a83c4baae93",
+    "bench/benchmark_worker_scaling.jl": "fc8616dff7ef2767aafea59870c5cbfda362dc244f5927041b3f67c9e2e55ff6",
+    "bench/fixtures.jl": "5b929ae0ee59126b882e28b72b8627a28b9f067bba8845e8636fa353aa2fc9c2"
+  },
+  "note": "Physics/runtime inputs are frozen; Python postprocessors were added separately and have individual source hashes in each analysis receipt."
+}
