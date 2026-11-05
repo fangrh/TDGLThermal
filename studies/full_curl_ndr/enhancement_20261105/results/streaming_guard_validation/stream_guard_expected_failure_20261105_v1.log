@@ -1,0 +1,45 @@
+Skipping worker initialization due to NOFASTSCAN_SKIP_WORKERS=1
+      From worker 2:	┌ Warning: Verbosity toggle: max_iters 
+      From worker 2:	│  Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+      From worker 2:	└ @ DiffEqBase /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/julia_depot/packages/DiffEqBase/R4JAC/src/check_error.jl:37
+PASS: distributed streaming aborts on MaxIters; no spin
+On worker 2:
+stream integrator stopped at t=0.03469821383255334, retcode=MaxIters
+Stacktrace:
+  [1] error
+    @ ./error.jl:44
+  [2] checked_stream_step!
+    @ /data/User/fangr1/projects/TDGLThermal-receipt-probe-20261105/bench/streaming_iteration_guard.jl:30 [inlined]
+  [3] advance_integrator_to!
+    @ /data/User/fangr1/projects/TDGLThermal-receipt-probe-20261105/bench/streaming_iteration_guard.jl:44
+  [4] #10
+    @ /data/User/fangr1/projects/TDGLThermal-receipt-probe-20261105/current_sweep_thermal_nofastscan.jl:934
+  [5] #21
+    @ /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/julia_depot/packages/HDF5/Xsdf5/src/file.jl:101
+  [6] task_local_storage
+    @ ./task.jl:298
+  [7] #h5open#19
+    @ /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/julia_depot/packages/HDF5/Xsdf5/src/file.jl:96
+  [8] h5open
+    @ /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/julia_depot/packages/HDF5/Xsdf5/src/file.jl:94
+  [9] #run_stable_simulation_streaming#2
+    @ /data/User/fangr1/projects/TDGLThermal-receipt-probe-20261105/current_sweep_thermal_nofastscan.jl:925
+ [10] run_stable_simulation_streaming
+    @ /data/User/fangr1/projects/TDGLThermal-receipt-probe-20261105/current_sweep_thermal_nofastscan.jl:896 [inlined]
+ [11] #_run_stream#32
+    @ /data/User/fangr1/projects/TDGLThermal-receipt-probe-20261105/bench/benchmark_cpu.jl:60
+ [12] _run_stream
+    @ /data/User/fangr1/projects/TDGLThermal-receipt-probe-20261105/bench/benchmark_cpu.jl:51 [inlined]
+ [13] #run_case#33
+    @ /data/User/fangr1/projects/TDGLThermal-receipt-probe-20261105/bench/benchmark_cpu.jl:112
+ [14] run_case
+    @ /data/User/fangr1/projects/TDGLThermal-receipt-probe-20261105/bench/benchmark_cpu.jl:99 [inlined]
+ [15] _ws_warm_worker
+    @ /data/User/fangr1/projects/TDGLThermal-receipt-probe-20261105/bench/benchmark_worker_scaling.jl:76
+ [16] #handle_msg##4
+    @ ~/julia/julia-1.12.1/share/julia/stdlib/v1.12/Distributed/src/process_messages.jl:287
+ [17] run_work_thunk
+    @ ~/julia/julia-1.12.1/share/julia/stdlib/v1.12/Distributed/src/process_messages.jl:70
+ [18] #handle_msg##2
+    @ ~/julia/julia-1.12.1/share/julia/stdlib/v1.12/Distributed/src/process_messages.jl:287
+

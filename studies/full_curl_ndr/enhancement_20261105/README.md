@@ -28,7 +28,11 @@ Only `T0 = 0.22` qualified at the declared 10000τ screen horizon: `Je = 0.19 �
 
 The [frozen holdout protocol](holdout_plan/holdout_protocol.json) fixes `T0 = 0.22`, currents `0.1875, 0.19, 0.1925, 0.195, 0.1975, 0.20, 0.2025`, and eight fresh seeds. The primary contrast is exclusively `0.19 → 0.20`; choosing a different interval from the holdout results is not allowed. Each of the 56 chains reached 50000τ. No new-seed simulation was launched before freezing these files.
 
-The [ordered-history plan](history_plan/history_protocol.json) fixes the first four holdout seeds and both directions, starting from their saved outer-current fields/RNG states. All 56 × 10 holdout metadata/continuity records and all sixteen outer HDF5/RNG source hashes were checked before freezing this plan. Each of the eight histories traverses all seven currents with 20000τ dwell per point. This control will assess branch accessibility without changing the failed primary enhancement result.
+The [original ordered-history plan](history_plan/history_protocol.json) fixes the first four holdout seeds and both directions, starting from their saved outer-current fields/RNG states. All 56 × 10 holdout metadata/continuity records and all sixteen outer HDF5/RNG source hashes were checked before freezing this plan. Each of the eight histories traverses all seven currents with 20000τ dwell per point. This control will assess branch accessibility without changing the failed primary enhancement result.
+
+The first ordered-history attempt is [invalid and excluded](results/history_invalid_v1/invalid_run.json). Adaptive Tsit5 defaults to one million iterations. A 20000τ dwell needs more, and the original manual target-advance loop ignored `MaxIters`, repeatedly calling `step!` without advancing time. The owned processes were stopped and partial output preserved. Completed 5000τ segments have about 300000 accepted steps and their verified results remain valid.
+
+The benchmark harness now checks return codes and strict time advancement, and records an explicit `TDGL_STREAM_MAXITERS` override. The PDE/model and RHS files are unchanged. Twenty-nine pinned-Linux tests and a distributed failure canary pass. The [guarded-versus-frozen noisy comparison](results/streaming_guard_validation/differential_summary.json), with iteration budget 10000000, has exact saved-array bytes, initial vectors and RNG states in all six point-segment pairs. The replacement ordered run keeps the original currents, seeds, initial checkpoints, dwell, output windows and statistical gates.
 
 For comparison, the original four-current/eight-seed 50000τ study has a 14.32% mean paired middle-interval drop. Its [English detail figure](results/baseline_detail/ndr_enhancement_comparison.png) retains every seed and the higher-current spread; this prepared-point response does not establish a stationary continuous negative branch. Connecting lines guide the eye between independently prepared points and do not represent an ordered current sweep.
 
@@ -74,7 +78,7 @@ The declared ceiling is 1036 equivalent 5000τ point-segments, with at most 160 
 
 ## Reproduction records
 
-[Environment and source hashes](provenance/environment.json), the exact [Julia project](provenance/Project.toml), and its [dependency lockfile](provenance/Manifest.toml) preserve the Linux environment. The physical campaigns use the physics and Julia harnesses at `3adb0005af07d9485fe56c041958b2d75c76f50d`; Python analysis tools are separately versioned and hashed in their output receipts. The holdout plan was pushed in `0b25fd6` before its 2026-11-05 01:17 UTC launch.
+[Environment and source hashes](provenance/environment.json), the exact [Julia project](provenance/Project.toml), and its [dependency lockfile](provenance/Manifest.toml) preserve the Linux environment. The screen and independent holdout use the physics and Julia harnesses at `3adb0005af07d9485fe56c041958b2d75c76f50d`. The replacement ordered history uses the recorded iteration guard with the same PDE/RHS source identities. Python analysis tools are separately versioned and hashed in their output receipts. The holdout plan was pushed in `0b25fd6` before its 2026-11-05 01:17 UTC launch.
 
 The existing Linux raw-data roots are:
 

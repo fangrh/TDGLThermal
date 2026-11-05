@@ -52,7 +52,7 @@ def compare_fields(a, b):
                     raise ValueError(f"nonfinite or unequal field {name}")
 
 
-def validate_campaign(root, jobs, segments):
+def validate_campaign(root, jobs, segments, guard_hash=None, iteration_cap=None):
     campaign = read(root / "campaign.json")
     if set(campaign["chains"]) != {j["id"] for j in jobs}:
         raise ValueError("campaign job matrix mismatch")
@@ -74,6 +74,8 @@ def validate_campaign(root, jobs, segments):
                                   "seed": job["seed"], "Je": job["Je"], "complete": True}.items():
                 if m.get(key) != expected:
                     raise ValueError(f"manifest {key} mismatch")
+            if guard_hash is not None and (m.get("stream_guard_source_hash") != guard_hash or m.get("stream_maxiters_override") != iteration_cap):
+                raise ValueError("streaming guard metadata mismatch")
             e["_chain_path"] = str(root / job["id"] / f"segment{k}" / "chain.json")
             e["_segment_dir"] = str(Path(e["_chain_path"]).parent)
             if k == 1 and job.get("initial_state_path"):
@@ -128,6 +130,11 @@ def run(args):
     overrides = {"JULIA_DEPOT_PATH": args.depot, "GKSwstype": "100", "NOFASTSCAN_SKIP_WORKERS": "1",
                  "NOFASTSCAN_SKIP_MAIN": "1", "OPENBLAS_NUM_THREADS": "1", "JULIA_NUM_THREADS": "1"}
     env.update(overrides)
+    if args.stream_maxiters is not None:
+        if args.stream_maxiters <= 0:
+            raise ValueError("stream-maxiters must be positive")
+        overrides["TDGL_STREAM_MAXITERS"] = str(args.stream_maxiters)
+        env.update(overrides)
     calls, records, campaigns = [], [], {}
 
     def solve(repo, label, stage, jobfile, stage_jobs, segments):
@@ -145,7 +152,8 @@ def run(args):
         write(out / "calls.json", {"env_overrides": overrides, "calls": calls})
         if p.returncode:
             raise RuntimeError(f"{label}/{stage} failed; see {log}")
-        result = validate_campaign(target, stage_jobs, segments)
+        guard = repo / "bench/streaming_iteration_guard.jl"
+        result = validate_campaign(target, stage_jobs, segments, sha(guard) if guard.is_file() else None, args.stream_maxiters)
         print(json.dumps({"completed": f"{label}/{stage}"}), flush=True)
         return result
 
@@ -170,6 +178,8 @@ def run(args):
               "dataset_pair_comparisons": len(records) * len(DATASETS), "zero_segment_import_checked": True,
               "records": records, "source_hashes": sources, "helper_sha256": sha(new / "bench/ndr_receipt_hashes.jl"),
               "driver_sha256": sha(Path(__file__)), "python": sys.version, "numpy": np.__version__, "h5py": h5py.__version__,
+              "stream_maxiters_override": args.stream_maxiters,
+              "stream_guard_source_hash": sha(new / "bench/streaming_iteration_guard.jl") if (new / "bench/streaming_iteration_guard.jl").is_file() else None,
               "scope": "Short noisy fresh/continued/imported trajectories; exact saved-field, initial-vector and RNG checks. No whole-campaign performance claim."}
     write(out / "differential_summary.json", result)
     return result
@@ -182,6 +192,7 @@ def main():
     p.add_argument("--julia", required=True, type=Path)
     p.add_argument("--depot", required=True)
     p.add_argument("--out", required=True, type=Path)
+    p.add_argument("--stream-maxiters", type=int)
     args = p.parse_args()
     try:
         result = run(args)

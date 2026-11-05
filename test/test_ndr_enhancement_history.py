@@ -101,3 +101,14 @@ def test_history_rng_must_match_recorded_50k_source(tmp_path):
     cp.write_text(json.dumps(source));hp['campaign_sha256']=ah.sha(cp);pp.write_text(json.dumps(hp))
     r=ah.analyze(pp,root)
     assert not r['complete'] and any('holdout RNG lineage' in x for x in r['errors'])
+
+
+def test_v2_requires_declared_guard_in_every_manifest(tmp_path):
+    pp,root=fixture(tmp_path);hp=json.loads(pp.read_text());hp['schema']='tdgl-full-curl-ndr-history-plan-v2'
+    hp['solver_guard']={'maxiters_override':10000000,'fail_fast':True,'source_sha256':'f'*64};pp.write_text(json.dumps(hp))
+    for p in root.glob('*/step*/chain.json'):
+        e=json.loads(p.read_text());e['manifest'].update(stream_maxiters_override=10000000,stream_guard_source_hash='f'*64);p.write_text(json.dumps(e))
+    assert ah.analyze(pp,root)['complete']
+    p=next(root.glob('*/step1*/chain.json'));e=json.loads(p.read_text());e['manifest']['stream_maxiters_override']=1000000;p.write_text(json.dumps(e))
+    r=ah.analyze(pp,root)
+    assert not r['complete'] and any('streaming guard metadata' in x for x in r['errors'])

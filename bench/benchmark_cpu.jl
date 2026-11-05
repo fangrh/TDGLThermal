@@ -2,6 +2,8 @@
 using Random, SHA, JSON3, Statistics, Dates, Printf, Serialization
 using HDF5
 include(joinpath(@__DIR__, "fixtures.jl"))
+# Harness-only checked stepping.  This does not alter the frozen model/RHS.
+include(joinpath(@__DIR__, "streaming_iteration_guard.jl"))
 
 _backend_fn(name) = isdefined(Main, :resolve_rhs_backend) ? resolve_rhs_backend(name) :
     (name == "reference" ? fdm_rhs_thermal! : error("cpu_compatible is unavailable"))
@@ -139,6 +141,8 @@ function run_case(case, backend::String; horizon::Float64, tolerance::Float64,
         output_schema=get(vals, :output_schema, save_fields ? "streamed_hdf5_fields" : "trajectory_without_fields"),
         output_path=save_fields ? out : nothing, rhs_warm_seconds=warm_rhs === nothing ? nothing : warm_rhs.rhs_seconds,
         output_hash=save_fields ? bytes2hex(SHA.sha256(read(out))) : nothing,
+        stream_maxiters_override=stream_maxiters_override(),
+        stream_guard_source_hash=STREAM_GUARD_SOURCE_HASH,
         initial_vector_path=packed_path, initial_vector_hash=packed_hash,
         frozen_reference_commit="6ce36684a46c8e9938b75cd843c26148fe71e008",
         environment_hash=bytes2hex(SHA.sha256(string(VERSION, ":", Sys.MACHINE))),

@@ -1,0 +1,98 @@
+{
+  "schema": "tdgl-history-run-invalid-v1",
+  "created_utc": "2026-11-05T02:50:36.281054+00:00",
+  "valid": false,
+  "reason": "Adaptive Tsit5 default maxiters=1000000 can be exceeded by 20000tau. The manual advance loop ignores step! failure and repeats without time advancement. Bounded maxiters=3 ODE reproduced unchanged time with MaxIters. All eight output files stopped growing mid-dwell. Terminated the invalid run; no HDF/RNG checkpoint from it is used.",
+  "pid": 3234924,
+  "process_group": 3234924,
+  "verified_command": "timeout --signal=TERM --kill-after=60s 7200 /home/fangr1/julia/julia-1.12.1/bin/julia -p 8 --project=. --startup-file=no bench/reproduce_ndr_history.jl --jobs /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v1/plan/history_jobs.json --out /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v1/campaign --horizon 20000 --skip 0.6 --backend cpu_compatible --tolerance 1e-4 ",
+  "processes": [
+    "3234924       1 3234924 3234924 timeout --signal=TERM --kill-after=60s 7200 /home/fangr1/julia/julia-1.12.1/bin/julia -p 8 --project=. --startup-file=no bench/reproduce_ndr_history.jl --jobs /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v1/plan/history_jobs.json --out /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v1/campaign --horizon 20000 --skip 0.6 --backend cpu_compatible --tolerance 1e-4",
+    "3234926 3234924 3234924 3234924 /home/fangr1/julia/julia-1.12.1/bin/julia -p 8 --project=. --startup-file=no bench/reproduce_ndr_history.jl --jobs /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v1/plan/history_jobs.json --out /data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v1/campaign --horizon 20000 --skip 0.6 --backend cpu_compatible --tolerance 1e-4"
+  ],
+  "original_launch": {
+    "created_utc": "2026-11-05T02:33:43.908993+00:00",
+    "pid": 3234924,
+    "frozen_history_plan_git_commit": "3dd507b31226ff21a468a434d5a2257b1dd4235a",
+    "physics_runtime_git_commit": "3adb0005af07d9485fe56c041958b2d75c76f50d",
+    "protocol_sha256": "60b5115aa5ae6f736acc7bbfea68a8eca43d199cb5556f0680c46fccf4428465",
+    "jobs_sha256": "cc69cb9a12108d6dd9c1f48dbb34b8477d42b022d33ce629e95c558b8c3baf93",
+    "argv": [
+      "nohup",
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=60s",
+      "7200",
+      "/home/fangr1/julia/julia-1.12.1/bin/julia",
+      "-p",
+      "8",
+      "--project=.",
+      "--startup-file=no",
+      "bench/reproduce_ndr_history.jl",
+      "--jobs",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v1/plan/history_jobs.json",
+      "--out",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_enhance_history_20261105_v1/campaign",
+      "--horizon",
+      "20000",
+      "--skip",
+      "0.6",
+      "--backend",
+      "cpu_compatible",
+      "--tolerance",
+      "1e-4"
+    ],
+    "env_overrides": {
+      "JULIA_DEPOT_PATH": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/julia_depot:/home/fangr1/.julia",
+      "GKSwstype": "100",
+      "NOFASTSCAN_SKIP_WORKERS": "1",
+      "NOFASTSCAN_SKIP_MAIN": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "JULIA_NUM_THREADS": "1"
+    },
+    "timeout_seconds": 7200
+  },
+  "terminated_owned_workers": [
+    {
+      "pid": 3234939,
+      "start_epoch": 1793846024.06,
+      "command": "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker "
+    },
+    {
+      "pid": 3234943,
+      "start_epoch": 1793846024.07,
+      "command": "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker "
+    },
+    {
+      "pid": 3234944,
+      "start_epoch": 1793846024.07,
+      "command": "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker "
+    },
+    {
+      "pid": 3234945,
+      "start_epoch": 1793846024.07,
+      "command": "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker "
+    },
+    {
+      "pid": 3234947,
+      "start_epoch": 1793846024.07,
+      "command": "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker "
+    },
+    {
+      "pid": 3234948,
+      "start_epoch": 1793846024.07,
+      "command": "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker "
+    },
+    {
+      "pid": 3234949,
+      "start_epoch": 1793846024.07,
+      "command": "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker "
+    },
+    {
+      "pid": 3234952,
+      "start_epoch": 1793846024.07,
+      "command": "/home/fangr1/julia/julia-1.12.1/bin/julia -C native -J/home/fangr1/julia/julia-1.12.1/lib/julia/sys.so -g1 --startup-file=no --bind-to 127.0.0.1 --worker "
+    }
+  ],
+  "forced_after_SIGTERM": []
+}

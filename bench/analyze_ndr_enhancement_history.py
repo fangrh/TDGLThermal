@@ -45,7 +45,10 @@ def stat(values,negative=False):
  return {"n":n,"mean":mean,"sem":sem,"tcrit_bonferroni12":crit,"upper95_bonferroni12":upper,"values":values,"negative":bool(n==4 and negative and upper<-.01)}
 def analyze(protocol:Path,campaign:Path,validate=False):
  hp=read(protocol); errors=[]
- if hp.get("schema")!="tdgl-full-curl-ndr-history-plan-v1": errors.append("protocol schema mismatch")
+ if hp.get("schema") not in ("tdgl-full-curl-ndr-history-plan-v1","tdgl-full-curl-ndr-history-plan-v2"): errors.append("protocol schema mismatch")
+ guard=hp.get('solver_guard') if hp.get('schema')=='tdgl-full-curl-ndr-history-plan-v2' else None
+ if guard is not None and (guard.get('maxiters_override')!=10000000 or guard.get('fail_fast') is not True or re.fullmatch(r'[0-9a-f]{64}',str(guard.get('source_sha256',''))) is None):errors.append('solver guard protocol mismatch')
+ if hp.get('schema')=='tdgl-full-curl-ndr-history-plan-v2' and guard is None:errors.append('missing solver guard protocol')
  jobs=read(protocol.parent/hp["jobs"]["path"]); expected={(j["id"],int(j["seed"])) for j in jobs}
  if hp.get("jobs",{}).get("jobs_sha256")!=sha(protocol.parent/hp["jobs"]["path"]): errors.append("history jobs hash mismatch")
  if len(jobs)!=8 or expected!={(f"{d}_seed{s}",s) for d in DIRECTIONS for s in SEEDS}: errors.append("history job matrix mismatch")
@@ -92,6 +95,7 @@ def analyze(protocol:Path,campaign:Path,validate=False):
   if [float(e.get("Je",math.nan)) for e in es] != expected_seq: errors.append(f"current order mismatch {jid}")
   for i,e in enumerate(es,1):
    m=e.get("manifest",{}); ti=None
+   if guard is not None and (m.get('stream_maxiters_override')!=guard.get('maxiters_override') or m.get('stream_guard_source_hash')!=guard.get('source_sha256')):errors.append(f"streaming guard metadata mismatch {jid}/{i}")
    checks=(("horizon",20000),("final_time",20000),("snapshot_interval",1),("skip_ratio",.6),("tolerance",1e-4),("noise",.001),("Nx",60),("Ny",30))
    if any(not math.isclose(float(m.get(k,math.nan)),v,rel_tol=0,abs_tol=1e-9) for k,v in checks) or m.get("complete") is not True or m.get("status") not in ("success","Success","ReturnCode.Success") or m.get("model_hash")!=MODEL_HASH or m.get("rhs_source_hash")!=RHS_HASH or m.get("config_hash")!=hp["source_hashes"]["config"] or m.get("backend")!="cpu_compatible" or m.get("solver")!="Tsit5" or m.get("precision") not in ("Float64","ComplexF64/Float64") or m.get("hx")!=.5 or m.get("hy")!=.5 or m.get("save_fields") is not True or m.get("output_schema")!="streamed_hdf5_fields" or int(m.get("seed",-1))!=int(job["seed"]) or not math.isclose(float(m.get("Je",math.nan)),float(expected_seq[i-1]),rel_tol=0,abs_tol=1e-12): errors.append(f"metadata mismatch {jid}/{i}")
    if int(e.get("seed",-1))!=int(job["seed"]) or not math.isclose(float(e.get("Je",math.nan)),float(expected_seq[i-1]),abs_tol=1e-12): errors.append(f"identity mismatch {jid}/{i}")
