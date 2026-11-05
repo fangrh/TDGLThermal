@@ -1,0 +1,153 @@
+{
+  "utc": "2026-11-05T06:58:14.627400+00:00",
+  "complete": true,
+  "rows": [
+    {
+      "id": "inner1_minus_seed2026110411",
+      "receipt_sha256": "11e5f4357732d8eca7ee3930aaeb648356930a849520187b1e90160bb1282deb",
+      "accepted": 308245,
+      "rhs_calls": 1851480
+    },
+    {
+      "id": "inner1_minus_seed2026110412",
+      "receipt_sha256": "d54351a044bc7909b95765d27b825880078d67dadfd50e7e654843d561dba22b",
+      "accepted": 308047,
+      "rhs_calls": 1850292
+    },
+    {
+      "id": "inner1_minus_seed2026110413",
+      "receipt_sha256": "de2474ef1bdb1c48d955bb58eb1ae6f5dcd86a6c99f6df9379db95fd681292a0",
+      "accepted": 307462,
+      "rhs_calls": 1846788
+    },
+    {
+      "id": "inner1_minus_seed2026110414",
+      "receipt_sha256": "219e5508081ec50cc78a710d6e207c6691f467461e5ec3335f14cfabd6a285e2",
+      "accepted": 308172,
+      "rhs_calls": 1851048
+    },
+    {
+      "id": "inner1_sham_seed2026110411",
+      "receipt_sha256": "9f63996691a5e8ed52aafa40d2bf8ad41201d7b1ff88ee96a82fb4e7242ea3ac",
+      "accepted": 308245,
+      "rhs_calls": 1851480
+    },
+    {
+      "id": "inner1_sham_seed2026110412",
+      "receipt_sha256": "1f00adbf69b359f0fee4ea0e80c8590b15ccb3c63c553fae67b534a1ddbf4a40",
+      "accepted": 308047,
+      "rhs_calls": 1850292
+    },
+    {
+      "id": "inner1_sham_seed2026110413",
+      "receipt_sha256": "25ba76d0946bbf2e2adf23fc379f614cc6720522829298e0d5e957d358370dee",
+      "accepted": 307462,
+      "rhs_calls": 1846788
+    },
+    {
+      "id": "inner1_sham_seed2026110414",
+      "receipt_sha256": "59037d5c0bccafbbf65c6df9507a7d3632d1f78e455a4afbeffe95cf9b3ee0d5",
+      "accepted": 308172,
+      "rhs_calls": 1851048
+    },
+    {
+      "id": "inner1_plus_seed2026110411",
+      "receipt_sha256": "bd489e881762f3d621ad2564a0d7b797d8c9dd534c597c55bd631058549fce67",
+      "accepted": 308245,
+      "rhs_calls": 1851480
+    },
+    {
+      "id": "inner1_plus_seed2026110412",
+      "receipt_sha256": "169e82364f9a71c53f8412719a83689802865d10c93e1b4c2b84f434e63ad768",
+      "accepted": 308047,
+      "rhs_calls": 1850292
+    },
+    {
+      "id": "inner1_plus_seed2026110413",
+      "receipt_sha256": "304c8f2fe7c7d75cc83314c0be8c311e45354d71722cf3bc937a13e3ac1b37a1",
+      "accepted": 307462,
+      "rhs_calls": 1846788
+    },
+    {
+      "id": "inner1_plus_seed2026110414",
+      "receipt_sha256": "3d998e09fe5753012fba21c03ab243af22bef47f93adb323ed10c61695146eaf",
+      "accepted": 308172,
+      "rhs_calls": 1851048
+    },
+    {
+      "id": "inner2_minus_seed2026110411",
+      "receipt_sha256": "121f5b102c8e62366961b4f222ea4ae6941e9de58d9fa8f24550d70efbf2d516",
+      "accepted": 307542,
+      "rhs_calls": 1847262
+    },
+    {
+      "id": "inner2_minus_seed2026110412",
+      "receipt_sha256": "d519ffcb4a321b112f992c2860fc7eb01e17ac28a7f1df270d08f5daeeea3111",
+      "accepted": 308529,
+      "rhs_calls": 1853184
+    },
+    {
+      "id": "inner2_minus_seed2026110413",
+      "receipt_sha256": "7ddac88a7e7818471b46c89b9d71ae29fe359a68c03dc7df20b0e3a83f596869",
+      "accepted": 308281,
+      "rhs_calls": 1851696
+    },
+    {
+      "id": "inner2_minus_seed2026110414",
+      "receipt_sha256": "a6316884e5e02b49e5a7d293846e2e761bd466a968ce5eb89d11720c04b70384",
+      "accepted": 307864,
+      "rhs_calls": 1849194
+    },
+    {
+      "id": "inner2_sham_seed2026110411",
+      "receipt_sha256": "177fa76d73bf53cd9dd6e9e1f55d5b4e2c3bff13b99fc52e1a5053c925b0019f",
+      "accepted": 307542,
+      "rhs_calls": 1847262
+    },
+    {
+      "id": "inner2_sham_seed2026110412",
+      "receipt_sha256": "af896eed5b4fe37a9a59819b3aa749fb91663d254ab01c9736d01173c3aeac02",
+      "accepted": 308529,
+      "rhs_calls": 1853184
+    },
+    {
+      "id": "inner2_sham_seed2026110413",
+      "receipt_sha256": "dd3e09cf93f5f23c5984ba52fa639b14be34881847f18226c967c1715eb4cf8f",
+      "accepted": 308281,
+      "rhs_calls": 1851696
+    },
+    {
+      "id": "inner2_sham_seed2026110414",
+      "receipt_sha256": "aa3c05e371fe3481240e2ada0c4b733226df1b5cfabea85a7d783f1ad207fd36",
+      "accepted": 307864,
+      "rhs_calls": 1849194
+    },
+    {
+      "id": "inner2_plus_seed2026110411",
+      "receipt_sha256": "1a2cfc90f1d380c9fd1fd8d54d2f2d6ea13c2bd6a152c3ca5aca4970f16e07d3",
+      "accepted": 307542,
+      "rhs_calls": 1847262
+    },
+    {
+      "id": "inner2_plus_seed2026110412",
+      "receipt_sha256": "16f2004024e997499e7cfc275f08464c6b96892c2af155cc6dda7d94ff5eb24d",
+      "accepted": 308529,
+      "rhs_calls": 1853184
+    },
+    {
+      "id": "inner2_plus_seed2026110413",
+      "receipt_sha256": "2c03500e6c9676b2f50ae35e4aec1ae40d3f0e40ee9d96680fadaf54ede2143e",
+      "accepted": 308281,
+      "rhs_calls": 1851696
+    },
+    {
+      "id": "inner2_plus_seed2026110414",
+      "receipt_sha256": "3defee2d25a99403bb56d85da59ce32ee3151716d51b5e0682a0c4b87530665b",
+      "accepted": 307864,
+      "rhs_calls": 1849194
+    }
+  ],
+  "errors": [],
+  "scope": "all24 conditioning HDF/packed-initial/RNG hashes checked; all216 dataset byte digests and solver counts equal within8 three-arm groups",
+  "analysis_source_sha256": "87bc59d1a7c7057176bfa674bd79198959f78e84a2d493fae26dee5f8ef42de2"
+}
