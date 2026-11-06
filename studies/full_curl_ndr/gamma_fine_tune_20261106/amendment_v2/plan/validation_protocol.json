@@ -1,0 +1,112 @@
+{
+  "schema": "tdgl-full-curl-gamma-fresh-validation-v2",
+  "screen_protocol_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/plan/screen_protocol.json",
+  "screen_protocol_sha256": "7a2955e0bc4e4154fdab319fbfd3726ab26fed5ccaa1f24b4e46d3878ed7daf8",
+  "amendment_path": "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/amendment_v2/amendment.json",
+  "amendment_sha256": "651606eafc275341c883acb6864013603dc7d3ce75034470d53636022c4d1004",
+  "variants": [
+    {
+      "id": "baseline",
+      "gamma": 40.0,
+      "config": "configs/baseline.yaml"
+    },
+    {
+      "id": "gamma38",
+      "gamma": 38.0,
+      "config": "configs/gamma38.yaml"
+    },
+    {
+      "id": "gamma42",
+      "gamma": 42.0,
+      "config": "configs/gamma42.yaml"
+    }
+  ],
+  "config_sha256": {
+    "baseline": "d8c8a70d618b1bd17519552f483890d55fb1b0110b69a44bfdf2ad0591deca12",
+    "gamma38": "ea2110a4850a35719078883dca12f6138391aef4bc653d3dd7de8edb1e51a5ce",
+    "gamma42": "22ca831ac79586131ef7737ddba98f5c0ead6c948f120c021ae796a4e522d3f7"
+  },
+  "source_hashes": {
+    "model": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+    "rhs": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe"
+  },
+  "solver_guard": {
+    "maxiters_override": 10000000,
+    "source_sha256": "9c764ecaf9a58078394abc2f39651a7a5a07f054761e55c3ceeccfade9b6fa70",
+    "fail_fast": true
+  },
+  "backend": "cpu_compatible",
+  "tolerance": 0.0001,
+  "snapshot_interval": 1,
+  "skip_ratio": 0.6,
+  "final_window": [
+    48000,
+    50000
+  ],
+  "drift_windows": [
+    [
+      43000,
+      45000
+    ],
+    [
+      48000,
+      50000
+    ]
+  ],
+  "currents": [
+    0.20918367346938774,
+    0.21020408163265306
+  ],
+  "seeds": [
+    2026110611,
+    2026110612,
+    2026110613,
+    2026110614,
+    2026110615,
+    2026110616,
+    2026110617,
+    2026110618
+  ],
+  "primary": {
+    "Je_low": 0.20918367346938774,
+    "Je_high": 0.21020408163265306
+  },
+  "jobs": {
+    "path": "validation_jobs.json",
+    "jobs_sha256": "1b810b64e9752b840404b75c4d7c21e5c59fc0483200dad4f8b40a1f1737dbac",
+    "count": 48,
+    "segments": 10,
+    "horizon": 5000,
+    "total_segments": 480
+  },
+  "success": {
+    "all_eight_drops_positive": true,
+    "mean_fraction_min": 0.2,
+    "fraction_lower_min": 0.15,
+    "paired_improvement_lower_min": 0,
+    "deltaV_upper_max": -0.01,
+    "drift_confidence": 0.95,
+    "drift_ci_bound": 0.0025
+  },
+  "alpha_family": 0.05,
+  "candidate_comparisons": 2,
+  "alpha_per_candidate": 0.025,
+  "winner_rule": "Among candidates meeting every criterion: largest paired-improvement lower bound, then larger mean fraction, then gamma38.",
+  "missing_run_policy": "All48x10 required; no exclusions or imputation. Missing/error output disables success and selection.",
+  "early_stop": false,
+  "confidence_rules": "Each gamma-versus-baseline claim is conjunctive. One-sided fraction/improvement/deltaV bounds at alpha=.025; original two-sided95% drift-equivalence intervals retained. Intervals are not advertised as jointly simultaneous across all constituents.",
+  "estimand": "Arithmetic mean of seedwise fractions (Vlow-Vhigh)/Vlow; paired seedwise candidate fraction minus baseline fraction. Not ratio of means.",
+  "conditional_ordered": {
+    "seeds": 4,
+    "directions": 2,
+    "currents": 5,
+    "dwell": 20000,
+    "total_equivalent_segments": 160
+  },
+  "total_budget_equivalent_segments": 880,
+  "created_utc": "2026-11-06T16:03:59.617213+00:00",
+  "amendment_created_utc": "2026-11-06T16:01:03.273451+00:00",
+  "preparer_source_sha256": "1ff1a78407d9affd22005aa7afcacdd55ae7b96d1bbeef1564bfa7a5dd42e5f6",
+  "preparer_version": "v1",
+  "scope": "Confirmation under prospectively amended v2 design; v1 screen verdict remains separately reported. Endpoint comparisons do not establish curve shape or a continuous stationary branch."
+}

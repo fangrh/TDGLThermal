@@ -1,0 +1,9 @@
+{
+  "server_utc": "2026-11-06T16:02:35.187924+00:00",
+  "amendment_git_commit": "d1bff3b8e74795ce154c5829a352d3e278e1ca56",
+  "amendment_sha256": "651606eafc275341c883acb6864013603dc7d3ce75034470d53636022c4d1004",
+  "completed_segment_receipts": 144,
+  "campaign_complete": false,
+  "screen_analysis_exists": false,
+  "blinding": "Outcome-blind amendment frozen/pushed and copied to server before full screen outputs exist; controller has not inspected current V/T/psi/drop/drift outcomes."
+}

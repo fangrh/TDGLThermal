@@ -16,6 +16,8 @@ The estimand is the arithmetic mean of seedwise fractional drops, with seedwise 
 
 Among candidates meeting every criterion, the winner is the larger paired-improvement lower bound, then the larger mean fractional drop, then gamma 38. Successful confirmation triggers the original ordered control. Two independent prepared endpoints confirm a drop and a parameter comparison, rather than curve shape or a continuous stationary negative branch. The total ceiling remains **240 + 480 + 160 = 880** equivalent segments. Any successful claim is explicitly under amended v2, rather than a retrospective v1 success.
 
+The [server freeze acknowledgement](amendment_v2/freeze_ack.json) records that amendment commit `d1bff3b` was already pushed while only 144 screen receipts existed and final outcomes were unavailable. The immutable [fresh validation protocol](amendment_v2/plan/validation_protocol.json), [48 jobs](amendment_v2/plan/validation_jobs.json) and [configurations](amendment_v2/plan/configs/) use source/config identities checked against v1. The preparer does not read screen analysis or voltage outcomes.
+
 ## Physical motivation
 
 In the implemented KWT equation, gamma changes the relative radial and tangential condensate dynamics and also enters GL heat production. At a fixed state, it does not change the full-curl magnetic stencil. This makes small gamma changes a focused test of the coupled dynamics and state selection. It does not guarantee enhancement or isolate a microscopic mechanism. The original generalized TDGL work includes phase-slip solutions: [Kramer and Watts-Tobin, Physical Review Letters 40, 1041 (1978)](https://doi.org/10.1103/PhysRevLett.40.1041).
