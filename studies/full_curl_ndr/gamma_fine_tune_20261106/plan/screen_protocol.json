@@ -1,0 +1,113 @@
+{
+  "schema": "tdgl-full-curl-gamma-fine-tune-screen-v1",
+  "created_utc": "2026-11-06T15:44:27.597781+00:00",
+  "variants": [
+    {
+      "id": "baseline",
+      "gamma": 40.0,
+      "config": "configs/baseline.yaml"
+    },
+    {
+      "id": "gamma38",
+      "gamma": 38.0,
+      "config": "configs/gamma38.yaml"
+    },
+    {
+      "id": "gamma42",
+      "gamma": 42.0,
+      "config": "configs/gamma42.yaml"
+    }
+  ],
+  "currents": [
+    0.20816326530612245,
+    0.20918367346938774,
+    0.21020408163265306,
+    0.21122448979591835
+  ],
+  "seeds": [
+    2026110601,
+    2026110602
+  ],
+  "config_sha256": {
+    "baseline": "d8c8a70d618b1bd17519552f483890d55fb1b0110b69a44bfdf2ad0591deca12",
+    "gamma38": "ea2110a4850a35719078883dca12f6138391aef4bc653d3dd7de8edb1e51a5ce",
+    "gamma42": "22ca831ac79586131ef7737ddba98f5c0ead6c948f120c021ae796a4e522d3f7"
+  },
+  "source_hashes": {
+    "model": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+    "rhs": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe"
+  },
+  "solver_guard": {
+    "maxiters_override": 10000000,
+    "source_sha256": "9c764ecaf9a58078394abc2f39651a7a5a07f054761e55c3ceeccfade9b6fa70",
+    "fail_fast": true
+  },
+  "backend": "cpu_compatible",
+  "tolerance": 0.0001,
+  "jobs": {
+    "path": "screen_jobs.json",
+    "jobs_sha256": "54d406edd7b6ea0c886dd938127e698068321bf2e5209c069cdc3b4f40cc7dd4",
+    "count": 24,
+    "segments": 10,
+    "horizon": 5000,
+    "total_segments": 240
+  },
+  "snapshot_interval": 1,
+  "skip_ratio": 0.6,
+  "final_window": [
+    48000,
+    50000
+  ],
+  "drift_windows": [
+    [
+      43000,
+      45000
+    ],
+    [
+      48000,
+      50000
+    ]
+  ],
+  "primary": {
+    "Je_low": 0.20918367346938774,
+    "Je_high": 0.21020408163265306
+  },
+  "eligibility": {
+    "positive_drop_each_seed": true,
+    "positive_improvement_each_seed": true,
+    "absolute_drop_min": 0.01,
+    "low_voltage_min": 0.05,
+    "drift_ci_bound": 0.0025,
+    "rank": "minimum paired fractional improvement over contemporaneous baseline"
+  },
+  "conditional_confirmation": {
+    "configs": 2,
+    "points": 3,
+    "seeds": 8,
+    "segments": 10,
+    "total_segments": 480,
+    "mean_fraction_min": 0.2,
+    "fraction_lower95_min": 0.15,
+    "paired_improvement_lower95_min": 0,
+    "drift_ci_bound": 0.0025,
+    "deltaV_upper95_max": -0.01
+  },
+  "conditional_ordered": {
+    "seeds": 4,
+    "directions": 2,
+    "currents": 5,
+    "dwell": 20000,
+    "total_equivalent_segments": 160
+  },
+  "budget_total_equivalent_segments": 880,
+  "preparer": {
+    "source_sha256": "22d4398b0f3e2b704044c465e6bd10ba734f2082db0fe45fd90aa03316cd1073",
+    "version": "v1",
+    "python": "3.14.8 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:26:14) [GCC 14.3.0]",
+    "pyyaml": "6.0.3",
+    "scope": "immutable gamma 38/40/42 screen preparation only"
+  },
+  "preparer_source_sha256": "22d4398b0f3e2b704044c465e6bd10ba734f2082db0fe45fd90aa03316cd1073",
+  "preparer_version": "v1",
+  "scope": "all other J pairs exploratory and cannot replace primary"
+}
