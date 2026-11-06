@@ -1,0 +1,44 @@
+{
+  "source_sha256": {
+    "studies\\full_curl_ndr\\full_iv\\results\\full_iv_analysis.json": "971ef24c74225bfbac27be36517a3b0de316c9bbfc70cde29fd59492dd058953",
+    "studies\\full_curl_ndr\\results\\interval\\analysis.json": "e641112f5e97a46d5cbd8f3f8252c3f340be5e09549380977ea890975a18b58c"
+  },
+  "script_sha256": "e74b25f21a5f6039a790ca47a33d70055b3ad4055731be1ffa583ea8e5b1c942",
+  "global_points": 101,
+  "global_seed": 2026110411,
+  "zoom_seeds": [
+    2026110411,
+    2026110412,
+    2026110413,
+    2026110414,
+    2026110415,
+    2026110416,
+    2026110417,
+    2026110418
+  ],
+  "mean_paired_decrease": 0.14323672459195436,
+  "mean_voltage_decrease": 0.42041424713005515,
+  "means": [
+    2.9174361136216476,
+    2.935010113694219,
+    2.514595866564164,
+    2.707718640992627
+  ],
+  "nominal95_half_widths": [
+    0.006752988645996646,
+    0.01085383839589407,
+    0.01123644720282606,
+    0.170284175728544
+  ],
+  "software": {
+    "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:05:56) [MSC v.1942 64 bit (AMD64)]",
+    "numpy": "2.4.4",
+    "matplotlib": "3.10.9",
+    "scipy": "1.17.1"
+  },
+  "transformations": [
+    "No smoothing; full-range point values unchanged",
+    "Zoom seed means and two-sided Student 95% intervals, df=7"
+  ],
+  "scope": "Prepared-point voltage decrease; global seed included in zoom cohort; stationary continuous NDR unconfirmed."
+}
