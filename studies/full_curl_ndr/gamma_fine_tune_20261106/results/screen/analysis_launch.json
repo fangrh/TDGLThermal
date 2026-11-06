@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-06T16:09:48.844023+00:00",
+  "argv": [
+    "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/report_env/bin/python",
+    "bench/analyze_ndr_gamma_tune.py",
+    "--protocol",
+    "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/plan/screen_protocol.json",
+    "--campaign-root",
+    "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign",
+    "--out",
+    "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/analysis",
+    "--validate-artifacts"
+  ],
+  "source_sha256": "cfc285819f61e3fb9ed2d2d1ec8751f5626fd0846de35ce8f42fc2fcbd46556d"
+}

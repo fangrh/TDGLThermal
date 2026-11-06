@@ -1,0 +1,13 @@
+{
+  "utc": "2026-11-06T16:15:46.232510+00:00",
+  "complete": true,
+  "aggregate_receipts_equal": 240,
+  "jobs": 24,
+  "analysis_sha256": "96a854c33c27802e44c49fee6a053908c3df538eedb9558fd49435b2658eb10b",
+  "campaign_sha256": "1194dcb55418abd67ee4b6e1aa517b494ad89a37ec81948466e26beb1674331a",
+  "launch_sha256": "ca92ec1f30cbd1b214c9539d0216faf10a8856f70d0fa46f221dd27ab99e646c",
+  "protocol_sha256": "7a2955e0bc4e4154fdab319fbfd3726ab26fed5ccaa1f24b4e46d3878ed7daf8",
+  "owned_session_processes": [],
+  "v1_selected_variant": null,
+  "fresh_validation_allocation": "all3gamma independent of v1 verdict, prospectively amended before unblinding"
+}

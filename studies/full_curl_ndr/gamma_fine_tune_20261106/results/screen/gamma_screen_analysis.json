@@ -1,0 +1,3874 @@
+{
+  "schema": "tdgl-full-curl-gamma-fine-tune-analysis-v1",
+  "complete": true,
+  "pending": false,
+  "errors": [],
+  "artifact_validation": true,
+  "finite_saved_fields_validation": true,
+  "fresh_initial_identity_checked": true,
+  "protocol": {
+    "schema": "tdgl-full-curl-gamma-fine-tune-screen-v1",
+    "created_utc": "2026-11-06T15:44:27.597781+00:00",
+    "variants": [
+      {
+        "id": "baseline",
+        "gamma": 40.0,
+        "config": "configs/baseline.yaml"
+      },
+      {
+        "id": "gamma38",
+        "gamma": 38.0,
+        "config": "configs/gamma38.yaml"
+      },
+      {
+        "id": "gamma42",
+        "gamma": 42.0,
+        "config": "configs/gamma42.yaml"
+      }
+    ],
+    "currents": [
+      0.20816326530612245,
+      0.20918367346938774,
+      0.21020408163265306,
+      0.21122448979591835
+    ],
+    "seeds": [
+      2026110601,
+      2026110602
+    ],
+    "config_sha256": {
+      "baseline": "d8c8a70d618b1bd17519552f483890d55fb1b0110b69a44bfdf2ad0591deca12",
+      "gamma38": "ea2110a4850a35719078883dca12f6138391aef4bc653d3dd7de8edb1e51a5ce",
+      "gamma42": "22ca831ac79586131ef7737ddba98f5c0ead6c948f120c021ae796a4e522d3f7"
+    },
+    "source_hashes": {
+      "model": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+      "rhs": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe"
+    },
+    "solver_guard": {
+      "maxiters_override": 10000000,
+      "source_sha256": "9c764ecaf9a58078394abc2f39651a7a5a07f054761e55c3ceeccfade9b6fa70",
+      "fail_fast": true
+    },
+    "backend": "cpu_compatible",
+    "tolerance": 0.0001,
+    "jobs": {
+      "path": "screen_jobs.json",
+      "jobs_sha256": "54d406edd7b6ea0c886dd938127e698068321bf2e5209c069cdc3b4f40cc7dd4",
+      "count": 24,
+      "segments": 10,
+      "horizon": 5000,
+      "total_segments": 240
+    },
+    "snapshot_interval": 1,
+    "skip_ratio": 0.6,
+    "final_window": [
+      48000,
+      50000
+    ],
+    "drift_windows": [
+      [
+        43000,
+        45000
+      ],
+      [
+        48000,
+        50000
+      ]
+    ],
+    "primary": {
+      "Je_low": 0.20918367346938774,
+      "Je_high": 0.21020408163265306
+    },
+    "eligibility": {
+      "positive_drop_each_seed": true,
+      "positive_improvement_each_seed": true,
+      "absolute_drop_min": 0.01,
+      "low_voltage_min": 0.05,
+      "drift_ci_bound": 0.0025,
+      "rank": "minimum paired fractional improvement over contemporaneous baseline"
+    },
+    "conditional_confirmation": {
+      "configs": 2,
+      "points": 3,
+      "seeds": 8,
+      "segments": 10,
+      "total_segments": 480,
+      "mean_fraction_min": 0.2,
+      "fraction_lower95_min": 0.15,
+      "paired_improvement_lower95_min": 0,
+      "drift_ci_bound": 0.0025,
+      "deltaV_upper95_max": -0.01
+    },
+    "conditional_ordered": {
+      "seeds": 4,
+      "directions": 2,
+      "currents": 5,
+      "dwell": 20000,
+      "total_equivalent_segments": 160
+    },
+    "budget_total_equivalent_segments": 880,
+    "preparer": {
+      "source_sha256": "22d4398b0f3e2b704044c465e6bd10ba734f2082db0fe45fd90aa03316cd1073",
+      "version": "v1",
+      "python": "3.14.8 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:26:14) [GCC 14.3.0]",
+      "pyyaml": "6.0.3",
+      "scope": "immutable gamma 38/40/42 screen preparation only"
+    },
+    "preparer_source_sha256": "22d4398b0f3e2b704044c465e6bd10ba734f2082db0fe45fd90aa03316cd1073",
+    "preparer_version": "v1",
+    "scope": "all other J pairs exploratory and cannot replace primary"
+  },
+  "rows": [
+    {
+      "job_id": "baseline_i000_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "drift": 0.00017832896878955395,
+      "V": 2.9206920482923104,
+      "T_avg": 0.27071824224781776,
+      "psi_avg": 0.4712377569946566,
+      "V_integrated": 2.9206910744910872,
+      "solver_totals": {
+        "accepted_steps": 3073658,
+        "rejected_steps": 15,
+        "rhs_calls": 18462078
+      }
+    },
+    {
+      "job_id": "baseline_i000_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "drift": 0.0004619407245480822,
+      "V": 2.9322315719166534,
+      "T_avg": 0.2719300758206849,
+      "psi_avg": 0.4685486374896151,
+      "V_integrated": 2.9322144388599964,
+      "solver_totals": {
+        "accepted_steps": 3075035,
+        "rejected_steps": 13,
+        "rhs_calls": 18470328
+      }
+    },
+    {
+      "job_id": "baseline_i001_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "drift": -0.0003666390276055864,
+      "V": 2.934719583177882,
+      "T_avg": 0.2737667738293888,
+      "psi_avg": 0.465311334220933,
+      "V_integrated": 2.9346506523128166,
+      "solver_totals": {
+        "accepted_steps": 3072641,
+        "rejected_steps": 15,
+        "rhs_calls": 18455976
+      }
+    },
+    {
+      "job_id": "baseline_i001_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "drift": -0.00033679693176136283,
+      "V": 2.9342372066027367,
+      "T_avg": 0.2737426711574438,
+      "psi_avg": 0.4653804286028016,
+      "V_integrated": 2.934120682393809,
+      "solver_totals": {
+        "accepted_steps": 3074494,
+        "rejected_steps": 16,
+        "rhs_calls": 18467100
+      }
+    },
+    {
+      "job_id": "baseline_i002_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "drift": -0.004119284088736741,
+      "V": 2.534044742392753,
+      "T_avg": 0.2662636231431322,
+      "psi_avg": 0.4924888856856561,
+      "V_integrated": 2.534009699872945,
+      "solver_totals": {
+        "accepted_steps": 3076626,
+        "rejected_steps": 13,
+        "rhs_calls": 18479874
+      }
+    },
+    {
+      "job_id": "baseline_i002_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "drift": -0.00393786791090589,
+      "V": 2.532898411277572,
+      "T_avg": 0.2662294038305476,
+      "psi_avg": 0.492723812120449,
+      "V_integrated": 2.5331535127335245,
+      "solver_totals": {
+        "accepted_steps": 3075039,
+        "rejected_steps": 12,
+        "rhs_calls": 18470346
+      }
+    },
+    {
+      "job_id": "baseline_i003_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "drift": -0.0013399611289819369,
+      "V": 2.556360193096659,
+      "T_avg": 0.2679737557251187,
+      "psi_avg": 0.48749036343328456,
+      "V_integrated": 2.5561510136655943,
+      "solver_totals": {
+        "accepted_steps": 3080411,
+        "rejected_steps": 14,
+        "rhs_calls": 18502590
+      }
+    },
+    {
+      "job_id": "baseline_i003_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "drift": 0.0025348849594291067,
+      "V": 2.59086346594103,
+      "T_avg": 0.2686570772202283,
+      "psi_avg": 0.4765098206235941,
+      "V_integrated": 2.5905144888374796,
+      "solver_totals": {
+        "accepted_steps": 3079390,
+        "rejected_steps": 13,
+        "rhs_calls": 18496458
+      }
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "drift": -3.0929662030665384e-05,
+      "V": 2.873992315376061,
+      "T_avg": 0.27228423592239254,
+      "psi_avg": 0.4630283684754794,
+      "V_integrated": 2.873944988944927,
+      "solver_totals": {
+        "accepted_steps": 2961912,
+        "rejected_steps": 17,
+        "rhs_calls": 17791614
+      }
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "drift": -0.003017478791778494,
+      "V": 2.4057048254658118,
+      "T_avg": 0.26111686156478103,
+      "psi_avg": 0.5082638631232222,
+      "V_integrated": 2.4057563880669908,
+      "solver_totals": {
+        "accepted_steps": 2959243,
+        "rejected_steps": 18,
+        "rhs_calls": 17775606
+      }
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "drift": 0.00015454536376502404,
+      "V": 2.4719908965827195,
+      "T_avg": 0.2639601890400376,
+      "psi_avg": 0.49306128712916325,
+      "V_integrated": 2.472062642181063,
+      "solver_totals": {
+        "accepted_steps": 2960570,
+        "rejected_steps": 16,
+        "rhs_calls": 17783556
+      }
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "drift": 0.0001555268147672706,
+      "V": 2.4431070882802235,
+      "T_avg": 0.2626910954109326,
+      "psi_avg": 0.5041065190649694,
+      "V_integrated": 2.4431189426202944,
+      "solver_totals": {
+        "accepted_steps": 2959748,
+        "rejected_steps": 16,
+        "rhs_calls": 17778624
+      }
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "drift": 0.011114655066379875,
+      "V": 2.9416312313088606,
+      "T_avg": 0.2860892237988746,
+      "psi_avg": 0.4028196348442587,
+      "V_integrated": 2.9417615083795634,
+      "solver_totals": {
+        "accepted_steps": 2966629,
+        "rejected_steps": 16,
+        "rhs_calls": 17819910
+      }
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "drift": -0.0011039088558333354,
+      "V": 2.940123888964734,
+      "T_avg": 0.2859433579559022,
+      "psi_avg": 0.4017205588028075,
+      "V_integrated": 2.9402700446552035,
+      "solver_totals": {
+        "accepted_steps": 2965522,
+        "rejected_steps": 12,
+        "rhs_calls": 17813244
+      }
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "drift": 0.007646457192552525,
+      "V": 2.9869945247383787,
+      "T_avg": 0.2883454149696861,
+      "psi_avg": 0.39991821132968886,
+      "V_integrated": 2.9869930661373245,
+      "solver_totals": {
+        "accepted_steps": 2967006,
+        "rejected_steps": 12,
+        "rhs_calls": 17822148
+      }
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "drift": 0.0310716037869474,
+      "V": 3.0015889675269203,
+      "T_avg": 0.288624010099482,
+      "psi_avg": 0.3999547029098866,
+      "V_integrated": 3.0015567402095393,
+      "solver_totals": {
+        "accepted_steps": 2967793,
+        "rejected_steps": 13,
+        "rhs_calls": 17826876
+      }
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "drift": 0.0012295168028222392,
+      "V": 2.942417877424197,
+      "T_avg": 0.270494497675201,
+      "psi_avg": 0.47502844699326363,
+      "V_integrated": 2.9420671148549036,
+      "solver_totals": {
+        "accepted_steps": 3186980,
+        "rejected_steps": 13,
+        "rhs_calls": 19141998
+      }
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "drift": 0.00042249766005086897,
+      "V": 2.942019108386959,
+      "T_avg": 0.2704894183194596,
+      "psi_avg": 0.4750043572993482,
+      "V_integrated": 2.9413350301467744,
+      "solver_totals": {
+        "accepted_steps": 3186083,
+        "rejected_steps": 15,
+        "rhs_calls": 19136628
+      }
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "drift": -0.001375948429254592,
+      "V": 2.995078205619296,
+      "T_avg": 0.27331042182832654,
+      "psi_avg": 0.4697560501888364,
+      "V_integrated": 2.9951966881585896,
+      "solver_totals": {
+        "accepted_steps": 3186598,
+        "rejected_steps": 14,
+        "rhs_calls": 19139712
+      }
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "drift": 8.251581458118551e-06,
+      "V": 2.9832976001148244,
+      "T_avg": 0.27212623849969836,
+      "psi_avg": 0.4726455869759931,
+      "V_integrated": 2.9832523205557844,
+      "solver_totals": {
+        "accepted_steps": 3186732,
+        "rejected_steps": 14,
+        "rhs_calls": 19140516
+      }
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "drift": 0.0013587804780574864,
+      "V": 3.0057653976719916,
+      "T_avg": 0.2753763815611104,
+      "psi_avg": 0.46644501221959017,
+      "V_integrated": 3.005679415804443,
+      "solver_totals": {
+        "accepted_steps": 3187056,
+        "rejected_steps": 17,
+        "rhs_calls": 19142478
+      }
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "drift": 0.0009723535143368878,
+      "V": 3.013821270209887,
+      "T_avg": 0.2764672371270773,
+      "psi_avg": 0.46312311169063053,
+      "V_integrated": 3.0138009063938127,
+      "solver_totals": {
+        "accepted_steps": 3187207,
+        "rejected_steps": 14,
+        "rhs_calls": 19143366
+      }
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "drift": -0.0004020204087389345,
+      "V": 2.5704946275897753,
+      "T_avg": 0.26737121742085856,
+      "psi_avg": 0.5031307529200049,
+      "V_integrated": 2.57040170722149,
+      "solver_totals": {
+        "accepted_steps": 3187998,
+        "rejected_steps": 17,
+        "rhs_calls": 19148130
+      }
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "drift": -0.0003367013278330333,
+      "V": 2.5698648942610323,
+      "T_avg": 0.2673532091705462,
+      "psi_avg": 0.5032237122726853,
+      "V_integrated": 2.569932894695412,
+      "solver_totals": {
+        "accepted_steps": 3185779,
+        "rejected_steps": 17,
+        "rhs_calls": 19134816
+      }
+    }
+  ],
+  "segment_rows": [
+    {
+      "job_id": "baseline_i000_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 3.0179126841857777,
+      "T_avg": 0.2736867962412361,
+      "psi_avg": 0.4579075782111227,
+      "V_integrated": 3.0177914940632506
+    },
+    {
+      "job_id": "baseline_i000_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 2.9209800793367964,
+      "T_avg": 0.2707241315439036,
+      "psi_avg": 0.4712043255501679,
+      "V_integrated": 2.9210516327254443
+    },
+    {
+      "job_id": "baseline_i000_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 2.920437882335753,
+      "T_avg": 0.2707186478946911,
+      "psi_avg": 0.4711596873823796,
+      "V_integrated": 2.920474789907347
+    },
+    {
+      "job_id": "baseline_i000_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 2.920798953971762,
+      "T_avg": 0.27071779334547513,
+      "psi_avg": 0.471369003880834,
+      "V_integrated": 2.9208775829914986
+    },
+    {
+      "job_id": "baseline_i000_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 2.920791672353479,
+      "T_avg": 0.2707325616198569,
+      "psi_avg": 0.47110198948444953,
+      "V_integrated": 2.9208087711333017
+    },
+    {
+      "job_id": "baseline_i000_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 2.9205589147260516,
+      "T_avg": 0.2707213455626358,
+      "psi_avg": 0.4711354099201026,
+      "V_integrated": 2.9206267034797837
+    },
+    {
+      "job_id": "baseline_i000_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 2.920135336891997,
+      "T_avg": 0.2707114459205875,
+      "psi_avg": 0.47123223041974094,
+      "V_integrated": 2.9201785846998245
+    },
+    {
+      "job_id": "baseline_i000_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 2.9202015476455996,
+      "T_avg": 0.270703782156434,
+      "psi_avg": 0.4712539610286941,
+      "V_integrated": 2.920186648015035
+    },
+    {
+      "job_id": "baseline_i000_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 2.920513719323521,
+      "T_avg": 0.27071495661290174,
+      "psi_avg": 0.47123477448888634,
+      "V_integrated": 2.920416987313124
+    },
+    {
+      "job_id": "baseline_i000_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 2.9206920482923104,
+      "T_avg": 0.27071824224781776,
+      "psi_avg": 0.4712377569946566,
+      "V_integrated": 2.9206910744910872
+    },
+    {
+      "job_id": "baseline_i000_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 3.0204568596060457,
+      "T_avg": 0.2743617386605265,
+      "psi_avg": 0.4569614475752346,
+      "V_integrated": 3.0204142331038373
+    },
+    {
+      "job_id": "baseline_i000_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 2.9312121225196646,
+      "T_avg": 0.2719051602482198,
+      "psi_avg": 0.4686936993660311,
+      "V_integrated": 2.9311442854209355
+    },
+    {
+      "job_id": "baseline_i000_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 2.931762910591496,
+      "T_avg": 0.2719166557791388,
+      "psi_avg": 0.4685440407396314,
+      "V_integrated": 2.9317096828850717
+    },
+    {
+      "job_id": "baseline_i000_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 2.932459201899191,
+      "T_avg": 0.27192535437082677,
+      "psi_avg": 0.46849306615110764,
+      "V_integrated": 2.9324310182118545
+    },
+    {
+      "job_id": "baseline_i000_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 2.9319823583704756,
+      "T_avg": 0.2719196596833373,
+      "psi_avg": 0.4686867094347244,
+      "V_integrated": 2.931955193334645
+    },
+    {
+      "job_id": "baseline_i000_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 2.931672850680541,
+      "T_avg": 0.2719141837650175,
+      "psi_avg": 0.4685554137518135,
+      "V_integrated": 2.9317681396137756
+    },
+    {
+      "job_id": "baseline_i000_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 2.9313817404471574,
+      "T_avg": 0.27190954536434725,
+      "psi_avg": 0.46856709508209576,
+      "V_integrated": 2.931349403405495
+    },
+    {
+      "job_id": "baseline_i000_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 2.9317232169751226,
+      "T_avg": 0.2719239101230727,
+      "psi_avg": 0.46866117347769287,
+      "V_integrated": 2.931683687098896
+    },
+    {
+      "job_id": "baseline_i000_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 2.9317696311921053,
+      "T_avg": 0.2719128691033481,
+      "psi_avg": 0.46861745906982005,
+      "V_integrated": 2.9317906602984385
+    },
+    {
+      "job_id": "baseline_i000_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 2.9322315719166534,
+      "T_avg": 0.2719300758206849,
+      "psi_avg": 0.4685486374896151,
+      "V_integrated": 2.9322144388599964
+    },
+    {
+      "job_id": "baseline_i001_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 3.060077170695166,
+      "T_avg": 0.2772821348241477,
+      "psi_avg": 0.4492337229432947,
+      "V_integrated": 3.0600417894124385
+    },
+    {
+      "job_id": "baseline_i001_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 2.9341458381525487,
+      "T_avg": 0.27373935369315405,
+      "psi_avg": 0.465390348726452,
+      "V_integrated": 2.9341959705464475
+    },
+    {
+      "job_id": "baseline_i001_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 2.934015547947668,
+      "T_avg": 0.2737338695200918,
+      "psi_avg": 0.46534865006141996,
+      "V_integrated": 2.933896924899781
+    },
+    {
+      "job_id": "baseline_i001_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 2.934135322602623,
+      "T_avg": 0.2737425299789401,
+      "psi_avg": 0.4652840818119,
+      "V_integrated": 2.934629716866467
+    },
+    {
+      "job_id": "baseline_i001_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 2.934393742179229,
+      "T_avg": 0.2737520238338679,
+      "psi_avg": 0.46524687243589596,
+      "V_integrated": 2.9347667634702157
+    },
+    {
+      "job_id": "baseline_i001_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 2.9343959315094583,
+      "T_avg": 0.27374894103698,
+      "psi_avg": 0.46534803685912546,
+      "V_integrated": 2.9342070988795284
+    },
+    {
+      "job_id": "baseline_i001_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 2.9340791351406823,
+      "T_avg": 0.2737433214498567,
+      "psi_avg": 0.465286663114092,
+      "V_integrated": 2.9343058452557464
+    },
+    {
+      "job_id": "baseline_i001_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 2.9342836600955833,
+      "T_avg": 0.27375835748672983,
+      "psi_avg": 0.4652856427824012,
+      "V_integrated": 2.933969361517161
+    },
+    {
+      "job_id": "baseline_i001_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 2.9350862222054874,
+      "T_avg": 0.2737559242526991,
+      "psi_avg": 0.46523341552976366,
+      "V_integrated": 2.935215307210551
+    },
+    {
+      "job_id": "baseline_i001_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 2.934719583177882,
+      "T_avg": 0.2737667738293888,
+      "psi_avg": 0.465311334220933,
+      "V_integrated": 2.9346506523128166
+    },
+    {
+      "job_id": "baseline_i001_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 3.0500229349162766,
+      "T_avg": 0.27707303695326385,
+      "psi_avg": 0.45032420411998253,
+      "V_integrated": 3.0498283887216853
+    },
+    {
+      "job_id": "baseline_i001_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 2.934046364763577,
+      "T_avg": 0.27374126305599716,
+      "psi_avg": 0.4653044858440744,
+      "V_integrated": 2.934098788329397
+    },
+    {
+      "job_id": "baseline_i001_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 2.935306034233176,
+      "T_avg": 0.27376979534474133,
+      "psi_avg": 0.46529471483477164,
+      "V_integrated": 2.934900004495196
+    },
+    {
+      "job_id": "baseline_i001_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 2.9352122059117383,
+      "T_avg": 0.2737804875491847,
+      "psi_avg": 0.4653433759201533,
+      "V_integrated": 2.9349151090622483
+    },
+    {
+      "job_id": "baseline_i001_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 2.933972718243524,
+      "T_avg": 0.27373275903798194,
+      "psi_avg": 0.46530692364411735,
+      "V_integrated": 2.934165197240286
+    },
+    {
+      "job_id": "baseline_i001_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 2.9344864797777332,
+      "T_avg": 0.27373877965357585,
+      "psi_avg": 0.46533168571773514,
+      "V_integrated": 2.934388729204916
+    },
+    {
+      "job_id": "baseline_i001_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 2.9341235645107195,
+      "T_avg": 0.27374256375069805,
+      "psi_avg": 0.46532322709367746,
+      "V_integrated": 2.9340691487828146
+    },
+    {
+      "job_id": "baseline_i001_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 2.934934849391907,
+      "T_avg": 0.2737631247413013,
+      "psi_avg": 0.4651698694747015,
+      "V_integrated": 2.935094268752532
+    },
+    {
+      "job_id": "baseline_i001_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 2.934574003534498,
+      "T_avg": 0.27375955333383156,
+      "psi_avg": 0.4654067541863371,
+      "V_integrated": 2.9347294661428394
+    },
+    {
+      "job_id": "baseline_i001_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 2.9342372066027367,
+      "T_avg": 0.2737426711574438,
+      "psi_avg": 0.4653804286028016,
+      "V_integrated": 2.934120682393809
+    },
+    {
+      "job_id": "baseline_i002_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 3.031365741554437,
+      "T_avg": 0.28400684944636706,
+      "psi_avg": 0.4211389819175385,
+      "V_integrated": 3.0312535179260736
+    },
+    {
+      "job_id": "baseline_i002_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 2.584097927551333,
+      "T_avg": 0.26738442131798446,
+      "psi_avg": 0.47782348183449547,
+      "V_integrated": 2.584061002879868
+    },
+    {
+      "job_id": "baseline_i002_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 2.5361694122668097,
+      "T_avg": 0.2663023660998408,
+      "psi_avg": 0.4932223056668378,
+      "V_integrated": 2.536234111460231
+    },
+    {
+      "job_id": "baseline_i002_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 2.534469266579779,
+      "T_avg": 0.2662744169508451,
+      "psi_avg": 0.49264143496261653,
+      "V_integrated": 2.5345613082036236
+    },
+    {
+      "job_id": "baseline_i002_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 2.537587201006576,
+      "T_avg": 0.26636699187758867,
+      "psi_avg": 0.4933709965639957,
+      "V_integrated": 2.537492490292234
+    },
+    {
+      "job_id": "baseline_i002_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 2.533192820630191,
+      "T_avg": 0.2662425113085259,
+      "psi_avg": 0.4925061894743721,
+      "V_integrated": 2.532961352211062
+    },
+    {
+      "job_id": "baseline_i002_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 2.5370588826615426,
+      "T_avg": 0.266333175032702,
+      "psi_avg": 0.4931816462118851,
+      "V_integrated": 2.537136882323878
+    },
+    {
+      "job_id": "baseline_i002_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 2.533940209968075,
+      "T_avg": 0.26627746048464085,
+      "psi_avg": 0.4925227220389694,
+      "V_integrated": 2.5336959538615087
+    },
+    {
+      "job_id": "baseline_i002_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 2.5381640264814895,
+      "T_avg": 0.26638582802295424,
+      "psi_avg": 0.49327188766614016,
+      "V_integrated": 2.5380037945407072
+    },
+    {
+      "job_id": "baseline_i002_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 2.534044742392753,
+      "T_avg": 0.2662636231431322,
+      "psi_avg": 0.4924888856856561,
+      "V_integrated": 2.534009699872945
+    },
+    {
+      "job_id": "baseline_i002_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 2.839650588620666,
+      "T_avg": 0.2756569655541232,
+      "psi_avg": 0.4555590704912462,
+      "V_integrated": 2.8396196220913645
+    },
+    {
+      "job_id": "baseline_i002_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 2.787102179633294,
+      "T_avg": 0.2704487558987922,
+      "psi_avg": 0.47908905290251924,
+      "V_integrated": 2.786923439296034
+    },
+    {
+      "job_id": "baseline_i002_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 2.5351063620040186,
+      "T_avg": 0.2662814783186,
+      "psi_avg": 0.49287599079105526,
+      "V_integrated": 2.535071778505844
+    },
+    {
+      "job_id": "baseline_i002_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 2.5332728621105605,
+      "T_avg": 0.266246455857267,
+      "psi_avg": 0.49270939105744466,
+      "V_integrated": 2.533305122962938
+    },
+    {
+      "job_id": "baseline_i002_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 2.537689368393852,
+      "T_avg": 0.2663546101141308,
+      "psi_avg": 0.4930092956948403,
+      "V_integrated": 2.5375912767010163
+    },
+    {
+      "job_id": "baseline_i002_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 2.5327145619857157,
+      "T_avg": 0.26623327177010364,
+      "psi_avg": 0.4928266224502411,
+      "V_integrated": 2.5325741901006156
+    },
+    {
+      "job_id": "baseline_i002_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 2.537272459319565,
+      "T_avg": 0.2663407257615505,
+      "psi_avg": 0.49316795097640875,
+      "V_integrated": 2.5371529592244495
+    },
+    {
+      "job_id": "baseline_i002_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 2.5342782556256145,
+      "T_avg": 0.26627010532349593,
+      "psi_avg": 0.4927760332744411,
+      "V_integrated": 2.5341630730004683
+    },
+    {
+      "job_id": "baseline_i002_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 2.5368362791884778,
+      "T_avg": 0.2663367777554908,
+      "psi_avg": 0.49305556885574353,
+      "V_integrated": 2.5371982026115916
+    },
+    {
+      "job_id": "baseline_i002_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 2.532898411277572,
+      "T_avg": 0.2662294038305476,
+      "psi_avg": 0.492723812120449,
+      "V_integrated": 2.5331535127335245
+    },
+    {
+      "job_id": "baseline_i003_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 3.022446775122893,
+      "T_avg": 0.2885402118326684,
+      "psi_avg": 0.40020955500156413,
+      "V_integrated": 3.0223625773861276
+    },
+    {
+      "job_id": "baseline_i003_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 2.9422661194012747,
+      "T_avg": 0.2869136744779559,
+      "psi_avg": 0.4058527895653745,
+      "V_integrated": 2.9423701661496127
+    },
+    {
+      "job_id": "baseline_i003_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 2.971828545977804,
+      "T_avg": 0.2876544705808249,
+      "psi_avg": 0.4038441922156893,
+      "V_integrated": 2.971864564570541
+    },
+    {
+      "job_id": "baseline_i003_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 2.624708878871158,
+      "T_avg": 0.2699903398432927,
+      "psi_avg": 0.48279356414956587,
+      "V_integrated": 2.6246421480311217
+    },
+    {
+      "job_id": "baseline_i003_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 2.557997637234485,
+      "T_avg": 0.2679829706245961,
+      "psi_avg": 0.48810241054418113,
+      "V_integrated": 2.5577666447011462
+    },
+    {
+      "job_id": "baseline_i003_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 2.555667197394766,
+      "T_avg": 0.26795555677908567,
+      "psi_avg": 0.48754516487552535,
+      "V_integrated": 2.556109768240053
+    },
+    {
+      "job_id": "baseline_i003_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 2.556069456868789,
+      "T_avg": 0.2679771717397129,
+      "psi_avg": 0.48749514101583463,
+      "V_integrated": 2.556034862549034
+    },
+    {
+      "job_id": "baseline_i003_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 2.5560420012269622,
+      "T_avg": 0.2679552747275691,
+      "psi_avg": 0.48723685541156253,
+      "V_integrated": 2.556060229426837
+    },
+    {
+      "job_id": "baseline_i003_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 2.557700154225641,
+      "T_avg": 0.2680085159885957,
+      "psi_avg": 0.4876777316880196,
+      "V_integrated": 2.5572230649765744
+    },
+    {
+      "job_id": "baseline_i003_seed2026110601",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 2.556360193096659,
+      "T_avg": 0.2679737557251187,
+      "psi_avg": 0.48749036343328456,
+      "V_integrated": 2.5561510136655943
+    },
+    {
+      "job_id": "baseline_i003_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 3.054220227368197,
+      "T_avg": 0.2891897836537091,
+      "psi_avg": 0.40015177288260917,
+      "V_integrated": 3.054140449087614
+    },
+    {
+      "job_id": "baseline_i003_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 3.0019823834749664,
+      "T_avg": 0.2871644802909875,
+      "psi_avg": 0.4091000013330254,
+      "V_integrated": 3.002054110113402
+    },
+    {
+      "job_id": "baseline_i003_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 2.8163097718245655,
+      "T_avg": 0.2796580272933342,
+      "psi_avg": 0.4351604852381362,
+      "V_integrated": 2.816325225701462
+    },
+    {
+      "job_id": "baseline_i003_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 2.5816791759726234,
+      "T_avg": 0.26894319989711896,
+      "psi_avg": 0.47744858093798326,
+      "V_integrated": 2.5819729917174428
+    },
+    {
+      "job_id": "baseline_i003_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 2.5915534943357055,
+      "T_avg": 0.2686623899115205,
+      "psi_avg": 0.4767956289546801,
+      "V_integrated": 2.5909703711838143
+    },
+    {
+      "job_id": "baseline_i003_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 2.5877526555047172,
+      "T_avg": 0.2685430867176933,
+      "psi_avg": 0.47692047371376045,
+      "V_integrated": 2.5882262165594443
+    },
+    {
+      "job_id": "baseline_i003_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 2.5887562692281816,
+      "T_avg": 0.2686021503937847,
+      "psi_avg": 0.4767191892634177,
+      "V_integrated": 2.588076241018514
+    },
+    {
+      "job_id": "baseline_i003_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 2.590381176338641,
+      "T_avg": 0.2686170489950772,
+      "psi_avg": 0.47640303107235044,
+      "V_integrated": 2.590787490432947
+    },
+    {
+      "job_id": "baseline_i003_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 2.588328580981601,
+      "T_avg": 0.26857811956896305,
+      "psi_avg": 0.4770470957340711,
+      "V_integrated": 2.5881813161160356
+    },
+    {
+      "job_id": "baseline_i003_seed2026110602",
+      "variant": "baseline",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 2.59086346594103,
+      "T_avg": 0.2686570772202283,
+      "psi_avg": 0.4765098206235941,
+      "V_integrated": 2.5905144888374796
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 2.9742491010502627,
+      "T_avg": 0.2752290830623167,
+      "psi_avg": 0.45073266500180936,
+      "V_integrated": 2.9742916874243828
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 2.8747573340638484,
+      "T_avg": 0.27229672899238266,
+      "psi_avg": 0.46283415165336755,
+      "V_integrated": 2.8747045393539876
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 2.874691061640441,
+      "T_avg": 0.27229309868578083,
+      "psi_avg": 0.46290986482011276,
+      "V_integrated": 2.87467355971575
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 2.8754443298045467,
+      "T_avg": 0.2723198461412374,
+      "psi_avg": 0.4627181591325177,
+      "V_integrated": 2.875515993683789
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 2.873997214792175,
+      "T_avg": 0.27228287747799484,
+      "psi_avg": 0.4629999189133695,
+      "V_integrated": 2.873994618893721
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 2.8735920069234546,
+      "T_avg": 0.27226550207528055,
+      "psi_avg": 0.4629967115766585,
+      "V_integrated": 2.873588073262597
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 2.875659523217039,
+      "T_avg": 0.27231757519491934,
+      "psi_avg": 0.46280724390816547,
+      "V_integrated": 2.87561590596207
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 2.874208638297694,
+      "T_avg": 0.272282849923747,
+      "psi_avg": 0.46296985012895264,
+      "V_integrated": 2.874107833302962
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 2.874023245038092,
+      "T_avg": 0.27228315043048734,
+      "psi_avg": 0.4629208146028148,
+      "V_integrated": 2.873990164290067
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 2.873992315376061,
+      "T_avg": 0.27228423592239254,
+      "psi_avg": 0.4630283684754794,
+      "V_integrated": 2.873944988944927
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 2.9867506410921396,
+      "T_avg": 0.276458980268401,
+      "psi_avg": 0.4459593201314513,
+      "V_integrated": 2.986672604997614
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 2.464947677199215,
+      "T_avg": 0.26235255193305695,
+      "psi_avg": 0.49384258724411983,
+      "V_integrated": 2.464921666860344
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 2.4525616678689506,
+      "T_avg": 0.2626515288578173,
+      "psi_avg": 0.4913465902792472,
+      "V_integrated": 2.4525394305855523
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 2.5180092834534995,
+      "T_avg": 0.26354949095908925,
+      "psi_avg": 0.4925247460747032,
+      "V_integrated": 2.518136669404564
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 2.4059757170021623,
+      "T_avg": 0.26111907695675896,
+      "psi_avg": 0.5084543368538113,
+      "V_integrated": 2.4060477996840994
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 2.40763376510703,
+      "T_avg": 0.26117663923523887,
+      "psi_avg": 0.5082507660728967,
+      "V_integrated": 2.407725765845507
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 2.4086156556549096,
+      "T_avg": 0.2612096452337896,
+      "psi_avg": 0.5080386188488257,
+      "V_integrated": 2.4085936961877907
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 2.4068821186625247,
+      "T_avg": 0.261152182395142,
+      "psi_avg": 0.5081740984751627,
+      "V_integrated": 2.4069104497199736
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 2.4087223042575903,
+      "T_avg": 0.2612140584782267,
+      "psi_avg": 0.5081958505571563,
+      "V_integrated": 2.4086799409274953
+    },
+    {
+      "job_id": "gamma38_i000_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 2.4057048254658118,
+      "T_avg": 0.26111686156478103,
+      "psi_avg": 0.5082638631232222,
+      "V_integrated": 2.4057563880669908
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 2.994197670710522,
+      "T_avg": 0.28456554966041214,
+      "psi_avg": 0.41511384786562794,
+      "V_integrated": 2.9941391462548297
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 2.575851211630567,
+      "T_avg": 0.2664257849164685,
+      "psi_avg": 0.47220497613696477,
+      "V_integrated": 2.5758888757094924
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 2.501530026695508,
+      "T_avg": 0.26427601180484206,
+      "psi_avg": 0.49227289919368483,
+      "V_integrated": 2.50134774006965
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 2.473006810935271,
+      "T_avg": 0.2639923977386474,
+      "psi_avg": 0.49292682363764406,
+      "V_integrated": 2.472973134079897
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 2.4698884143310686,
+      "T_avg": 0.2639130590965272,
+      "psi_avg": 0.49350385317840006,
+      "V_integrated": 2.4697358990757765
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 2.4730501381800005,
+      "T_avg": 0.2639970456285786,
+      "psi_avg": 0.49308687708658716,
+      "V_integrated": 2.4730310565577973
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 2.4724671466705748,
+      "T_avg": 0.2639740096384582,
+      "psi_avg": 0.49338653862083287,
+      "V_integrated": 2.472518137473701
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 2.4722513432837006,
+      "T_avg": 0.2639718461630738,
+      "psi_avg": 0.493180345238439,
+      "V_integrated": 2.4724058549778034
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 2.4718363512189545,
+      "T_avg": 0.26395595354123214,
+      "psi_avg": 0.4930368300801965,
+      "V_integrated": 2.4717685970354273
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 2.4719908965827195,
+      "T_avg": 0.2639601890400376,
+      "psi_avg": 0.49306128712916325,
+      "V_integrated": 2.472062642181063
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 2.971730534228923,
+      "T_avg": 0.28404575162250895,
+      "psi_avg": 0.4153244280770252,
+      "V_integrated": 2.971592288213944
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 2.5944327847181037,
+      "T_avg": 0.2701543616376361,
+      "psi_avg": 0.4681646028550548,
+      "V_integrated": 2.594460448592099
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 2.4442275931207464,
+      "T_avg": 0.2627289745710996,
+      "psi_avg": 0.504311146631074,
+      "V_integrated": 2.4442147665296488
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 2.4414433482422764,
+      "T_avg": 0.2626449537868431,
+      "psi_avg": 0.5042419415933196,
+      "V_integrated": 2.441468349659401
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 2.4434393051384267,
+      "T_avg": 0.26271362761358147,
+      "psi_avg": 0.5040954085334006,
+      "V_integrated": 2.4434933761179307
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 2.4421724681360346,
+      "T_avg": 0.2626543854859141,
+      "psi_avg": 0.5040997873224583,
+      "V_integrated": 2.4421227003252555
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 2.4420154778342886,
+      "T_avg": 0.2626513123260804,
+      "psi_avg": 0.5041447962204763,
+      "V_integrated": 2.442106179012644
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 2.443183803631854,
+      "T_avg": 0.2626971089728052,
+      "psi_avg": 0.5043481758934528,
+      "V_integrated": 2.443138836447956
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 2.4429515614654562,
+      "T_avg": 0.2626937777359304,
+      "psi_avg": 0.5041228728027789,
+      "V_integrated": 2.4429427219778406
+    },
+    {
+      "job_id": "gamma38_i001_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 2.4431070882802235,
+      "T_avg": 0.2626910954109326,
+      "psi_avg": 0.5041065190649694,
+      "V_integrated": 2.4431189426202944
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 3.024817548625151,
+      "T_avg": 0.2881425656409588,
+      "psi_avg": 0.39761932915642223,
+      "V_integrated": 3.0246605993582087
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 2.948311976275047,
+      "T_avg": 0.28619253183238036,
+      "psi_avg": 0.40025741218375105,
+      "V_integrated": 2.948399033393516
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 2.9104532526701723,
+      "T_avg": 0.28541067713894447,
+      "psi_avg": 0.4045768262617003,
+      "V_integrated": 2.9105519101979773
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 2.9346509323153405,
+      "T_avg": 0.28600313843205905,
+      "psi_avg": 0.4036439282257281,
+      "V_integrated": 2.934733381161361
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 2.9400079729972486,
+      "T_avg": 0.2862370947273083,
+      "psi_avg": 0.40386289443440515,
+      "V_integrated": 2.9400322058012693
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 2.9652743305157827,
+      "T_avg": 0.2868946379455235,
+      "psi_avg": 0.4019197811608951,
+      "V_integrated": 2.9652024195888704
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 3.0069233290305966,
+      "T_avg": 0.2878235101617919,
+      "psi_avg": 0.3987430234754134,
+      "V_integrated": 3.0067436220093784
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 2.9867582269278388,
+      "T_avg": 0.28704381744753243,
+      "psi_avg": 0.3970762836531839,
+      "V_integrated": 2.9866494185734904
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 2.9305165762424807,
+      "T_avg": 0.28585738220891355,
+      "psi_avg": 0.40196716115264497,
+      "V_integrated": 2.9306138979783647
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 2.9416312313088606,
+      "T_avg": 0.2860892237988746,
+      "psi_avg": 0.4028196348442587,
+      "V_integrated": 2.9417615083795634
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 3.026401204641419,
+      "T_avg": 0.2882220905456896,
+      "psi_avg": 0.39785061986235243,
+      "V_integrated": 3.026158218296345
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 2.939457656754176,
+      "T_avg": 0.2860792691059409,
+      "psi_avg": 0.40015408898339805,
+      "V_integrated": 2.9394877234623054
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 2.9250125708970396,
+      "T_avg": 0.28568960312914193,
+      "psi_avg": 0.4029455359508359,
+      "V_integrated": 2.9251305948766375
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 2.9218834880868125,
+      "T_avg": 0.28570916779080063,
+      "psi_avg": 0.4040017443486333,
+      "V_integrated": 2.921977693079849
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 2.926806575658476,
+      "T_avg": 0.28588979186443136,
+      "psi_avg": 0.404350294146975,
+      "V_integrated": 2.9268650470098145
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 2.955306144613185,
+      "T_avg": 0.28660591398106144,
+      "psi_avg": 0.40256198326502374,
+      "V_integrated": 2.9553072746044178
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 2.981296443398332,
+      "T_avg": 0.2872868912933707,
+      "psi_avg": 0.4009293993513283,
+      "V_integrated": 2.9811900488216474
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 2.984748083972502,
+      "T_avg": 0.28733035659765943,
+      "psi_avg": 0.39937096651082776,
+      "V_integrated": 2.9846275435585152
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 2.9412277978205674,
+      "T_avg": 0.286137434431015,
+      "psi_avg": 0.39976464276757523,
+      "V_integrated": 2.9412282757113233
+    },
+    {
+      "job_id": "gamma38_i002_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 2.940123888964734,
+      "T_avg": 0.2859433579559022,
+      "psi_avg": 0.4017205588028075,
+      "V_integrated": 2.9402700446552035
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 3.041159174285262,
+      "T_avg": 0.2895053541745692,
+      "psi_avg": 0.39549129134139477,
+      "V_integrated": 3.041066703139986
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 2.9753759772871424,
+      "T_avg": 0.287858123866846,
+      "psi_avg": 0.40000830354079614,
+      "V_integrated": 2.975429292005487
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 2.964069514666108,
+      "T_avg": 0.2876091106732188,
+      "psi_avg": 0.4018810910778687,
+      "V_integrated": 2.964150557899409
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 2.9826859046069925,
+      "T_avg": 0.28811911959792125,
+      "psi_avg": 0.40090048888600277,
+      "V_integrated": 2.982735042272195
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 3.002330661256255,
+      "T_avg": 0.28864570231169784,
+      "psi_avg": 0.3997694365710684,
+      "V_integrated": 3.0023018388606535
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 2.9952389937150428,
+      "T_avg": 0.2884921736632463,
+      "psi_avg": 0.4001160612470224,
+      "V_integrated": 2.995162334954321
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 2.99197250060163,
+      "T_avg": 0.2884096815702172,
+      "psi_avg": 0.3993371350718466,
+      "V_integrated": 2.99196126591831
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 2.9829003767845426,
+      "T_avg": 0.2882003037480603,
+      "psi_avg": 0.39933881289917467,
+      "V_integrated": 2.9829147392374558
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 2.979348067545826,
+      "T_avg": 0.2881201270607443,
+      "psi_avg": 0.40011447726992294,
+      "V_integrated": 2.979349844773915
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110601",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 2.9869945247383787,
+      "T_avg": 0.2883454149696861,
+      "psi_avg": 0.39991821132968886,
+      "V_integrated": 2.9869930661373245
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 3.015315370786323,
+      "T_avg": 0.2889008718100984,
+      "psi_avg": 0.397950626953973,
+      "V_integrated": 3.015227665722915
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 2.965429981169258,
+      "T_avg": 0.28759422512646177,
+      "psi_avg": 0.4004650552763763,
+      "V_integrated": 2.965481633884039
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 2.977161727276569,
+      "T_avg": 0.287902798671171,
+      "psi_avg": 0.4006973142741207,
+      "V_integrated": 2.977253040518251
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 2.977608487317611,
+      "T_avg": 0.28798145265632874,
+      "psi_avg": 0.40168050281413875,
+      "V_integrated": 2.977649727288713
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 3.005310547499084,
+      "T_avg": 0.28871647018769303,
+      "psi_avg": 0.399998188389,
+      "V_integrated": 3.005256210368543
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 3.036097788217233,
+      "T_avg": 0.28940151746186843,
+      "psi_avg": 0.3964484234519412,
+      "V_integrated": 3.035973899684825
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 2.977528260204561,
+      "T_avg": 0.2879160602958746,
+      "psi_avg": 0.3994200653537171,
+      "V_integrated": 2.977555686141302
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 2.9652397126343617,
+      "T_avg": 0.28763773981505103,
+      "psi_avg": 0.40174690554688314,
+      "V_integrated": 2.965321997869323
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 2.970517363739973,
+      "T_avg": 0.28782814633404563,
+      "psi_avg": 0.40224587848147564,
+      "V_integrated": 2.970552007961987
+    },
+    {
+      "job_id": "gamma38_i003_seed2026110602",
+      "variant": "gamma38",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 3.0015889675269203,
+      "T_avg": 0.288624010099482,
+      "psi_avg": 0.3999547029098866,
+      "V_integrated": 3.0015567402095393
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 3.0347495662074255,
+      "T_avg": 0.2734555661562495,
+      "psi_avg": 0.45995111177658987,
+      "V_integrated": 3.0351770346850917
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 2.9409887533160584,
+      "T_avg": 0.27045234570247634,
+      "psi_avg": 0.47503888319287496,
+      "V_integrated": 2.9407566789431296
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 2.9408328616228316,
+      "T_avg": 0.27045011801301877,
+      "psi_avg": 0.47498418922793734,
+      "V_integrated": 2.9410902781460835
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 2.9422295939177534,
+      "T_avg": 0.27048146362480174,
+      "psi_avg": 0.47500203078366254,
+      "V_integrated": 2.941906327895424
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 2.9412016300844277,
+      "T_avg": 0.270457647618227,
+      "psi_avg": 0.47513381570175944,
+      "V_integrated": 2.941052205564392
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 2.941205841038107,
+      "T_avg": 0.2704520685571845,
+      "psi_avg": 0.4750127391197211,
+      "V_integrated": 2.941037356679599
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 2.9438678976228156,
+      "T_avg": 0.27055120158994694,
+      "psi_avg": 0.47476090156019574,
+      "V_integrated": 2.943181398526608
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 2.941444827383777,
+      "T_avg": 0.27046534974393094,
+      "psi_avg": 0.4749847913916857,
+      "V_integrated": 2.9414076516816157
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 2.941188360621375,
+      "T_avg": 0.27045562099730935,
+      "psi_avg": 0.4749890410161846,
+      "V_integrated": 2.940968995236826
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 2.942417877424197,
+      "T_avg": 0.270494497675201,
+      "psi_avg": 0.47502844699326363,
+      "V_integrated": 2.9420671148549036
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 3.0364653946559477,
+      "T_avg": 0.2732900369045197,
+      "psi_avg": 0.46057664727513437,
+      "V_integrated": 3.036222505715306
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 2.941127928559612,
+      "T_avg": 0.27044722853773073,
+      "psi_avg": 0.4750161040563762,
+      "V_integrated": 2.941359422635201
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 2.9400372036112046,
+      "T_avg": 0.27042750960620543,
+      "psi_avg": 0.4750953267887264,
+      "V_integrated": 2.940320758140915
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 2.941076597691338,
+      "T_avg": 0.2704550286874926,
+      "psi_avg": 0.4750846482052174,
+      "V_integrated": 2.940694219526912
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 2.9421467683355464,
+      "T_avg": 0.2704911802365046,
+      "psi_avg": 0.4750077757368838,
+      "V_integrated": 2.941988387267454
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 2.941824702996236,
+      "T_avg": 0.2704695561685436,
+      "psi_avg": 0.4750239066658686,
+      "V_integrated": 2.94170304819045
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 2.941274211579061,
+      "T_avg": 0.27046426543965124,
+      "psi_avg": 0.4749567849265487,
+      "V_integrated": 2.9412675165644964
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 2.9422243514688144,
+      "T_avg": 0.2704922640789437,
+      "psi_avg": 0.47489684583493535,
+      "V_integrated": 2.9420729429131462
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 2.9415966107269083,
+      "T_avg": 0.2704604972011557,
+      "psi_avg": 0.4750782795453761,
+      "V_integrated": 2.941359511621131
+    },
+    {
+      "job_id": "gamma42_i000_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20816326530612245,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 2.942019108386959,
+      "T_avg": 0.2704894183194596,
+      "psi_avg": 0.4750043572993482,
+      "V_integrated": 2.9413350301467744
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 3.071076482900889,
+      "T_avg": 0.2763149479956229,
+      "psi_avg": 0.4505886219939844,
+      "V_integrated": 3.0712269819926457
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 2.995315306722809,
+      "T_avg": 0.27330188659511784,
+      "psi_avg": 0.4697755927516148,
+      "V_integrated": 2.995078194900586
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 2.996161219291412,
+      "T_avg": 0.2733322024327089,
+      "psi_avg": 0.46956433714397805,
+      "V_integrated": 2.995981432439008
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 2.995479492211726,
+      "T_avg": 0.2733188532201665,
+      "psi_avg": 0.469692659844096,
+      "V_integrated": 2.9953064437246995
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 2.995037753357947,
+      "T_avg": 0.27330764898177096,
+      "psi_avg": 0.4696451303810999,
+      "V_integrated": 2.995444517628225
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 2.9958881874300776,
+      "T_avg": 0.2733287142803803,
+      "psi_avg": 0.46968151904422867,
+      "V_integrated": 2.9957646293962283
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 2.9957168661052296,
+      "T_avg": 0.2733320383963351,
+      "psi_avg": 0.46951821469810223,
+      "V_integrated": 2.9961060417635097
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 2.996001188282984,
+      "T_avg": 0.273337550927575,
+      "psi_avg": 0.46966387622751893,
+      "V_integrated": 2.995833655416229
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 2.9964541540485508,
+      "T_avg": 0.27333314019846466,
+      "psi_avg": 0.4695267495785733,
+      "V_integrated": 2.9962566509203863
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 2.995078205619296,
+      "T_avg": 0.27331042182832654,
+      "psi_avg": 0.4697560501888364,
+      "V_integrated": 2.9951966881585896
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 3.0768176971251866,
+      "T_avg": 0.27526084379084514,
+      "psi_avg": 0.45551797972220504,
+      "V_integrated": 3.0771765597337093
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 2.9828020397786985,
+      "T_avg": 0.2721037585194778,
+      "psi_avg": 0.47277863126950964,
+      "V_integrated": 2.9828209813590614
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 2.983118721447804,
+      "T_avg": 0.2721130710432546,
+      "psi_avg": 0.4726582514252384,
+      "V_integrated": 2.9831146193869156
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 2.98388646099849,
+      "T_avg": 0.27214474871005684,
+      "psi_avg": 0.47246391701561385,
+      "V_integrated": 2.9839244254364847
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 2.9826965790972353,
+      "T_avg": 0.2720998109103385,
+      "psi_avg": 0.4727660058139536,
+      "V_integrated": 2.9826754228546246
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 2.9824381275382383,
+      "T_avg": 0.2721010049113129,
+      "psi_avg": 0.4727357977137664,
+      "V_integrated": 2.982482467885277
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 2.983713116728079,
+      "T_avg": 0.27213964890357606,
+      "psi_avg": 0.47262938928107456,
+      "V_integrated": 2.9835923712220436
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 2.9830779194415964,
+      "T_avg": 0.2721103809671972,
+      "psi_avg": 0.47272728852367196,
+      "V_integrated": 2.9831461624529014
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 2.9832893485333662,
+      "T_avg": 0.27211508810337043,
+      "psi_avg": 0.47268599706563663,
+      "V_integrated": 2.983320119094715
+    },
+    {
+      "job_id": "gamma42_i001_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.20918367346938774,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 2.9832976001148244,
+      "T_avg": 0.27212623849969836,
+      "psi_avg": 0.4726455869759931,
+      "V_integrated": 2.9832523205557844
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 3.1067037310618133,
+      "T_avg": 0.27884237134382955,
+      "psi_avg": 0.4462290072108888,
+      "V_integrated": 3.1073432554832214
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 3.0047090349619365,
+      "T_avg": 0.27535831426462787,
+      "psi_avg": 0.46650747510198354,
+      "V_integrated": 3.0048057286363408
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 3.004825347696234,
+      "T_avg": 0.2753475855565788,
+      "psi_avg": 0.46660817252377235,
+      "V_integrated": 3.004848607740398
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 3.0035003422575106,
+      "T_avg": 0.27531315548500984,
+      "psi_avg": 0.46653529385575915,
+      "V_integrated": 3.003476223085123
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 3.004993467017446,
+      "T_avg": 0.2753571362474227,
+      "psi_avg": 0.4665100069611579,
+      "V_integrated": 3.0049456952630202
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 3.005329646751267,
+      "T_avg": 0.275360333994896,
+      "psi_avg": 0.46647664549604084,
+      "V_integrated": 3.005317114987904
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 3.005447725401697,
+      "T_avg": 0.27537197380563877,
+      "psi_avg": 0.4663995186476994,
+      "V_integrated": 3.00545346129308
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 3.005091707831756,
+      "T_avg": 0.2753549906341394,
+      "psi_avg": 0.4664485948525314,
+      "V_integrated": 3.005229135393422
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 3.004406617193934,
+      "T_avg": 0.27534471182912157,
+      "psi_avg": 0.46644843415259063,
+      "V_integrated": 3.0043101367960205
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 3.0057653976719916,
+      "T_avg": 0.2753763815611104,
+      "psi_avg": 0.46644501221959017,
+      "V_integrated": 3.005679415804443
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 3.1298103692288475,
+      "T_avg": 0.27990973775060707,
+      "psi_avg": 0.44487196167713117,
+      "V_integrated": 3.1300511521913905
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 3.0129038543850952,
+      "T_avg": 0.2764408426619874,
+      "psi_avg": 0.4632941827824165,
+      "V_integrated": 3.0129277285031417
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 3.0129818011759406,
+      "T_avg": 0.27644532851935677,
+      "psi_avg": 0.4632185379825552,
+      "V_integrated": 3.012922880913734
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 3.0132267421475136,
+      "T_avg": 0.2764536699798254,
+      "psi_avg": 0.46326581967567154,
+      "V_integrated": 3.0132076928585128
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 3.01417477092496,
+      "T_avg": 0.27647075327716814,
+      "psi_avg": 0.46327562602695666,
+      "V_integrated": 3.0142192324157895
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 3.0132592115871923,
+      "T_avg": 0.27645084099963424,
+      "psi_avg": 0.4633079006994532,
+      "V_integrated": 3.013310616804797
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 3.013578773163587,
+      "T_avg": 0.2764685018053999,
+      "psi_avg": 0.46322175167756957,
+      "V_integrated": 3.0135019387661828
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 3.0131131365834443,
+      "T_avg": 0.27644421053362134,
+      "psi_avg": 0.46323516124803726,
+      "V_integrated": 3.013059614203221
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 3.01284891669555,
+      "T_avg": 0.27643511454511854,
+      "psi_avg": 0.4632606317776904,
+      "V_integrated": 3.01286812923242
+    },
+    {
+      "job_id": "gamma42_i002_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21020408163265306,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 3.013821270209887,
+      "T_avg": 0.2764672371270773,
+      "psi_avg": 0.46312311169063053,
+      "V_integrated": 3.0138009063938127
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 1,
+      "V": 3.0734796311135724,
+      "T_avg": 0.28300667790445233,
+      "psi_avg": 0.4349991088407582,
+      "V_integrated": 3.0737404210974293
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 2,
+      "V": 2.8409798952285947,
+      "T_avg": 0.27207918513106216,
+      "psi_avg": 0.4772005363965126,
+      "V_integrated": 2.8411844859770596
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 3,
+      "V": 2.5729555376509987,
+      "T_avg": 0.26743117797226157,
+      "psi_avg": 0.50302722096228,
+      "V_integrated": 2.573368234572756
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 4,
+      "V": 2.5716134035491427,
+      "T_avg": 0.2674104431909501,
+      "psi_avg": 0.5033269156956988,
+      "V_integrated": 2.5714618732740155
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 5,
+      "V": 2.5706059740426737,
+      "T_avg": 0.26737453856266,
+      "psi_avg": 0.5031963480328351,
+      "V_integrated": 2.5707064713668366
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 6,
+      "V": 2.571001500073651,
+      "T_avg": 0.2673869911781284,
+      "psi_avg": 0.5032125920018595,
+      "V_integrated": 2.570896827229408
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 7,
+      "V": 2.5697065101170566,
+      "T_avg": 0.2673504117698348,
+      "psi_avg": 0.5031520009623122,
+      "V_integrated": 2.569665846570258
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 8,
+      "V": 2.568935933510488,
+      "T_avg": 0.26732449233656286,
+      "psi_avg": 0.5033054632614002,
+      "V_integrated": 2.5690442694433044
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 9,
+      "V": 2.5708966479985143,
+      "T_avg": 0.26738866590058763,
+      "psi_avg": 0.5030682972747166,
+      "V_integrated": 2.5708397219658967
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110601",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110601,
+      "segment": 10,
+      "V": 2.5704946275897753,
+      "T_avg": 0.26737121742085856,
+      "psi_avg": 0.5031307529200049,
+      "V_integrated": 2.57040170722149
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 1,
+      "V": 2.960024433798994,
+      "T_avg": 0.27882702638725027,
+      "psi_avg": 0.44638451455029166,
+      "V_integrated": 2.9604229794717405
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 2,
+      "V": 2.596943101870361,
+      "T_avg": 0.2667044339769398,
+      "psi_avg": 0.5045868938148699,
+      "V_integrated": 2.59693368309213
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 3,
+      "V": 2.5691963235603157,
+      "T_avg": 0.2673325179595501,
+      "psi_avg": 0.5032275373740265,
+      "V_integrated": 2.5691308419756242
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 4,
+      "V": 2.57112210762328,
+      "T_avg": 0.2673950648951936,
+      "psi_avg": 0.5032867794076634,
+      "V_integrated": 2.571061170410272
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 5,
+      "V": 2.570367400868094,
+      "T_avg": 0.2673664736614284,
+      "psi_avg": 0.5031107040064119,
+      "V_integrated": 2.570358933688194
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 6,
+      "V": 2.5714327479118286,
+      "T_avg": 0.26740858603546264,
+      "psi_avg": 0.5030887548149678,
+      "V_integrated": 2.571489414833752
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 7,
+      "V": 2.5709975065559867,
+      "T_avg": 0.26739435069331713,
+      "psi_avg": 0.5030108526445567,
+      "V_integrated": 2.5710772258832164
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 8,
+      "V": 2.5713594837197435,
+      "T_avg": 0.26740838433252484,
+      "psi_avg": 0.5032762467489386,
+      "V_integrated": 2.571399389463975
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 9,
+      "V": 2.5702015955888653,
+      "T_avg": 0.2673657017349615,
+      "psi_avg": 0.5030473506581752,
+      "V_integrated": 2.5702577625901153
+    },
+    {
+      "job_id": "gamma42_i003_seed2026110602",
+      "variant": "gamma42",
+      "Je": 0.21122448979591835,
+      "seed": 2026110602,
+      "segment": 10,
+      "V": 2.5698648942610323,
+      "T_avg": 0.2673532091705462,
+      "psi_avg": 0.5032237122726853,
+      "V_integrated": 2.569932894695412
+    }
+  ],
+  "stationarity": {
+    "baseline": {
+      "0.20816326530612245": {
+        "n": 2,
+        "values": [
+          0.00017832896878955395,
+          0.0004619407245480822
+        ],
+        "mean": 0.0003201348466688181,
+        "ci_low": -0.001481679670458098,
+        "ci_high": 0.002121949363795734,
+        "pass_drift": true
+      },
+      "0.20918367346938774": {
+        "n": 2,
+        "values": [
+          -0.0003666390276055864,
+          -0.00033679693176136283
+        ],
+        "mean": -0.0003517179796834746,
+        "ci_low": -0.0005413078694601011,
+        "ci_high": -0.00016212808990684815,
+        "pass_drift": true
+      },
+      "0.21020408163265306": {
+        "n": 2,
+        "values": [
+          -0.004119284088736741,
+          -0.00393786791090589
+        ],
+        "mean": -0.0040285759998213155,
+        "ci_low": -0.00518113154880785,
+        "ci_high": -0.002876020450834781,
+        "pass_drift": false
+      },
+      "0.21122448979591835": {
+        "n": 2,
+        "values": [
+          -0.0013399611289819369,
+          0.0025348849594291067
+        ],
+        "mean": 0.0005974619152235849,
+        "ci_low": -0.024019831945034605,
+        "ci_high": 0.025214755775481774,
+        "pass_drift": false
+      }
+    },
+    "gamma38": {
+      "0.20816326530612245": {
+        "n": 2,
+        "values": [
+          -3.0929662030665384e-05,
+          -0.003017478791778494
+        ],
+        "mean": -0.0015242042269045797,
+        "ci_low": -0.020498056575514713,
+        "ci_high": 0.017449648121705554,
+        "pass_drift": false
+      },
+      "0.20918367346938774": {
+        "n": 2,
+        "values": [
+          0.00015454536376502404,
+          0.0001555268147672706
+        ],
+        "mean": 0.00015503608926614731,
+        "ci_low": 0.000148800830579613,
+        "ci_high": 0.00016127134795268164,
+        "pass_drift": true
+      },
+      "0.21020408163265306": {
+        "n": 2,
+        "values": [
+          0.011114655066379875,
+          -0.0011039088558333354
+        ],
+        "mean": 0.00500537310527327,
+        "ci_low": -0.0726204142835661,
+        "ci_high": 0.08263116049411263,
+        "pass_drift": false
+      },
+      "0.21122448979591835": {
+        "n": 2,
+        "values": [
+          0.007646457192552525,
+          0.0310716037869474
+        ],
+        "mean": 0.019359030489749962,
+        "ci_low": -0.12946332381189335,
+        "ci_high": 0.16818138479139327,
+        "pass_drift": false
+      }
+    },
+    "gamma42": {
+      "0.20816326530612245": {
+        "n": 2,
+        "values": [
+          0.0012295168028222392,
+          0.00042249766005086897
+        ],
+        "mean": 0.0008260072314365541,
+        "ci_low": -0.004301067995596058,
+        "ci_high": 0.0059530824584691664,
+        "pass_drift": false
+      },
+      "0.20918367346938774": {
+        "n": 2,
+        "values": [
+          -0.001375948429254592,
+          8.251581458118551e-06
+        ],
+        "mean": -0.0006838484238982367,
+        "ci_low": -0.00947781278986369,
+        "ci_high": 0.008110115942067217,
+        "pass_drift": false
+      },
+      "0.21020408163265306": {
+        "n": 2,
+        "values": [
+          0.0013587804780574864,
+          0.0009723535143368878
+        ],
+        "mean": 0.001165566996197187,
+        "ci_low": -0.0012894430621089507,
+        "ci_high": 0.003620577054503325,
+        "pass_drift": false
+      },
+      "0.21122448979591835": {
+        "n": 2,
+        "values": [
+          -0.0004020204087389345,
+          -0.0003367013278330333
+        ],
+        "mean": -0.0003693608682859839,
+        "ci_low": -0.000784339675870554,
+        "ci_high": 4.561793929858614e-05,
+        "pass_drift": true
+      }
+    }
+  },
+  "primary": {
+    "Je_low": 0.20918367346938774,
+    "Je_high": 0.21020408163265306,
+    "by_variant": {
+      "baseline": {
+        "seeds": [
+          {
+            "seed": 2026110601,
+            "V_low": 2.934719583177882,
+            "V_high": 2.534044742392753,
+            "deltaV": -0.40067484078512905,
+            "fraction": 0.13652917405868653
+          },
+          {
+            "seed": 2026110602,
+            "V_low": 2.9342372066027367,
+            "V_high": 2.532898411277572,
+            "deltaV": -0.4013387953251648,
+            "fraction": 0.1367778973090711
+          }
+        ],
+        "mean_fraction": 0.13665353568387884,
+        "paired_fractional_improvements": [
+          0.0,
+          0.0
+        ],
+        "worst_seed_improvement": 0.0,
+        "endpoint_drift_pass": false,
+        "eligible": false
+      },
+      "gamma38": {
+        "seeds": [
+          {
+            "seed": 2026110601,
+            "V_low": 2.4719908965827195,
+            "V_high": 2.9416312313088606,
+            "deltaV": 0.4696403347261411,
+            "fraction": -0.18998465381703952
+          },
+          {
+            "seed": 2026110602,
+            "V_low": 2.4431070882802235,
+            "V_high": 2.940123888964734,
+            "deltaV": 0.4970168006845106,
+            "fraction": -0.20343635490590617
+          }
+        ],
+        "mean_fraction": -0.19671050436147286,
+        "paired_fractional_improvements": [
+          -0.326513827875726,
+          -0.34021425221497725
+        ],
+        "worst_seed_improvement": -0.34021425221497725,
+        "endpoint_drift_pass": false,
+        "eligible": false
+      },
+      "gamma42": {
+        "seeds": [
+          {
+            "seed": 2026110601,
+            "V_low": 2.995078205619296,
+            "V_high": 3.0057653976719916,
+            "deltaV": 0.010687192052695416,
+            "fraction": -0.0035682514174903194
+          },
+          {
+            "seed": 2026110602,
+            "V_low": 2.9832976001148244,
+            "V_high": 3.013821270209887,
+            "deltaV": 0.030523670095062627,
+            "fraction": -0.010231520346440731
+          }
+        ],
+        "mean_fraction": -0.0068998858819655255,
+        "paired_fractional_improvements": [
+          -0.14009742547617685,
+          -0.14700941765551184
+        ],
+        "worst_seed_improvement": -0.14700941765551184,
+        "endpoint_drift_pass": false,
+        "eligible": false
+      }
+    }
+  },
+  "exploratory_adjacent_pairs": [
+    {
+      "variant": "baseline",
+      "Je_left": 0.20816326530612245,
+      "Je_right": 0.20918367346938774,
+      "seeds": [
+        {
+          "seed": 2026110601,
+          "V_left": 2.9206920482923104,
+          "V_right": 2.934719583177882,
+          "absolute_drop": -0.014027534885571402,
+          "fraction": -0.004802812023189201,
+          "eligible": false
+        },
+        {
+          "seed": 2026110602,
+          "V_left": 2.9322315719166534,
+          "V_right": 2.9342372066027367,
+          "absolute_drop": -0.0020056346860832797,
+          "fraction": -0.0006839960067588715,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "baseline",
+      "Je_left": 0.20918367346938774,
+      "Je_right": 0.21020408163265306,
+      "seeds": [
+        {
+          "seed": 2026110601,
+          "V_left": 2.934719583177882,
+          "V_right": 2.534044742392753,
+          "absolute_drop": 0.40067484078512905,
+          "fraction": 0.13652917405868653,
+          "eligible": true
+        },
+        {
+          "seed": 2026110602,
+          "V_left": 2.9342372066027367,
+          "V_right": 2.532898411277572,
+          "absolute_drop": 0.4013387953251648,
+          "fraction": 0.1367778973090711,
+          "eligible": true
+        }
+      ],
+      "excluded": [],
+      "eligible": true,
+      "score": 0.13652917405868653
+    },
+    {
+      "variant": "baseline",
+      "Je_left": 0.21020408163265306,
+      "Je_right": 0.21122448979591835,
+      "seeds": [
+        {
+          "seed": 2026110601,
+          "V_left": 2.534044742392753,
+          "V_right": 2.556360193096659,
+          "absolute_drop": -0.02231545070390606,
+          "fraction": -0.00880625757335084,
+          "eligible": false
+        },
+        {
+          "seed": 2026110602,
+          "V_left": 2.532898411277572,
+          "V_right": 2.59086346594103,
+          "absolute_drop": -0.05796505466345803,
+          "fraction": -0.022884871499532805,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "gamma38",
+      "Je_left": 0.20816326530612245,
+      "Je_right": 0.20918367346938774,
+      "seeds": [
+        {
+          "seed": 2026110601,
+          "V_left": 2.873992315376061,
+          "V_right": 2.4719908965827195,
+          "absolute_drop": 0.4020014187933416,
+          "fraction": 0.1398756067100826,
+          "eligible": true
+        },
+        {
+          "seed": 2026110602,
+          "V_left": 2.4057048254658118,
+          "V_right": 2.4431070882802235,
+          "absolute_drop": -0.037402262814411724,
+          "fraction": -0.015547320027996202,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": 0.1398756067100826
+    },
+    {
+      "variant": "gamma38",
+      "Je_left": 0.20918367346938774,
+      "Je_right": 0.21020408163265306,
+      "seeds": [
+        {
+          "seed": 2026110601,
+          "V_left": 2.4719908965827195,
+          "V_right": 2.9416312313088606,
+          "absolute_drop": -0.4696403347261411,
+          "fraction": -0.18998465381703952,
+          "eligible": false
+        },
+        {
+          "seed": 2026110602,
+          "V_left": 2.4431070882802235,
+          "V_right": 2.940123888964734,
+          "absolute_drop": -0.4970168006845106,
+          "fraction": -0.20343635490590617,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "gamma38",
+      "Je_left": 0.21020408163265306,
+      "Je_right": 0.21122448979591835,
+      "seeds": [
+        {
+          "seed": 2026110601,
+          "V_left": 2.9416312313088606,
+          "V_right": 2.9869945247383787,
+          "absolute_drop": -0.04536329342951806,
+          "fraction": -0.015421135370980523,
+          "eligible": false
+        },
+        {
+          "seed": 2026110602,
+          "V_left": 2.940123888964734,
+          "V_right": 3.0015889675269203,
+          "absolute_drop": -0.06146507856218619,
+          "fraction": -0.020905608363268345,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "gamma42",
+      "Je_left": 0.20816326530612245,
+      "Je_right": 0.20918367346938774,
+      "seeds": [
+        {
+          "seed": 2026110601,
+          "V_left": 2.942417877424197,
+          "V_right": 2.995078205619296,
+          "absolute_drop": -0.052660328195099027,
+          "fraction": -0.017896957668432214,
+          "eligible": false
+        },
+        {
+          "seed": 2026110602,
+          "V_left": 2.942019108386959,
+          "V_right": 2.9832976001148244,
+          "absolute_drop": -0.04127849172786524,
+          "fraction": -0.014030667445425696,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "gamma42",
+      "Je_left": 0.20918367346938774,
+      "Je_right": 0.21020408163265306,
+      "seeds": [
+        {
+          "seed": 2026110601,
+          "V_left": 2.995078205619296,
+          "V_right": 3.0057653976719916,
+          "absolute_drop": -0.010687192052695416,
+          "fraction": -0.0035682514174903194,
+          "eligible": false
+        },
+        {
+          "seed": 2026110602,
+          "V_left": 2.9832976001148244,
+          "V_right": 3.013821270209887,
+          "absolute_drop": -0.030523670095062627,
+          "fraction": -0.010231520346440731,
+          "eligible": false
+        }
+      ],
+      "excluded": [],
+      "eligible": false,
+      "score": null
+    },
+    {
+      "variant": "gamma42",
+      "Je_left": 0.21020408163265306,
+      "Je_right": 0.21122448979591835,
+      "seeds": [
+        {
+          "seed": 2026110601,
+          "V_left": 3.0057653976719916,
+          "V_right": 2.5704946275897753,
+          "absolute_drop": 0.43527077008221626,
+          "fraction": 0.14481195718712436,
+          "eligible": true
+        },
+        {
+          "seed": 2026110602,
+          "V_left": 3.013821270209887,
+          "V_right": 2.5698648942610323,
+          "absolute_drop": 0.44395637594885473,
+          "fraction": 0.14730680294055293,
+          "eligible": true
+        }
+      ],
+      "excluded": [],
+      "eligible": true,
+      "score": 0.14481195718712436
+    }
+  ],
+  "selected_variant": null,
+  "selected_candidate": null,
+  "negative_branch": {
+    "stationary_claim": false
+  },
+  "provenance": {
+    "protocol_sha256": "7a2955e0bc4e4154fdab319fbfd3726ab26fed5ccaa1f24b4e46d3878ed7daf8",
+    "jobs_sha256": "54d406edd7b6ea0c886dd938127e698068321bf2e5209c069cdc3b4f40cc7dd4",
+    "analysis_source_sha256": {
+      "analyze_ndr_gamma_tune.py": "cfc285819f61e3fb9ed2d2d1ec8751f5626fd0846de35ce8f42fc2fcbd46556d",
+      "prepare_ndr_gamma_tune.py": "22d4398b0f3e2b704044c465e6bd10ba734f2082db0fe45fd90aa03316cd1073",
+      "analyze_ndr_enhancement.py": "34b3d196fadf35a2c0cdf56e606d6dfcd555c06af9e9addfe0fcd2ac1dc9ffe3",
+      "analyze_full_curl_ndr.py": "26f91502595d44e936173114f510a9588b0f501add6d07e73240b741e535bf0c",
+      "analyze_full_iv.py": "5eca16e634fcedf0ab60e7da755f5505ec143f3dd83e4e2409ddd01baa16bde0",
+      "compare_results.py": "8b7fb2e89b631f8a013a351a8d8ecf9063d02aff32a84375e5505aa1af0c5c12"
+    },
+    "chain_receipt_sha256": {
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110602/segment3/chain.json": "0bd79f595a381cc05f38b0c785930c9b9278e43905231c1a08752d5cac36dbd5",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110602/segment4/chain.json": "ff5756776759686c7fd1522eb9166a75b24302c40886602d84f85c30e4fac9ca",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110602/segment2/chain.json": "18ae29bb2f63cbe5d708bdbcb5bf74ba574c224fa2f1f8ec62936476634983fb",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110602/segment6/chain.json": "7659315974bd0c403d8b14c3fab44dc37cfdd0dfbdd9a5ebf3634fdce1eb697e",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110602/segment5/chain.json": "62deab179b41399cc964ad8b813450bc1ee60f6b275a8f08865658a44564830a",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110602/segment9/chain.json": "fcbffde91f42e3498e312cde35fee9a6e2492f9f555b51227556986980e40eda",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110602/segment10/chain.json": "a19b523538b0bf0256f5562981bda5bd20b2d95468264ef14860138ce251c106",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110602/segment8/chain.json": "4cd6846cc4eb1c58e43c08aa7b1c0c94ea017b1a317cfb58325952c6b02024d0",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110602/segment7/chain.json": "5cb37748fe0da08a6e72a8ff079bdd7a794d7e14f2c5266e27d63597ab2e173e",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110602/segment1/chain.json": "dc373125255964f915630b6fd2d2b8ec590c86ff592b15ff491543675f8701c4",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110601/segment3/chain.json": "fd3cf4297d3b3d26d00b69c117b8e71ce3c18e8badcefe27c78c093bc5789437",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110601/segment4/chain.json": "c1095152fcb002936b44673d6ebf9c17a429b721cbde1e1025f711366b69a795",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110601/segment2/chain.json": "150abdfd455ca210281f2e7b56a5ff31aa5eb232db0098726ab306a830de484d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110601/segment6/chain.json": "b6523d71a85a003f695c9d5c25498d39ac6186a8e351c006906a34d27fb302c4",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110601/segment5/chain.json": "2785c8a003ddc7a479775ad52653a57acc02f10f903badced99366e031b7f7dd",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110601/segment9/chain.json": "36d4615f4831f8fbd290fe5f662e0f58e868cbb19eacccf8d2552626aa947b5d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110601/segment10/chain.json": "499f4d4bce0e2b0adeb075b0a0e85fa9a7f2b97d08ffeea3e02af21d16074178",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110601/segment8/chain.json": "11f880a344e67de67da90d3b66625a596d4576a805555f0f64e586d7642768f8",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110601/segment7/chain.json": "4212b94c0f3b483dc11293cb6d8a2cf4e65e1733f20269a092094bde0682dbff",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110601/segment1/chain.json": "f2a5120a30a59b7dd7ff69047bd7fa87991c09abfe811a8c91b46348ef7c83b7",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110602/segment3/chain.json": "a971406a415b0a10b9c2fa87a4c83579b333763fd63d4deb470d20e841ac2ad2",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110602/segment4/chain.json": "e67e4083bc1ccad305536a6b60717fa07389cb7a798bba68dd7d18f026555b3f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110602/segment2/chain.json": "b6328b451ec00568c1357184c98cad4df62e82edd3d534aef691a7144de127a1",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110602/segment6/chain.json": "36d6126d87771660e6f548abdc871a3ea05469c7bf66a7de669d6195e088264f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110602/segment5/chain.json": "477a522707e0aa0934971276362f8f03b1437daaac5a5be82aef2cc04010dcf1",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110602/segment9/chain.json": "65c193e2877fea48193de1edd1ed8e24e28acec1b04087b6e1a92b49b4022b73",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110602/segment10/chain.json": "1aaba3610324c707f7c77283925ade2bfbb8343514e4ed6e6b00521df629ef7b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110602/segment8/chain.json": "e217e9c43e6299f9eab491e4b2183dc2e11c18170066dec3886ed8307e28cc60",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110602/segment7/chain.json": "d10403a77600837dad1847148cc94cc9b7fda0c3b60b373ed9b5b89bdce047c5",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110602/segment1/chain.json": "ae25fb9653dee1dcf51781f33ddd43ffb86ed20035dcce9f1b827d541e708afa",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110602/segment3/chain.json": "2cdc6a1ef4736ba29d50ada87857b077ce13e410258fb9f3b39e1a1cc2d6ccf0",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110602/segment4/chain.json": "73d64fd39f26eb12c4f811b8f84e8d8577ff9308ec8292ac9c5411f8df65773e",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110602/segment2/chain.json": "43fff8f200d53700ead12f349335553e4ab4f7b32d75256255403cd6059a1449",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110602/segment6/chain.json": "fdbcf46e9176efa1e3a9eecc3ca3700cca3cfaa99f89c7c8601b44fe3b242d65",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110602/segment5/chain.json": "8511e40862f41ceb8b463a79eac498d35d4b1f5aa50aeedce277a9ccb63aca3b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110602/segment9/chain.json": "16ef282634a3a19190d1cf80eec6f2989b315d85ab3d7f2032b087bd437a3c95",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110602/segment10/chain.json": "d52c483359523659b0350ce5b90f2f503987344df134d1b989400b6e7f0b106d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110602/segment8/chain.json": "8c3e55184308ee2f65dd5f218485765a87a5609de4be31b861edf05e424d87e4",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110602/segment7/chain.json": "493b1975c3964d4e5bb0c5f44586938e923ebdff8e74a6559abd0bef07c4460c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110602/segment1/chain.json": "66e54da69d1aeaf426cf13ef4d18f07ff045e3480f3e8caac728219d7358cbfa",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110602/segment3/chain.json": "86a90e6756a9bd39aeca5960e112d26ef306b5aa897ac74a23c721536dfddedf",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110602/segment4/chain.json": "71e97e53e0c5ce9d71db8dee485e19457aa113f4ff00fa950e7a4b45d336a513",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110602/segment2/chain.json": "da4030366a5f279341365c79c04d81aabc4bcd9583e10bac09910c8f4db4ca8c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110602/segment6/chain.json": "0980ede40a98b09e15e81d3939d0f816d740764986f9998f569b37c219a4d4e1",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110602/segment5/chain.json": "4890654d2758d40a2290b48e75bed0f3df5875e482339c93ecebcb9522f04f58",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110602/segment9/chain.json": "9d0c67f64e4202a5cab1c01d6101a2d4482cca9f26235ac0a3510a6b87d7d565",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110602/segment10/chain.json": "6de4abba92b17ca84c08f8e6c93a10f21eeb3f8d6e2f2a0d665ee74866f04372",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110602/segment8/chain.json": "e277251b2dbc9ba5dfcb051cf66888c048682c01113d1a18862d376cd6f5c491",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110602/segment7/chain.json": "b026254c7a927f41d3f40271431819104cd91a70913fe1f98500d23ca8bd04ec",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110602/segment1/chain.json": "f78c94cfabd6641fd50645ac2b610c909b06bf47f9db2a8aaa848c500c166d82",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110602/segment3/chain.json": "679912b74a08770eda56536e7c80ff7f7c1a8ba658a3979ca09d43b93b90ac0b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110602/segment4/chain.json": "9c611036a171e69502fca5725c3c813e7bd58f6bba3aa0d889f7938cc90475b1",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110602/segment2/chain.json": "286bdc68c8c18b1756244eaaf7e5a199fb2b3994b8659112733d97534c0a633d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110602/segment6/chain.json": "75bea7367c664794d1899c42c26a484d5e66c0152b59d9c3682394b430696967",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110602/segment5/chain.json": "03febbddedfa2c66b68fb3818cbc1eea77843897d2c809a96b4a8b917e58300b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110602/segment9/chain.json": "1407ba0ad36218c1de648a1215c0dcbf67c9868ec4b341dd029464d8d779ac25",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110602/segment10/chain.json": "f240ee29ee582bfb1889d52fe0a96300ec1298744b6b58fc274f93305fbc1196",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110602/segment8/chain.json": "0c8a4c248e52ec596f8063ec4a40395cf8104a839f8ec7aac1678ff676256c72",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110602/segment7/chain.json": "4ac48de8f354b8275d6e9698b1ffc2d5bfe36cfc77dc74fa682188821dcf887a",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110602/segment1/chain.json": "6a943dd2bbbe901fcc2d799dc934055a2e6c05c3fafa2524580b95868a406556",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110602/segment3/chain.json": "121bbf62ae139cd5610635ec84a5b0ce019f6eaaf77146d951a0f575b06da628",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110602/segment4/chain.json": "a5d83bb354c62934ed52106a12172592b26d3709c154d0fc35ec6a1985fac243",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110602/segment2/chain.json": "198ef3303a54cc107db48700e3d7632a0af65aae3ce8a2dc27018cb8e5c6607c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110602/segment6/chain.json": "a8aded8bd029a2edb795a60d3f11094592d0dc634d01e43d707f70023ced4190",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110602/segment5/chain.json": "e397399391d0ba5bed4748a602457e8f519a76ea66ad1ee9fc8c418146bc01cd",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110602/segment9/chain.json": "22081896fdb105723b498dcc1d758947f3a7242a0fc9465fa8a375939476c49e",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110602/segment10/chain.json": "343b37fc21000e5ea6c21509aff74aa0d71d7e3c07abd7af86c299e606d97c7e",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110602/segment8/chain.json": "1a89c2892cf4140f445c62e2d52004df448a174a47a4bd36dcf65f0e34486293",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110602/segment7/chain.json": "ec397cf3193a3d9a82e261381827f7bb707fb042cb9ef0b105277a48c3fd600a",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110602/segment1/chain.json": "92633fe92101134ff303a9d5828cac33705058e082d3024c2aa012b0b5e43556",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110601/segment3/chain.json": "ec84968a7ca8adc216b3b405a98bcaa71a01d4463fea52b2c93f7a56f3100e8f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110601/segment4/chain.json": "843ce5d29995d182692570e70f3599fc52975c27de5a4cd9fc0d823d4371cce2",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110601/segment2/chain.json": "17d850ad40c83de73ed72513421bbda8aa0726f5bbe0c61d39a8805e75346a1f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110601/segment6/chain.json": "122a5f2051b3b414805d4d6d6886504f7a0e13fdbf96b558f4d4ebe5adad0f49",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110601/segment5/chain.json": "84f4781ca242d806fe6e1ae0d2a09bd2533a8ac46c6755383c7a557f078f5c82",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110601/segment9/chain.json": "5dfe86cc6c6a535cfcc5da665a0dac7750bec0c22bd99cc84858b2e82a2aea05",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110601/segment10/chain.json": "a02921ecca17fca2c3c16a79d6ee34c76f919e28b70152c846d3812ef1b659e2",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110601/segment8/chain.json": "21190ea0c25edc785287a108832395a651e793f102a2d4e7b68be76f596877ee",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110601/segment7/chain.json": "7bc24f05eff2ceccc957cdc5604528729260ef610728d77c4f0086c48ee0e14e",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i002_seed2026110601/segment1/chain.json": "5cb42770b47eaafa96bcfe209091409031d34d9673ea7a957a3c54d16ef21b1b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110602/segment3/chain.json": "6f4d5e03a4c81d15fc32950f3af2911c16feb0850451d8793b978f5dc6b361f5",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110602/segment4/chain.json": "69146549573d63e3a2f5c0a6ec27a10d731ae503cf42746fb549ed9539e2a309",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110602/segment2/chain.json": "59a791a12e29a5052bfeee00283b8fa9420b4af5c5174d71c9878e6885b99a0a",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110602/segment6/chain.json": "6a96f2a49c727f53de1667dfced5bd4ff69d8e932685fd474e9fd7ecc0b171ef",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110602/segment5/chain.json": "8256bf8bf509382902da05149644b31e546f08f1f4a1f00efb3ca20762603384",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110602/segment9/chain.json": "32c3050b2cb8342cc11ef228875d8e0f1c55f2f3812699a1bc61763c3829141f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110602/segment10/chain.json": "2917fea015679ce3d3e38c667d9e22ce30a2221bfc6ed567acf8638614704a09",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110602/segment8/chain.json": "e268f54de9eba3200bcd0fdec9dce897f627287b0f2126a19482a30a4329b248",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110602/segment7/chain.json": "10f872ef5c915a7b235617ba53d1a37c9cfa4508e2c759aa5067704ecca4bfc0",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110602/segment1/chain.json": "c3ac51dd19e5856bc20448083e9739380981826c11e60cfa8ee5538439692b02",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110601/segment3/chain.json": "e00fa9a0643fccdccd59a3a532d43deafc53db11cc21f9126e0b27b96b1b9b3f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110601/segment4/chain.json": "ea6091b23cfa853b04229db28fb29e9e601dd7e93c0868b32349c9549905a27c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110601/segment2/chain.json": "7e8abe6001a0e3918e5bcd402bf818a90664e57aa483878b341c099c88d02f57",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110601/segment6/chain.json": "4f7a501767fa4e80b24da99b89edfaf60a46231c7ad6f80114c7c74178f7d7bc",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110601/segment5/chain.json": "36ffbd97be26a00187072c58b6845c56b751663d153792c18f8106c8aa8e2ee4",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110601/segment9/chain.json": "351b786a7b08ddcd6c1b4b8f2e79e5f1ac4e34598d04b9a8495784e22b89a028",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110601/segment10/chain.json": "1ce3018e7b44b9b798b9f214ecdd29d54ed125d950a0c1033465591b7c30b1ad",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110601/segment8/chain.json": "7034b05c4b898b8e067b7e0050a934c586337d77ba6b2097b86cd46c2b2e9f59",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110601/segment7/chain.json": "db53319ed0cd5f7b3a1cf8d07e1520d4ba683257d9a3aaaa4e8d5db68366324e",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i002_seed2026110601/segment1/chain.json": "eb85f188313b25e9ef02c26edbf867f6a7180aa0a44580ded73770cbf9b5d502",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110601/segment3/chain.json": "6323d59b44f083ad10d9a91eaefa876158eb0cd1d0a2f166aa4a1914e3872075",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110601/segment4/chain.json": "38cecbc4141f355b7ccda551e04f82d8e8feea23deec9062b03d11c7514d186c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110601/segment2/chain.json": "78aa69a237827b948eeec48e8b32e02b97212ecce3340c31540c283ddd786f97",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110601/segment6/chain.json": "c8814a577de89bb7dd3c52df0f0dd8e1f7f72637a7a832d17db8b26b29cf5450",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110601/segment5/chain.json": "6ede835fbb94107ff9cce1111f44b31aca19488b5bd318d86fb683364241c4fa",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110601/segment9/chain.json": "5adc44737f65a7ab0aa46b8c3fc6c99be612af58eab8a3eb40c9104422d7cbd1",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110601/segment10/chain.json": "a55969f7f67e3429b07f74eaa23775e135dc419bb05e782aa9e7b85be1354450",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110601/segment8/chain.json": "e3663b7533f99d873806524002a141df2c9016abe721efcff052ebfd1913fdb9",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110601/segment7/chain.json": "f861c13678eb09577b44fe8ede01c51fd4aa70f7b689c1a69754b29264673efb",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110601/segment1/chain.json": "44e5edaa70847b4509d321f6f7563d5b18d8165e63b295539eaf7c2a34223b28",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110601/segment3/chain.json": "ca58cc3a18d7ee91143f678549f2465e2383b060027fb869d4bdcfb8361a5932",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110601/segment4/chain.json": "4b15c2b6baac2a3693ef4ad2da584fec6bb7add28dd34402bff6ff3d4498ad25",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110601/segment2/chain.json": "c9d47b325a4183628bda8121ef6078135fdf32cc28bda43f2ebab62399c66952",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110601/segment6/chain.json": "4311feb8d1fc5b7084ca8df55908098f044b79a5f5af742ea956d7fdd67ba752",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110601/segment5/chain.json": "7efb3c656de3720f5cab49d20e58ca5bc521e4e6b8169c3c11c51717a43e0861",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110601/segment9/chain.json": "caa3ccae90c70eefbd8744c809988a5950fed25de2092c71a5832ed348424c4b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110601/segment10/chain.json": "336998b1e32dc00bd0ce0d8998dc7cbff1f55d0994779a7b5e1b47ba4e51f4dd",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110601/segment8/chain.json": "b407500548f073de9f5d0ccd1b997daca124d37c8ae8108836b8770abd13790b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110601/segment7/chain.json": "4331696a87f2c8aa23e393ff0c2daeb5303acac433e7c4379221256a0245cf78",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i000_seed2026110601/segment1/chain.json": "9264e20adcd8f9781722cda0cb98d14f426e3562152bd03da602eedfbd0a8697",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110602/segment3/chain.json": "fcaf276277174bc82e81201c38debeadc3a8196b5ad37ae3ddcf6e10f6e5ac0f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110602/segment4/chain.json": "e5c282ea355ae79a8fdd0d74b82958ede75890801819138fe79ecf0663f7179b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110602/segment2/chain.json": "55dc86cdb943d97e93c3f3711ac69dbb3d0f78a84fe58489b63ee53242268003",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110602/segment6/chain.json": "f01fda26a8d12c2066110ef1c89ebe4cfcc601bd41073b768d16a13d695ae23f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110602/segment5/chain.json": "dd003ed76e9acde3e28acfe337956e26af45fb8ddc57f44140c73c655fcf5a90",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110602/segment9/chain.json": "da473751e43ca6eca16f89583c5a01c5ed133cf728c837d42f753eed11b21d7b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110602/segment10/chain.json": "4eda86cd1bd49b3b912ec54e4f68087b087743275d48893fbcf70dccf892fdc1",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110602/segment8/chain.json": "15158b153d52966369931eaf75dcbd3e019336c3b48d048feb9a6edffc879e36",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110602/segment7/chain.json": "c43a8b31d9d2af59a2b32c5e43ec7fceea4337bedbdeb89359fb2a5d2328e9f0",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110602/segment1/chain.json": "db4e82651e20b95219fb696323ec6731fe5956d0f2e5331e157a9f4a849c27e7",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110601/segment3/chain.json": "aa7c1dc97327ba5fb68822c4a52b102235e4de48c085354d8a3055116a5aa125",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110601/segment4/chain.json": "44539b1b56f6a2cc41c94aee6ea38dfbf507d142db58d461be1480972efd19db",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110601/segment2/chain.json": "da41e2fd179177716f79968c30fd6c2995fa9d05307afd72eeb86adce6700e7c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110601/segment6/chain.json": "9f19e6316e86c30d3f3ef8091d6332a99dffc80ec8b1caf6e7d9582bdab7989b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110601/segment5/chain.json": "2831e19bcf6ec6454c1fc55c33645c3e6735277fd37cd666a1a6bd02ca122491",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110601/segment9/chain.json": "90f4e3786fa0b5c26fa72cc0b61235d56ff69f486280cd176c757d41726b19de",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110601/segment10/chain.json": "fdf7a76d6ac48fd0969775371a58229d83cd348a329c4f05621cc0d04c342819",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110601/segment8/chain.json": "729c3f44b64fa49b1bc9528ff1cfdfceb8525a57433d808442ffd856a78e9d3f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110601/segment7/chain.json": "011c92562b63780bad546bdccf9297c466c1e6c0d9867b870e1fdfc9b22383dd",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i003_seed2026110601/segment1/chain.json": "b9fd8faf82ed8bbc6c97680a6cdabb038d39cd2830192fdee862aaa6c9b3398a",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110601/segment3/chain.json": "580c27f666efc1ad677e5c6cb9a621c31d00a875bf51152bdfc4455223439021",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110601/segment4/chain.json": "58c231d958ea4537a56d42a8476454969b0033a09dbb32917272b4105d690d68",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110601/segment2/chain.json": "554b10cea0063a45642a198ef4567f787a166eacc310388285669ac8c2d51edb",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110601/segment6/chain.json": "055c2f129874140073584ef8b74417cfb7b0d8d104563352064b95a82da80d58",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110601/segment5/chain.json": "fa0ef63e2ccb3fd11bc05f4a07c0fc84bd2a339e2df1badae9a35bea2af94914",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110601/segment9/chain.json": "62a3f89ecf62fecb3667dc5ef13456151bf0df824903d24ce05346cf2efe99a9",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110601/segment10/chain.json": "018ba46c385e7cf551a74147d54c71c8779b8a3c5eb88ef74608b7afbd091626",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110601/segment8/chain.json": "251d6415a99157bf7ea59e1a3be2640513a3e336170c81adba51b8eeb92ee4bc",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110601/segment7/chain.json": "2ea0c9dc87dbdd35b0cfcb5e3bc57c3f28ba16b555debdd2a9bd4b867b739d7d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i001_seed2026110601/segment1/chain.json": "243c29aae783eaff49c6895c011199fd0a2e1062b19f6f45c062e96fcd2cc3bd",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110601/segment3/chain.json": "69e0909e4be31ebb2584c3d6b3c66cc4052cc55bade1d422f06680e65e2b1d86",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110601/segment4/chain.json": "efe17da651b01f45df9566920ffda83ebc11f291ec52e27ef35c88bdb1d4dc04",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110601/segment2/chain.json": "0a41bf41f9fe863fcd0fad3a34e2304a5acf8dc872817e6c08caf608c124c2c0",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110601/segment6/chain.json": "1787875f0110e65fa092d248a7329f879233bdf98887b3c87ffa213d91af8b90",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110601/segment5/chain.json": "c5aed7d2dabdecb9a39214b7ccc5fd1ab3f9a92359987c98b2fa5154cd0eda6c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110601/segment9/chain.json": "9c30a75031622b7c43fb6fe9654b2a76cb6aa1777e41246d09f5e47ebefa1938",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110601/segment10/chain.json": "ab3b150111e72a700fba3b8590a000b24027de24cd2360ca489d9acf7d3a3a96",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110601/segment8/chain.json": "7e1c47c9e4b054ed791d42a64b5eeed8d1a434466a9d5f3e0a0b2def97089f4f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110601/segment7/chain.json": "3d9344b77bc72d645c330e8e6b23381890542da0c852bf6e78a9649b1c0cf537",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i000_seed2026110601/segment1/chain.json": "4610e88177eadb1d275723bd12cf3d29f3647d455983f91a8dbb533db1dd4870",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110602/segment3/chain.json": "10d1a77c0dcaee352e7b4a0f0ad230ab26118f8cf8e71a79cdfd7860a860de2d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110602/segment4/chain.json": "c0e30c81387fc043da7dcf2b963916325a263c7475421bb79361a2df35e525a8",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110602/segment2/chain.json": "88ba833d402c531d4f0a192a99e293884d4472de816ff7d40addc7f35002f7b9",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110602/segment6/chain.json": "b2e134accf8bb46773ddc93f8c7b2edc970a12e291cc0480e55e383d932418ef",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110602/segment5/chain.json": "e1880a4bb4f130830d913d4d38534a94ec994d49940485437368000231faa64d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110602/segment9/chain.json": "7a9517b99c870f2657c94947482267ca8a77878cee849800906ac2b333f4e8a0",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110602/segment10/chain.json": "c17cc23342498cec2f7d63df073905872a8cc968acae55b623bb6e60a302cbba",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110602/segment8/chain.json": "567d324f09a5dfffe3a5bc666ed557d90593612fba86d8f3b6ed0f44fa468122",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110602/segment7/chain.json": "a0086bd3cc1fad7cc63f4274f90941df7d08253a234fd50ad75593796d569cdc",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i001_seed2026110602/segment1/chain.json": "1a9749809aceacdda78317b1a7a86845163c1979d61d943504afee088a4d653f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110601/segment3/chain.json": "e196c7f3ff5d54ff4e8603af26b00142fb9cd997b3780273e2494329fbd58258",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110601/segment4/chain.json": "6d5f52a5b4353f52993424942ee6153395fa911d896444aa8aa8e73121622836",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110601/segment2/chain.json": "96b319ca4691bd0a90775b2c694575e82d54e240a7da7e2368631df3dfd8887d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110601/segment6/chain.json": "ec91bdf938b2ab0dba67cb8ef9b3816b9c8f61aa0f941e86ea12e30fbd9ac691",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110601/segment5/chain.json": "9a727154734c637f2d119db1caeba3b88790e29051e1257977ef77ec1b034449",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110601/segment9/chain.json": "0a51bd58e0732731d554575a12984dcfae2b8533885353ce78efed957146fda5",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110601/segment10/chain.json": "28c1bf3097b1ea9cff8988609a07dab462103f79c3800dcc5fd1168a29e9af50",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110601/segment8/chain.json": "c21a625489479253d1d4cf840d7d93f59a83a3ab7d4d7a63b0bb3eaef5febe13",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110601/segment7/chain.json": "61a93873445ba70e3759248b19f613634b85610d0d2640f3edda621a117a1fc1",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110601/segment1/chain.json": "fb35e3839d4683c2ff9ad38f34debbbdb994438564398d7557635a20cadeafdf",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110602/segment3/chain.json": "59f188d711b801f208237fc58928acce54b8d11a5a5f3740a6e9eb956b92c5b2",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110602/segment4/chain.json": "f8f3d220f00d6f190ee07ad7e1d825aa5d00ac84d948f2d0422856fc24249583",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110602/segment2/chain.json": "5280486fe7f740b42e07db17d22b19e6ac7dfebeeb7622ee67c73255656632e9",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110602/segment6/chain.json": "a573a9fd59062d8aacf866896b0b69e79e1771cfb420b40cddfda8b9c739858c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110602/segment5/chain.json": "a4c53fd08f309e25eab7a5def2899c39c1adc56ba513351c56dc77595e499a80",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110602/segment9/chain.json": "d3812376093b096a4900fc8d1a2dadf013b9f199942f2ea1f3e0833c79cecac5",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110602/segment10/chain.json": "ba689f703f79afe8e8cbec208d2a0380d66192320165e359133ea65739de7d87",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110602/segment8/chain.json": "62e4328484401fce089dfb0d621d3d8ee16a9d929e5921c6182372ff92d45792",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110602/segment7/chain.json": "41470ba11109b3099a87d48b82aefb39b478f54f1bde6c494701b75d290e4194",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110602/segment1/chain.json": "6a7af179fe7eb3c829a7773a1016176a0f31ebf05bfab54156a49605351d84fd",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110601/segment3/chain.json": "8254a348d0d2b0c3c4495118435bf4a0c7de0daa8ea80920b6ddffda058b0c9c",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110601/segment4/chain.json": "25e5602f1aa6131d8e579f269921bec53edbab93004fed1878aa81408c7840d1",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110601/segment2/chain.json": "e6f67282d3ce63d3de8ea32391695fd9d2b9d94deb21bac07ab2b8e461d079ab",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110601/segment6/chain.json": "d37c399d6fef66bb08b97b7a7a508e2e739a11994e6e4438953dc74ba6fbb6bb",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110601/segment5/chain.json": "5469437a9a859a26758e123e1d173be4e511ee490158ef9ea8b0cf55e0ab1e13",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110601/segment9/chain.json": "15c5e27f71b3537ad0f880bb0813e9636160bdaeb30a6df2275c794130cf1c73",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110601/segment10/chain.json": "e7d451ca93069900a2b3c39398ad98fd6d7c5d77e9303c900d6c660318decad9",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110601/segment8/chain.json": "50fb46b229665c7c8989b12e66aa555d2c20c3d483c23bee2ca4d42a327b075d",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110601/segment7/chain.json": "2c08d384dc7f7b38954312f756e4c5abc7574b97c1a560ec3705ed466f43a7f1",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i001_seed2026110601/segment1/chain.json": "a3248828a525595dc59c6b4a84554e8114589aac423f8a25be6457e8374ecb3b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110602/segment3/chain.json": "c9b0faabc79b10dc99ae431a5695c30052032e0d997bf672934f4c53e4681122",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110602/segment4/chain.json": "83310e50ed76e637ebd22323dedfce068f1f40b2bdd1bf07892da03be089f192",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110602/segment2/chain.json": "4ceedb34fc803f87f43f007773129584d9758e1fdb43d14537f9c03502cf9fc2",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110602/segment6/chain.json": "7d9796a2e33faf1e2c7a326a005a46d1bdb3acbfee84cbe92c7e0fdac59ac2bc",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110602/segment5/chain.json": "01293867b10f518b29d5eaa36ee8c23f297a017dad521ec3667ca5d0d024dcf6",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110602/segment9/chain.json": "2609e3c59927a0bd10568967a746a6be4f8a4218edb745660d2515cb6a2fcfe0",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110602/segment10/chain.json": "1ac25a3d9d95c0cb58e9d3ed3d8c85b5c5ed5aabcb160431ce6f23482b6bbff3",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110602/segment8/chain.json": "82ad81186f2929fd541a97456f7be3d2f10e60e9abb1e489d2a28ac8e9d8926e",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110602/segment7/chain.json": "35d77762e3906049c8bba367327bfd04ace9317531d884659985fbea383cee5a",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma42_i003_seed2026110602/segment1/chain.json": "76460c47f393578179f7c853912492202a1b480c76dd801d3efb23bd52a841f8",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110602/segment3/chain.json": "6112ad446a328f9c2fb86d4a050be40fb721a0cb7f7dc92cb4eb547d2474d7a6",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110602/segment4/chain.json": "fd28a9b8d4dc9bcc1bff485206de64a10d8c3903c283c093880974e59d0d7a97",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110602/segment2/chain.json": "e8708218cef09ba1b06510d8acca5afd0be8a1507c13f306642bce2dd7c30aa4",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110602/segment6/chain.json": "1141993155067ec7f23eb83cf603fb3d35b8d0ed658acce6f0327c0f97f902fa",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110602/segment5/chain.json": "2672f00d9cfe580139d2bd0e4a34a09adbd9fd018c8f3cffa911411c84d1b76a",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110602/segment9/chain.json": "0eec0273fffebb469bf68f8b1377ac5625f2909cb70eb349be4ea0b8f88efdab",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110602/segment10/chain.json": "07eef397626463396af44d20d1b7047967fb778df6bcd11eaebe451a717e31a4",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110602/segment8/chain.json": "53f6c0e6280cdb91cdaf1da9706d75ce292abc5a51b7df69b48fe20ed4d405b8",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110602/segment7/chain.json": "ccac58cf2ffdd52bca1dbb5a65ae690bf3fd86049da65514242f50ac7747c028",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/baseline_i000_seed2026110602/segment1/chain.json": "00cfccd1a7be5c79b7708a014b76e1dae70690b2fc1dc44e66d7535f0c22f1ac",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110601/segment3/chain.json": "316c86eb961d23aab0dd6d59912388af2e66d72bb94cd354a9056b4bf9ed7c53",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110601/segment4/chain.json": "cd96d5bc8f1854ccab84fd13761cb2159ffe61a0bcf8d9a5a932e5996fda7af1",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110601/segment2/chain.json": "a401af256f265b9bf2b9a6e7e78da77e54d0f6d357687a5ddb0571b2076f8b53",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110601/segment6/chain.json": "2e2e3d4bf4e83681782d76b897a0f3b95a1cec8b9b3f501fd5bd38c6f994ee01",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110601/segment5/chain.json": "d811a42ed6dcbd67ceea137513054f3455dada80dafdd92e700dc76e2663672b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110601/segment9/chain.json": "dcaaca33d3247138374ddf6d134fe9a3451cf27b24a51caabab4af45bbd286e4",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110601/segment10/chain.json": "ab44e3b010d1c4f68027e647ffb9b6fa18f4756f1ab439fd922d9df4f642ea34",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110601/segment8/chain.json": "e44a8dbba9b78eef44513ca6777f31f78cd045b9bc9722bdcc2156aa724d33c0",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110601/segment7/chain.json": "c53e38cee3f492f4e8c2696a66dfbf5e496fc1dd2e26e64d66b9fc2d089bd6ef",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i002_seed2026110601/segment1/chain.json": "48b57ddbe1e56759650a1e2839e921accc4192efef5f8af5a6a2b07a17ea09e9",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110601/segment3/chain.json": "7a326855bcf7ad2aec04041ea70c4656eb1d14306c7870779824b3623420e9bc",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110601/segment4/chain.json": "d062f1a98c42cb968e922f1eca3fbe8b2d258f9d64e61b0b98af4b1414b666b4",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110601/segment2/chain.json": "cf6e62b8045648f3baaec97c079fd5b39f7d292d6c4cc29e2cacf5579ca5e91b",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110601/segment6/chain.json": "35505480883cf5438464120cad06ad56cdd3d1fa3189fdf04b93392ea26b4912",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110601/segment5/chain.json": "f5479cfb7b9ed9e94dc1c83b436cc918797e31a24c2faf97e2bf54560ed3ef55",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110601/segment9/chain.json": "a9e967ae9d213411ec7fdf621bae8f1d594384fbc739efa963462f489d482654",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110601/segment10/chain.json": "9b4f194b3332620275e25b9acec0a315d86558a0594f46d920ebf95643d3bc2f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110601/segment8/chain.json": "81192161bd0e9f20740a47c2400377d7867952124d5b11449d37d32810efc09f",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110601/segment7/chain.json": "ebbb8f1de433b18b1d9ade4d1736405fe35f2cf0e0796cb577047a9384ce8492",
+      "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1/campaign/gamma38_i003_seed2026110601/segment1/chain.json": "583184de733d8ce013d6d786febc656f038d8ed606a74a093fe900af95398a4f"
+    },
+    "python": "3.14.8 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:26:14) [GCC 14.3.0]",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pyyaml": "6.0.3"
+  },
+  "scope": "Two-seed screening at the fixed original bracket. Other pairs exploratory. Continuous stationary branch unconfirmed."
+}

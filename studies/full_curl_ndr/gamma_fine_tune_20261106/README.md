@@ -4,6 +4,20 @@ The user requested small physical changes that could make the NDR-like decrease 
 
 The [previous thermal search](../enhancement_20261105/README.md) failed its enhancement target. The [local step-response control](../state_response_20261105/README.md) found positive local responses around both original prepared states, leaving a central current gap unresolved. Their outcomes are retained. The original 14.3237% eight-seed decrease is historical context, rather than the only control for a new parameter choice.
 
+## Verified two-seed screen
+
+All 24 fresh chains / 240 segments reached 50000τ and passed source/configuration, field/initial-vector/RNG hash and continuity, retained-schedule and nine-dataset finite checks. The [final audit](results/screen/final_validation_receipt.json) matches all individual receipts to the campaign, with the owned screen process session ended. The [English figure](results/screen/gamma_screen.png) ([PDF](results/screen/gamma_screen.pdf)), [analysis](results/screen/gamma_screen_analysis.json) and [seed rows](results/screen/gamma_screen_rows.csv) report all variants and currents.
+
+| Gamma | Mean paired decrease at the fixed primary pair | V1 candidate |
+|---|---:|---|
+| 40 | +13.665% | Reference |
+| 38 | −19.671% (voltage increase) | No |
+| 42 | −0.690% (voltage increase) | No |
+
+Neither perturbation strengthens the original primary decrease in these two seeds. The v1 strict drift/selection gates also fail. Gamma 42 has an exploratory decrease at the **next** interval, `0.2102040816 → 0.2112244898`, with seedwise fractions 14.481% and 14.731% (mean 14.606%). This indicates a shifted feature at screening scale, rather than a confirmed amplitude enhancement. It cannot replace the primary endpoint comparison.
+
+The amendment and fresh allocation were frozen before these outcomes were viewed. All three gamma values now undergo the fixed eight-seed validation; its results remain pending. The raw-data roots are `/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1` and `/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_validation_20261106_v2`.
+
 ## Outcome-blind amendment v2
 
 The [prospective amendment](amendment_v2/amendment.json) changes the fresh validation allocation before any current-screen voltage/temperature/condensate outcomes or drift estimates were inspected. Its saved server context records 144/240 segment receipts and no final campaign or analysis file. The original v1 screen protocol and its strict selection verdict are preserved and reported separately.
