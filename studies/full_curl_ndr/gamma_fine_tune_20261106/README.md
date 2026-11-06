@@ -4,6 +4,18 @@ The user requested small physical changes that could make the NDR-like decrease 
 
 The [previous thermal search](../enhancement_20261105/README.md) failed its enhancement target. The [local step-response control](../state_response_20261105/README.md) found positive local responses around both original prepared states, leaving a central current gap unresolved. Their outcomes are retained. The original 14.3237% eight-seed decrease is historical context, rather than the only control for a new parameter choice.
 
+## Outcome-blind amendment v2
+
+The [prospective amendment](amendment_v2/amendment.json) changes the fresh validation allocation before any current-screen voltage/temperature/condensate outcomes or drift estimates were inspected. Its saved server context records 144/240 segment receipts and no final campaign or analysis file. The original v1 screen protocol and its strict selection verdict are preserved and reported separately.
+
+The reason comes solely from historical eight-seed drift variation. Its estimated SDs are 0.001073 and 0.001718 at the two primary currents. Using these for precision planning gives approximate N=2 nominal 95% half-widths 0.00964 and 0.01543, much larger than the ±0.0025 equivalence margin. These are planning calculations, not results from the running screen or proof of stationarity. Requiring the two-seed gate before any fresh validation would provide a poor screening bottleneck.
+
+Under v2, **all three fixed gamma values** run both fixed primary endpoints with eight fresh seeds, regardless of the v1 screening verdict: `3 × 2 × 8 = 48` fresh chains / 480 segments. This replaces the original candidate-plus-baseline, three-current allocation within the same budget. No parameter, current bracket, statistical window or seed subset is chosen from current-screen outcomes. Missing or failed runs disable complete inference; no exclusion or imputation is permitted, and there is no outcome-based early stopping.
+
+The estimand is the arithmetic mean of seedwise fractional drops, with seedwise improvement relative to the same-label gamma-40 control. The two candidate-versus-baseline claims use Bonferroni correction, alpha 0.025 per candidate for one-sided fraction, improvement and voltage-difference bounds. A successful candidate must satisfy every original amplitude/sign requirement and the original nominal two-sided 95% endpoint drift-equivalence gates. These constituent intervals are not advertised as jointly simultaneous. The drift gate remains conservative, and eight seeds may still lack adequate precision.
+
+Among candidates meeting every criterion, the winner is the larger paired-improvement lower bound, then the larger mean fractional drop, then gamma 38. Successful confirmation triggers the original ordered control. Two independent prepared endpoints confirm a drop and a parameter comparison, rather than curve shape or a continuous stationary negative branch. The total ceiling remains **240 + 480 + 160 = 880** equivalent segments. Any successful claim is explicitly under amended v2, rather than a retrospective v1 success.
+
 ## Physical motivation
 
 In the implemented KWT equation, gamma changes the relative radial and tangential condensate dynamics and also enters GL heat production. At a fixed state, it does not change the full-curl magnetic stencil. This makes small gamma changes a focused test of the coupled dynamics and state selection. It does not guarantee enhancement or isolate a microscopic mechanism. The original generalized TDGL work includes phase-slip solutions: [Kramer and Watts-Tobin, Physical Review Letters 40, 1041 (1978)](https://doi.org/10.1103/PhysRevLett.40.1041).
@@ -16,7 +28,7 @@ The four currents are `0.20816326530612245`, `0.20918367346938774`, `0.210204081
 
 For each seed define `D(gamma) = (V_low − V_high) / V_low` and paired improvement `D(gamma) − D(40)`. A screen candidate requires positive drops larger than 0.01 native voltage units, low-current voltage at least 0.05, and positive fractional improvement in **both** seeds. Both primary endpoints of candidate and contemporaneous baseline must pass nominal two-sided 95% drift intervals inside ±0.0025. Candidates are ranked by the smaller paired improvement, with gamma 38 breaking exact ties. The result may be that neither candidate advances; two seeds provide only a limited screen.
 
-## Conditional confirmation and ordered control
+## Original v1 conditional plan, retained for audit
 
 If a candidate advances, its gamma is frozen before examining eight fresh seed labels `2026110611`–`2026110618`. Candidate and matched gamma-40 baseline both run the primary endpoints and their midpoint to 50000τ: 48 chains / 480 segments. Matching seed labels defines statistical blocks; adaptive RHS forcing does not produce identical physical noise histories across gamma values.
 

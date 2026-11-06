@@ -1,0 +1,85 @@
+{
+  "schema": "tdgl-full-curl-gamma-validation-amendment-v2",
+  "created_utc": "2026-11-06T16:01:03.273451+00:00",
+  "screen_protocol_sha256": "7a2955e0bc4e4154fdab319fbfd3726ab26fed5ccaa1f24b4e46d3878ed7daf8",
+  "screen_protocol_v1_preserved": true,
+  "historical_variance_source": "studies\\full_curl_ndr\\results\\interval\\analysis.json",
+  "historical_variance_sha256": "e641112f5e97a46d5cbd8f3f8252c3f340be5e09549380977ea890975a18b58c",
+  "historical_precision_planning": [
+    {
+      "Je": 0.20918367346938774,
+      "historical_n": 8,
+      "historical_sem": 0.0003793951781013297,
+      "historical_sd": 0.0010730916127397127,
+      "n2_planning_halfwidth_t_times_historical_sd_over_sqrt_n": 0.009641345617745913,
+      "n8_planning_halfwidth_t_times_historical_sd_over_sqrt_n": 0.0008971270390757676
+    },
+    {
+      "Je": 0.21020408163265306,
+      "historical_n": 8,
+      "historical_sem": 0.000607365881429935,
+      "historical_sd": 0.0017178901336818066,
+      "n2_planning_halfwidth_t_times_historical_sd_over_sqrt_n": 0.015434630478431915,
+      "n8_planning_halfwidth_t_times_historical_sd_over_sqrt_n": 0.0014361920928192518
+    }
+  ],
+  "planning_caveat": "Historical SD used for design precision only; not a stationarity result for the current screen.",
+  "blinding_context": {
+    "utc": "2026-11-06T16:01:02.591574+00:00",
+    "completed_segment_receipts": 144,
+    "screen_campaign_complete": false,
+    "screen_analysis_exists": false,
+    "inspected": "progress/file existence only; no V, T, psi, drift or voltage outcomes inspected"
+  },
+  "information_inspected": "Only progress, source/config/code hashes, initial-state and RNG identity, solver counts and unit-test fixtures. No current-screen V/T/psi trajectories, means, voltage drops, or drift estimates inspected.",
+  "reason": "Avoid an underpowered N=2 drift-equivalence selection bottleneck using historical variance, before outcome unblinding.",
+  "allocation": "All three fixed gamma values at both fixed primary endpoints, eight fresh seeds, regardless of v1 screening verdict.",
+  "gamma": [
+    38,
+    40,
+    42
+  ],
+  "currents": [
+    0.20918367346938774,
+    0.21020408163265306
+  ],
+  "seeds": [
+    2026110611,
+    2026110612,
+    2026110613,
+    2026110614,
+    2026110615,
+    2026110616,
+    2026110617,
+    2026110618
+  ],
+  "fresh_jobs": 48,
+  "segments_per_job": 10,
+  "fresh_total_segments": 480,
+  "alpha_family": 0.05,
+  "candidate_comparisons": 2,
+  "alpha_per_candidate": 0.025,
+  "confidence_rules": "Each gamma-versus-baseline claim is conjunctive. One-sided fraction/improvement/deltaV bounds at alpha=.025; original two-sided95% drift-equivalence intervals retained. Intervals are not advertised as jointly simultaneous across all constituents.",
+  "estimand": "Arithmetic mean of seedwise fractions (Vlow-Vhigh)/Vlow; paired seedwise candidate fraction minus baseline fraction. Not ratio of means.",
+  "success": {
+    "all_eight_drops_positive": true,
+    "mean_fraction_min": 0.2,
+    "fraction_lower_min": 0.15,
+    "paired_improvement_lower_min": 0,
+    "deltaV_upper_max": -0.01,
+    "drift_confidence": 0.95,
+    "drift_ci_bound": 0.0025
+  },
+  "missing_run_policy": "All48x10 required; no exclusions or imputation. Missing/error output disables success and selection.",
+  "winner_rule": "Among candidates meeting every criterion: largest paired-improvement lower bound, then larger mean fraction, then gamma38.",
+  "early_stop": false,
+  "conditional_ordered": {
+    "seeds": 4,
+    "directions": 2,
+    "currents": 5,
+    "dwell": 20000,
+    "total_equivalent_segments": 160
+  },
+  "total_budget_equivalent_segments": 880,
+  "scope": "Confirmation under prospectively amended v2 design; v1 screen verdict remains separately reported. Endpoint comparisons do not establish curve shape or a continuous stationary branch."
+}
