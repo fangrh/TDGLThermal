@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "errors": [],
+  "utc": "2026-11-06T16:59:04.091414+00:00",
+  "jobs": 48,
+  "aggregate_segments": 480,
+  "individual_receipts": 480,
+  "analysis_receipt_shas": 480,
+  "owned_sid_3470413_ended": true,
+  "owned_processes": [],
+  "protocol_sha256": "a26373b2981a8827757914cb1b716df5cc84b63ebb0137e29babe834c6227919",
+  "jobs_sha256": "1b810b64e9752b840404b75c4d7c21e5c59fc0483200dad4f8b40a1f1737dbac",
+  "launch_sha256": "88a15024932d417fe641cf0eac0a8b0982a184deff8dc421f58b53ac6f724f94",
+  "campaign_sha256": "13075e6423eaff4279c4ad7cd7ab130b49f5e3aa4cb3666a034184baed9a5c1a",
+  "analysis_sha256": "ba5776a0cb894e037abda6aa852c592fcf3642c526742f134a919fb724a0a1b6",
+  "runtime_source_sha256": {
+    "current_sweep_thermal_nofastscan.jl": "4464df90825a7afefdddbe90ae3b314724e6da951d1bc7da1ee2cf845eb2e422",
+    "src/cpu_compatible.jl": "900b2a7ab277030b96454fd4563f926b0be983cc349f64d5fa07a0381ef287fe",
+    "bench/reproduce_ndr.jl": "562656fa70da934e259380fd4b1fa1ae4caf7e1da66a4b955fbf5a5aa529be19",
+    "bench/benchmark_cpu.jl": "7b697427654d75e2248b5c586dc4e115ff31bed842705d98916ea6b6bd0d3bc8",
+    "bench/fixtures.jl": "5b929ae0ee59126b882e28b72b8627a28b9f067bba8845e8636fa353aa2fc9c2",
+    "bench/streaming_iteration_guard.jl": "9c764ecaf9a58078394abc2f39651a7a5a07f054761e55c3ceeccfade9b6fa70",
+    "Manifest.toml": "610ea1610e20f32aa7bebd31ce36d01f1ee2bab8a87e94320030592200f545ba",
+    "Project.toml": "aa4bc2f881321c5a84ea62874b12750ca0eb4c25c803422a7a6dc4c829974790"
+  }
+}

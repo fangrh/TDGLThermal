@@ -4,6 +4,37 @@ The user requested small physical changes that could make the NDR-like decrease 
 
 The [previous thermal search](../enhancement_20261105/README.md) failed its enhancement target. The [local step-response control](../state_response_20261105/README.md) found positive local responses around both original prepared states, leaving a central current gap unresolved. Their outcomes are retained. The original 14.3237% eight-seed decrease is historical context, rather than the only control for a new parameter choice.
 
+## Final result: enhancement target not met
+
+All **720 declared unconditional segments** completed: 240 in the two-seed screen and 480 in the prospectively amended fresh eight-seed validation. Both gamma perturbations failed the fixed primary comparison. No candidate was selected, so the conditional 160-segment ordered control was not triggered. No extra bracket, seed subset, statistical window or parameter search was substituted after observing the outcomes.
+
+The [fresh English figure](results/validation_v2/gamma_validation.png) ([PDF](results/validation_v2/gamma_validation.pdf)), [complete analysis](results/validation_v2/gamma_validation_analysis.json), [48 seed/current rows](results/validation_v2/gamma_validation_rows.csv) and [480 segment rows](results/validation_v2/gamma_validation_segments.csv) retain all observations. Thin lines/circles are seed results; heavier marks are means, with the bounds described on each panel. Lines joining independently prepared endpoints do not represent a continuously followed current sweep.
+
+| Gamma | Mean V at low J | Mean V at high J | Mean seedwise decrease D | Seeds with D > 0 | Mean paired improvement over gamma 40 |
+|---|---:|---:|---:|---:|---:|
+| 40 | 2.821318 | 2.522348 | +10.074% | 6/8 | Reference |
+| 38 | 2.455057 | 2.869761 | -16.896% | 0/8 | -26.969 percentage points |
+| 42 | 2.986946 | 2.997392 | -0.350% | 3/8 | -10.424 percentage points |
+
+Negative D means voltage increases. The V columns are arithmetic means, whereas D is the arithmetic mean of seedwise fractions, **not the fraction calculated from the two mean voltages**. The primary pair remains `0.20918367346938774 -> 0.21020408163265306` for every row.
+
+The per-comparison one-sided alpha=0.025 lower bounds for mean D are 3.533%, -22.309% and -0.858% for gamma 40, 38 and 42. Candidate paired-improvement bounds are [-34.380, -19.558] and [-16.597, -4.251] percentage points. Here each endpoint is an alpha=0.025 one-sided t bound; the superiority rule uses the lower endpoint, with Bonferroni correction for two candidate claims. These constituent intervals are not jointly simultaneous 95% intervals. Neither candidate approaches the declared 20% mean-drop target or a positive improvement over the contemporaneous baseline.
+
+The fresh gamma-40 control is also less reproducible than the historical eight-seed set. Seeds `2026110611` and `2026110614` have low-current voltages 2.473005 and 2.470805, compared with 2.922065-2.953483 for the other six seeds; their voltage changes have the opposite sign. They are retained, without exclusion. Their low-current mean temperature is about 0.2635 and mean |psi|^2 about 0.5076, versus about 0.2733-0.2744 and 0.4631-0.4662 for the other six. These are distinct late-time prepared outcomes in this solver/noise protocol, rather than evidence identifying their microscopic cause. The previous 14.3237% result must not be generalized to all fresh seeds or advertised as a stable continuous NDR branch.
+
+| Gamma | Endpoint | Late-window drift mean | Nominal two-sided 95% CI | Inside +/-0.0025 |
+|---|---|---:|---|---|
+| 40 | Low J | -0.000131 | [-0.000647, +0.000385] | Yes |
+| 40 | High J | -0.000342 | [-0.002577, +0.001893] | No |
+| 38 | Low J | +0.004299 | [-0.004679, +0.013276] | No |
+| 38 | High J | -0.001554 | [-0.012807, +0.009698] | No |
+| 42 | Low J | +0.000427 | [+0.000015, +0.000838] | Yes |
+| 42 | High J | -0.000064 | [-0.000924, +0.000796] | Yes |
+
+Gamma 42 passes its own endpoint drift checks but has no mean voltage decrease at the fixed primary pair. Gamma 40's high-current drift interval narrowly exceeds the frozen margin. The failure is therefore not solely a drift-gate issue: both perturbations also have worse primary drops and fail the amplitude/sign/improvement requirements. A stationary negative branch remains unconfirmed.
+
+The [final audit](results/validation_v2/final_validation_receipt.json) confirms 48 jobs, 480 aggregate and individual receipts, 480 matching analysis receipt hashes, unchanged numerical and analysis sources, complete finite-field/initial-state/RNG/schedule checks, and the end of the owned simulation process session. The [local archive check](results/validation_v2/local_archive_verified.json) confirms downloaded analysis, campaign and launch bytes match that receipt, and the local frozen plan and all analysis helpers match Linux provenance. Scoped Git attributes retain LF endings for the frozen plans and text receipts across checkouts. Raw fields and RNG checkpoints remain on the server under the run roots below. The simulation finished at approximately 16:55 UTC on 2026-11-06; final validation and audit completed at 16:59 UTC (18:55 and 18:59 Europe/Kyiv).
+
 ## Verified two-seed screen
 
 All 24 fresh chains / 240 segments reached 50000τ and passed source/configuration, field/initial-vector/RNG hash and continuity, retained-schedule and nine-dataset finite checks. The [final audit](results/screen/final_validation_receipt.json) matches all individual receipts to the campaign, with the owned screen process session ended. The [English figure](results/screen/gamma_screen.png) ([PDF](results/screen/gamma_screen.pdf)), [analysis](results/screen/gamma_screen_analysis.json) and [seed rows](results/screen/gamma_screen_rows.csv) report all variants and currents.
@@ -16,7 +47,9 @@ All 24 fresh chains / 240 segments reached 50000τ and passed source/configurati
 
 Neither perturbation strengthens the original primary decrease in these two seeds. The v1 strict drift/selection gates also fail. Gamma 42 has an exploratory decrease at the **next** interval, `0.2102040816 → 0.2112244898`, with seedwise fractions 14.481% and 14.731% (mean 14.606%). This indicates a shifted feature at screening scale, rather than a confirmed amplitude enhancement. It cannot replace the primary endpoint comparison.
 
-The amendment and fresh allocation were frozen before these outcomes were viewed. All three gamma values now undergo the fixed eight-seed validation; its results remain pending. The raw-data roots are `/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1` and `/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_validation_20261106_v2`.
+The amendment and fresh allocation were frozen before these outcomes were viewed. All three gamma values subsequently completed the fixed eight-seed validation reported above. The raw-data roots are `/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_screen_20261106_v1` and `/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_validation_20261106_v2`.
+
+In the exploratory shifted gamma-42 interval, the two-seed mean temperature decreases from 0.275922 to 0.267362 while mean |psi|^2 increases from 0.464784 to 0.503177. This is a descriptive correlation with the voltage decrease, not a causal explanation or fresh eight-seed confirmation of that neighboring interval.
 
 ## Outcome-blind amendment v2
 

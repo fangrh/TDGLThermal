@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-06T16:55:43.745211+00:00",
+  "argv": [
+    "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/report_env/bin/python",
+    "bench/analyze_ndr_gamma_validation.py",
+    "--protocol",
+    "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_validation_20261106_v2/plan/validation_protocol.json",
+    "--campaign-root",
+    "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_validation_20261106_v2/campaign",
+    "--out",
+    "/data/User/fangr1/projects/TDGLThermal-linux-performance-runs/ndr_gamma_validation_20261106_v2/analysis",
+    "--validate-artifacts"
+  ],
+  "source_sha256": "af265cfa30192ef59d13c02bacaa6c8f5aa6a5c6323d091397dd226dee1adced",
+  "note": "Completed simulation preserved after desktop tool-session reset; prior outcome monitor exited without launching analysis. This is the sole analysis launch."
+}

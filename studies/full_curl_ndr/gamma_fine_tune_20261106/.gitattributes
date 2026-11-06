@@ -1,0 +1,4 @@
+# Preserve frozen-plan and receipt byte hashes across Windows/Linux checkouts.
+*.json text eol=lf
+*.yaml text eol=lf
+*.csv text eol=lf

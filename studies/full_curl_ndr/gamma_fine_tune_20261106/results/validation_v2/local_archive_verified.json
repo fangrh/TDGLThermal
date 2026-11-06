@@ -1,0 +1,23 @@
+{
+  "complete": true,
+  "utc": "2026-11-06T17:00:48.5216845Z",
+  "downloaded_sha256": {
+    "gamma_validation_analysis.json": "ba5776a0cb894e037abda6aa852c592fcf3642c526742f134a919fb724a0a1b6",
+    "campaign.json": "13075e6423eaff4279c4ad7cd7ab130b49f5e3aa4cb3666a034184baed9a5c1a",
+    "launch.json": "88a15024932d417fe641cf0eac0a8b0982a184deff8dc421f58b53ac6f724f94"
+  },
+  "local_plan_sha256": {
+    "validation_protocol.json": "a26373b2981a8827757914cb1b716df5cc84b63ebb0137e29babe834c6227919",
+    "validation_jobs.json": "1b810b64e9752b840404b75c4d7c21e5c59fc0483200dad4f8b40a1f1737dbac"
+  },
+  "local_analysis_source_sha256": {
+    "analyze_ndr_gamma_validation.py": "af265cfa30192ef59d13c02bacaa6c8f5aa6a5c6323d091397dd226dee1adced",
+    "prepare_ndr_gamma_validation.py": "1ff1a78407d9affd22005aa7afcacdd55ae7b96d1bbeef1564bfa7a5dd42e5f6",
+    "prepare_ndr_gamma_tune.py": "22d4398b0f3e2b704044c465e6bd10ba734f2082db0fe45fd90aa03316cd1073",
+    "analyze_ndr_gamma_tune.py": "cfc285819f61e3fb9ed2d2d1ec8751f5626fd0846de35ce8f42fc2fcbd46556d",
+    "analyze_ndr_enhancement.py": "34b3d196fadf35a2c0cdf56e606d6dfcd555c06af9e9addfe0fcd2ac1dc9ffe3",
+    "analyze_full_curl_ndr.py": "26f91502595d44e936173114f510a9588b0f501add6d07e73240b741e535bf0c",
+    "analyze_full_iv.py": "5eca16e634fcedf0ab60e7da755f5505ec143f3dd83e4e2409ddd01baa16bde0",
+    "compare_results.py": "8b7fb2e89b631f8a013a351a8d8ecf9063d02aff32a84375e5505aa1af0c5c12"
+  }
+}
